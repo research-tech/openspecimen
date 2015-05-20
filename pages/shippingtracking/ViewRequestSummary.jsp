@@ -190,11 +190,11 @@ function editShipmentRequest()
 																													No.	
 																													</label>
 																						</td>	
-																						<td class="formRequiredLabel">
-																									<label for="tissueSite">
-																															Specimens Label/Barcode	
-																													</label>
-																						</td>	
+									<td class="formRequiredLabel">
+									  <label for="tissueSite">
+										Specimens Tissue Bank Number
+									  </label>
+									</td>	
 																				</tr>
 																				<c:forEach var="specimenNumber" begin="1" end="${specimenCount}">
 																				<tr>

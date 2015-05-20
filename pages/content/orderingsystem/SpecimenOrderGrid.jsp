@@ -102,7 +102,7 @@ function init_grid()
 
 	mygrid = new dhtmlXGridObject('gridbox');
 	mygrid.setImagePath("dhtmlxSuite_v35/dhtmlxGrid/codebase/imgs/");
-	mygrid.setHeader("Specimen Label,Specimen Class,Specimen Type,Available Qty,Requested Qty,Status,Comments");
+	mygrid.setHeader("Specimen Tissue Bank Number,Specimen Class,Specimen Type,Available Qty,Requested Qty,Status,Comments");
 	mygrid.attachHeader("#text_filter,#select_filter,#select_filter,,,,,"); 
 	mygrid.setEditable("true");
 	mygrid.enableAutoHeigth(false);
@@ -110,7 +110,7 @@ function init_grid()
     //mygrid.setPagingSkin("bricks");
 
     mygrid.enableRowsHover(true,'grid_hover')
-	mygrid.setInitWidthsP("20,10,10,10,10,20,*");
+	mygrid.setInitWidthsP("25,10,10,10,10,20,*");
 	
 	mygrid.setColTypes("ro,ro,ro,ro,ed,coro,ed");
 	mygrid.setSkin("dhx_skyblue");

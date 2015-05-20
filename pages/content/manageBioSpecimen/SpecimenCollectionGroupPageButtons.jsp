@@ -18,11 +18,11 @@
                                                 <div id="myinnercontainer">
                                              <html:checkbox styleId="restrictSCGCheckbox" property="restrictSCGCheckbox" value="true" onclick="disableButtonsOnCheck(this)" style="display:none">
                                                 </html:checkbox>
-                                                    &nbsp;<html:checkbox styleId="printCheckbox" property="printCheckbox" value="true" onclick="showPriterTypeLocation()" style="vertical-align:middle;">
+                                             <!--        &nbsp;<html:checkbox styleId="printCheckbox" property="printCheckbox" value="true" onclick="showPriterTypeLocation()" style="vertical-align:middle;">
                                                         &nbsp;<span class="black_ar" style="display:inline-block;">
                                                             <bean:message key="print.checkboxLabel"/>
                                                         </span>
-                                                        </html:checkbox>
+                                                        </html:checkbox>  -->
                                                </div>       
                                                   </div>
                                              </td> 
@@ -30,7 +30,7 @@
                                             <tr>
                                                     
                                                        <td>
-                                                         <%@ include file="/pages/content/common/PrinterLocationTypeComboboxes.jsp" %>
+                                                          <%-- <%@ include file="/pages/content/common/PrinterLocationTypeComboboxes.jsp" %> --%>
                                                       </td>
                                             </tr>
                                         <!--  End : Displaying   printer type and location -->
@@ -90,7 +90,7 @@ function testFunction()
                 scgCombo.collectionStatusCombo.setComboValue('Complete');
             }
             var adhocSpecimenCnt = document.getElementById('numberOfSpecimens').value;
-            if(adhocSpecimenCnt >1)
+            if(adhocSpecimenCnt >=1)
             {
                 <%=forwardToSubmitForMultipleSpecimen%>;
             }

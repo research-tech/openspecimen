@@ -257,9 +257,8 @@ public class SpecimenHandler
         SpecimenBizLogic specimenBizLogic = new SpecimenBizLogic();
         DisposalEventParameters disposalEvent = SpecimenUtil.createDisposeEvent(sessionDataBean, specimen,
         		reason);
-        disposalEvent.setActivityStatus(specimenDTO.getActivityStatus());
         if(specimenDTO.getUserId() != null){
-        	disposalEvent.getUser().setId(specimenDTO.getUserId());
+        	disposalEvent.getUser().setId(specimenDTO.getUserId());;
         }
         if(specimenDTO.getDisposalDate() != null){
         	Calendar cal = Calendar.getInstance();

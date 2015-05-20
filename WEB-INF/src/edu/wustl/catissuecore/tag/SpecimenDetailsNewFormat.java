@@ -56,28 +56,28 @@ public class SpecimenDetailsNewFormat extends TagSupport
 	private transient final String dataListTypes[] = {"Parent", "Aliquot", "Derived"};
 
 	/** The Constant COLUMN_NAMES. */
-	public static final String[] COLUMN_NAMES = {"Parent", "Label", "Barcode", "Type", "Quantity",
-			"Concentration", "Location", "Collected", "PrintLabel"};
+	public static final String[] COLUMN_NAMES = {"Parent", "Label", "","Type", "Quantity",
+			"Concentration", "Location", "Row&Cols","Collected", "PrintLabel"};
 
 	/** The Constant COLUMN_LABELS. */
-	public static final String[] COLUMN_LABELS = {"specimen.label", "specimen.barcode",
+	public static final String[] COLUMN_LABELS = {"specimen.label","",
 			"specimen.subType", "anticipatorySpecimen.Quantity",
 			"anticipatorySpecimen.Concentration", "anticipatorySpecimen.Location",
+			"anticipatorySpecimen.RowAndCol",
 			"anticipatorySpecimen.Collected", "specimen.printLabel"};
 
 	// ----------- Mandar : 2Dec08 for New UI format start -----------------------------
 	/** The Constant HDR1_COLS. */
-	public static final String[] HDR1_COLS = {"Parent", "Label", "Barcode", "Type", "Quantity",
-			"Concentration", "Location", "Collected", "PrintLabel"};
+	public static final String[] HDR1_COLS = {"Parent", "Label", "","Type", "Quantity",
+			"Concentration", "Location", "Row&Cols", "Collected", "PrintLabel"};
 
 	/** The Constant HDR2_COLS. */
 	public static final String[] HDR2_COLS = {"Type", "Pathological Status", "Tissue Side",
 			"Tissue Site"};
 
 	/** The Constant H1COL_LBLS. */
-	public static final String[] H1COL_LBLS = {"specimen.label", "specimen.barcode",
-			"specimen.subType", "anticipatorySpecimen.Quantity",
-			"anticipatorySpecimen.Concentration", "anticipatorySpecimen.Location",
+	public static final String[] H1COL_LBLS = {"specimen.label", "","specimen.subType", "anticipatorySpecimen.Quantity",
+			"anticipatorySpecimen.Concentration", "anticipatorySpecimen.Location","anticipatorySpecimen.RowAndCol",
 			"anticipatorySpecimen.Collected", "specimen.printLabel"};
 
 	/** The Constant H2COL_LBLS. */
@@ -992,43 +992,47 @@ public class SpecimenDetailsNewFormat extends TagSupport
 					continue;
 				}
 				else if ((cnt == 1 && !(this.specimenSummaryForm.getShowLabel() && specimen
-						.getShowLabel()))
-						|| (cnt == 2 && !(this.specimenSummaryForm.getShowbarCode() && specimen
-								.getShowBarcode())))
+						.getShowLabel())))
 				{
 					stringBuffer.append(TD_1HLF + "1" + TD_2HLF);
 					stringBuffer.append(SPACE);
 				}
+				else if(cnt == 2){
+					//stringBuffer.append(SPACE);	
+					stringBuffer.append("<TD>");// 3 35
+					//stringBuffer.append(TD_1HLF + 0 + TD_2HLF);
+				}
 				else if (cnt == 6)//Location
 				{
-					stringBuffer.append("<TD colspan=4 width=" + (50 - this.pWd + tmpd) + "%>");// 3 35
-					stringBuffer.append("<SPAN class=black_ar_b>"
+					stringBuffer.append("<TD colspan=4 width=" + (35 - this.pWd + tmpd) + "%>");// 3 35
+					stringBuffer.append("<table width=80%><tr><td width=70%><SPAN class=black_ar_b>"
 							+ ApplicationProperties.getValue((String) this.columnHeaderList.get(6))
-							+ "</SPAN>");
+							+ " : " + ApplicationProperties.getValue((String) this.columnHeaderList.get(7))
+							+ "</SPAN></td></tr></table>");
 				}
-				else if (cnt == 7 && !this.specimenSummaryForm.getShowCheckBoxes())//Collected
+				else if (cnt == 8 && !this.specimenSummaryForm.getShowCheckBoxes())//Collected
 				{
 					stringBuffer.append(TD_1HLF + 3 + TD_2HLF);//bug 11169
 					stringBuffer.append(SPACE);
 				}
-				else if (cnt == 8)//print bug 11169
+				else if (cnt == 9)//print bug 11169
 				{
 					stringBuffer.append(TD_1HLF + 3 + TD_2HLF);
 					stringBuffer.append("<center><SPAN class=black_ar_b>"
-							+ ApplicationProperties.getValue((String) this.columnHeaderList.get(8))
+							+ ApplicationProperties.getValue((String) this.columnHeaderList.get(9))
 							+ "</SPAN></center>");
 				}
 				else
 				{
 					//bug 11169 start
-					if (cnt == 7)
+					if (cnt == 8)
 					{
 						stringBuffer.append(TD_1HLF + 3 + TD_2HLF);
 						stringBuffer.append("<center><SPAN class=black_ar_b>"
 								+ ApplicationProperties.getValue((String) this.columnHeaderList
 										.get(cnt)) + "</SPAN></center>");
 					}
-					else
+					else if(cnt != 7)
 					{
 //						if(Validator.isEmpty(this.displayName) && this.generateLabel && this.columnHeaderList
 //								.get(cnt).equals("specimen.label"))
@@ -1154,12 +1158,12 @@ public class SpecimenDetailsNewFormat extends TagSupport
 			str[0] = elementNamePrefix + "displayName";
 			str[1] = this.getFormattedValue(specimen.getDisplayName());
 		}
-		else if (SpecimenDetailsNewFormat.HDR1_COLS[2].equalsIgnoreCase(this.columnList
-				.get(counter).toString()))
-		{
-			str[0] = elementNamePrefix + "barCode";
-			str[1] = this.getFormattedValue(specimen.getBarCode());
-		}
+//		else if (SpecimenDetailsNewFormat.HDR1_COLS[2].equalsIgnoreCase(this.columnList
+//				.get(counter).toString()))
+//		{
+//			str[0] = elementNamePrefix + "barCode";
+//			str[1] = this.getFormattedValue(specimen.getBarCode());
+//		}
 		else if (SpecimenDetailsNewFormat.HDR1_COLS[3].equalsIgnoreCase(this.columnList
 				.get(counter).toString()))
 		{
@@ -1169,8 +1173,10 @@ public class SpecimenDetailsNewFormat extends TagSupport
 		else if (SpecimenDetailsNewFormat.HDR1_COLS[4].equalsIgnoreCase(this.columnList
 				.get(counter).toString()))
 		{
+			str = new String[3];
 			str[0] = elementNamePrefix + "quantity";
 			str[1] = this.getFormattedValue(specimen.getQuantity());
+			str[2] = AppUtility.getUnit(specimen.getClassName(), specimen.getType());
 		}
 		else if (SpecimenDetailsNewFormat.HDR1_COLS[5].equalsIgnoreCase(this.columnList
 				.get(counter).toString()))
@@ -1228,14 +1234,14 @@ public class SpecimenDetailsNewFormat extends TagSupport
 				str[7] = this.getFormattedValue("");
 			}
 		}
-		else if (SpecimenDetailsNewFormat.HDR1_COLS[7].equalsIgnoreCase(this.columnList
+		else if (SpecimenDetailsNewFormat.HDR1_COLS[8].equalsIgnoreCase(this.columnList
 				.get(counter).toString()))
 		{
 			str[0] = elementNamePrefix + "checkedSpecimen";
 			str[1] = this.getFormattedValue(specimen.getCheckedSpecimen());
 		}
 		//bug 11169 start
-		else if (SpecimenDetailsNewFormat.HDR1_COLS[8].equalsIgnoreCase(this.columnList
+		else if (SpecimenDetailsNewFormat.HDR1_COLS[9].equalsIgnoreCase(this.columnList
 				.get(counter).toString()))
 		{
 			str[0] = elementNamePrefix + "printSpecimen";
@@ -1343,12 +1349,15 @@ public class SpecimenDetailsNewFormat extends TagSupport
 				continue; // should be passed to hidden elements
 			}
 			else if ((columnCounter == 1 && !(this.specimenSummaryForm.getShowLabel() && specimen
-					.getShowLabel()))
-					|| (columnCounter == 2 && !(this.specimenSummaryForm.getShowbarCode() && specimen
-							.getShowBarcode())))
+					.getShowLabel())))
+					
 			{
 				stringBuffer.append(TD_1HLF + "1" + TD_2HLF);
 				stringBuffer.append(SPACE);
+			}
+			else if((columnCounter == 2 )) {
+				//stringBuffer.append(SPACE);
+				stringBuffer.append("<TD>");
 			}
 			else if (columnCounter == 6)
 			{
@@ -1359,11 +1368,16 @@ public class SpecimenDetailsNewFormat extends TagSupport
 							+ STYLE_CLASS + "'>");//bug 11169
 					if (nameValue[1].trim().length() > 0)
 					{
-						stringBuffer.append(nameValue[1]);
-						stringBuffer.append(":");
-						stringBuffer.append(nameValue[3]);
-						stringBuffer.append(",");
-						stringBuffer.append(nameValue[5]);
+						if(nameValue[1].equals("Virtual")) {
+                        	stringBuffer.append(nameValue[1]);
+                        }
+                        else {
+						    stringBuffer.append(nameValue[1]);
+						    stringBuffer.append(":");
+						    stringBuffer.append(nameValue[3]);
+						    stringBuffer.append(",");
+						    stringBuffer.append(nameValue[5]);
+                        }
 					}
 					else
 					{
@@ -1381,11 +1395,16 @@ public class SpecimenDetailsNewFormat extends TagSupport
 					{
 						if (nameValue[1].trim().length() > 0)
 						{
-							stringBuffer.append(nameValue[1]);
-							stringBuffer.append(":");
-							stringBuffer.append(nameValue[3]);
-							stringBuffer.append(",");
-							stringBuffer.append(nameValue[5]);
+                            if(nameValue[1].equals("Virtual")) {
+                            	stringBuffer.append(nameValue[1]);
+                            }
+                            else {
+							    stringBuffer.append(nameValue[1]);
+							    stringBuffer.append(":");
+							    stringBuffer.append(nameValue[3]);
+							    stringBuffer.append(",");
+							    stringBuffer.append(nameValue[5]);
+                            }
 						}
 						else
 						{
@@ -1404,7 +1423,7 @@ public class SpecimenDetailsNewFormat extends TagSupport
 					}
 				}
 			}
-			else if (columnCounter == 7)
+			else if (columnCounter == 8)
 			{
 				stringBuffer.append(TD_1HLF + 3 + TD_2HLF);//bug 11169
 				this.functionCall = "";
@@ -1423,7 +1442,7 @@ public class SpecimenDetailsNewFormat extends TagSupport
 				//addRemainingSpecimenElements(sb,elementNamePrefix,specimen, isTextRow);
 			}
 			//bug 11169 start
-			else if (columnCounter == 8)
+			else if (columnCounter == 9)
 			{
 				stringBuffer.append(TD_1HLF + 3 + TD_2HLF);
 				this.functionCall = "";
@@ -1431,7 +1450,7 @@ public class SpecimenDetailsNewFormat extends TagSupport
 				this.addRemainingSpecimenElements(stringBuffer, elementNamePrefix, specimen, isTextRow);
 			}
 			//bug 11169 end
-			else
+			else if(columnCounter != 7)
 			{
 				if (isTextRow && columnCounter == 1)
 				{
@@ -1441,10 +1460,19 @@ public class SpecimenDetailsNewFormat extends TagSupport
 				{
 					stringBuffer.append(TD_1HLF + this.cWd + TD_2HLF);
 				}
-				if (isTextRow || columnCounter == 3)
+				if ((columnCounter != 4) && (isTextRow || columnCounter == 3))
 				{
 					stringBuffer.append("<SPAN class=" + STYLE_CLASS + ">"
 							+ this.getHTMLFormattedValue(nameValue[1]) + "</SPAN>");
+				}
+				else if(columnCounter == 4 && isTextRow) {
+					stringBuffer.append("<SPAN class=" + STYLE_CLASS + ">"
+							+ this.getHTMLFormattedValue(nameValue[1]) +" "+ nameValue[2] + "</SPAN>");
+				}
+				else if(columnCounter == 4 && !isTextRow) {
+					stringBuffer.append("<input type=\"text\" name=\"" + nameValue[0] + "\" value=\"" + nameValue[1]
+			  				+ "\" class=\"" + STYLE_CLASS + "\" size=\"" + 8 +"\">" 
+							+ "<SPAN class=" + STYLE_CLASS + ">" + nameValue[2] + "</SPAN>");
 				}
 				else
 				{
@@ -1590,7 +1618,7 @@ public class SpecimenDetailsNewFormat extends TagSupport
 */		stringBuffer.append(TD_CLOSE);
 		stringBuffer.append(TD_OPEN);
 		stringBuffer.append("<td style=\"padding-left:15\">");
-		stringBuffer.append("<input type=\"text\" name=\"" + nameValue[2] + "\" value=\"" + nameValue[3]
+		stringBuffer.append("<input type=\"text\" name=\"" + nameValue[2] + "\" value=\"" + nameValue[3] 
 				+ "\" size=\"1\" width=\"10%\" align=\"left\" class=\"black_ar_md\" id=\"" + positionDimensionOne + "\" "
 				+ isDisabled + " >");
 		stringBuffer.append(TD_CLOSE);

@@ -1,1 +1,1 @@
-PPID,SCG Name,CP Short Title,Collection Site Name,Collection Status,Clinical Diagnosis,Clinical Status,Activity Status,Collected User Login Name,Procedure,Container,Collected Date,Received User Login Name,Quality,Received Date,CollectionPointLabel,SPR Number
+PPID,SCG Name,CP Short Title,Collection Site Name,Collection Status,Clinical Diagnosis,Clinical Status,Primary Site,Activity Status,Collected User Login Name,Procedure,Container,Collected Date,Processed User Login Name,Quality,Processed Date,CollectionPointLabel,SPR Number

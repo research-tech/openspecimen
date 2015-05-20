@@ -191,6 +191,7 @@ public class SpecimenCollectionGroup extends AbstractSpecimenCollectionGroup
 	 */
 	private String receivedComments;
 
+
 	/**
 	 * A required specimen collection event associated with a Collection Protocol.
 	 */
@@ -224,6 +225,9 @@ public class SpecimenCollectionGroup extends AbstractSpecimenCollectionGroup
 	 * isToInsertAnticipatorySpecimens added for new migration tool.
 	 */
 	protected Boolean isToInsertAnticipatorySpecimens = true;
+	
+	private  String primarySite;
+	
 	/**
 	 * Get IsToInsertAnticipatorySpecimens value.
 	 * @return the isToInsertAnticipatorySpecimens
@@ -375,6 +379,14 @@ public class SpecimenCollectionGroup extends AbstractSpecimenCollectionGroup
 	public void setCollectionProtocolEvent(CollectionProtocolEvent collectionProtocolEvent)
 	{
 		this.collectionProtocolEvent = collectionProtocolEvent;
+	}
+
+	public String getPrimarySite() {
+		return primarySite;
+	}
+
+	public void setPrimarySite(String primarySite) {
+		this.primarySite = primarySite;
 	}
 
 	/**
@@ -663,6 +675,12 @@ public class SpecimenCollectionGroup extends AbstractSpecimenCollectionGroup
 		final SpecimenCollectionGroupForm form = (SpecimenCollectionGroupForm) abstractForm;
 		this.setClinicalDiagnosis(form.getClinicalDiagnosis());
 		this.setClinicalStatus(form.getClinicalStatus());
+		this.setPrimarySite(form.getPrimarySite());
+		
+		if(this.getPrimarySite().equals("-1")) {
+		    this.setPrimarySite(Constants.NOT_SPECIFIED);	
+		}
+		
 		this.setActivityStatus(form.getActivityStatus());
 		this.specimenCollectionSite = new Site();
 		this.specimenCollectionSite.setId(Long.valueOf(form.getSiteId()));

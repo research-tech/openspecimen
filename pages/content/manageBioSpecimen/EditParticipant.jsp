@@ -340,7 +340,9 @@
 								<html:text styleClass="black_ar" maxlength="255"
 											size="15" styleId="lastName" name="participantForm"
 											property="lastName" readonly="<%=readOnlyForAll%>"
-											onkeyup="moveToNext(this,this.value,'firstName')" /></td>
+											onkeyup="moveToNext(this,this.value,'firstName')" 
+											style="text-transform: uppercase"
+											/></td>
 								<td width="2">&nbsp;</td>
 								<td  class="black_ar"><bean:message
 											key="participant.firstName" /></br><html:text styleClass="black_ar" maxlength="255"
@@ -713,6 +715,7 @@
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				
 					<c:if test="${i%2 == 0}">
+					<!-- 
 					<tr class="${tr_white_color}">
 					</c:if>
 					<c:if test="${i%2 == 1}">
@@ -741,6 +744,7 @@
 						</td>
 						<td class="black_ar"></td>
 					</tr>
+					 -->
 					</table>
 				</logic:equal>
 

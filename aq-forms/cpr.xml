@@ -54,7 +54,7 @@
 			<textField>
 				<name>ssn</name>
 				<udn>ssn</udn>
-				<caption>Social Security Number</caption>
+				<caption>Medicare Number</caption>
 				<column>SSN</column>
 				<phi>true</phi>
 			</textField>
@@ -91,45 +91,14 @@
 				</options>
 			</radioButton>
 		</row>
-		<row>
-			<dropDown>
-				<name>genotype</name>
-				<udn>genotype</udn>
-				<caption>Genotype</caption>
-				<column>GENOTYPE</column>
-				<options>
-					<sql>select value from catissue_permissible_value where public_id = '2003990' order by value</sql>
-				</options>
-			</dropDown>
-		</row>
-		<row>
-			<checkBox>
-				<name>race</name>
-				<udn>race</udn>
-				<caption>Race</caption>
-				<multiSelect>true</multiSelect>
-				<table>CATISSUE_RACE</table>
-				<column>RACE_NAME</column>
-				<foreignKey>PARTICIPANT_ID</foreignKey>
-				<parentKey>PARTICIPANT_ID</parentKey>
-				<options>
-					<sql>select value from catissue_permissible_value where public_id = 'Race_PID' order by sortorder</sql>
-				</options>
-			</checkBox>
-		</row>
-		<row>
-			<textField>
-				<name>ethnicity</name>
-				<udn>ethnicity</udn>
-				<caption>Ethnicity</caption>
-				<column>ETHNICITY</column>
-			</textField>
-		</row>
+
+
+
 		<row>
 			<textField>
 				<name>barcode</name>
 				<udn>barcode</udn>
-				<caption>Barcode</caption>
+				<caption>Site Participant ID</caption>
 				<column>BARCODE</column>
 			</textField>
 		</row>
@@ -251,78 +220,6 @@
 							<sql>select distinct name from CATISSUE_SITE</sql>
 						</options>
 					</dropDown>
-				</row>
-			</subForm>
-		</row>
-		<row>
-			<subForm>
-				<name>consentTier</name>
-				<udn>consentTier</udn>
-				<caption>Consent Tier</caption>
-				<table>CONSENT_TIER_VIEW</table>
-				<foreignKey>CPR_ID</foreignKey>
-				<parentKey>CPR_ID</parentKey>
-				<row>
-					<textField>
-						<name>consentTierStatement</name>
-						<udn>consentTierStatement</udn>
-						<caption>Consent Tier Statement</caption>
-						<column>STATEMENT</column>
-					</textField>
-
-					<dropDown>
-						<name>consentResponseStatement</name>
-						<udn>consentResponseStatement</udn>
-						<caption>Consent Response</caption>
-						<column>RESPONSE</column>
-						<options>
-							<option><value>Yes</value></option>
-							<option><value>No</value></option>
-							<option><value>Not Specified</value></option>
-						</options>
-					</dropDown>
-				</row>
-			</subForm>
-		</row>
-		<row>
-			<datePicker>
-				<name>consentSignDate</name>
-				<udn>consentSignDate</udn>
-				<caption>Consent Sign Date</caption>
-				<column>CONSENT_SIGN_DATE</column>
-				<format>MM-dd-yyyy</format>
-			</datePicker>
-		</row>
-		<row>
-			<textField>
-				<name>consentDocUrl</name>
-				<udn>consentDocUrl</udn>
-				<caption>Consent Document Url</caption>
-				<column>CONSENT_DOC_URL</column>
-			</textField>
-		</row>
-		<row>
-			<subForm>
-				<name>consentWitness</name>
-				<udn>consentWitness</udn>
-				<caption>Consent Witness</caption>
-				<table>USER_VIEW</table>
-				<foreignKey>IDENTIFIER</foreignKey>
-				<parentKey>CONSENT_WITNESS</parentKey>
-				<row>	
-					<textField>
-						<name>firstName</name>
-						<udn>firstName</udn>
-						<caption>Consent Witness First Name</caption>
-						<column>FIRST_NAME</column>
-					</textField>
-					
-					<textField>
-						<name>lastName</name>
-						<udn>lastName</udn>
-						<caption>Consent Witness Last Name</caption>
-						<column>LAST_NAME</column>
-					</textField>
 				</row>
 			</subForm>
 		</row>

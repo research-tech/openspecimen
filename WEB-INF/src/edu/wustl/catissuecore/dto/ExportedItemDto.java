@@ -14,7 +14,7 @@ public class ExportedItemDto {
 
 	public ExportedItemDto(String exportItems){
 		if(StringUtils.isEmpty(exportItems)){
-			exportedItems.add("Label");
+			exportedItems.add("Tissue Bank Number");
 			exportedItems.add("Available Quantity");
 			exportedItems.add("Storage Container");
 			exportedItems.add("Specimen Type");
@@ -22,7 +22,19 @@ public class ExportedItemDto {
 		}
 		else{
 			String[] arr = exportItems.split(",");
-			exportedItems.addAll(Arrays.asList(arr));
+			ArrayList<String> items = new ArrayList<String>();
+			
+			items.addAll(Arrays.asList(arr));
+			for (String string : items) {
+				if(string.equals("Label")) {
+					int index = items.indexOf(string);
+					items.remove(index);
+					items.add(index,"Tissue Bank Number");
+					break;
+				}
+			}
+			
+			exportedItems = items;	
 		}
 	}
 	

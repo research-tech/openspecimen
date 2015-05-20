@@ -175,10 +175,10 @@ Ext.onReady(function(){
                             text: 'View Map',
                              href:'OpenStorageContainer.do?operation=showEditAPageAndMap&pageOf=pageOfStorageContainer'
                         }
-                        //, {
-                        	//text: 'Scan',
-                        	//href:'ScanContainerNew.do'
-                        //}
+                        /*, {
+                        	text: 'Scan',
+                        	href:'ScanContainerNew.do'
+                        }*/
                     ]
                 }
             },

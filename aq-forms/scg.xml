@@ -98,6 +98,17 @@
 				</options>
 			</dropDown>
 		</row>
+				<row>
+			<dropDown>
+				<name>primarySite</name>
+				<udn>primarySite</udn>
+				<caption>Primary Site</caption>
+				<column>PRIMARY_SITE</column>
+				<options>
+					<sql>select value from catissue_permissible_value where public_id = 'Tissue_Site_PID' order by value</sql>
+				</options>
+			</dropDown>
+		</row>
 		<row>
 			<textField>
 				<name>surgicalPathologyNo</name>
@@ -160,7 +171,7 @@
 			<datePicker>
 				<name>receivedDate</name>
 				<udn>receivedDate</udn>
-				<caption>Received Date</caption>
+				<caption>Processed Date</caption>
 				<column>RECEIVED_TIMESTAMP</column>
 			</datePicker>
 		</row>

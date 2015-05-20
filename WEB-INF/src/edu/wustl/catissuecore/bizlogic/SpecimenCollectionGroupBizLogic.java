@@ -778,6 +778,7 @@ public class SpecimenCollectionGroupBizLogic extends CatissueDefaultBizLogic
 					.getClinicalStatus());
 			persistentSCG.setName(specimenCollectionGroup.getName());
 			persistentSCG.setBarcode(specimenCollectionGroup.getBarcode());
+			persistentSCG.setPrimarySite(specimenCollectionGroup.getPrimarySite());
 		
 			// change by pathik
 			if (!specimenCollectionGroup.getCollectionProtocolRegistration()

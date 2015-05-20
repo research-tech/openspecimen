@@ -132,7 +132,7 @@ function initPrepareSpecimenType()
                                                 &nbsp;&nbsp;
                                             </span>
                                         </td>
-                                        <td align="left" valign="middle" nowrap="nowrap">
+                                        <!-- <td align="left" valign="middle" nowrap="nowrap">
                                             <input type="radio" class="" id="checkedButton" name="radioButton" value="2"        onclick="onRadioButtonClick(this)"/>
                                             
                                             <span class="black_ar">
@@ -140,7 +140,7 @@ function initPrepareSpecimenType()
                                             <html:text name="deriveDTO" styleClass="black_ar"  maxlength="50"  size="20" styleId="parentSpecimenBarcode"
                                                        property="parentSpecimenBarcode" disabled="false" onblur="validateLabelBarcode(this,'barcode')"/>
                                             </span>
-                                        </td>
+                                        </td>  -->
                                     </tr>
                                 </table>
                             </td>
@@ -188,12 +188,12 @@ function initPrepareSpecimenType()
                                 
                                 <html:text styleClass="black_ar" size="30" disabled="false" name="deriveDTO" styleId="derLabel" property="label" onblur="processDeriveData(this)"/>
                             </td>
-                            <td align="left" class="align_right_style">
+                            <!-- <td align="left" class="align_right_style">
                                 <span class="black_ar"><bean:message key="specimen.barcode"/></span>
                             </td>
                             <td align="left">
                                 <html:text styleClass="black_ar" size="30" disabled="false" name="deriveDTO" styleId="derBarcode" property="barcode" onblur="processDeriveData(this)"/>
-                            </td>
+                            </td>  -->
                       </tr>
                      <tr>                                       
                             <td align="left" class="black_ar align_right_style">

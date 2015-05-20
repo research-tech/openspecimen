@@ -6,7 +6,7 @@
 		<referenceAssociation
 					className="edu.wustl.catissuecore.domain.Specimen" 
 					roleName="specimen"  parentRoleName="specimen" >
-					<attribute name="label" csvColumnName="Parent Specimen Label"   />
+					<attribute name="label" csvColumnName="Parent Tissue Bank Number"   />
 		</referenceAssociation>
 		 
 		<attribute name="count" csvColumnName="count"   />

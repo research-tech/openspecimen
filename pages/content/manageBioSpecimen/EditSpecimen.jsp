@@ -237,6 +237,9 @@ req.onreadystatechange = function() {
 	  if(contSpan){
 	    document.getElementById('containerSpan').innerHTML = 'Virtually Located'; 
 	  }
+	  
+	  parent.handleCpView(null, updatedSpecimenDTO.specimenCollectionGroupId, updatedSpecimenDTO.id);
+	  
 	if(updatedSpecimenDTO.activityStatus == 'Disabled'){
 	closeTermWindow();
 	  parent.handleCpViewForSubCP(updatedSpecimenDTO.specimenCollectionGroupId, 'Complete', '', '');
@@ -421,30 +424,30 @@ req.onreadystatechange = function() {
                                 <html:text styleClass="black_ar" size="30" maxlength="255"  styleId="label" name="specimenDTO" property="label" onmouseover="showTip(this.id)" onmouseout="hideTip(this.id)" onblur="processData(this)" disabled="false" />
                             </td>
 
-                            <td width="20%" class="black_ar align_right_style">
-                                <label for="barcode">
-                                    <bean:message key="specimen.barcode"/>
-                                </label>
-                            </td>
+<!--                             <td width="20%" class="black_ar align_right_style"> -->
+<!--                                 <label for="barcode"> -->
+<%--                                     <bean:message key="specimen.barcode"/> --%>
+<!--                                 </label> -->
+<!--                             </td> -->
                         
-                            <td width="30%" align="left" class="black_ar">
-                                <label for="barcode">
-                                    <html:text name="specimenDTO" 
-                                               styleClass="black_ar" maxlength="255" size="30"
-                                               styleId="barcode" property="barcode" onblur="processData(this)" disabled="false"/>
-                                </label>
-                            </td>
+<!--                             <td width="30%" align="left" class="black_ar"> -->
+<!--                                 <label for="barcode"> -->
+<%--                                     <html:text name="specimenDTO"  --%>
+<%--                                                styleClass="black_ar" maxlength="255" size="30" --%>
+<%--                                                styleId="barcode" property="barcode" onblur="processData(this)" disabled="false"/> --%>
+<!--                                 </label> -->
+<!--                             </td> -->
                         </tr>
-						<tr class="tr_alternate_color_white">
-                            <td width="20%" class="black_ar align_right_style">
-                                <label for="label">
-                                    RF ID
-                                </label>
-                            </td>
-                            <td align="left" width="30%">
-                                <html:text styleClass="black_ar" size="30" maxlength="255"  styleId="rfId" name="specimenDTO" property="rfId" onmouseover="showTip(this.id)" onmouseout="hideTip(this.id)" onblur="processData(this)" disabled="false" />
-                            </td>
-                        </tr>
+<!-- 						<tr class="tr_alternate_color_white"> -->
+<!--                             <td width="20%" class="black_ar align_right_style"> -->
+<!--                                 <label for="label"> -->
+<!--                                     RF ID -->
+<!--                                 </label> -->
+<!--                             </td> -->
+<!--                             <td align="left" width="30%"> -->
+<%--                                 <html:text styleClass="black_ar" size="30" maxlength="255"  styleId="rfId" name="specimenDTO" property="rfId" onmouseover="showTip(this.id)" onmouseout="hideTip(this.id)" onblur="processData(this)" disabled="false" /> --%>
+<!--                             </td> -->
+<!--                         </tr> -->
                         <tr class="tr_alternate_color_lightGrey">
                             <td  width="20%" class="black_ar align_right_style">
                                 <img src="images/uIEnhancementImages/star.gif" alt="Mandatory" width="6" height="6" hspace="0" vspace="0" />    
@@ -896,7 +899,7 @@ req.onreadystatechange = function() {
                  <tr>
                                 <td class="dividerline" colspan="3"><span class="black_ar"></td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                 
 
                                             <td colspan="1" valign="center">
@@ -908,11 +911,10 @@ req.onreadystatechange = function() {
                                             </td>
 
                                 
-    <!--  Added for displaying  printer type and location -->
                                   <td>
                                     </td>
 
-                            </tr>
+                            </tr> -->
                                                 
                 <tr>
                     <td align="left" colspan="2" class="buttonbg">

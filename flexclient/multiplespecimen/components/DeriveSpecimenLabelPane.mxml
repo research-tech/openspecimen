@@ -26,7 +26,7 @@
 		<mx:Label text="" fontWeight="bold"/>	
 	</mx:HBox>	
 	<mx:HBox height="25" id="labelBox">	
-		<mx:Label text="* Label" fontWeight="bold"/>	
+		<mx:Label text="* Tissue Bank Number" fontWeight="bold"/>	
 	</mx:HBox>	
 	<mx:HBox height="25">	
 		<mx:Label text="* Class" fontWeight="bold"/>	

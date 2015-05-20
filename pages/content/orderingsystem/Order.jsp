@@ -414,7 +414,7 @@ function switchToOlderView()
 		
  <tr>
           <td class="buttonbg" colspan="2">
-					<input type="button" class="blue_ar_b" value="Next >>" onclick="goToConsentTabFromNext()" accesskey="Enter">
+					<input type="button" class="blue_ar_b" value="Submit" onclick="window.parent.submitOrderNew(document.getElementsByName('verifyAllCheckBox'))" accesskey="Enter">
 					<input type="button" class="blue_ar_b" value="Export Order" onclick="defineView('${requestScope.id}')" accesskey="Enter">
 				
 					
@@ -423,7 +423,7 @@ function switchToOlderView()
 </table>
 
 			</div>
-			<div id="ConsentViewDiv" style="width:auto;height:300px;">
+			<div id="ConsentViewDiv" style="width:auto;height:300px;display:none">
 			</div>	
 			</div>
 			</td></tr>		
@@ -498,10 +498,10 @@ function loadTab()
 	tabbar.setSkin('dhx_skyblue');
 	tabbar.setImagePath("dhtmlxSuite_v35/dhtmlxTabbar/codebase/imgs/");
 	tabbar.addTab("SimpleViewDiv", "Specimens", "100px");	
-	tabbar.addTab("ConsentViewDiv", "Consents", "100px");
+	//tabbar.addTab("ConsentViewDiv", "Consents", "100px");
 	tabbar.enableAutoSize(false,true);
 	tabbar.setContent("SimpleViewDiv","SimpleViewDiv");
-	tabbar.setContent("ConsentViewDiv","ConsentViewDiv");
+	//tabbar.setContent("ConsentViewDiv","ConsentViewDiv");
 	tabbar.setTabActive('SimpleViewDiv');
 	
 	tabbar.attachEvent("onSelect", function(id,last_id) {
@@ -550,7 +550,7 @@ function init_grid()
 
 	mygrid = new dhtmlXGridObject('gridbox');
 	mygrid.setImagePath("dhtmlxSuite_v35/dhtmlxGrid/codebase/imgs/");
-	mygrid.setHeader("Specimen Label,Specimen Class,Specimen Type,Specimen Position,Available Qty,Requested Qty,Distributed Qty,Status,Comments,,,Error");
+	mygrid.setHeader("Tissue Bank Number,Specimen Class,Specimen Type,Specimen Position,Available Qty,Requested Qty,Distributed Qty,Status,Comments,,,Error");
    	mygrid.setColumnHidden(9,true);
    	mygrid.setColumnHidden(10,true);
    	mygrid.setColumnHidden(11,true);

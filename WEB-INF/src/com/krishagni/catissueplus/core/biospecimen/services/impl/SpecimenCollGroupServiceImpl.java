@@ -124,7 +124,6 @@ public class SpecimenCollGroupServiceImpl implements SpecimenCollGroupService {
 					requirementList = daoFactory.getScgDao().getSpecimenRequirments(req.getId());
 				}
 				specimenList = daoFactory.getScgDao().getSpecimensList(req.getId());
-
 			}
 			return SpecimensInfoEvent.ok(getSpecimensList(specimenList, requirementList, req.getId()));
 
@@ -396,8 +395,12 @@ public class SpecimenCollGroupServiceImpl implements SpecimenCollGroupService {
 					specimenInfoList = new HashSet<SpecimenInfo>();
 					specimensMap.put(parentKey, specimenInfoList);
 				}
-
-				specimenInfoList.add(SpecimenInfo.fromSpecimen(specimen));
+                                SpecimenInfo info = SpecimenInfo.fromSpecimen(specimen);
+				
+                                if(isDistributed(specimen.getId())){
+                                    info.setCollectionStatus("Distributed");
+				}
+				specimenInfoList.add(info);
 			}
 		}
 
@@ -454,4 +457,10 @@ public class SpecimenCollGroupServiceImpl implements SpecimenCollGroupService {
 		}
 	}
 
+	
+
+	private Boolean isDistributed(Long id) {
+		Boolean status = daoFactory.getSpecimenDao().getDistributionStatus(id);
+		return status;
+	}
 }

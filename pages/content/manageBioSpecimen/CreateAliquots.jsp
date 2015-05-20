@@ -136,13 +136,14 @@ ul li ul li a span {
         function init_grid(){       
             aliquotGrid = new dhtmlXGridObject('gridbox');
             aliquotGrid.setImagePath("dhtmlxSuite_v35/dhtmlxGrid/codebase/imgs/");
-            aliquotGrid.setHeader("Label,Barcode,Quantity,Storage Container <a style='margin-left:62px;' href='#' onclick='applyFirstToALL()'>Apply first to all</a>,Position 1,Position 2,Container Map,");
+            aliquotGrid.setHeader("Tissue Bank Number,Barcode,Quantity,Storage Container <a style='margin-left:62px;' href='#' onclick='applyFirstToALL()'>Apply first to all</a>,Position 1,Position 2,Container Map,");
             aliquotGrid.setEditable("true");
             aliquotGrid.enableAutoHeigth(false);
             aliquotGrid.enableRowsHover(true,'grid_hover')
-            aliquotGrid.setInitWidths("100,100,70,250,70,70,100");
+            aliquotGrid.setInitWidths("150,100,70,250,70,70,100");
             aliquotGrid.setColTypes("ed,ed,ed,ed,ed,ed,ro,ro");
             aliquotGrid.setColumnHidden(7,true);
+            aliquotGrid.setColumnHidden(1,true);
             
             if(isLabelGenerationOn=="true"){
                 aliquotGrid.setColumnExcellType(0,"ro");
@@ -283,7 +284,7 @@ ul li ul li a span {
             //tabDataJSON["aliquotsXml"] = aliquotsXml;
             var aliquotDetailDto = {};
             tabDataJSON["disposeParentSpecimen"] = document.getElementById("disposeParentSpecimen").checked;
-            tabDataJSON["printLabel"]=  document.getElementById("printCheckbox").checked;
+            //tabDataJSON["printLabel"]=  document.getElementById("printCheckbox").checked;
             tabDataJSON["creationDate"]= document.getElementById("creationDate").value;
             tabDataJSON["specimenClass"]= document.getElementById("ali_specimenClass").innerHTML;
             tabDataJSON["type"]=document.getElementById("ali_type").innerHTML;
@@ -600,7 +601,7 @@ function giveCall(url,msg,msg1,id)
             <div  style="float:left;text-align:right;width:25%;">
                 <div  class="aliquot_details aliquot_form_label">
                     <span><img src="images/uIEnhancementImages/star.gif" alt="Mandatory" width="6" height="6" hspace="0" vspace="0" /></span>
-                    <span  class="black_ar_b"><bean:message key="createSpecimen.parentLabel"/>/Barcode</span>
+                    <span  class="black_ar_b"><bean:message key="createSpecimen.parentLabel"/></span>
                 </div>
                 <div class="aliquot_details aliquot_form_label">
                     <span><img src="images/uIEnhancementImages/star.gif" alt="Mandatory" width="6" height="6" hspace="0" vspace="0" /></span>
@@ -739,8 +740,8 @@ function giveCall(url,msg,msg1,id)
         <!--input type="checkbox" id="aliqoutInSameContainer" name="aliqoutInSameContainer"  onclick="onCheckboxClicked()"><span class="black_ar align_radio_buttons">  <bean:message key="aliquots.storeAllAliquotes" /></span-->
         <input type="checkbox" id= "disposeParentSpecimen" name="disposeParentSpecimen" ><span style="margin-left:4px;" class="black_ar align_radio_buttons">   <bean:message key="aliquots.disposeParentSpecimen" /></span>
         
-        <input type="checkbox" id= "printCheckbox" name="printCheckbox" style="margin-left:20px;" ><span  style="margin-left:4px;" class="black_ar align_radio_buttons">    <bean:message key="print.checkboxLabel"/></span>
-        </div>
+<%--         <input type="checkbox" id= "printCheckbox" name="printCheckbox" style="margin-left:20px;" ><span  style="margin-left:4px;" class="black_ar align_radio_buttons">    <bean:message key="print.checkboxLabel"/></span> --%>
+<!--         </div> -->
         <div width="100%"  id="submitButtonId" class="black_ar"  style="margin-top:5px;"  style="display:block">
             <html:button
             styleClass="blue_ar_b" property="Add Events"

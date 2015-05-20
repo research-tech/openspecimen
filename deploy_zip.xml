@@ -1064,6 +1064,10 @@
                         tofile="${rel.jboss.home}/server/default/deploy/jmx-console.war/WEB-INF/jboss-web.xml" overwrite="true"/>
         </target>
 
+	<target name="upgrade_for_vcb">
+		<updateDatabase changeLogFile="${base.dir}/SQL/liquibase_xml/db-os-changelog-vcb.xml" driver="${final.database.driver}" url="${final.database.url}" username="${database.username}" password="${database.password}" dropFirst="false" classpathref="liquibaseClasspath" />
+	</target>
+	
     <target name="pre_initialization" description="initialisation prior to deploying application">
         <antcall target="clean_server" />
         <antcall target="assert" />
@@ -1640,7 +1644,7 @@
     	<antcall target="upgrade_db_os_v1.1" />
     	<antcall target="upgrade_db_os_v1.2" />
         <antcall target="deleteFiles"/>
-
+    	<antcall target="upgrade_for_vcb" />
         <!--<delete dir="${de.temp.dir}" />
         <delete dir="${temp.dir}" />-->
     </target>

@@ -137,10 +137,10 @@
 	</tr>
 	<tr class="addl_table_head">
 		 <c:if test="${operation=='add' or operation=='edit'}">
-			<td align="left" valign="middle" class="black_ar"><b class="black_ar_s"><bean:message key="shipment.contentsSelect" bundle="msg.shippingtracking"/>&nbsp;&nbsp; </b></td>
+			<td align="left" width="10%" valign="middle" class="black_ar"><b class="black_ar_s"><bean:message key="shipment.contentsSelect" bundle="msg.shippingtracking"/>&nbsp;&nbsp; </b></td>
 		</c:if>
 		<td height="25" align="left" valign="middle" class="black_ar"><b class="black_ar_s"> <bean:message key="shipment.contentsNameOrBarcode" bundle="msg.shippingtracking"/> </b></td>
-		<td width="25%" align="left" valign="middle" class="black_ar">&nbsp;</td>
+		<td width="50%" align="left" valign="middle" class="black_ar">&nbsp;</td>
 	</tr>
 	<!-- Iterate for each container -->
 	

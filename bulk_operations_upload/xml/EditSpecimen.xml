@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BulkOperationMetadata templateName="EditSpecimen" batchSize="5">
 	<BulkOperationClass className="edu.wustl.catissuecore.domain.Specimen">
-		<attribute name="id" csvColumnName="ID"  updateBasedOn="true" />
-		<attribute name="label" csvColumnName="Label"/>
+		<attribute name="label" csvColumnName="Tissue Bank Number" updateBasedOn="true" />
 		<attribute name="barcode" csvColumnName="Barcode"   />
 		<attribute name="createdOn" csvColumnName="Created On"   />
 		<attribute name="activityStatus" csvColumnName="Activity Status"   />

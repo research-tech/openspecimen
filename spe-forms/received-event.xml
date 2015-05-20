@@ -1,7 +1,7 @@
 <form>
   <view>
     <name>SpecimenReceivedEvent</name>
-    <caption>Received Event</caption>
+    <caption>Processing Event</caption>
     <table>CATISSUE_RECEIVED_EVENT_PARAM</table>
     <primaryKey>IDENTIFIER</primaryKey>
     <row>

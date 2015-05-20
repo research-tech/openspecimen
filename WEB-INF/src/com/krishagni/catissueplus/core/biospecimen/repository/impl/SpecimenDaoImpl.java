@@ -158,6 +158,15 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 	  return results.isEmpty()? null: results.get(0);
 	 }
 
+	@Override
+	public Boolean getDistributionStatus(Long id) {
+		Query query = sessionFactory.getCurrentSession().createSQLQuery(CHECK_DISTRIBUTION_STATUS);
+		query.setLong("id", id);
+		List<Specimen> results = query.list();
+		
+		return results.isEmpty()? false: true;
+	}
+	
 	private static final String FQN = Specimen.class.getName();
 
 	private static final String GET_SCG_ID_BY_SPECIMEN_ID = FQN + ".getScgIdBySpecimenId";
@@ -172,5 +181,7 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 	
 	private static final String GET_SPECIMEN_BY_RFID = FQN + ".getSpecimenByRfId";
 
+        private static final String CHECK_DISTRIBUTION_STATUS = "Select *from catissue_distri_event_param where SPECIMEN_ID=:id";
+  
 
 }

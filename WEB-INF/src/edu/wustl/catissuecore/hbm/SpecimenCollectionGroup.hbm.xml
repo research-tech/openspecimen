@@ -129,6 +129,15 @@
                 column="COLLECTION_STATUS"
                 length="50"
             />
+            
+            <property
+                name="primarySite"
+                type="string"
+                update="true"
+                insert="true"
+                column="PRIMARY_SITE"
+                length="50"
+            />
 
             <property
             name="encounterTimestamp"

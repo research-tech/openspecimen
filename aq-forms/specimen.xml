@@ -32,7 +32,7 @@
 			<textField>
 				<name>label</name>
 				<udn>label</udn>
-				<caption>Specimen Label</caption>
+				<caption>Tissue Bank Number</caption>
 				<column>LABEL</column>
 			</textField>
 		</row>
@@ -48,20 +48,20 @@
 					<textField>
 						<name>parentLabel</name>
 						<udn>parentLabel</udn>
-						<caption>Parent Specimen Label</caption>
+						<caption>Parent Tissue Bank Number</caption>
 						<column>LABEL</column>
 					</textField>	
                                 </row>
                         </subForm>
                 </row>
-		<row>
+		 <!-- <row>
 			<textField>
 				<name>barcode</name>
 				<udn>barcode</udn>
 				<caption>Barcode</caption>
 				<column>BARCODE</column>
 			</textField>
-		</row>
+		</row>  -->  
 		<row>
 			<dropDown>
       				<name>class</name>

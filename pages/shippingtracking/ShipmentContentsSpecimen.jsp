@@ -104,16 +104,12 @@
 	<tr class="addl_table_head">
     	<td height="25" colspan="3" align="left" valign="middle" class="tr_bg_border">
     		<c:if test="${operation=='add' or operation=='edit'}">
-				<bean:message key="createShipment.specimen.labelchoicequestion" bundle="msg.shippingtracking"/> &nbsp;&nbsp;
+<!-- 				<bean:message key="createShipment.specimen.labelchoicequestion" bundle="msg.shippingtracking"/> &nbsp;&nbsp; -->
 				<html:radio property="specimenLabelChoice" styleId="SpecimenLabel" value="SpecimenLabel" onclick="changeSpecimenLabelChoice(this)"/> <bean:message key="createShipment.specimen.label" bundle="msg.shippingtracking"/>
-				<html:radio property="specimenLabelChoice" styleId="SpecimenBarcode" value="SpecimenBarcode" onclick="changeSpecimenLabelChoice(this)"/> <bean:message key="createShipment.name" bundle="msg.shippingtracking"/>
+<!-- 				<html:radio property="specimenLabelChoice" styleId="SpecimenBarcode" value="SpecimenBarcode" onclick="changeSpecimenLabelChoice(this)"/> <bean:message key="createShipment.name" bundle="msg.shippingtracking"/> -->
 				<script>
-						var spLabelRadio=document.getElementById("SpecimenLabel");
-						var spBarcodeRadio=document.getElementById("SpecimenBarcode");
-						if(spLabelRadio.checked==false && spBarcodeRadio.checked==false)
-						{
-								spLabelRadio.checked=true;
-						}
+				  var spLabelRadio=document.getElementById("SpecimenLabel");
+				  spLabelRadio.checked=true;
 				</script>
 			</c:if>	
 			<logic:equal name="operation" value='view'>
@@ -123,7 +119,7 @@
 	</tr>
     <tr class="addl_table_head">
 		<c:if test="${operation=='add' or operation=='edit'}">
-	    	<td align="left" valign="middle" class="black_ar"><b class="black_ar_s"><bean:message key="shipment.contentsSelect" bundle="msg.shippingtracking"/>&nbsp;&nbsp; </b></td>
+	    	<td align="left" width="10%" valign="middle" class="black_ar"><b class="black_ar_s"><bean:message key="shipment.contentsSelect" bundle="msg.shippingtracking"/>&nbsp;&nbsp; </b></td>
 		</c:if>
 		<td height="25" align="left" valign="middle" class="black_ar"><b class="black_ar_s"> <bean:message key="shipment.contentsLabelOrBarcode" bundle="msg.shippingtracking"/> </b></td>
 		<td width="25%" align="left" valign="middle" class="black_ar">&nbsp;</td>

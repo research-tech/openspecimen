@@ -453,12 +453,8 @@ function forwardToChildSpecimen(operation) {
 			break;
 			
 		
-		case '3' :	action = 'CPQueryCreateSpecimen.do?operation=add&pageOf=pageOfCreateSpecimenCPQuery&menuSelected=15&virtualLocated=true&forwardFromPage=editSpecimenPage&parentLabel='+specimenLabel+'&parentSpecimenId='+specimenId+'&specClassName='+classNameCombo.getSelectedText()+'&specType='+typeCombo.getSelectedText();
+		case '3' :	action = 'MultipleSpecimenFlexInitAction.do?operation=add&pageOf=pageOfMultipleSpWithoutMenu&parentType=Derived_Specimen&parentLabel='+specimenLabel;
 					
-					if(document.getElementById("numberOfSpecimens").value>1)
-					{
-						action = 'MultipleSpecimenFlexInitAction.do?operation=add&pageOf=pageOfMultipleSpWithoutMenu&parentType=Derived_Specimen&parentLabel='+specimenLabel;
-					}
 					break;	
 		
 		case '4' :	action = 'AnticipatorySpecimenView.do?scgId='+scgId+'&specimenId='+specimenId; break;
@@ -496,9 +492,10 @@ function setQuantityUnitOnClassChange(className)
 	
 	if(className == "Tissue")
 	{
+		
 		unitSpecimen = "gm";
 	}
-	else if(className == 'Fluid')
+	else if(className == "Fluid")
 	{
 		unitSpecimen = "ml";
 	}
@@ -529,6 +526,7 @@ function onSpecimenSubTypeChange()
 	var subTypeData4 = "Not Specified";
 	var subTypeData5 = "Microdissected";
 	var subTypeData6 = "Fixed Tissue Slide";
+	var subTypeData7 = "Snap Frozen";
 	
 	var className = classNameCombo.getComboText();
 	var selectedOption = typeCombo.getComboText();
@@ -538,7 +536,7 @@ function onSpecimenSubTypeChange()
 		{
 			setQuantityUnitOnClassChange(className);
 		}
-		else if(className == "Tissue" && (selectedOption == subTypeData1 || selectedOption == subTypeData2 || selectedOption == subTypeData3 || selectedOption == subTypeData4 || selectedOption == subTypeData6))
+		else if(className == "Tissue" && (selectedOption == subTypeData1 || selectedOption == subTypeData2 || selectedOption == subTypeData3 || selectedOption == subTypeData4 || selectedOption == subTypeData6 || selectedOption == subTypeData7))
 		{
 			document.getElementById("unitSpan").innerHTML = "count";
 			// added for Available quantity
@@ -572,6 +570,7 @@ function onSpecimenSubTypeChange()
 					}
 				}
 			}
+			
 		}
 }
 
@@ -777,10 +776,10 @@ function submitTabData(operation)
 		}
 		tabDataJSON["isVirtual"] = isVirtual; 
 		var printFlag = false;
-		if(document.getElementById('printCheckbox').checked == true)
+		/*if(document.getElementById('printCheckbox').checked == true)
 		{
 			printFlag=true;
-		}
+		}*/
 		if(obj!=null && obj.value.trim()!="" && obj.disabled==false)
 		{
 			tabDataJSON['label']=obj.value;
@@ -796,7 +795,6 @@ function submitTabData(operation)
 		tabDataJSON["isToPrintLabel"]=printFlag;
 		tabDataJSON["lineage"]=document.getElementById("lineage").value;
 		tabDataJSON["collectionStatus"]=collectionStatusCombo.getSelectedText();
-		tabDataJSON["tissueSite"]=tissueSiteCombo.getSelectedValue();
 		var spId = document.getElementById("id").value;
 		if(spId != null && spId != "")
 		{
@@ -938,7 +936,7 @@ req.onreadystatechange = function() {
 		}
 		else if(operation == 'add')
 		{
-			specimenData['tissueSite']=tissueSiteCombo.getSelectedValue();
+			specimenData['tissueSite']=tissueSiteCombo.getSelectedText();
 			specimenData['tissueSide']=tissueSideCombo.getSelectedText();
 			specimenData['pathologicalStatus']=pathologicalStatusCombo.getSelectedText();
 			req.open("POST", "rest/specimens/", false);
@@ -1187,11 +1185,11 @@ function setLabelBarcodeVisibility(isSpecimenLabelGeneratorAvl,isSpecimenBarcode
 	if(isSpecimenLabelGeneratorAvl=='true' && isSpecimenBarcodeGeneratorAvl=='true' && (collectionStatus!='Collected'||operation=='add'))
 	{
 		document.getElementById('label').setAttribute('disabled',true);
-		document.getElementById('barcode').setAttribute('disabled',true);
+		//document.getElementById('barcode').setAttribute('disabled',true);
 	}
 	else if(isSpecimenLabelGeneratorAvl=='false' && isSpecimenBarcodeGeneratorAvl=='true' && (collectionStatus!='Collected'||operation=='add'))
 	{
-		document.getElementById('barcode').setAttribute('disabled',true);
+		//document.getElementById('barcode').setAttribute('disabled',true);
 	}
 	else if(isSpecimenLabelGeneratorAvl=='true' && isSpecimenBarcodeGeneratorAvl=='false' && (collectionStatus!='Collected'||operation=='add'))
 	{

@@ -297,6 +297,9 @@ public class Participant extends AbstractDomainObject
 	 */
 	public void setLastName(String lastName)
 	{
+		if(lastName != null && !lastName.isEmpty()) {
+			lastName = lastName.toUpperCase();
+		}
 		this.lastName = lastName;
 	}
 
@@ -686,8 +689,13 @@ public class Participant extends AbstractDomainObject
 			activityStatus = form.getActivityStatus();
 			firstName = form.getFirstName();
 			middleName = form.getMiddleName();
+			
 			lastName = form.getLastName();
-
+			
+			if(lastName != null && !lastName.isEmpty()) {
+				lastName = lastName.toUpperCase();
+			}
+			
 			empiId = form.getEmpiId();
 			empiIdStatus = form.getEmpiIdStatus();
 			if (validator.isValidOption(form.getGender()))

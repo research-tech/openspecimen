@@ -125,7 +125,11 @@ public class SpecimenInfo  implements Comparable<SpecimenInfo>{
 		specimenInfo.setLabel(specimen.getLabel());
 		specimenInfo.setSpecimenClass(specimen.getSpecimenClass());
 		specimenInfo.setSpecimenType(specimen.getSpecimenType());
-		specimenInfo.setCollectionStatus(specimen.getCollectionStatus());
+		if(specimen.getActivityStatus().equals("Closed")){
+			specimenInfo.setCollectionStatus("Closed");
+		} else {
+		  specimenInfo.setCollectionStatus(specimen.getCollectionStatus());
+		}
 		specimenInfo.setInstanceType("specimen");
 		specimenInfo.setScgId(specimen.getSpecimenCollectionGroup().getId());
 		if (specimen.getParentSpecimen() != null) {

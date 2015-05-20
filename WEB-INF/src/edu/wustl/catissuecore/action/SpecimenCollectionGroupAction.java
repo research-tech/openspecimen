@@ -35,6 +35,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import sun.security.util.PendingException;
 import edu.wustl.bulkoperator.util.BulkOperationException;
 import edu.wustl.catissuecore.actionForm.SpecimenCollectionGroupForm;
 import edu.wustl.catissuecore.bizlogic.CollectionProtocolBizLogic;
@@ -367,6 +368,8 @@ public class SpecimenCollectionGroupAction extends CatissueBaseAction
 			final String[] siteDisplaySiteFields = {"name"};
 			list = bizLogic.getList(sourceObjectName, siteDisplaySiteFields, valueField, true);
 			request.setAttribute(Constants.SITELIST, list);
+			
+			request.setAttribute(Constants.TISSUE_SITE_LIST, AppUtility.tissueSiteList());
 
 			// Populating the participants registered to a given protocol
 			/** For Migration Start **/
@@ -743,6 +746,7 @@ public class SpecimenCollectionGroupAction extends CatissueBaseAction
 					{
 						specimenCollectionGroupForm.setClinicalDiagnosis(((CollectionProtocolEvent)cPEObject).getClinicalDiagnosis());
 						specimenCollectionGroupForm.setClinicalStatus(((CollectionProtocolEvent)cPEObject).getClinicalStatus());
+						specimenCollectionGroupForm.setPrimarySite(Constants.NOT_SPECIFIED);
 						request.setAttribute("clinicalDiagnosis", specimenCollectionGroupForm
 								.getClinicalDiagnosis());
 					}

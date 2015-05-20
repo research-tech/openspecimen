@@ -1,2 +1,2 @@
-Specimen label,Distribution Protocol Title,Requestor Login Name,Site Name,Order Name,Ditstribution Status,Sent Date,Comments,Distributed Quantity
+Tissue Bank Number,Distribution Protocol Title,Requestor Login Name,Site Name,Order Name,Distribution Status,Sent Date,Comments,Distributed Quantity
 bulk_distri_346,dp,m@m.com,In Transit,bulk_distri_err,Distributed And Close,,comments,1

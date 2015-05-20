@@ -164,7 +164,7 @@
 			if(mspParameter.parentType == MSPParameter.PARENT_TYPE_PARAM_VAL_SP)
 			{
 				spParent.selectedValue = "Derived Specimen";
-				spLabelPane.spOrScg.text = "* Parent Name ";
+				spLabelPane.spOrScg.text = "* Parent Tissue Bank Number ";
 			}
 			else
 			{
@@ -260,11 +260,11 @@
 				attributeList.addItem(Constants.LABEL);	
 				spLabelPane.labelChkBox.selected = false;
 			}
-			if(spLabelPane.barcodeChkBox.selected)
+			/*if(spLabelPane.barcodeChkBox.selected)
 			{
 				attributeList.addItem(Constants.BARCODE);
 				spLabelPane.barcodeChkBox.selected = false;
-			}
+			}*/
 			if(spLabelPane.classChkBox.selected)
 			{
 				attributeList.addItem(Constants.CLASS);
@@ -618,7 +618,7 @@
 		<mx:Text text="Do you want to create New Specimen or Derived Specimen?" fontWeight="bold"/>
 		<mx:RadioButtonGroup id="spParent"/>
 		<mx:RadioButton id="isSpSCGName" label="New Specimen"  group="{spParent}" click="setParentLabel('* Specimen Group Name')" fontWeight="bold"/>
-		<mx:RadioButton id="isSpParentName" label="Derived Specimen" group="{spParent}" click="setParentLabel('* Parent Name ')" fontWeight="bold"/>
+		<mx:RadioButton id="isSpParentName" label="Derived Specimen" group="{spParent}" click="setParentLabel('* Parent Tissue Bank Number ')" fontWeight="bold"/>
 	</mx:HBox>
 	<mx:HBox>
 		<mx:Button label="Copy" click="copySPData(event)" toolTip="Copy" borderColor="#AAAAFF"/>

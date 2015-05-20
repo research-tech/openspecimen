@@ -27,4 +27,6 @@ public interface SpecimenDao extends Dao<Specimen> {
 	public Specimen getSpecimenByBarcode(String barcode);
 
 	public Specimen getSpecimenByRfId(String rfId);
+
+	public Boolean getDistributionStatus(Long id);
 }

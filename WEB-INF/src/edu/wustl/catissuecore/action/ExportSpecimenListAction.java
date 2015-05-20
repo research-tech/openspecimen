@@ -43,9 +43,9 @@ public class ExportSpecimenListAction extends BaseAction{
 		list.add(bean);
 		List<String> columnNames = new ArrayList<String>();
 		columnNames.add("Specimen Collection Group Name");
-		columnNames.add("Label");
+		columnNames.add("Tissue Bank Number");
 		columnNames.add("Barcode");
-		columnNames.add("ParentLabel");
+		columnNames.add("Parent Tissue Bank Number");
 		columnNames.add("Class");
 		columnNames.add("Type");
 		columnNames.add("Available Quantity");

@@ -348,6 +348,63 @@ String confirmDisableFuncName = "confirmDisable('" + formName +"',document.forms
                             </html:select>  
                      </td>
                  </tr>
+                
+                 
+                 <logic:equal name ="specimenCollectionGroupForm" property="clinicalStatus" value="Metastasis (Secondary)">
+                    
+                   <c:if test="${i%2 == 0}">
+                     <tr class="${tr_white_color}" id="primarySiteId">
+                   </c:if>
+                   <c:if test="${i%2 == 1}">
+                     <tr class="${tr_grey_color}" id="primarySiteId">
+                   </c:if>
+                   <c:set var="i" value="${i+1}" scope="request" /> 
+                  
+                   <td  align="right" class="black_ar">
+                     <div id="primarySiteId">
+                       <label for="primarySite">
+                         <b><bean:message key="specimenCollectionGroup.primarySite"/></b>
+                       </label>
+                     </div>
+                   </td>
+                   <td  align="left" class="black_ar align_left_style1">
+                     <html:select property="primarySite" styleClass="black_ar" styleId="primarySite" size="1">
+                       <html:options collection="tissueSiteList" labelProperty="name" property="value" />
+                     </html:select>
+                   </td>
+                   <td ></td>
+				   <td ></td>
+				   </tr>
+                 </logic:equal>
+                   
+                 <logic:notEqual name ="specimenCollectionGroupForm" property="clinicalStatus" value="Metastasis (Secondary)">
+                    
+                   <c:if test="${i%2 == 0}">
+                     <tr class="${tr_white_color}" id="primarySiteId" style="display:none">
+                   </c:if>
+                   <c:if test="${i%2 == 1}">
+                     <tr class="${tr_grey_color}" id="primarySiteId" style="display:none">
+                   </c:if>
+                   <c:set var="i" value="${i+1}" scope="request" /> 
+                  
+                   <td  align="right" class="black_ar">
+                     <div id="primarySiteId">
+                       <label for="primarySite">
+                         <b><bean:message key="specimenCollectionGroup.primarySite"/></b>
+                       </label>
+                     </div>
+                   </td>
+                   <td  align="left" class="black_ar align_left_style1">
+                     <html:select property="primarySite" styleClass="black_ar" styleId="primarySite" size="1">
+                       <html:options collection="tissueSiteList" labelProperty="name" property="value" />
+                     </html:select>
+                   </td>
+                   <td ></td>
+				   <td ></td>
+			       </tr>
+                 </logic:notEqual>
+                   
+                                 
 <c:if test="${i%2 == 0}">
                     <tr class="${tr_white_color}">
                 </c:if>

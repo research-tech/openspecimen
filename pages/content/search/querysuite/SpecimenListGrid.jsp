@@ -35,7 +35,7 @@ function init_grid()
 
 	mygrid = new dhtmlXGridObject('gridbox');
 	mygrid.setImagePath("dhtmlxSuite_v35/dhtmlxGrid/codebase/imgs/");
-	mygrid.setHeader("Specimen Label,Specimen Class,Specimen Type,Available Qty,Requested Qty,Status,Comments");
+	mygrid.setHeader("Specimen Tissue Bank Number,Specimen Class,Specimen Type,Available Qty,Requested Qty,Status,Comments");
 	mygrid.attachHeader("#text_filter,#select_filter,#select_filter,,,,,"); 
 	mygrid.setEditable("true");
 	mygrid.enableAutoHeigth(false);

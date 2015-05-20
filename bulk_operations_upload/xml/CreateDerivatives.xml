@@ -6,7 +6,7 @@
 		<referenceAssociation
 					className="edu.wustl.catissuecore.domain.Specimen" 
 					roleName="parentSpecimen"  parentRoleName="specimen" >
-					<attribute name="label" csvColumnName="Parent Specimen Label"   />
+					<attribute name="label" csvColumnName="Parent Tissue Bank Number"   />
 		</referenceAssociation>
 		
 			<containmentAssociation
@@ -33,7 +33,7 @@
 		</containmentAssociation>
 		<!--attribute name="tissueSite" csvColumnName="Tissue Site"   /-->
 		<!--attribute name="tissueSide" csvColumnName="Tissue Side"   /-->
-		<attribute name="label" csvColumnName="Label"   />
+		<attribute name="label" csvColumnName="Tissue Bank Number"   />
 		<attribute name="barcode" csvColumnName="Barcode"   />
 		<attribute name="createdOn" csvColumnName="Created On"   />
 		<attribute name="activityStatus" csvColumnName="Activity Status"   />

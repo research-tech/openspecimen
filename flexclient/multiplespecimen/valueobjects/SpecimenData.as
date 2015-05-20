@@ -359,7 +359,8 @@ package valueobjects
 					specimenType == Constants.FROZEN_TISSUE_BLOCK || 
 					specimenType == Constants.FIXED_TISSUE_SLIDE  ||
 					specimenType == Constants.FROZEN_TISSUE_SLIDE || 
-					specimenType == Constants.NOT_SPECIFIED)
+					specimenType == Constants.NOT_SPECIFIED ||
+					specimenType == Constants.SNAP_FROZEN)
 				{
 					unit = Constants.UNIT_CN;
 				}

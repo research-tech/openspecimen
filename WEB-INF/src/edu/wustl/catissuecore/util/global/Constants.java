@@ -2529,6 +2529,8 @@ public class Constants
 
 	/** The Constant FIXED_TISSUE. */
 	public static final String FIXED_TISSUE = "Fixed Tissue";
+	
+	public static final String SNAP_FROZEN = "Snap Frozen";
 
 	/** The Constant FIXED_TISSUE_SLIDE. */
 	public static final String FIXED_TISSUE_SLIDE = "Fixed Tissue Slide";

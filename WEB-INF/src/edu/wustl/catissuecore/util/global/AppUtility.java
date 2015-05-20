@@ -113,7 +113,6 @@ import edu.wustl.common.exception.ErrorKey;
 import edu.wustl.common.exception.PasswordEncryptionException;
 import edu.wustl.common.factory.AbstractFactoryConfig;
 import edu.wustl.common.factory.IFactory;
-import edu.wustl.common.tree.TreeNodeImpl;
 import edu.wustl.common.util.PagenatedResultData;
 import edu.wustl.common.util.Utility;
 import edu.wustl.common.util.global.ApplicationProperties;
@@ -484,7 +483,8 @@ public class AppUtility
 					|| Constants.FROZEN_TISSUE_BLOCK.equals(type)
 					|| Constants.FIXED_TISSUE_SLIDE.equals(type)
 					|| Constants.FROZEN_TISSUE_SLIDE.equals(type)
-					|| Constants.NOT_SPECIFIED.equals(type))
+					|| Constants.NOT_SPECIFIED.equals(type)
+					|| Constants.SNAP_FROZEN.equals(type))
 			{
 				return Constants.UNIT_CN;
 			}
@@ -1099,17 +1099,19 @@ public class AppUtility
 	 */
 	public static List tissueSiteList() throws BizLogicException
 	{
-	    final CDE cde = CDEManager.getCDEManager().getCDE(Constants.CDE_NAME_TISSUE_SITE);
-            final IFactory factory = AbstractFactoryConfig.getInstance().getBizLogicFactory();
-            final CDEBizLogic cdeBizLogic = (CDEBizLogic) factory.getBizLogic(Constants.CDE_FORM_ID);
-            final List tissueList = new ArrayList();
-	    // set first index as --select-- option to display in combo.
-	    tissueList.add(new NameValueBean(Constants.SELECT_OPTION, ""+ Constants.SELECT_OPTION_VALUE));
-            // get the filtered tissue list which is a leaf node
-	    cdeBizLogic.getFilteredCDEForTissueSite(cde.getPermissibleValues(), tissueList);
-	
-            return tissueList;
-    
+		final CDE cde = CDEManager.getCDEManager().getCDE(
+				Constants.CDE_NAME_TISSUE_SITE);
+		final IFactory factory = AbstractFactoryConfig.getInstance()
+				.getBizLogicFactory();
+		final CDEBizLogic cdeBizLogic = (CDEBizLogic) factory
+				.getBizLogic(Constants.CDE_FORM_ID);
+		final List tissueList = new ArrayList();
+		// set first index as --select-- option to display in combo.
+		tissueList.add(new NameValueBean(Constants.SELECT_OPTION, ""
+				+ Constants.SELECT_OPTION_VALUE));
+		// get the filtered tissue list which is a leaf node
+		cdeBizLogic.getFilteredCDE(cde.getPermissibleValues(), tissueList);
+		return tissueList;
 	}
 
 	/**

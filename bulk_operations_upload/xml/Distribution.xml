@@ -1,7 +1,7 @@
 <BulkOperationMetadata templateName="Distribution" batchSize="5">
 <BulkOperationClass className="edu.wustl.catissuecore.domain.SpecimenDistribution">
 	<containmentAssociation className="edu.wustl.catissuecore.domain.Specimen" roleName="specimen">
-					<attribute name="label" csvColumnName="Specimen label"/>
+					<attribute name="label" csvColumnName="Tissue Bank Number"/>
 					<attribute name="barcode" csvColumnName="Specimen barcode"/>
 	</containmentAssociation>
 	<containmentAssociation className="edu.wustl.catissuecore.domain.DistributionProtocol" roleName="distributionProtocol">
@@ -15,7 +15,7 @@
 	</containmentAssociation>
 
 	<attribute name="distributionTitle" csvColumnName="Order Name"/>
-	<attribute name="status" csvColumnName="Ditstribution Status"/>
+	<attribute name="status" csvColumnName="Distribution Status"/>
 	<attribute name="sentDate" csvColumnName="Sent Date"/>
 	<attribute name="comments" csvColumnName="Comments"/>
 	<attribute name="quantity" csvColumnName="Distributed Quantity"/>

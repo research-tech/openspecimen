@@ -521,14 +521,14 @@ public class BaseShipmentForm extends AbstractActionForm
 			if (isSpecimenPresent && Validator.isEmpty(this.specimenLabelChoice))
 			{
 				errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("errors.item.required",
-						"Choice of Label Or Barcode For Sepcimen"));
+						"Choice of Tissue Bank Number For Sepcimen"));
 			}
 			else if (isSpecimenPresent
 					&& !(this.specimenLabelChoice.trim().equals("SpecimenLabel"))
 					&& !(this.specimenLabelChoice.trim().equals("SpecimenBarcode")))
 			{
 				errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("errors.item.invalid",
-						"Choice of Label Or Barcode For Sepcimen"));
+						"Choice of Tissue Bank Number For Sepcimen"));
 			}
 		}
 		if (this.containerCounter > 0)
@@ -547,14 +547,14 @@ public class BaseShipmentForm extends AbstractActionForm
 			if (isContainerPresent && Validator.isEmpty(this.containerLabelChoice))
 			{
 				errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("errors.item.required",
-						"Choice of Label Or Barcode For Container"));
+						"Choice of Tissue Bank Number For Container"));
 			}
 			else if (isContainerPresent
 					&& !(this.containerLabelChoice.trim().equals("ContainerLabel"))
 					&& !(this.containerLabelChoice.trim().equals("ContainerBarcode")))
 			{
 				errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("errors.item.invalid",
-						"Choice of Label Or Barcode For Container"));
+						"Choice of Tissue Bank Number For Container"));
 			}
 		}
 		if (!isSpecimenPresent && !isContainerPresent)

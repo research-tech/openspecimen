@@ -13,7 +13,8 @@ package util
 		public static const FROZEN_TISSUE_SLIDE:String = "Frozen Tissue Slide";	// SLIDE	 
 		public static const FIXED_TISSUE_SLIDE:String = "Fixed Tissue Slide";
 		public static const NOT_SPECIFIED:String = "Not Specified";	
-		public static const MICRODISSECTED:String = "Microdissected"; 
+		public static const MICRODISSECTED:String = "Microdissected";
+		public static const SNAP_FROZEN:String = "Snap Frozen";
 		
 		//Units
 		public static const UNIT_GM:String = "gm";
@@ -39,8 +40,8 @@ package util
 												  
 						
 		public static const PARENT:String = "Parent";												  
-		public static const PARENT_NAME:String = "Name";
-		public static const LABEL:String = "Label";
+		public static const PARENT_NAME:String = "Parent Tissue Bank Number";
+		public static const LABEL:String = "Tissue Bank Number";
 		public static const BARCODE:String = "Barcode";
 		public static const CLASS:String = "Class";
 		public static const TYPE:String = "Type";
@@ -55,7 +56,7 @@ package util
 		
 		public static const COMMENT:String = "Comment";												  
 		public static const COLLECTED_EVENT:String = "Collected Event";
-		public static const RECEIVED_EVENT:String = "Received Event";
+		public static const RECEIVED_EVENT:String = "Processing Event";
 		public static const EXTERNAL_IDENTIFIER:String = "External Identifier";
 		public static const BIOHAZARDS:String = "Biohazard";
 		public static const DERIVATIVE:String = "Derivative";

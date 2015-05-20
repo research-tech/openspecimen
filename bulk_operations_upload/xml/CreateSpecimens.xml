@@ -12,7 +12,7 @@
 		<referenceAssociation
 					className="edu.wustl.catissuecore.domain.Specimen" 
 					roleName="parentSpecimen"  parentRoleName="specimen" >
-					<attribute name="label" csvColumnName="Parent Specimen Label"   />
+					<attribute name="label" csvColumnName="Parent Tissue Bank Number"   />
 		</referenceAssociation>
 		
 		<containmentAssociation
@@ -56,16 +56,16 @@
 				<referenceAssociation
 				className="edu.wustl.catissuecore.domain.User"
 				      roleName="user">
-					<attribute name="loginName" csvColumnName="Received User Login Name"   />
+					<attribute name="loginName" csvColumnName="Processed User Login Name"   />
 				</referenceAssociation>
-				<attribute name="comment" csvColumnName="Received Comments"   />								
+				<attribute name="comment" csvColumnName="Processed Comments"   />								
 				<attribute name="receivedQuality" csvColumnName="Quality"   />				
-				<attribute name="timestamp" csvColumnName="Received Date"   />
+				<attribute name="timestamp" csvColumnName="Processed Date"   />
 		</containmentAssociation>
 		
 		<attribute name="tissueSite" csvColumnName="Tissue Site"   />
 		<attribute name="tissueSide" csvColumnName="Tissue Side"   />
-		<attribute name="label" csvColumnName="Label"   />
+		<attribute name="label" csvColumnName="Tissue Bank Number"   />
 		<attribute name="barcode" csvColumnName="Barcode"   />
 		<attribute name="createdOn" csvColumnName="Created On"   />
 		<attribute name="activityStatus" csvColumnName="Activity Status"   />

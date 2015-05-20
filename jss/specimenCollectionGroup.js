@@ -25,8 +25,19 @@ function initializeSCGCombo(operation)
 		scgCombo.clinicalStatusCombo.setSize(177);
 		scgCombo.clinicalStatusCombo.attachEvent("onOpen",onComboClick);
 		scgCombo.clinicalStatusCombo.attachEvent("onKeyPressed",onComboKeyPress);
-		scgCombo.clinicalStatusCombo.attachEvent("onChange", function(){scgCombo.clinicalStatusCombo.DOMelem_input.focus();});
-	
+		scgCombo.clinicalStatusCombo.attachEvent("onChange", function() {
+			var selectedValue = this.getSelectedValue();
+			var trid = document.getElementById("primarySiteId");
+			
+			if(selectedValue != "Metastasis (Secondary)") {
+			  trid.style.display = 'none';
+			}else{
+			   trid.style.class="${tr_white_color}"
+			   trid.style.display = '';
+			}
+			scgCombo.clinicalStatusCombo.DOMelem_input.focus();
+		});
+			
 		scgCombo.collectionEventCollectionProcedureCombo = dhtmlXComboFromSelect("collectionEventCollectionProcedure");  
 		scgCombo.collectionEventCollectionProcedureCombo.setOptionWidth(177);
 		scgCombo.collectionEventCollectionProcedureCombo.setSize(177);
@@ -275,7 +286,12 @@ function onBlurFunc() {alert(clinicalDiagnosisCombo.getLastSelectedValue());
 			clinicalDignosisCombo.setSize(50);
 			clinicalDignosisCombo.setSize(50);*/
 			
-			
+			scgCombo.primarySiteCombo = dhtmlXComboFromSelect("primarySite","primarySite","100px");
+			scgCombo.primarySiteCombo.setOptionWidth(177);
+			scgCombo.primarySiteCombo.setSize(177);
+			scgCombo.primarySiteCombo.attachEvent("onOpen",onComboClick);
+			scgCombo.primarySiteCombo.attachEvent("onKeyPressed",onComboKeyPress);
+			scgCombo.primarySiteCombo.attachEvent("onChange", function(){scgCombo.siteIdCombo.DOMelem_input.focus();});
 			
 }
 
@@ -527,16 +543,16 @@ function viewSCGSPR(reportIdValue,pageOfValue,scgid)
 
 function setSubmitted(forwardTo,printaction,nextforwardTo)
 {
-	var printFlag = document.getElementById("printCheckbox");
-	if(printFlag.checked)
-	{
-
-	  setSubmittedForPrint(forwardTo,printaction,nextforwardTo);
-	}
-	else
-	{
+//	var printFlag = document.getElementById("printCheckbox");
+//	if(printFlag.checked)
+//	{
+//
+//	  setSubmittedForPrint(forwardTo,printaction,nextforwardTo);
+//	}
+//	else
+//	{
 	  setSubmittedFor(forwardTo,nextforwardTo);
-	}
+//	}
 }
 
 function showAnnotations(scgEntityIdValue,idValue,staticEntityNameValue,pageOfValue)

@@ -84,6 +84,8 @@ public class SpecimenCollectionGroupForm extends AbstractActionForm
 	/** The barcode. */
 	private String barcode;
 
+	private String primarySite;
+	
 	/** Name : Ashish Gupta Reviewer Name : Sachin Lale Bug ID: 2741 Patch ID: 2741_9 Description: Event Attributes. */
 	private long collectionEventId; // Mandar : CollectionEvent 10-July-06
 
@@ -443,6 +445,14 @@ public class SpecimenCollectionGroupForm extends AbstractActionForm
 		}
 	}
 
+	public String getPrimarySite() {
+		return primarySite;
+	}
+
+	public void setPrimarySite(String primarySite) {
+		this.primarySite = primarySite;
+	}
+
 	/**
 	 * Resets the values of all the fields.
 	 * Is called by the overridden reset method defined in ActionForm.
@@ -488,6 +498,12 @@ public class SpecimenCollectionGroupForm extends AbstractActionForm
 				.toString(specimenCollectionGroup.getActivityStatus()));
 		this.collectionStatus = CommonUtilities.toString(specimenCollectionGroup
 				.getCollectionStatus());
+		this.primarySite = CommonUtilities.toString(specimenCollectionGroup.getPrimarySite());
+		
+		if(this.primarySite.isEmpty() || this.primarySite == "-1") {
+			this.primarySite = Constants.NOT_SPECIFIED;
+		}
+		
 	   if(isPHIView)
 	   {
 		this.surgicalPathologyNumber = CommonUtilities.toString(specimenCollectionGroup
@@ -856,6 +872,11 @@ public class SpecimenCollectionGroupForm extends AbstractActionForm
 			{
 				errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("errors.item.selected",
 						ApplicationProperties.getValue("specimenCollectionGroup.site")));
+			}
+			
+			if(this.clinicalStatus.equals("") && this.primarySite.trim().length()<= 0) {
+				errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("errors.item.required",
+						ApplicationProperties.getValue("specimenCollectionGroup.primarySite")));
 			}
 
 			/**

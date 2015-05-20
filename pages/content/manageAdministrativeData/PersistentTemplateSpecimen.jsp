@@ -85,7 +85,6 @@
 									  readOnly="false"
 									  styleClass="black_ar"
 									  size="20"
-									  staticField="false"
 								/>
 
 								<span class="black_ar">

@@ -10,6 +10,7 @@
 		public var mspParameter:MSPParameter;
 		private function creationComp():void
 		{
+		    mspParameter.showBarcode == "false";
 			if(mspParameter.mode == MSPParameter.MODE_PARAM_VAL_ADD)
 			{
 				if(mspParameter.showLabel == "false")
@@ -19,8 +20,8 @@
 				}
 				if(mspParameter.showBarcode == "false")
 				{
-					barcodeBox.visible = false;
-					barcodeBox.height = 0;
+					//barcodeBox.visible = false;
+					//barcodeBox.height = 0;
 				}
 				
 			}
@@ -99,13 +100,8 @@
 		</mx:HBox>
 		<mx:HBox height="25" styleName="hBoxForSpLabel" id="labelBox">
 			<mx:CheckBox id="labelChkBox" styleName="chkBoxStyle"/>
-			<mx:Label text="* Label" fontWeight="bold"/>	
+			<mx:Label text="* Tissue Bank Number" fontWeight="bold"/>	
 		</mx:HBox>
-		<mx:HBox height="25" styleName="hBoxForSpLabel" id="barcodeBox">
-			<mx:CheckBox id="barcodeChkBox" styleName="chkBoxStyle"/>	
-			<mx:Label text="  Barcode" fontWeight="bold"/>	
-		</mx:HBox>
-
 	</mx:VBox>	
 
 	<mx:HBox height="25" styleName="hBoxForSpLabel">
@@ -160,7 +156,7 @@
 	</mx:HBox>
 	<mx:HBox height="25" styleName="hBoxForSpLabel" id="recEventBox">
 		<mx:CheckBox id="recEventChkBox" styleName="chkBoxStyle"/>	
-		<mx:Label text="  Received Event" fontWeight="bold"/>
+		<mx:Label text="  Processing Event" fontWeight="bold"/>
 	</mx:HBox>
 	<mx:HBox height="25" styleName="hBoxForSpLabel">
 		<mx:CheckBox id="externalIdChkBox" styleName="chkBoxStyle"/>	

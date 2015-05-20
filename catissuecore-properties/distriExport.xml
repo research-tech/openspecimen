@@ -31,7 +31,7 @@
  </item>
  
  <item id='specimen' text='Specimen' checked='-1'>
-  <item id='Label' text='Label' checked='0'></item>
+  <item id='Label' text='Tissue Bank Number' checked='0'></item>
   <item id='Class' text='Class' checked='0'></item>
   <item id='Type' text='Type' checked='0'></item>
   <item id='Tissue Site' text='Tissue Site' checked='0'></item>

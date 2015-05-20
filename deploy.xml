@@ -451,14 +451,14 @@
 			</then>
 		</if>
 		
-		<if>
+		<!--if>
 			<not>
 				<equals arg1="" arg2="${institute.logo.path}" />
 			</not>
 			<then>
 				<copy file="${institute.logo.path}" todir="${temp.dir}/catissuecore/images" overwrite="true" />
 			</then>
-		</if>
+		</if-->
 		
 		
 		
@@ -1065,6 +1065,11 @@
 			<echo message="Upgrading DB using Liquibase Targets"/>
 			<antcall target="upgrade_db_to_plus_v20"/>
 	</target>
+	
+	<target name="upgrade_for_vcb">
+		<updateDatabase changeLogFile="${base.dir}/SQL/liquibase_xml/db-os-changelog-vcb.xml" driver="${final.database.driver}" url="${final.database.url}" username="${database.username}" password="${database.password}" dropFirst="false" classpathref="liquibaseClasspath" />
+	</target>
+
 	<!--Target call for both fresh deployment and database creation-->
 	<target name="deploy_all" description="Target call for both fresh deployment and database creation">
 		<antcall target="assert" />
@@ -1087,7 +1092,6 @@
 				    </tstamp>
 				    <echo>before deploy_app: ${time_deploy_app}</echo>
 		<antcall target="deploy_app" />
-
 		<tstamp>
 						      <format property="time_deploy_app_after" pattern="MM/dd/yyyy hh:mm:ss aa"
 						         />
@@ -1733,6 +1737,7 @@
 		<antcall target="upgrade_db_plusv4.0" />
         <antcall target="upgrade_db_os_v1.1"/>
 		<antcall target="upgrade_db_os_v1.2"/>
+		<antcall target="upgrade_for_vcb" />
 	</target>
 
 	<!--MySQL Database Creation -->

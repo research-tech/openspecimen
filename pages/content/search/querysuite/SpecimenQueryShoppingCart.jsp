@@ -190,7 +190,7 @@ function showEvents()
 function showHideComponents()
 {
    showEvents();
-   showPriterTypeLocation();
+   //showPriterTypeLocation();
 }
 function gotoAdvanceQuery()
 {
@@ -514,7 +514,7 @@ function loadSpecimenGrid()
     mygrid.setSkin("dhx_skyblue");
     mygrid.enableAutoHeight(true,280);
     mygrid.setColSorting(",str,str,str,str,str,str,str,str,str,str");
-    mygrid.setHeader(",Specimen Collection Group Name,Label (Barcode),,Parent Label,Class (Type),,Quantity,Lineage,,");
+    mygrid.setHeader(",Specimen Collection Group Name,Tissue Bank Number,,Parent Tissue Bank Number,Class (Type),,Quantity,Lineage,,");
     
     mygrid.attachHeader("#master_checkbox,,#text_filter,,,#text_filter,,,#select_filter,,");
      mygrid.setColAlign("center,,,,,,,,,,")
@@ -728,17 +728,17 @@ function loadSpecimenGrid()
 
             <td class="black_ar">
               <input type="radio" name="chkName"  value="distributeOrder" onclick="showHideComponents()" <%=disabledShipping%> >
-              <label class="black_ar"> Distribute </label
+              <label class="black_ar"> Distribute </label>
             </td>
           </tr>
-          <tr>
-            <td class="black_ar">
-              <input type="radio" name="chkName" value="printLabels" id="printCheckbox" onclick="showHideComponents()">
-            </td>
-            <td class="black_ar">
-              <bean:message key="mylist.label.printLabels" />
-            </td>
-          </tr>
+<!--           <tr> -->
+<!--             <td class="black_ar"> -->
+<!--               <input type="radio" name="chkName" value="printLabels" id="printCheckbox" onclick="showHideComponents()"> -->
+<!--             </td> -->
+<!--             <td class="black_ar"> -->
+<%--               <bean:message key="mylist.label.printLabels" /> --%>
+<!--             </td> -->
+<!--           </tr> -->
         </table>          
       </tr>
 <tr>
