@@ -1073,8 +1073,10 @@ public class SpecimenDetailsNewFormat extends TagSupport
 			}
 			else
 			{
-				stringBuffer.append(TD_1HLF + this.pWd + TD_2HLF);
-				stringBuffer.append(SPACE);
+				if(cnt !=2) {
+				  stringBuffer.append(TD_1HLF + this.pWd + TD_2HLF);
+				  stringBuffer.append(SPACE);
+				}
 			}
 			stringBuffer.append(TD_CLOSE);
 		}
@@ -1356,8 +1358,8 @@ public class SpecimenDetailsNewFormat extends TagSupport
 				stringBuffer.append(SPACE);
 			}
 			else if((columnCounter == 2 )) {
-				//stringBuffer.append(SPACE);
-				stringBuffer.append("<TD>");
+				stringBuffer.append(SPACE);
+				//stringBuffer.append("<TD>");
 			}
 			else if (columnCounter == 6)
 			{
