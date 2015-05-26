@@ -14,13 +14,7 @@
       update catissue_search_display_data set Display_name = 'Tissue Bank Number' where COL_ID=323;
     </sql>
   </changeSet>
-  
-  <changeSet id="rename barcode in catissue_search_display_data" author="asamgir">
-    <sql>
-      update catissue_search_display_data set Display_name = '' where COL_ID=196;
-    </sql>
-  </changeSet>
-  
+   
   <changeSet id="adding primary site column in scg table" author="asamgir">
     <sql>
       ALTER TABLE catissue_specimen_coll_group ADD COLUMN PRIMARY_SITE VARCHAR(100) DEFAULT NULL;

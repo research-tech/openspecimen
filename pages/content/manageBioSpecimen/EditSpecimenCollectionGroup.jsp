@@ -218,49 +218,7 @@ String confirmDisableFuncName = "confirmDisable('" + formName +"',document.forms
 
                 <%
                                     }%>
-
-                   
-                <%if((!Variables.isSpecimenCollGroupBarcodeGeneratorAvl) || Constants.EDIT.equals(operation))
-                                        {
-                                %>
-                    <td width="20%" align="right" class="black_ar">
-                    <b><bean:message key="specimenCollectionGroup.barcode" /> </b></td>
-                    <logic:equal name="<%=Constants.OPERATION%>" value="<%=Constants.EDIT%>" >
-                        <logic:equal name ="specimenCollectionGroupForm" property="isBarcodeEditable" value="<%=Constants.FALSE%>">
-                            <%
-                                if(form.getBarcode()!=null)
-                                                {
-                            %>
-                                <label for="barcode">
-                                        <%=form.getBarcode()%> 
-                                </label>
-                            <%
-                                }
-                                                else
-                                                {
-                            %>
-                                <label for="barcode"><b></b>
-                                </label>
-                            <%
-                                }
-                            %>
-                        <html:hidden property="barcode"/>
-                        </logic:equal>
-                        <logic:notEqual name ="specimenCollectionGroupForm" property="isBarcodeEditable" value="<%=Constants.FALSE%>">
-                            <td width="30%"  align="left" nowrap class="black_ar align_left_style1">
-                                <html:text styleClass="newformFieldSizedSCG"  size="26"  maxlength="255" styleId="barcode" property="barcode" />
-                            </td>
-                        </logic:notEqual>
-                       </logic:equal>
-                       <logic:notEqual name="<%=Constants.OPERATION%>" value="<%=Constants.EDIT%>" >
-                         <td width="30%"  align="left" nowrap class="black_ar align_left_style1">
-                                <html:text styleClass="newformFieldSizedSCG" size="26"  maxlength="255" styleId="barcode" property="barcode" />
-                        </td>
-                      </logic:notEqual>
-                    <%
-                        }
-                    %>
-                    
+    
                 </tr>
                 <c:if test="${i%2 == 0}">
                     <tr class="${tr_white_color}">
