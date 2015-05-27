@@ -33,14 +33,6 @@
                                 </options>
 			</dropDown>
 		</row>
-<!-- 		<row> -->
-<!-- 			<textField> -->
-<!-- 				<name>barcode</name> -->
-<!-- 				<udn>barcode</udn> -->
-<!-- 				<caption>Barcode</caption> -->
-<!-- 				<column>BARCODE</column> -->
-<!-- 			</textField> -->
-<!-- 		</row> -->
 		<row>
 			<subForm>
                                 <name>site</name>
