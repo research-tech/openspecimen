@@ -1,6 +1,14 @@
-<ul class="os-breadcrumbs">
+<!-- <ul class="os-breadcrumbs">
   <li ng-repeat="breadcrumb in breadcrumbs">
     <a ng-if="breadcrumb.state" ui-sref="{{breadcrumb.state}}">{{breadcrumb.title}}</a>
     <span ng-hide="$last" class="divider"></span>
   </li>
-</ul>
+</ul> -->
+<div class="os-breadcrumbs">
+	<h3 ng-repeat="breadcrumb in breadcrumbs" class="os-title"> 
+		<span ng-if="breadcrumb.state" translate="{{breadcrumb.title}}" class="main-os-breadcrumbs">
+			{{breadcrumb.title}}
+		</span>
+	</h3>
+</div>
+<span class="icon icon-icons-arrow icon-breadcrumbs"></span>

@@ -1,18 +1,25 @@
 .os-nav-drawer, .os-nav-drawer-overlay {
   position: absolute;
   height: auto;
-  top: 50px;
+  /* top: 50px; */
+  top: 130px;
   bottom: 0;
 }
 
 .os-nav-drawer {
   background: white;
-  border-right: 1px solid #ddd;
+  /* border-right: 1px solid #ddd; */
   left: 0;
   width: 265px;
+  height: 490px;
   z-index: 5;
   transform: translate(-265px, 0);
   transition: all 0.25s ease-in-out 0s;
+  overflow: hidden;
+  border-right: #e3e3e3 solid 1px;
+  border-bottom: #e3e3e3 solid 1px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+-webkit-box-shadow: 2px 2px 5px c9c9c7;
 }
 
 .os-nav-drawer-overlay {
@@ -35,20 +42,24 @@
   padding: 0;
   overflow-y: auto;
   position: absolute;
-  top: 0px;
+  /* top: 0px; */
+  top: 13px;
   bottom: 0px;
   height: auto;
   width: 100%;
   margin-bottom: 0px;
+  background: #FFFFFF;
 }
 
 .os-nav-drawer .os-page-hdr ~ ul.os-menu-items {
-  top: 64px;
+  /* top: 64px; */
 }
 
 .os-nav-drawer .os-menu-items > li {
   font-size: 16px;
   color: #666666;
+  border-bottom: #e3e3e3 solid 1px;
+  color: #2B2D2E;
 }
 
 .os-nav-drawer .os-menu-items > li.divider {
@@ -57,19 +68,62 @@
 }
 
 .os-nav-drawer .os-menu-items > li > a {
-  color: #666666;
+  /* color: #666666; */
   text-decoration: none;
-  padding: 12px 15px;
+  padding: 2px 15px;
   width: 100%;
   display: block;
+  color: #2B2D2E;
 }
 
 .os-nav-drawer .os-menu-items > li > a:hover {
-  background: #f5f5f5;
+  /* background: #f5f5f5; */
+  background: #44C1DF;
+  color: #FBFAF5;
 }
 
 .os-nav-drawer .os-page-hdr { 
   margin-bottom: 0px;
   position: relative;
   top: 0px;
+}
+
+.navbar-gradient {
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	top: 131px;
+	z-index: 1;
+}
+
+.navbar-logo {
+	height: 58px;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
+.navbar-content-text {
+	padding-left: 10px;
+	font-size: 18px !important;
+	margin-top: 14px !important;
+	position: absolute !important;
+}
+
+.home-nav {
+	border-top: #c7c7c7 solid 2px;
+	background: #FBFAF5 !important;
+	border-bottom: none !important;
+}
+
+.home-nav a {
+	padding: 3px !important;
+}
+
+.home-nav .icon {
+	color: #393e43 !important;
+	font-size: 20px !important;
+}
+
+.home-nav a:hover {
+	background: #FBFAF5 !important;
 }

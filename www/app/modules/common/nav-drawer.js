@@ -1,7 +1,7 @@
 angular.module('openspecimen')
   .directive('osNavDrawer', function($compile, $translate, osNavDrawerSvc) {
     function getNavHeader() {
-      var div = angular.element('<div/>').addClass('os-page-hdr');
+      /*var div = angular.element('<div/>').addClass('os-page-hdr');
 
       var navBtn = angular.element('<button/>')
         .addClass('os-nav-button')
@@ -15,7 +15,7 @@ angular.module('openspecimen')
         .append(navigateTo);
 
       div.append(navBtn).append(title);
-      return div;
+      return div;*/
     }
 
     return {
@@ -30,11 +30,11 @@ angular.module('openspecimen')
         element.addClass('os-nav-drawer')
           .prepend(getNavHeader());
 
-        var overlay = angular.element('<div/>').addClass('os-nav-drawer-overlay');
+       /* var overlay = angular.element('<div/>').addClass('os-nav-drawer-overlay');
         element.after(overlay);
         overlay.on('click', function() {
           osNavDrawerSvc.toggle();
-        });
+        });*/
 
         element.removeAttr('os-nav-drawer');
         osNavDrawerSvc.setDrawer(element);

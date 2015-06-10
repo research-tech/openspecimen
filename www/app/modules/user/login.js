@@ -34,6 +34,14 @@ angular.module('openspecimen')
   })
   .controller('LoginCtrl', function($scope, $rootScope, $state, $http, $location, AuthDomain, AuthService) {
 
+	function loadRememberMeToggleBtn() {
+		  $(function() {
+			  $('#remember-me-toggle').bootstrapToggle(
+					  { on: ' ', off: ' ' });
+			  }
+		  );
+	}
+	
     function init() {
       $scope.loginData = {};
       
@@ -46,6 +54,7 @@ angular.module('openspecimen')
       }
 
       loadPvs();
+      loadRememberMeToggleBtn();
     }
 
     function loadPvs() {

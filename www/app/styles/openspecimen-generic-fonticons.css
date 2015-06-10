@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "openspecimen-generic-fonticons";
+  src:url("../fonts/openspecimen-generic-font-icons.eot");
+  src:url("../fonts/openspecimen-generic-font-icons.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/openspecimen-generic-font-icons.woff") format("woff"),
+    url("../fonts/openspecimen-generic-font-icons.ttf") format("truetype"),
+    url("../fonts/openspecimen-generic-font-icons.svg#openspecimen-generic-fonticons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "openspecimen-generic-fonticons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "openspecimen-generic-fonticons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icons-arrow:before {
+  content: "a";
+}
+.icon-icons-calendar:before {
+  content: "c";
+}
+.icon-icons-print:before {
+  content: "n";
+}
+.icon-icons-read:before {
+  content: "o";
+}
+.icon-icons-settings:before {
+  content: "p";
+}
+.icon-icons-show-navigation-menu:before {
+  content: "q";
+}
+.icon-icons-update:before {
+  content: "r";
+}
+.icon-icons-view-reports:before {
+  content: "s";
+}
+.icon-icons-drop-down-arrow:before {
+  content: "f";
+}
+.icon-icons-delete:before {
+  content: "e";
+}
+.icon-icons-create-button:before {
+  content: "d";
+}
+.icon-icons-check-mark:before {
+  content: "b";
+}
+.icon-icons-edit-filter:before {
+  content: "g";
+}
+.icon-icons-events:before {
+  content: "h";
+}
+.icon-icons-export:before {
+  content: "i";
+}
+.icon-icons-hide-navigation-menu:before {
+  content: "j";
+}
+.icon-icons-home:before {
+  content: "k";
+}
+.icon-icons-import:before {
+  content: "l";
+}
+.icon-icons-notifications:before {
+  content: "m";
+}
+.icon-icons-username:before {
+  content: "u";
+}
+.icon-icons-password:before {
+  content: "t";
+}
