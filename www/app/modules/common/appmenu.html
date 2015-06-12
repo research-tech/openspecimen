@@ -1,6 +1,6 @@
 <div>
   <div class="os-navbar os-navbar-default os-navbar-docked">
-    <a class="logo" href="#"><img src="images/os_logo_large.png" class="navbar-logo"></img></a>
+    <a class="logo" href="#"><img src="images/os_logo_large.png" class="os-navbar-logo"></img></a>
     <!-- div class="search">
       <input type="text" class="form-control" placeholder="Quick Search"></input>
       <button class="btn btn-primary">
@@ -19,9 +19,9 @@
         </ul>
       </li>
       <li> |
-        <a class="notification-content">
+        <a class="os-notification-content">
           <span class="icon icon-icons-notifications"></span>
-          <span class="notification-count">07</span>
+          <span class="os-notification-count">07</span>
         </a>
       </li>
       <li> |
@@ -31,71 +31,71 @@
       </li>
       <li> 
         <a>
-          <span class="cambria-bold">Morgon Kruston</span>
+          <span>Morgon Kruston</span>
         </a>
       </li>
     </ul>
   </div>
-  <img src="images/os_gradient-nav_bar.jpg" class="header-gradient" />
-  <img src="images/os_gradient-nav_bar.jpg" class="navbar-gradient" />
+  <img src="images/os_gradient_nav_bar.jpg" class="os-header-gradient" />
+  <img src="images/os_gradient_nav_bar.jpg" class="os-navbar-gradient" />
   <div>
     <div class="os-alert-container" ng-if="alerts.length > 0">
       <alert type="{{alert.type}}" ng-repeat="alert in alerts">{{alert.text}}</alert>
     </div>
     <div>
       <div os-nav-drawer>
-      	<img src="images/os_gradient-nav_bar.jpg" class="navigation-gradient" />
-        <ul role="menu" class="roboto-medium">
+        <img src="images/os_gradient_nav_bar.jpg" class="os-navigation-gradient" />
+        <ul role="menu">
           <li show-if-allowed="cpReadOpts">
             <a ui-sref="cp-list">
-            	<span class="icon navigation-icons-collection-protocol"></span>
-            	<span translate="menu.collection_protocols" class="navbar-content-text">Collection Protocols</span>
+              <span class="icon navigation-icons-collection-protocol"></span>
+              <span translate="menu.collection_protocols" class="os-navbar-content-text">Collection Protocols</span>
             </a>
           </li>
            <li show-if-admin>
             <a ui-sref="dp-list">
-            	<span class="icon navigation-icons-distribution-protocol"></span>
-            	<span translate="menu.distribution_protocols" class="navbar-content-text">Distribution Protocols</span>
+              <span class="icon navigation-icons-distribution-protocol"></span>
+              <span translate="menu.distribution_protocols" class="os-navbar-content-text">Distribution Protocols</span>
             </a>
           </li>
           <li>
             <a ui-sref="institute-list">
-            	<span class="icon navigation-icons-institutes"></span>
-            	<span translate="menu.institutes" class="navbar-content-text">Institutes</span>
+              <span class="icon navigation-icons-institutes"></span>
+              <span translate="menu.institutes" class="os-navbar-content-text">Institutes</span>
             </a>
           </li>
           <li>
             <a ui-sref="user-list">
-            	<span class="icon navigation-icons-users"></span>
-            	<span translate="menu.users" class="navbar-content-text">Users</span>
+              <span class="icon navigation-icons-users"></span>
+              <span translate="menu.users" class="os-navbar-content-text">Users</span>
             </a>
           </li>
           <li show-if-allowed="userCreateUpdateOpts">
             <a ui-sref="role-list">
-            	<span class="icon navigation-icons-roles"></span>
-            	<span translate="menu.roles" class="navbar-content-text">Roles</span>
+              <span class="icon navigation-icons-roles"></span>
+              <span translate="menu.roles" class="os-navbar-content-text">Roles</span>
             </a>
           </li>
           <li>
             <a ui-sref="site-list">
-            	<span class="icon navigation-icons-sites"></span>
-            	<span translate="menu.sites" class="navbar-content-text">Sites</span>
+              <span class="icon navigation-icons-sites"></span>
+              <span translate="menu.sites" class="os-navbar-content-text">Sites</span>
             </a>
           </li>
           <li show-if-allowed="containerReadOpts">
             <a ui-sref="container-list" >
-            	<span class="icon navigation-icons-storage"></span>
-            	<span translate="menu.containers" class="navbar-content-text">Storage Containers</span>
+              <span class="icon navigation-icons-storage"></span>
+              <span translate="menu.containers" class="os-navbar-content-text">Storage Containers</span>
             </a>
           </li>
           <li show-if-allowed="containerReadOpts">
             <a ui-sref="#">
-            	<span class="icon navigation-icons-queries"></span>
-            	<span translate="menu.queries" class="navbar-content-text">Queries</span>
+              <span class="icon navigation-icons-queries"></span>
+              <span translate="menu.queries" class="os-navbar-content-text">Queries</span>
             </a>
           </li>
-          <li class="home-nav">
-            <a ui-sref="home" class="center"><span class="icon icon-icons-home"></span></a>
+          <li class="os-home-nav">
+            <a ui-sref="home" class="os-center"><span class="icon icon-icons-home"></span></a>
           </li>
           <!-- <li>
             <a ui-sref="query-list" translate="menu.reports">Reports</a>

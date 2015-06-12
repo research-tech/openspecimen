@@ -1,68 +1,66 @@
 <div>
-	<div class="os-custom-banner">
-		<div style="height: 30px;"></div>
-		<div class="logo login-logo">
-			<img src="images/os_logo_large.png"></img>
-		</div>
-	</div>
+  <div class="os-custom-banner">
+    <div style="height: 30px;"></div>
+    <div class="logo os-login-logo">
+      <img src="images/os_logo_large.png"></img>
+    </div>
+  </div>
 
-	<div class="login_form_container">
-		<h3 translate="user.sign_in_title" class="login_header cambria">Log in to your account</h3>
-		<form ng-submit="login()">
-			<i class="icon icon-icons-username"></i><input type="text" class="form-control roboto"
-				ng-model="loginData.loginName" 
-				placeholder="{{'user.login_name' | translate}}">
-			<i class="icon icon-icons-password"></i> <input
-				type="password" class="form-control roboto password" ng-model="loginData.password"
-				placeholder="{{'user.password' | translate}}">
-			<div ng-if="domains.length > 1">
-				<os-select ng-model="loginData.domainName" list="domains"
-					name="domain" placeholder="{{'user.domain_name' | translate}}">
-				</os-select>
-			</div>
-			<div class="login_footer_link roboto">
-				<table style="width: 100%;">
-					<tr style="border-bottom: none !important;">
-						<td>
-							<input id="remember-me-toggle" checked data-toggle="toggle" data-style="ios" type="checkbox">
-						</td>
-						<td style="padding-bottom: 5px; font-size: 16pt;">Keep me logged in</td>
-						<td style="padding-right: 0px;">
-							<button type="submit" class="btn btn-block btn-primary btn-login"
-								translate="user.sign_in" style="font-size: 16pt; display: inline-block;">
-								Log In</button><i class="icon icon-icons-arrow"></i>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td colspan="2" style="padding-bottom: 25px;"> <span translate="user.forgot_password">FORGOT PASSWORD?</span> Click <a
-							class="forgot_password_link" ui-sref="forgot-password"
-							translate="user.here">here</a>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td class="cambria" style="font-size: 16pt; font-style: italic;">To explore the features</td>
-						<td><a class="btn btn-block btn-primary btn-login" ui-sref="sign-up">Sign up</a></td>
-					</tr>
+  <div class="os-login-form-container">
+    <h3 translate="user.sign_in_title" class="os-login-header">
+      Log in to your account
+    </h3>
+    <form ng-submit="login()">
+      <i class="icon icon-icons-username"></i>
+      <input type="text" class="form-control" ng-model="loginData.loginName" placeholder="{{'user.login_name' | translate}}"> 
+      <i class="icon icon-icons-password"></i>
+      <input type="password" class="form-control password" ng-model="loginData.password" placeholder="{{'user.password' | translate}}">
+      <div ng-if="domains.length > 1">
+        <os-select ng-model="loginData.domainName" list="domains" name="domain" placeholder="{{'user.domain_name' | translate}}">
+        </os-select>
+      </div>
+      <div class="os-login-footer-link">
+        <table style="width: 100%;">
+          <tr style="border-bottom: none !important;">
+            <td>
+              <input checked data-toggle="toggle" data-style="ios" type="checkbox" os-toggle="{ on: ' ', off: ' '}">
+            </td>
+            <td style="padding-bottom: 5px; font-size: 16pt;">
+              Keep me logged in
+            </td>
+            <td style="padding-right: 0px;">
+              <button type="submit" class="btn btn-block btn-primary os-btn-login" translate="user.sign_in" style="display: inline-block;">Log In</button>
+              <i class="icon icon-icons-arrow"></i>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td colspan="2" style="padding-bottom: 25px;">
+              <span translate="user.forgot_password">FORGOT PASSWORD?</span> Click
+              <a class="os-forgot-password-link" ui-sref="forgot-password" translate="user.here">here</a>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="os-sign-up-label">
+              To explore the features
+            </td>
+            <td><a class="btn btn-block btn-primary os-btn-login" ui-sref="sign-up">Sign up</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="os-compay-info">
+        OpenSpecimen is an open source biobanking software <br />
+        developed by Krishagni Solutions on top of NCI <br />
+        caTissue. For more details visit <br />
+        <a href="http://www.openspecimen.org" class="os-footer-links" target="_blank">www.openspecimen.org</a> or mail us at <br />
+        <span class="os-footer-links">support@krishagni.com</span>
+      </div>
+    </form>
+  </div>
 
-				</table>
-			</div>
-			<div class="compay_info roboto">
-				OpenSpecimen is an open source biobanking software
-				<br />
-				developed by Krishagni Solutions on top of NCI
-				<br />
-				caTissue. For more details visit
-				<br />
-				<a href="http://www.openspecimen.org" class="footerLinks" target="_blank">www.openspecimen.org</a> or mail us at
-				 <br />
-				 <span class="footerLinks">support@krishagni.com</span>
-			</div>
-		</form>
-	</div>
-
-	<!-- <div class="os-center-box">
+    <!-- <div class="os-center-box">
     <img class="os-rounded-img" src="images/profile-user.png" />
     <form ng-submit="login()">
       <div class="os-group-controls">
@@ -72,7 +70,7 @@
           <os-select ng-model="loginData.domainName" list="domains" name="domain"
             placeholder="{{'user.domain_name' | translate}}">
           </os-select>
-	</div>
+    </div>
       </div>
       <span class="os-error-msg" ng-if="loginError" translate="user.sign_in_failed">The username or password you entered is incorrect</span>
       <button type="submit" class="btn btn-block btn-primary" translate="user.sign_in">Sign in</button>

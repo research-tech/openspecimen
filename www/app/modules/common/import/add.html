@@ -1,18 +1,12 @@
 <div>
   <div os-page-header>
-    <!-- <ul os-breadcrumbs>
+    <ul os-breadcrumbs>
       <li ng-repeat="breadcrumb in importDetail.breadcrumbs">
         <a ui-sref="{{breadcrumb.state}}" translate="{{breadcrumb.title}}"></a>
+        <span class="icon icon-icons-arrow os-icon-breadcrumbs"></span>
       </li>
-    </ul> -->
-    <div os-breadcrumbs class="os-breadcrumbs">
-		<h3 ng-repeat="breadcrumb in importDetail.breadcrumbs" class="os-title"> 
-			<span ng-if="breadcrumb.state" translate="{{breadcrumb.title}}" class="main-os-breadcrumbs">
-				{{breadcrumb.title}}
-			</span>
-		</h3>
-	</div>
-	<span class="icon icon-icons-arrow icon-breadcrumbs"></span>
+    </ul> 
+    
     <h3>
       <span translate="{{importDetail.title}}"></span>
     </h3> 

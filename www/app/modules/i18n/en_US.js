@@ -738,7 +738,7 @@
     "add_resource": "Add Resource",
 
     "resources" : {
-	  "CollectionProtocol": "Collection Protocols",
+      "CollectionProtocol": "Collection Protocols",
       "Order": "Orders",
       "ParticipantPhi": "Participants (PHI)",
       "ParticipantDeid": "Participants (DeId)",

@@ -121,3 +121,109 @@ body > .ui-select-bootstrap.open {
   z-index: 1050!important;
 }
 
+/** Bootstrap Toggle Customization styles **/
+ 
+.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+  border-radius: 20px !important;
+  width: 50px !important;
+  height: 25px !important;
+  background-color: #50ca87;
+}
+
+.toggle.ios .toggle-handle {
+  border-radius: 20px !important;
+  width: 15px;
+  height: 15px;
+  left: 28px;
+  top : 2px;
+  padding: 0px;
+} 
+
+.toggle.btn {
+  min-width: 50px !important;
+  min-height: 27px!important;
+}
+
+.toggle.off .toggle-group {
+  left: -40% !important;
+}
+
+.toggle-group {
+  width: 9% !important;
+}
+
+.toggle-off.btn, .toggle-on.btn { 
+  background-color: transparent !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/** Bootstrap Customization styles **/
+
+.form-group .icon-icons-calendar {
+  color: #9e9c96;
+}
+
+.form-horizontal .control-label {
+  font-family: "Roboto-Medium";
+  font-weight: normal;
+  font-size: 15pt;
+  color: #41464C;
+}
+
+@media(min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+    padding-left: 7%;
+  }
+}
+
+.container .form-control {
+  border-color: #DEDEDC !important;
+  color: #ACABA7;
+  font-family: "Roboto-Regular";
+  font-size: 13pt;
+}
+
+.container .ui-select-bootstrap .ui-select-toggle>.caret {
+  color: #9E9C96;
+}
+
+.form-actions .btn {
+  width: 100px;
+  height: 40px;
+}
+
+
+.form-group .btn-primary {
+  background: #1CBA72 !important;
+  font-family: "Roboto-Medium";
+  font-size: 15pt;
+  color: #ffffff;
+  border: none;
+}
+
+.btn {
+  border-radius: 2px !important;
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .icon {
+  position: absolute;
+  padding: 10px;
+  padding-right: 25px;
+  pointer-events: none;
+}
+
+/* align icon */
+.right-addon .icon { right: 0px;}
+
+/* add padding  */
+.right-addon input { padding-right: 30px; }

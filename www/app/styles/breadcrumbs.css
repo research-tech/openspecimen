@@ -18,7 +18,15 @@
 }
 
 .os-breadcrumbs a {
-  color: #428bca;
+  /* color: #428bca; */
+  color: #44494D !important;
+  font-family: "Cambria";
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20pt;
+  padding-right: 10px;
+  position: relative;
+  top: -5px;
 }
 
 .os-breadcrumbs.hover > li.collapsed + li:before {
@@ -47,4 +55,14 @@
 
 .os-breadcrumbs > li {
   display: inline-block;
+}
+
+.os-icon-breadcrumbs {
+  font-size: 20pt;
+  line-height: 26px;
+  color: #44494D!important;
+}
+
+.os-breadcrumbs h3 {
+  margin-right: 10px !important;
 }

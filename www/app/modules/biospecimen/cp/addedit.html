@@ -1,29 +1,16 @@
 
 <div>
   <div os-page-header>
-    <!-- <ul os-breadcrumbs>
+    <ul os-breadcrumbs>
       <li><a ui-sref="cp-list" translate="cp.list">Collection Protocols</a></li>
-    </ul> -->
+    </ul>
     
-    <div os-breadcrumbs class="os-breadcrumbs">
-		<h3 class="os-title"> 
-			<span translate="cp.list" class="main-os-breadcrumbs">
-				Collection Protocols
-			</span>
-		</h3>
-	</div>
-	<span class="icon icon-icons-arrow icon-breadcrumbs"></span>
+    <span class="icon icon-icons-arrow os-icon-breadcrumbs"></span>
 
     <h3>
       <span ng-if="!cp.id" translate="cp.create_cp_title">Create Collection Protocol</span>
       <span ng-if="!!cp.id">{{cp.title}}</span>
     </h3>
-    <div class="os-btns right">
-      <button class="default search-btn" os-right-drawer-toggle title="{{'cp.tooltip.search' | translate}}">
-        <span class="fa fa-search"></span>
-        <!-- <span translate="common.buttons.search">Search</span> -->
-      </button>
-    </div>
   </div>
 
   <div class="container">
@@ -73,18 +60,18 @@
 
       <div class="form-group">
         <label class="col-xs-3 control-label" translate="cp.date">Date</label>
-        <div class="col-xs-3">
+        <div class="col-xs-3 inner-addon right-addon">
+          <i class="icon icon-icons-calendar"></i>
           <input type="text" name="startDate" ng-model="cp.startDate" class="form-control"
             datepicker-popup="{{global.dateFmt}}" show-button-bar="true" is-open="startDt.isOpen" ng-focus="startDt.isOpen=true"
             placeholder="{{'cp.start_date' | translate}}">
-            <i class="icon icon-icons-calendar"></i>
            <div os-field-error field="cpForm.startDate"></div>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-3 inner-addon right-addon">
+          <i class="icon icon-icons-calendar"></i>
           <input type="text" name="endDate" ng-model="cp.endDate" class="form-control"
             datepicker-popup="{{global.dateFmt}}" show-button-bar="true" is-open="endDt.isOpen" ng-focus="endDt.isOpen=true"
             placeholder="{{'cp.end_date' | translate}}">
-            <i class="icon icon-icons-calendar"></i>
            <div os-field-error field="cpForm.endDate"></div>
         </div>
       </div>

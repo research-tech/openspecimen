@@ -56,11 +56,13 @@
 
 .os-card h5 {
   /* color: #999; */
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-size: 15px;
 }
 
 .os-card p {
   /* color: #999; */
+  font-size: 13px;
 }
 
 .os-card h4, .os-card h5, .os-card p {
@@ -91,17 +93,17 @@
 }
 
 .os-card .stats div:first-of-type {
-	border-right: #393e43 1px solid;
-	text-align: right;
-	padding-right: 25px;
+  border-right: #393e43 1px solid;
+  text-align: right;
+  padding-right: 25px;
 }
 
 .os-card .icon {
-	font-size: 30px;
-	margin: 0px 15px 0px 0px;
+  font-size: 30px;
+  margin: 0px 15px 0px 0px;
 }
 
 .os-card .stats .stat span {
-	position: relative;
-	top: -5px;
+  position: relative;
+  top: -5px;
 }
