@@ -10,20 +10,26 @@
 }
 
 .os-card {
-  height: 180px;
+  /* height: 180px; */
   width: 350px;
   background: #fff;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  /* box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3); */
   padding: 10px 20px;
   margin: 15px 30px 15px 0px;
   float: left;
   position: relative;
+  color: #404549;
+  font-family: "Roboto-Regular";
+  border: #dededc solid 1px;
+  height: 200px;
 }
 
 .os-card a {
   color: black!important;
   cursor: pointer;
+  font-weight: bold !important;
+  color: #404549 !important;
 }
 
 .os-card:hover {
@@ -34,19 +40,29 @@
 
 .os-card .stats {
   position: absolute;
-  bottom: 15px;
+  /* bottom: 15px; */
+  /* width: 310px; */
+  /* color: #666666; */
   font-size: 22px;
-  width: 310px;
-  color: #666666;
-}
-
-.os-card h5 {
-  color: #999;
+  color: #393e43;
+  bottom: 0px;
+  width: 348px;
+  left: 0px;
+  height: 60px;
+  padding: 12px 29px;
+  background: #e9e9e4;
   font-weight: bold;
 }
 
+.os-card h5 {
+  /* color: #999; */
+  /* font-weight: bold; */
+  font-size: 15px;
+}
+
 .os-card p {
-  color: #999;
+  /* color: #999; */
+  font-size: 13px;
 }
 
 .os-card h4, .os-card h5, .os-card p {
@@ -74,4 +90,20 @@
 
 .os-side-menu-page-content .os-card .stats {
   width: 285px;
+}
+
+.os-card .stats div:first-of-type {
+  border-right: #393e43 1px solid;
+  text-align: right;
+  padding-right: 25px;
+}
+
+.os-card .icon {
+  font-size: 30px;
+  margin: 0px 15px 0px 0px;
+}
+
+.os-card .stats .stat span {
+  position: relative;
+  top: -5px;
 }

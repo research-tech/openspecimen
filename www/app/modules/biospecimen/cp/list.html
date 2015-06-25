@@ -3,30 +3,10 @@
     <h3 translate="cp.list">Collection Protocols</h3>
     <div class="os-btns right">
       <div dropdown class="inline">
-        <button show-if-allowed="cpResource.createOpts" class="primary dropdown-toggle" title="Click to add new Collection Protocol"
-          ui-sref="cp-addedit({cpId: ''})">
-          <span class="fa fa-plus"></span>
-          <span translate="common.buttons.create">Create</span>
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <a ui-sref="cp-addedit">
-              <i class="fa fa-plus"></i>
-              <span translate="common.buttons.create">Create</span>
-            </a>
-          </li>
-          <li>
-            <a ui-sref="cp-import">
-              <i class="fa fa-upload"></i>
-              <span translate="common.buttons.import">Import</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.import">Import</span>
-          <span class="fa fa-caret-down"></span>
+          <!-- <span class="fa fa-caret-down"></span> -->
+          <span class="icon icon-icons-import"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
@@ -47,7 +27,7 @@
               <span translate="participant.part_extensions">Participant Extensions</span>
             </a>
           </li>
-          <li class="divider"></li>
+          <li class="os-divider"></li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'visit'})">
               <i class="fa fa-calendar"></i>
@@ -60,7 +40,7 @@
               <span translate="visits.visit_extensions">Visit Extensions</span>
             </a>
           </li>
-          <li class="divider"></li>
+          <li class="os-divider"></li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'specimen'})">
               <i class="fa fa-sliders"></i>
@@ -79,7 +59,7 @@
               <span translate="specimens.spmn_events">Specimen Events</span>
             </a>
           </li>
-          <li class="divider"></li>
+          <li class="os-divider"></li>
           <li>
             <a ui-sref="biospecimen-obj-import-jobs">
               <i class="fa fa-table"></i>
@@ -88,9 +68,34 @@
           </li>
         </ul>
       </div>
-      <button class="default" os-right-drawer-toggle title="{{'cp.tooltip.search' | translate}}">
+      <div dropdown class="inline">
+        <button show-if-allowed="cpResource.createOpts" class="primary dropdown-toggle" title="Click to add new Collection Protocol"
+          ui-sref="cp-addedit({cpId: ''})">
+          <span translate="common.buttons.create">Create</span>
+          <!-- <span class="fa fa-plus"></span> -->
+          <span class="icon icon-icons-create-button"></span>
+          
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a ui-sref="cp-addedit">
+              <!-- <i class="fa fa-plus"></i> -->
+              <span class="icon icon-icons-create-button"></span>
+              <span translate="common.buttons.create">Create</span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="cp-import">
+              <!-- <i class="fa fa-upload"></i> -->
+              <i class="icon icon-icons-import"></i>
+              <span translate="common.buttons.import">Import</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <button class="default os-search-btn" os-right-drawer-toggle title="{{'cp.tooltip.search' | translate}}">
         <span class="fa fa-search"></span>
-        <span translate="common.buttons.search">Search</span>
+        <!-- <span translate="common.buttons.search">Search</span> -->
       </button>
     </div>
   </div>
@@ -106,11 +111,11 @@
       <p>{{cp.startDate | date: global.dateFmt}}</p>
       <div class="stats">
         <div class="stat col-xs-6" title="{{'cp.tooltip.reg_participants_count' | translate}}">
-          <span class="os-lavatar os-lavatar-sm">P</span>
+          <!-- <span class="os-lavatar os-lavatar-sm">P</span> --><i class="icon internal-icon-icons-user-count"></i>
           <span>{{cp.participantCount | number: 0}}</span>
         </div>
         <div class="stat col-xs-6" title="{{'cp.tooltip.collected_specimens_count' | translate}}">
-          <span class="os-lavatar os-lavatar-sm">S</span>
+          <!-- <span class="os-lavatar os-lavatar-sm">S</span> --><i class="icon internal-icon-icons-specimen-count"></i>
           <span>{{cp.specimenCount | number: 0}}</span>
         </div>
       </div>

@@ -21,7 +21,8 @@
 }
 
 .os-page-hdr + .os-side-menu-wrapper {
-  top: 114px;
+  /* top: 114px; */
+  top: 135px;
 }
   
 ul.os-side-menu {
@@ -111,7 +112,8 @@ ul.os-side-menu > li.active a {
 }
 
 .os-page-hdr ~ .os-side-menu-page-content {
-  top: 114px;
+  /* top: 114px; */
+  top: 135px;
 }
 
 .os-side-menu-wrapper.closed .os-side-menu li .os-title {

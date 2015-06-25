@@ -1,0 +1,142 @@
+@CHARSET "UTF-8";
+
+.os-login-form-container {
+  margin: 0 auto;
+  width: 500px;  
+}
+
+.os-login-form-container .icon-icons-username, .os-login-form-container .icon-icons-password {
+  color: #FFF;
+  font-size: 20pt;
+  position: relative;
+  top: 40px;
+  margin-top: 0px;
+  margin-left: 5px;
+}
+
+.os-login-form-container input {
+  padding-left:40px;
+  font-family: "Roboto-Regular";
+}
+
+.os-login-form-container .form-control {
+  background-color: transparent;
+  border-radius: 0px;
+  border-bottom: 1px solid #FFFFFF;
+  border-top: none;
+  border-left: none;
+  border-right: 0px;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  font-size: 16pt;
+  box-shadow: -13px 11px 0 -11px #CCC;
+}
+
+.os-login-form-container .btn {
+  border: none;
+}
+
+.os-login-header {
+  color: #FFFFFF;
+  font-family: "Cambria";
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20pt;
+  text-align: left;
+}
+
+.os-login-logo {
+  height: 75pt;
+}
+
+.os-login-logo img {
+  height: 60pt;
+}
+
+.os-login-footer-link {
+  font-family: "Roboto-Regular";
+  font-size: 14pt;
+  color: #FFFFFF;
+}
+
+.os-login-footer-link table td {
+  padding:20px;
+  padding-right: 5px;
+}
+
+.os-login-footer-link table tr {
+  border-bottom: 1px dotted #ECECE8;
+}
+
+.os-forgot-password-link, .os-forgot-password-link:hover{
+  color: #50AC87;
+  text-decoration: underline;
+}
+
+.os-btn-login, .os-btn-login:hover {
+  background-color: #50CA87;
+  color: #FFFFFF;
+  font-size: 15pt;
+  font-weight: bold;
+  width: 120px;
+}
+
+.os-compay-info {
+  font-family: "Roboto-Regular";
+  font-size: 12pt;
+  color: #FFFFFF;
+  padding: 20px;
+  line-height: 23pt;
+}
+
+.os-footer-links, .os-footer-links:hover {
+  color: #6ED2E9;
+}
+
+.os-login-footer-link .icon-icons-arrow {
+  position: relative;
+  float: right;
+  left: -35px;
+  top: 5px;
+  font-size: 30px;
+  pointer-events: none;
+}
+
+.os-login-footer-banner {
+  width:100%;
+  height: 15px;
+  position: absolute;
+  bottom: 0;
+}
+
+.os-sign-up-label {
+  font-family: "Cambria";
+  font-style: italic;
+  font-size: 16pt;
+}
+
+/** Placeholder Customization styles **/
+
+.os-login-form-container .form-control:-moz-placeholder { /* Firefox 18- */
+   color: #FFFFFF;  
+   font-family: "Roboto-Regular";
+   font-size: 16pt;
+}
+
+.os-login-form-container .form-control::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFFFFF;  
+   font-family: "Roboto-Regular";
+   font-size: 16pt;
+}
+
+.os-login-form-container .form-control:-ms-input-placeholder {  
+   color: #FFFFFF;
+   font-family: "Roboto-Regular";
+   font-size: 16pt;
+}
+
+.os-login-form-container .form-control::-webkit-input-placeholder {
+   color: #FFFFFF;
+   font-family: "Roboto-Regular";
+   font-size: 16pt;
+}

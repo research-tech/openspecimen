@@ -3,8 +3,10 @@
     <ul os-breadcrumbs>
       <li ng-repeat="breadcrumb in importDetail.breadcrumbs">
         <a ui-sref="{{breadcrumb.state}}" translate="{{breadcrumb.title}}"></a>
+        <span class="icon icon-icons-arrow os-icon-breadcrumbs"></span>
       </li>
-    </ul>
+    </ul> 
+    
     <h3>
       <span translate="{{importDetail.title}}"></span>
     </h3> 
