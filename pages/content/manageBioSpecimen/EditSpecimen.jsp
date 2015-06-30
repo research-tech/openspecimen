@@ -320,7 +320,8 @@ req.onreadystatechange = function() {
 		}
 </script>
 <!----------------------------------------------------------------------->
-<body onload="LoadSCGTabBar('${requestScope.operation}');updateSpecimenNode();"> 
+ 
+<body onload="init();updateSpecimenNode();"> 
 <html:form action="NewSpecimenEdit.do">
 
 <html:hidden name="specimenDTO" property="generateLabel"/>
