@@ -716,11 +716,11 @@ req.onreadystatechange = function() {
 								   		
 										</html:select>
 										</span>
-										<span style="padding: 5px 0px 0px 10px; float:left; display:inline;">
+										<!-- <span style="padding: 5px 0px 0px 10px; float:left; display:inline;">
 											<a onclick="morphpopup('new_PopUpDiv');return false" href="#">
 												<img width="16" height="16" border="0" title="select value from hierarchical view" style="vertical-align: bottom" src="images/uIEnhancementImages/Tree.gif"></img>
 											</a>
-										</span>
+										</span> -->
 									</td>	
 								 	</c:when>
                                 </c:choose>	
