@@ -227,3 +227,8 @@ body > .ui-select-bootstrap.open {
 
 /* add padding  */
 .right-addon input { padding-right: 30px; }
+
+.os-offset-form-horizontal {
+  margin-right: 15px;
+  margin-left: 15px;
+}

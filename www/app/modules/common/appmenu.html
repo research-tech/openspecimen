@@ -16,7 +16,7 @@
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
           <li><a>{{currentUser.lastName + ' ' + currentUser.firstName}}</a></li>
           <li class="divider"></li>
-          <li><a ui-sref="user-password({userId: currentUser.id})" translate="user.password.change_password">Change Password</a></li>
+          <li><a ui-sref="user-password({userId: currentUser.id})" translate="user.change_password.change_password">Change Password</a></li>
           <li class="divider"></li>
           <li><a ui-sref="login({logout:true})"  translate="user.logout">Log Out</a></li>
         </ul>
@@ -91,27 +91,24 @@
               <span translate="menu.containers" class="os-navbar-content-text">Storage Containers</span>
             </a>
           </li>
-          <li show-if-allowed="containerReadOpts">
-            <a ui-sref="#">
-              <span class="icon navigation-icons-queries"></span>
-              <span translate="menu.queries" class="os-navbar-content-text">Queries</span>
-            </a>
+          <li>
+            <a ui-sref="query-list" translate="menu.queries">Queries</a>
           </li>
           <li class="os-home-nav">
             <a ui-sref="home" class="os-center"><span class="icon icon-icons-home"></span></a>
           </li>
-          <!-- <li>
+          <li>
             <a ui-sref="query-list" translate="menu.reports">Reports</a>
-          </li> -->
-          <!-- <li>
+          </li> 
+          <li>
             <a ui-sref="specimen-list"  translate="menu.specimen_lists">Specimen Lists</a>
-          </li> -->
-          <!-- <li>
+          </li>
+          <li>
             <a ui-sref="form-list" translate="menu.forms">Forms</a>
-          </li> -->
-          <!-- <li show-if-allowed="orderReadOpts">
+          </li>
+          <li show-if-allowed="orderReadOpts">
             <a ui-sref="order-list" translate="menu.distribution_orders">Distribution Orders</a>
-          </li> -->
+          </li>
           
           <!-- li><a href="#" translate="menu.settings">Settings</a></li -->
         </ul>

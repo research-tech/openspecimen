@@ -10,9 +10,7 @@
     "distribution_protocols": "Distribution Protocols",
     "roles": "Roles",
     "queries": "Queries",
-    "reports": "Reports",
-    "containers": "Storage Containers",
-    "queries": "Queries",
+    "containers": "Containers",
     "forms": "Forms",
     "specimen_lists": "Specimen Lists",
     "distribution_orders": "Distribution Orders",
@@ -24,7 +22,7 @@
     "roles_desc": "Create, update user access controls",
     "sites_desc": "Add and update sites",
     "containers_desc": "Manage containers and their restrictions",
-    "reports_desc": "Create, share and schedule reports",
+    "queries_desc": "Create, share and schedule queries",
     "specimen_lists_desc": "Create, share and manage specimen lists",
     "forms_desc": "Create and manage custom forms",
     "settings_desc": "Manage application configuration settings",
@@ -115,7 +113,7 @@
     "end_date": "End Date",
     "consents_waived": "Consents Waived",
     "ethics_approval_id": "Ethics Approval ID",
-    "ppid_fmt": "PPID Format",
+    "ppid_fmt": "De-ID Format",
     "ppid_prefix": "Prefix",
     "ppid_digits": "No. of digits",
     "ppid_suffix": "Suffix",
@@ -186,6 +184,7 @@
   "participant": {
     "list": "Participants",
    
+    "id": "MPI / MRN / SSN",
     "register_participant": "Register Participant",
     "edit_participant": "Edit Participant",
     "reg_date": "Registration Date",
@@ -211,15 +210,27 @@
     "site": "Site",
     "select_site": "Select Site",
     "pmis": "Medical Identifiers",
-    "protocol_id": "Protocol Identifier",
+    "protocol_id": "Participant De-ID",
     "filter_title": "Participants Filter", 
     "spmn_label_or_barcode": "Specimen Label / Barcode",
     "collection_protocol": "Collection Protocol",
     "regDate": "Registration Date",
-  
-    "signed_consent_form": "Signed Consent Form",
-    "deleting_consent_form": "Deleting Signed Consent Form",
-    "confirm_delete_consent_form": "Are you sure you want to delete {{consentDocumentName}}?",
+
+    "consent": {
+      "signed_consent_form": "Signed Consent Form",
+      "deleting_consent_form": "Deleting Signed Consent Form",
+      "confirm_delete_consent_form": "Are you sure you want to delete {{consentDocumentName}}?",
+      "consent_responses": "Consent Responses",
+      "signature_date": "Consent Signature Date",
+      "witness": "Consent Witness",
+      "response_value": {
+        "yes": "Yes",
+        "no": "No",
+        "not_specified": "Not Specified",
+        "withdrawn": "Withdrawn",
+        "none": "None"
+      }
+    },
 
     "similar_participants": "Following participants found that are similar to new participant being registered",
     "matched_attrs": "Matched Attributes",
@@ -235,7 +246,7 @@
     "part_updates": "Participant Updates",
     "part_extensions": "Participant Extensions",
     "registrations": "Participant Registrations",
-    "registered_cps": "Registered CPs",
+    "registered_cps": "Registered Protocols",
     
     "buttons": {
       "register": "Register",
@@ -277,14 +288,14 @@
     "visit_site": "Visit Site",
     "clinical_diagnosis": "Clinical Diagnosis",
     "clinical_status": "Clinical Status",
-    "surgical_path_no": "Surgical Pathology No.",
+    "surgical_path_no": "Surg Path Number",
 
     "bulk_import": "Bulk Import Visits",
     "visit_extensions": "Visit Extensions",
 
     "spr": "Surgical Pathology Report",
     "spr_uploaded": "Surgical pathology report {{file}} uploaded successfully.",
-    "no_spr": "No surgical pathology report uploaded. Do you want to upload now?",
+    "no_spr": "No surgical pathology report uploaded.",
     "deleting_spr": "Deleting Surgical Pathology Report",
     "confirm_delete_spr": "Are you sure you want to delete {{sprName}} ?",
     "spr_locked": "Surgical pathology report locked successfully.",
@@ -344,6 +355,7 @@
     "aliquot_cnt": "Count of Aliquots",
     "qty_per_aliquot": "Quantity per Aliquot",
     "close_parent_q": "Do you want to close parent specimen?",
+    "comments": "Comments",
     "qty": "Quantity",
     "aliquot": "Aliquot",
     "derived": "Derived",
@@ -592,6 +604,7 @@
     "password": "Password",
     "confirm_password": "Confirm Password",
     "sign_in_title": "Log in to your account",
+    "password_rule": "Tip: Password should contains atleast 1 uppercase letter, 1 lowercase  letter, 1 number and should be 8 characters long.",
     "sign_in_failed": "The username or password you entered is incorrect",
     "sign_in": "Log In",
     "forgot_password": "FORGOT PASSWORD?",
@@ -658,7 +671,7 @@
       "delete": "Delete"
     },
 
-    "password": {
+    "change_password": {
       "old_password": "Old Password",
       "new_password": "New Password",
       "confirm_password": "Confirm Password",
@@ -818,6 +831,7 @@
     "attach_form": "Attach Form",
     "attached": "Form Successfully Attached",
     "confirm_delete_association": "Are you sure you want to delete this form at <b>{{level.name}}</b> level from <b>{{!collectionProtocol.id ? 'All Protocols' : collectionProtocol.shortTitle}}</b>? \n Please note you will no longer be able to access data for this form",
+    "association_deleted": "Successfully deleted form at {{level.name}} level from {{!collectionProtocol.id ? 'All Protocols' : collectionProtocol.shortTitle}}",
 
     "tooltip": {
       "add": "Click to add new Form",
@@ -983,6 +997,8 @@
     "pivot_table_no_row_fields": "Select at least one field to use for grouping rows in pivot table",
     "pivot_table_no_col_field": "Select field to use for grouping columns in pivot table",
     "pivot_table_no_summary_fields": "Select at least one summary field",
+    "excl_rollup": "Exclude Rollup For",
+    "select_excl_rollup": "Select fields that should be excluded from rollup",
 
     "expr_toolbar": {
       "and": "AND",
