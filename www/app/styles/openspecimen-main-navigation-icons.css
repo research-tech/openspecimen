@@ -71,3 +71,12 @@
 .navigation-icons-users:before {
   content: "d";
 }
+.navigation-icons-specimen-list:before {
+  content: "k";
+}
+.navigation-icons-forms:before {
+  content: "k";
+}
+.navigation-icons-distribution-order:before {
+  content: "k";
+}

@@ -27,14 +27,9 @@
           <span class="os-notification-count">07</span>
         </a>
       </li>
-      <li> |
+      <li>
         <a>
           <span class="icon icon-icons-settings"></span>
-        </a>
-      </li>
-      <li> 
-        <a>
-          <span>Morgon Kruston</span>
         </a>
       </li>
     </ul>
@@ -48,7 +43,7 @@
     <div>
       <div os-nav-drawer>
         <img src="images/os_gradient_nav_bar.jpg" class="os-navigation-gradient" />
-        <ul role="menu">
+        <ul role="menu" style="margin-bottom: 25px;">
           <li show-if-allowed="cpReadOpts">
             <a ui-sref="cp-list">
               <span class="icon navigation-icons-collection-protocol"></span>
@@ -92,26 +87,35 @@
             </a>
           </li>
           <li>
-            <a ui-sref="query-list" translate="menu.queries">Queries</a>
-          </li>
-          <li class="os-home-nav">
-            <a ui-sref="home" class="os-center"><span class="icon icon-icons-home"></span></a>
-          </li>
-          <li>
-            <a ui-sref="query-list" translate="menu.reports">Reports</a>
-          </li> 
-          <li>
-            <a ui-sref="specimen-list"  translate="menu.specimen_lists">Specimen Lists</a>
-          </li>
-          <li>
-            <a ui-sref="form-list" translate="menu.forms">Forms</a>
-          </li>
-          <li show-if-allowed="orderReadOpts">
-            <a ui-sref="order-list" translate="menu.distribution_orders">Distribution Orders</a>
+            <a ui-sref="query-list" >
+              <span class="icon navigation-icons-queries"></span>
+              <span translate="menu.queries" class="os-navbar-content-text">Queries</span>
+            </a>
           </li>
           
+          <li>
+            <a ui-sref="specimen-list">
+              <span class="icon navigation-icons-specimen-list"></span>
+              <span translate="menu.specimen_lists" class="os-navbar-content-text">Specimen Lists</span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="form-list" >
+              <span class="icon navigation-icons-forms"></span>
+              <span translate="menu.forms" class="os-navbar-content-text">Forms</span>
+            </a>
+          </li>
+          <li show-if-allowed="orderReadOpts">
+            <a ui-sref="order-list" >
+              <span class="icon navigation-icons-distribution-order"></span>
+              <span translate="menu.distribution_orders" class="os-navbar-content-text">Distribution Orders</span>
+            </a>
+          </li>
           <!-- li><a href="#" translate="menu.settings">Settings</a></li -->
         </ul>
+        <div ui-sref="home" class="os-home-nav">
+          <a class="os-center"><span class="icon icon-icons-home"></span></a>
+        </div>
       </div>
       <div>
         <div ui-view></div>

@@ -121,43 +121,6 @@ body > .ui-select-bootstrap.open {
   z-index: 1050!important;
 }
 
-/** Bootstrap Toggle Customization styles **/
- 
-.toggle.ios, .toggle-on.ios, .toggle-off.ios {
-  border-radius: 20px !important;
-  width: 50px !important;
-  height: 25px !important;
-  background-color: #50ca87;
-}
-
-.toggle.ios .toggle-handle {
-  border-radius: 20px !important;
-  width: 15px;
-  height: 15px;
-  left: 28px;
-  top : 2px;
-  padding: 0px;
-} 
-
-.toggle.btn {
-  min-width: 50px !important;
-  min-height: 27px!important;
-}
-
-.toggle.off .toggle-group {
-  left: -40% !important;
-}
-
-.toggle-group {
-  width: 9% !important;
-}
-
-.toggle-off.btn, .toggle-on.btn { 
-  background-color: transparent !important;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
 /** Bootstrap Customization styles **/
 
 .form-group .icon-icons-calendar {

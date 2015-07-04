@@ -2,20 +2,21 @@
 
 .os-login-form-container {
   margin: 0 auto;
-  width: 500px;  
+  width: 400px;  
 }
 
-.os-login-form-container .icon-icons-username, .os-login-form-container .icon-icons-password {
+.os-login-form-container .icon-icons-username, 
+.os-login-form-container .icon-icons-password {
   color: #FFF;
   font-size: 20pt;
   position: relative;
-  top: 40px;
+  top: 36px;
   margin-top: 0px;
-  margin-left: 5px;
+  margin-left: 4px;
 }
 
 .os-login-form-container input {
-  padding-left:40px;
+  padding-left: 40px;
   font-family: "Roboto-Regular";
 }
 
@@ -57,49 +58,64 @@
   font-family: "Roboto-Regular";
   font-size: 14pt;
   color: #FFFFFF;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
-.os-login-footer-link table td {
-  padding:20px;
-  padding-right: 5px;
+.os-login-footer-link .icon-icons-arrow {
+  position: relative;
+  left: 116px;
+  top: 6px;
+  font-size: 26px;
 }
 
-.os-login-footer-link table tr {
-  border-bottom: 1px dotted #ECECE8;
+.os-login-footer-link .remember-btn {
+  margin-right: 50px;
 }
 
-.os-forgot-password-link, .os-forgot-password-link:hover{
+.os-login-footer-link hr {
+  border-top: 1px dotted #ECECE8;
+}
+
+.os-login-footer {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.os-login-footer .link, 
+.os-login-footer .link:hover{
   color: #50AC87;
   text-decoration: underline;
 }
 
-.os-btn-login, .os-btn-login:hover {
+.os-btn-login, 
+.os-btn-login:hover {
   background-color: #50CA87;
   color: #FFFFFF;
   font-size: 15pt;
   font-weight: bold;
-  width: 120px;
+  height: 40px;
+  width: 110px;
+  padding-right: 24px;
 }
 
-.os-compay-info {
-  font-family: "Roboto-Regular";
-  font-size: 12pt;
-  color: #FFFFFF;
-  padding: 20px;
-  line-height: 23pt;
+.os-btn-signup, 
+.os-btn-signup.hover {
+  padding-right: 12px !important;
 }
 
 .os-footer-links, .os-footer-links:hover {
   color: #6ED2E9;
 }
 
-.os-login-footer-link .icon-icons-arrow {
-  position: relative;
-  float: right;
-  left: -35px;
-  top: 5px;
-  font-size: 30px;
-  pointer-events: none;
+.os-compay-info {
+  font-family: "Roboto-Regular";
+  font-size: 12pt;
+  color: #FFFFFF;
+  padding: 18px;
+  line-height: 23pt;
+  text-align: left;
 }
 
 .os-login-footer-banner {
@@ -113,6 +129,63 @@
   font-family: "Cambria";
   font-style: italic;
   font-size: 16pt;
+}
+
+/** Flip Switch Styles **/
+
+.os-onoffswitch {
+  margin: 5px;
+  position: relative; width: 38px;
+}
+
+.os-onoffswitch-checkbox {
+  display: none;
+}
+
+.os-onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 1px solid #50CA87; border-radius: 20px;
+}
+
+.os-onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+
+.os-onoffswitch-inner:before, .os-onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 18px; padding: 0;
+  box-sizing: border-box;
+}
+
+.os-onoffswitch-inner:before {
+  content: "";
+  padding-left: 5px;
+  background-color: #50CA87;
+}
+
+.os-onoffswitch-inner:after {
+  content: "";
+  padding-right: 5px;
+  background-color: #EEEEEE;
+  text-align: right;
+}
+
+.os-onoffswitch-switch {
+  display: block; width: 10px; margin: 4px;
+  background: #50CA87;
+  border: 1px solid #50CA87; border-radius: 20px;
+  position: absolute; top: 0; bottom: 0; right: 18px;
+  transition: all 0.3s ease-in 0s; 
+}
+
+.os-onoffswitch-checkbox:checked + .os-onoffswitch-label .os-onoffswitch-inner {
+  margin-left: 0;
+}
+
+.os-onoffswitch-checkbox:checked + .os-onoffswitch-label .os-onoffswitch-switch {
+  right: 0; 
+  border: 1px solid #fff;
+  background: #fff;
 }
 
 /** Placeholder Customization styles **/

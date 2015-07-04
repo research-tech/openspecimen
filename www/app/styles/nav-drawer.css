@@ -125,9 +125,14 @@
 }
 
 .os-home-nav {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
   border-top: #c7c7c7 solid 2px;
   background: #FBFAF5 !important;
   border-bottom: none !important;
+  cursor: pointer;
 }
 
 .os-home-nav a {

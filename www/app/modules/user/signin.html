@@ -12,49 +12,48 @@
     </h3>
     <form ng-submit="login()">
       <i class="icon icon-icons-username"></i>
-      <input type="text" class="form-control" ng-model="loginData.loginName" placeholder="{{'user.login_name' | translate}}"> 
+      <input type="text" class="form-control" ng-model="loginData.loginName" 
+      placeholder="{{'user.login_name' | translate}}" /> 
       <i class="icon icon-icons-password"></i>
-      <input type="password" class="form-control password" ng-model="loginData.password" placeholder="{{'user.password' | translate}}">
+      <input type="password" class="form-control password" ng-model="loginData.password" 
+      placeholder="{{'user.password' | translate}}" />
       <div ng-if="domains.length > 1">
-        <os-select ng-model="loginData.domainName" list="domains" name="domain" placeholder="{{'user.domain_name' | translate}}">
+        <os-select ng-model="loginData.domainName" list="domains" name="domain" 
+        placeholder="{{'user.domain_name' | translate}}">
         </os-select>
       </div>
       <div class="os-login-footer-link">
-        <table style="width: 100%;">
-          <tr style="border-bottom: none !important;">
-            <td>
-              <input checked data-toggle="toggle" data-style="ios" type="checkbox" os-toggle="{ on: ' ', off: ' '}">
-            </td>
-            <td style="padding-bottom: 5px; font-size: 16pt;">
-              Keep me logged in
-            </td>
-            <td style="padding-right: 0px;">
-              <button type="submit" class="btn btn-block btn-primary os-btn-login" translate="user.sign_in" style="display: inline-block;">Log In</button>
-              <i class="icon icon-icons-arrow"></i>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td colspan="2" style="padding-bottom: 25px;">
-              <span translate="user.forgot_password">FORGOT PASSWORD?</span> Click
-              <a class="os-forgot-password-link" ui-sref="forgot-password" translate="user.here">here</a>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td class="os-sign-up-label">
-              To explore the features
-            </td>
-            <td><a class="btn btn-block btn-primary os-btn-login" ui-sref="sign-up">Sign up</a>
-            </td>
-          </tr>
-        </table>
+        <div class="pull-left">
+          <div class="os-onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="os-onoffswitch-checkbox" id="flipswitch" />
+            <label class="os-onoffswitch-label" for="flipswitch">
+              <span class="os-onoffswitch-switch"></span>
+              <span class="os-onoffswitch-inner"></span>
+            </label> 
+          </div>
+        </div>
+        <span translate="user.keep_me_logged_in" class="pull-left remember-btn"> Keep me logged in </span>
+          
+        <button type="submit" class="btn btn-primary os-btn-login pull-right" translate="user.sign_in">Log In</button>
+        <i class="icon icon-icons-arrow"></i>
+     
+        <div class="os-login-footer">
+          <span translate="user.forgot_password">FORGOT PASSWORD?</span> Click
+          <a class="link" ui-sref="forgot-password" translate="user.here">here</a>
+        </div>
+        <hr/>
+        <div class="os-login-footer">
+          To explore the features
+          <button class="btn btn-primary os-btn-login os-btn-signup pull-right" ui-sref="sign-up">Sign up</button>
+        </div>
+        <hr/>
       </div>
       <div class="os-compay-info">
-        OpenSpecimen is an open source biobanking software <br />
-        developed by Krishagni Solutions on top of NCI <br />
+        OpenSpecimen is an open source biobanking software
+        developed by Krishagni Solutions on top of NCI
         caTissue. For more details visit <br />
-        <a href="http://www.openspecimen.org" class="os-footer-links" target="_blank">www.openspecimen.org</a> or mail us at <br />
+        <a href="http://www.openspecimen.org" class="os-footer-links" target="_blank">www.openspecimen.org</a> 
+        or mail us at <br />
         <span class="os-footer-links">support@krishagni.com</span>
       </div>
     </form>

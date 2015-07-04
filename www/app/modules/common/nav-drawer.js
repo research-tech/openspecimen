@@ -26,6 +26,9 @@ angular.module('openspecimen')
         element.find('ul').on('click', function() {
           osNavDrawerSvc.toggle();
         });
+        element.find('div.os-home-nav').on('click', function() {
+          osNavDrawerSvc.toggle();
+        });
 
         element.addClass('os-nav-drawer')
           .prepend(getNavHeader());
