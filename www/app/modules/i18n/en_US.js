@@ -334,6 +334,7 @@
       "not_collected": "Missed Collection",
       "pending": "Pending"
     },
+    "closed": "Closed",
 
     "unplanned": "Unplanned",
 
@@ -355,6 +356,7 @@
     "aliquot_cnt": "Count of Aliquots",
     "qty_per_aliquot": "Quantity per Aliquot",
     "close_parent_q": "Do you want to close parent specimen?",
+    "concentration": "Concentration",
     "comments": "Comments",
     "qty": "Quantity",
     "aliquot": "Aliquot",
@@ -364,11 +366,13 @@
     "description": "Description",
     "location": "Location",
     "biohazards": "Biohazards",
+    "concentration_unit": "&#181;g/&#181;l",
     "apply_first_loc_to_all": "Copy First Location To All",
     "activity_full_info": "{{user}} created {{name}} on {{time | osServerTime: global.utcOffset | date: global.dateTimeFmt}}",
     "activity_user_info": "{{user}} created {{name}}",
     "activity_time_info": "{{name}} created on {{time | osServerTime: utcOffset | date: global.dateTimeFmt}}",
     "activity_info": "{{name}} created",
+    "activity_status": "Activity Status",
 
     "reason_for_closing": "Reason for closing",
 
@@ -408,7 +412,8 @@
       "collect": "Collect",
       "print": "Print",
       "assign_to": "Assign To",
-      "reopen": "Reopen"
+      "reopen": "Reopen",
+      "close": "Close"
     },
 
     "errors": {
@@ -1045,6 +1050,12 @@
 
     "tooltip": {
       "view_records": "Click to View Records"
+    },
+
+    "filter": {
+      "title": "Queries Filter",
+      "id_or_title": "Query ID / Title",
+      "type_id_or_title": "Enter query ID or title to search queries"
     }
   },
 
