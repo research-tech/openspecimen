@@ -23,7 +23,7 @@
         </os-select>
       </div>
       <div class="os-login-footer-link">
-        <div class="pull-left">
+        <!--div class="pull-left">
           <div class="os-onoffswitch">
             <input type="checkbox" name="onoffswitch" class="os-onoffswitch-checkbox" id="flipswitch" />
             <label class="os-onoffswitch-label" for="flipswitch">
@@ -31,11 +31,11 @@
               <span class="os-onoffswitch-inner"></span>
             </label> 
           </div>
-        </div>
-        <span translate="user.keep_me_logged_in" class="pull-left remember-btn"> Keep me logged in </span>
+        </div-->
+        <!--span translate="user.keep_me_logged_in" class="pull-left remember-btn"> Keep me logged in </span-->
           
         <button type="submit" class="btn btn-primary os-btn-login pull-right" translate="user.sign_in">Log In</button>
-        <i class="icon icon-icons-arrow"></i>
+        <i class="icon icon-icons-arrow pull-right"></i>
      
         <div class="os-login-footer">
           <span translate="user.forgot_password">FORGOT PASSWORD?</span> Click
@@ -43,40 +43,19 @@
         </div>
         <hr/>
         <div class="os-login-footer">
-          To explore the features
+          <!--To explore the features -->
           <button class="btn btn-primary os-btn-login os-btn-signup pull-right" ui-sref="sign-up">Sign up</button>
         </div>
-        <hr/>
       </div>
-      <div class="os-compay-info">
+      <!--div class="os-compay-info">
         OpenSpecimen is an open source biobanking software
         developed by Krishagni Solutions on top of NCI
         caTissue. For more details visit <br />
         <a href="http://www.openspecimen.org" class="os-footer-links" target="_blank">www.openspecimen.org</a> 
         or mail us at <br />
         <span class="os-footer-links">support@krishagni.com</span>
-      </div>
+      </div-->
     </form>
   </div>
-
-    <!-- <div class="os-center-box">
-    <img class="os-rounded-img" src="images/profile-user.png" />
-    <form ng-submit="login()">
-      <div class="os-group-controls">
-        <input type="text"     class="form-control" ng-model="loginData.loginName" placeholder="{{'user.login_name' | translate}}">
-        <input type="password" class="form-control" ng-model="loginData.password"  placeholder="{{'user.password' | translate}}">
-        <div ng-if="domains.length > 1">
-          <os-select ng-model="loginData.domainName" list="domains" name="domain"
-            placeholder="{{'user.domain_name' | translate}}">
-          </os-select>
-    </div>
-      </div>
-      <span class="os-error-msg" ng-if="loginError" translate="user.sign_in_failed">The username or password you entered is incorrect</span>
-      <button type="submit" class="btn btn-block btn-primary" translate="user.sign_in">Sign in</button>
-      <div style="padding-top: 5px;">
-        <a ui-sref="forgot-password" translate="user.forgot_password">Forgot password?</a>
-      </div>
-    </form>
-  </div> -->
 </div>
 

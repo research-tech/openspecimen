@@ -64,7 +64,7 @@
 
 .os-login-footer-link .icon-icons-arrow {
   position: relative;
-  left: 116px;
+  left: 102px;
   top: 6px;
   font-size: 26px;
 }
@@ -78,9 +78,12 @@
 }
 
 .os-login-footer {
+  position: relative;
+  top: 6px;
   margin-top: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 52px;
   text-align: center;
+  font-size: 14px;
 }
 
 .os-login-footer .link, 

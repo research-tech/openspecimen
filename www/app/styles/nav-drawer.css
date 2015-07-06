@@ -136,12 +136,11 @@
 }
 
 .os-home-nav a {
-  padding: 3px !important;
-}
-
-.os-home-nav .icon {
-  color: #393e43 !important;
-  font-size: 20px !important;
+  position: relative;
+  top: 4px;
+  font-size: 20px;
+  color: #393e43;
+  text-decoration: none;
 }
 
 .os-home-nav a:hover {
