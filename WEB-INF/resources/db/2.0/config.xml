@@ -428,4 +428,31 @@
       );
     </sql>
   </changeSet>
+  
+  <changeSet author="ckhilosiya" id="Config settings for welcome video">
+    <sql>
+      call add_cfg_prop (
+        'common', 'welcome_video_source', 
+        'common_welcome_video_source', 'common_welcome_video_source_desc', 
+        'STRING', ''
+      );
+    </sql>
+    <sql>
+      call add_cfg_prop (
+        'common', 'welcome_video_url', 
+        'common_welcome_video_url', 'common_welcome_video_url_desc', 
+        'STRING', ''
+      );
+    </sql>
+  </changeSet>
+  
+  <changeSet author="asamgir" id="Config setting to specimen type abbreviation map">
+    <sql>
+      call add_cfg_prop(
+        'biospecimen', 'specimen_type_abbr_map', 
+        'specimen_type_abbr_map', 'specimen_type_abbr_map_desc', 
+        'STRING', ''
+      );
+    </sql>
+  </changeSet>
 </databaseChangeLog>

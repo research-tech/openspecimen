@@ -223,14 +223,8 @@
       "consent_responses": "Consent Responses",
       "signature_date": "Consent Signature Date",
       "witness": "Consent Witness",
-      "response_value": {
-        "yes": "Yes",
-        "no": "No",
-        "not_specified": "Not Specified",
-        "withdrawn": "Withdrawn",
-        "none": "None"
-      }
-    },
+      "clear": "Clear response"
+     },
 
     "similar_participants": "Following participants found that are similar to new participant being registered",
     "matched_attrs": "Matched Attributes",
@@ -391,6 +385,10 @@
     "bulk_import": "Bulk Import Specimens",
     "spmn_extensions": "Specimen Extensions",
     "spmn_events": "Specimen Events",
+    "spmn_aliquots": "Specimen Aliquots",
+    "bulk_import_aliquots": "Bulk Import Aliquots",
+    "spmn_derivatives": "Specimen Derivatives",
+    "bulk_import_derivatives": "Bulk Import Derivatives",
 
     "ctx_menu": {
       "view_specimen": "View Specimen",
@@ -610,7 +608,7 @@
     "password": "Password",
     "confirm_password": "Confirm Password",
     "sign_in_title": "Log in to your account",
-    "password_rule": "Tip: Password should contains atleast 1 uppercase letter, 1 lowercase  letter, 1 number and should be 8 characters long.",
+    "password_rule": "Tip: Password should contain at least 1 uppercase letter, 1 lowercase letter, 1 number and should be minimum 8 characters long.",
     "sign_in_failed": "The username or password you entered is incorrect",
     "sign_in": "Log In",
     "forgot_password": "FORGOT PASSWORD?",
@@ -682,8 +680,10 @@
       "new_password": "New Password",
       "confirm_password": "Confirm Password",
       "change_password": "Change Password"
-    }
-
+    },
+    
+    "proceed_sign_up": "Proceed to Sign Up",
+    "welcome_title": "Welcome to OpenSpecimen"
   },
 
   "forgot_password": {
@@ -1075,7 +1075,9 @@
     "form": "Form",
     "participant": "Participant",
     "specimen_event": "Specimen Event",
-    "specimen_list": "Specimen List"
+    "specimen_list": "Specimen List",
+    "consent_response": "Consent Response",
+    "consent": "Consent"
   },
 
   "bulk_imports": {
@@ -1109,7 +1111,9 @@
       "cpr": "Collection Protocol Registrations",
       "participant": "Participants",
       "visit": "Visits",
-      "specimen": "Specimens"
+      "specimen": "Specimens",
+      "specimenAliquot": "Specimen Aliquots",
+      "specimenDerivative": "Derived Specimens"
     },
 
     "import_types": {
