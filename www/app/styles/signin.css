@@ -2,16 +2,23 @@
 
 .os-login-form-container {
   margin: 0 auto;
-  width: 400px;  
+  width: 360px;
+  margin-top: 40px;
+  padding-left: 20px;
+}
+
+.os-login-gradient {
+  position: absolute;
+  width: 100%;
+  height: 6px;
 }
 
 .os-login-form-container .icon-icons-username, 
 .os-login-form-container .icon-icons-password {
-  color: #FFF;
-  font-size: 20pt;
+  color: #41464c;
+  font-size: 16pt;
   position: relative;
-  top: 36px;
-  margin-top: 0px;
+  top: 34px;
   margin-left: 4px;
 }
 
@@ -23,14 +30,14 @@
 .os-login-form-container .form-control {
   background-color: transparent;
   border-radius: 0px;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid #41464c;
   border-top: none;
   border-left: none;
   border-right: 0px;
   margin-bottom: 10px;
-  color: #FFFFFF;
-  font-size: 16pt;
-  box-shadow: -13px 11px 0 -11px #CCC;
+  color: #41464c;
+  font-size: 14pt;
+  box-shadow: -13px 11px 0 -11px #41464c;
 }
 
 .os-login-form-container .btn {
@@ -38,35 +45,32 @@
 }
 
 .os-login-header {
-  color: #FFFFFF;
-  font-family: "Cambria";
-  font-weight: bold;
-  font-style: italic;
-  font-size: 20pt;
-  text-align: left;
-}
-
-.os-login-logo {
-  height: 75pt;
+  color: #2a2e32;
+  font-family: "Roboto-Regular";
+  font-size: 16pt;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .os-login-logo img {
-  height: 60pt;
+  height: 70px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .os-login-footer-link {
   font-family: "Roboto-Regular";
   font-size: 14pt;
-  color: #FFFFFF;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  color: #41464c;
+  text-align: center;
 }
 
 .os-login-footer-link .icon-icons-arrow {
   position: relative;
-  left: 102px;
-  top: 6px;
+  right: 38px;
+  top: 8px;
   font-size: 26px;
+  color: #fffef2;
 }
 
 .os-login-footer-link .remember-btn {
@@ -74,51 +78,33 @@
 }
 
 .os-login-footer-link hr {
-  border-top: 1px dotted #ECECE8;
+  border-top: 1px dotted #41464c;
 }
 
 .os-login-footer {
-  position: relative;
-  top: 6px;
   margin-top: 32px;
-  margin-bottom: 52px;
-  text-align: center;
-  font-size: 14px;
+  margin-bottom: 32px;
 }
 
 .os-login-footer .link, 
 .os-login-footer .link:hover{
-  color: #50AC87;
+  color: #41464c;
   text-decoration: underline;
+  font-size: 12pt;
 }
 
 .os-btn-login, 
 .os-btn-login:hover {
   background-color: #50CA87;
-  color: #FFFFFF;
-  font-size: 15pt;
+  color: #fffef2;
+  font-size: 13pt;
   font-weight: bold;
-  height: 40px;
-  width: 110px;
+  width: 100px;
   padding-right: 24px;
-}
-
-.os-btn-signup, 
-.os-btn-signup.hover {
-  padding-right: 12px !important;
 }
 
 .os-footer-links, .os-footer-links:hover {
   color: #6ED2E9;
-}
-
-.os-compay-info {
-  font-family: "Roboto-Regular";
-  font-size: 12pt;
-  color: #FFFFFF;
-  padding: 18px;
-  line-height: 23pt;
-  text-align: left;
 }
 
 .os-login-footer-banner {
@@ -130,89 +116,35 @@
 
 .os-sign-up-label {
   font-family: "Cambria";
-  font-style: italic;
-  font-size: 16pt;
+  font-size: 13pt;
 }
 
-/** Flip Switch Styles **/
-
-.os-onoffswitch {
-  margin: 5px;
-  position: relative; width: 38px;
-}
-
-.os-onoffswitch-checkbox {
-  display: none;
-}
-
-.os-onoffswitch-label {
-  display: block; overflow: hidden; cursor: pointer;
-  border: 1px solid #50CA87; border-radius: 20px;
-}
-
-.os-onoffswitch-inner {
-  display: block; width: 200%; margin-left: -100%;
-  transition: margin 0.3s ease-in 0s;
-}
-
-.os-onoffswitch-inner:before, .os-onoffswitch-inner:after {
-  display: block; float: left; width: 50%; height: 18px; padding: 0;
-  box-sizing: border-box;
-}
-
-.os-onoffswitch-inner:before {
-  content: "";
-  padding-left: 5px;
-  background-color: #50CA87;
-}
-
-.os-onoffswitch-inner:after {
-  content: "";
-  padding-right: 5px;
-  background-color: #EEEEEE;
-  text-align: right;
-}
-
-.os-onoffswitch-switch {
-  display: block; width: 10px; margin: 4px;
-  background: #50CA87;
-  border: 1px solid #50CA87; border-radius: 20px;
-  position: absolute; top: 0; bottom: 0; right: 18px;
-  transition: all 0.3s ease-in 0s; 
-}
-
-.os-onoffswitch-checkbox:checked + .os-onoffswitch-label .os-onoffswitch-inner {
-  margin-left: 0;
-}
-
-.os-onoffswitch-checkbox:checked + .os-onoffswitch-label .os-onoffswitch-switch {
-  right: 0; 
-  border: 1px solid #fff;
-  background: #fff;
+.os-sign-up-label .link {
+  font-weight: bold;
 }
 
 /** Placeholder Customization styles **/
 
 .os-login-form-container .form-control:-moz-placeholder { /* Firefox 18- */
-   color: #FFFFFF;  
+   color: #41464c;  
    font-family: "Roboto-Regular";
-   font-size: 16pt;
+   font-size: 14pt;
 }
 
 .os-login-form-container .form-control::-moz-placeholder {  /* Firefox 19+ */
-   color: #FFFFFF;  
+   color: #41464c;  
    font-family: "Roboto-Regular";
-   font-size: 16pt;
+   font-size: 14pt;
 }
 
 .os-login-form-container .form-control:-ms-input-placeholder {  
-   color: #FFFFFF;
+   color: #41464c;
    font-family: "Roboto-Regular";
-   font-size: 16pt;
+   font-size: 14pt;
 }
 
 .os-login-form-container .form-control::-webkit-input-placeholder {
-   color: #FFFFFF;
+   color: #41464c;
    font-family: "Roboto-Regular";
-   font-size: 16pt;
+   font-size: 14pt;
 }

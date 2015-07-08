@@ -1,11 +1,11 @@
 <div>
   <div class="os-custom-banner">
-    <div style="height: 30px;"></div>
     <div class="logo os-login-logo">
       <img src="images/os_logo_large.png"></img>
     </div>
   </div>
-
+  <img src="images/os_gradient_nav_bar.jpg" class="os-login-gradient">
+  
   <div class="os-login-form-container">
     <h3 translate="user.sign_in_title" class="os-login-header">
       Log in to your account
@@ -23,38 +23,17 @@
         </os-select>
       </div>
       <div class="os-login-footer-link">
-        <!--div class="pull-left">
-          <div class="os-onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="os-onoffswitch-checkbox" id="flipswitch" />
-            <label class="os-onoffswitch-label" for="flipswitch">
-              <span class="os-onoffswitch-switch"></span>
-              <span class="os-onoffswitch-inner"></span>
-            </label> 
-          </div>
-        </div-->
-        <!--span translate="user.keep_me_logged_in" class="pull-left remember-btn"> Keep me logged in </span-->
-          
-        <button type="submit" class="btn btn-primary os-btn-login pull-right" translate="user.sign_in">Log In</button>
-        <i class="icon icon-icons-arrow pull-right"></i>
-     
         <div class="os-login-footer">
-          <span translate="user.forgot_password">FORGOT PASSWORD?</span> Click
-          <a class="link" ui-sref="forgot-password" translate="user.here">here</a>
+          <button type="submit" class="btn btn-primary os-btn-login" translate="user.sign_in">Log In</button>
+          <i class="icon icon-icons-arrow"></i>
+          <a class="link" ui-sref="forgot-password" translate="user.forgot_password">here</a>
         </div>
         <hr/>
-        <div class="os-login-footer">
-          <!--To explore the features -->
-          <button class="btn btn-primary os-btn-login os-btn-signup pull-right" ui-sref="sign-up">Sign up</button>
+        <div class="os-login-footer os-sign-up-label">
+          <span translate="user.dont_have_an_account"> Don't have an account? </span>
+          <a class="link" ui-sref="sign-up">Sign up</a>
         </div>
       </div>
-      <!--div class="os-compay-info">
-        OpenSpecimen is an open source biobanking software
-        developed by Krishagni Solutions on top of NCI
-        caTissue. For more details visit <br />
-        <a href="http://www.openspecimen.org" class="os-footer-links" target="_blank">www.openspecimen.org</a> 
-        or mail us at <br />
-        <span class="os-footer-links">support@krishagni.com</span>
-      </div-->
     </form>
   </div>
 </div>
