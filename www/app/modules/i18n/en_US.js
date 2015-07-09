@@ -113,7 +113,7 @@
     "end_date": "End Date",
     "consents_waived": "Consents Waived",
     "ethics_approval_id": "Ethics Approval ID",
-    "ppid_fmt": "De-ID Format",
+    "ppid_fmt": "PPID Format",
     "ppid_prefix": "Prefix",
     "ppid_digits": "No. of digits",
     "ppid_suffix": "Suffix",
@@ -210,7 +210,7 @@
     "site": "Site",
     "select_site": "Select Site",
     "pmis": "Medical Identifiers",
-    "protocol_id": "Participant De-ID",
+    "protocol_id": "PPID",
     "filter_title": "Participants Filter", 
     "spmn_label_or_barcode": "Specimen Label / Barcode",
     "collection_protocol": "Collection Protocol",
@@ -238,7 +238,7 @@
     "bulk_reg_participants": "Bulk Register Participants",
     "bulk_update_participants": "Bulk Update Participants",
     "part_updates": "Participant Updates",
-    "part_extensions": "Participant Extensions",
+    "part_extensions": "Participant Forms",
     "registrations": "Participant Registrations",
     "registered_cps": "Registered Protocols",
     
@@ -255,7 +255,7 @@
       "overview": "Overview",
       "consents": "Consents",
       "visits": "Visits",
-      "extensions": "Extensions"
+      "extensions": "Forms"
     },
 
     "tooltip": {
@@ -285,7 +285,7 @@
     "surgical_path_no": "Surg Path Number",
 
     "bulk_import": "Bulk Import Visits",
-    "visit_extensions": "Visit Extensions",
+    "visit_extensions": "Visit Forms",
 
     "spr": "Surgical Pathology Report",
     "spr_uploaded": "Surgical pathology report {{file}} uploaded successfully.",
@@ -314,7 +314,7 @@
 
     "menu": {
       "overview": "Overview",
-      "extensions": "Extensions",
+      "extensions": "Forms",
       "spr_report": "Surgical Pathology Report"
     }
   },
@@ -383,7 +383,7 @@
 
     "labels_print_job_created": "Specimen labels print job {{jobId}} created successfully",
     "bulk_import": "Bulk Import Specimens",
-    "spmn_extensions": "Specimen Extensions",
+    "spmn_extensions": "Specimen Forms",
     "spmn_events": "Specimen Events",
     "spmn_aliquots": "Specimen Aliquots",
     "bulk_import_aliquots": "Bulk Import Aliquots",
@@ -401,7 +401,7 @@
 
     "menu": {
       "overview": "Overview",
-      "extensions": "Extensions"
+      "extensions": "Forms"
     },
 
     "buttons": {
@@ -560,6 +560,7 @@
     "irb_id": "IRB ID",
     "description_url": "Description URL",
     "institute": "Institute",
+    "order_report_query": "Order Report Query",
 
     "tooltip": {
       "view_details": "Click to view/edit Distribution Protocol details",
@@ -849,27 +850,27 @@
   },
 
   "extensions": {
-    "no_extensions": "No extensions to show",
-    "list": "Extensions",
+    "no_extensions": "No forms to show",
+    "list": "Forms",
 
     "name": "Name",
     "updated_by": "Updated By",
     "update_time": "Update Time",
 
-    "no_records": "No extension records to show",
+    "no_records": "No form records to show",
     
     "edit_record": "Edit Record",
     "new_record": "Create New Record",
 
-    "record_saved": "Extension record saved",
-    "record_deleted": "Extension record deleted",
+    "record_saved": "Form record saved",
+    "record_deleted": "Form record deleted",
 
-    "deleting_record": "Deleting extension record #{{recordId}} of {{formCaption}}",
-    "confirm_delete_record": " Extension record #{{recordId}} of {{formCaption}} will be deleted forever. Are you sure you want to proceed?",
+    "deleting_record": "Deleting form record #{{recordId}} of {{formCaption}}",
+    "confirm_delete_record": " Form record #{{recordId}} of {{formCaption}} will be deleted forever. Are you sure you want to proceed?",
 
-    "bulk_import_participant_extns": "Bulk Import Participant Extensions",
-    "bulk_import_visit_extns": "Bulk Import Visit Extensions",
-    "bulk_import_specimen_extns": "Bulk Import Specimen Extensions",
+    "bulk_import_participant_extns": "Bulk Import Participant Forms",
+    "bulk_import_visit_extns": "Bulk Import Visit Forms",
+    "bulk_import_specimen_extns": "Bulk Import Specimen Forms",
     "bulk_import_specimen_events": "Bulk Import Specimen Events"
   },
 
@@ -1082,7 +1083,7 @@
 
   "bulk_imports": {
     "job_submitted": "Bulk Import Job {{id}} Submitted",
-    "select_extn": "Select Extension",
+    "select_extn": "Select Form",
     "input_file": "Input Records File",
     "download_input_file_tmpl": "Download Template File",
     "import_type": "Import Type",
@@ -1177,6 +1178,10 @@
      "enter_specimen_label": "Enter specimen labels separated by comma/tab/newline",
      "filter": "Distribution Order Filters",
      "specimens_not_found_or_no_access": "One or more specimens could not be loaded either because they do not exists or you do not have sufficient rights to access them",
+
+     "report_gen_initiated": "Generating distribution order report...",
+     "downloading_report": "Downloading distribution order report...",
+     "report_will_be_emailed": "Generating distribution order report is taking more time than anticipated. Link to download report will be sent to you by email",
    
      "spec": {
        "label": "Label",
@@ -1200,7 +1205,8 @@
 
      "buttons": {
        "distribute": "Distribute",
-       "save_draft": "Save Draft"
+       "save_draft": "Save Draft",
+       "download_report": "Download Report"
      },
 
      "tooltip": {
