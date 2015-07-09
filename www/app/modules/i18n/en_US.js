@@ -490,7 +490,7 @@
       "view_details": "Click to view/edit Institute details",
       "add": "Click to add new Institute",
       "edit": "Click to edit institute",
-      "department_count": "Count of Departments",
+      "cp_count": "Count of Collection Protocols in Institute",
       "user_count": "Count of Users in Institute",
       "search": "Click to search Institutes"
     },

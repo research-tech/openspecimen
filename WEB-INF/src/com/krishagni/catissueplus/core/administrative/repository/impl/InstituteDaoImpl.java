@@ -130,12 +130,26 @@ public class InstituteDaoImpl extends AbstractDao<Institute> implements Institut
 		
 		for (Object[] stat : stats) {
 			InstituteSummary institute = institutesMap.get((Long)stat[0]);
-			institute.setDepartmentsCount(((Long)stat[1]).intValue());
-			institute.setUsersCount(((Long)stat[2]).intValue());
+			institute.setUsersCount(((Long)stat[1]).intValue());
 		}
+		
+		addCpCounts(institutesMap);
 	}
 	
-	
+	@SuppressWarnings("unchecked")
+	private void addCpCounts(Map<Long, InstituteSummary> institutesMap) {
+		List<Object[]> stats = getSessionFactory().getCurrentSession()
+				.getNamedQuery(GET_CP_COUNT)
+				.setParameterList("instituteIds", institutesMap.keySet())
+				.list();
+		
+		for(Object[] stat : stats) {
+			InstituteSummary institute = institutesMap.get(stat[0]);
+			institute.setCpsCount(((Long)stat[1]).intValue());
+		}
+	}
+
+
 	private static final String INSTITUTE_FQN = Institute.class.getName();
 	
 	private static final String DEPARTMENT_FQN = Department.class.getName();
@@ -143,6 +157,8 @@ public class InstituteDaoImpl extends AbstractDao<Institute> implements Institut
 	private static final String GET_INSTITUTE_BY_NAME = INSTITUTE_FQN + ".getInstituteByName";
 	
 	private static final String GET_INSTITUTE_STATS = INSTITUTE_FQN + ".getInstituteStats";
+	
+	private static final String GET_CP_COUNT = INSTITUTE_FQN + ".getCpCount"; 
 	
 	private static final String GET_DEPARTMENT = DEPARTMENT_FQN + ".getDepartment";
 	

@@ -16,9 +16,9 @@ public class InstituteSummary {
 
 	private String activityStatus;
 
-	private int departmentsCount;
-
 	private int usersCount;
+	
+	private int cpsCount;
 
 	public Long getId() {
 		return id;
@@ -44,20 +44,20 @@ public class InstituteSummary {
 		this.activityStatus = activityStatus;
 	}
 
-	public int getDepartmentsCount() {
-		return departmentsCount;
-	}
-
-	public void setDepartmentsCount(int departmentsCount) {
-		this.departmentsCount = departmentsCount;
-	}
-
 	public int getUsersCount() {
 		return usersCount;
 	}
 
 	public void setUsersCount(int usersCount) {
 		this.usersCount = usersCount;
+	}
+	
+	public int getCpsCount() {
+		return cpsCount;
+	}
+
+	public void setCpsCount(int cpsCount) {
+		this.cpsCount = cpsCount;
 	}
 
 	protected static void transform(Institute institute, InstituteSummary summary) {
