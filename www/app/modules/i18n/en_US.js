@@ -688,10 +688,13 @@
   },
 
   "forgot_password": {
-    "title": "Forgot Password",
-    "email_reset_password_link": "Email Reset Password Link",
+    "title": "FORGOT PASSWORD?",
+    "enter_email_id": "Enter your e-mail id used at the time of registration.",
+    "submit": "Submit",
+    "message": "If you do not remember you email-id, contact the admin on admin@admin.com",
     "return_to_signin": "Return to sign in page",
-    "reset_email_sent": "An email containing link to reset password has been sent to your email id. Please click to reset password.",
+    "reset_email_sent": "Thank You! You can now reset the password. A link has been sent to the email-id you provided.",
+    "resend_link": "Resend the link?",
     "invalid_login_name": "We couldn't find a user associated with {{loginName}}"
   },
 

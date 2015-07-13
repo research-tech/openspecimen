@@ -26,18 +26,22 @@ angular.module('openspecimen')
         element.find('ul').on('click', function() {
           osNavDrawerSvc.toggle();
         });
+        element.find('li').on('click', function() {
+          angular.element(document.querySelector('li.active')).removeClass('active');
+          angular.element(this).addClass('active');
+        });
         element.find('div.os-home-nav').on('click', function() {
           osNavDrawerSvc.toggle();
         });
 
-        element.addClass('os-nav-drawer')
-          .prepend(getNavHeader());
+        element.addClass('os-nav-drawer');
+          /*.prepend(getNavHeader());*/
 
-       /* var overlay = angular.element('<div/>').addClass('os-nav-drawer-overlay');
+        var overlay = angular.element('<div/>').addClass('os-nav-drawer-overlay');
         element.after(overlay);
         overlay.on('click', function() {
           osNavDrawerSvc.toggle();
-        });*/
+        });
 
         element.removeAttr('os-nav-drawer');
         osNavDrawerSvc.setDrawer(element);
@@ -64,6 +68,7 @@ angular.module('openspecimen')
 
       toggle: function() {
         drawerEl.toggleClass('active');
+        angular.element(document.querySelector('.os-nav-button')).toggleClass('active');
       }
     }
   });

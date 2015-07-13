@@ -7,7 +7,7 @@
   right: 0;
   width: 25%;
   /* top: 114px; */
-  top: 135px;
+  top: 112px;
   transform: scaleX(0.00001);
   transform-origin:100% 50%;
   transition: all 0.25s ease-in-out 0s;

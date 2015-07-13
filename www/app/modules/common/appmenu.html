@@ -8,9 +8,20 @@
       </button>
     </div -->
     <ul class="menu">
-      <li class="dropdown">
-        <a class="dropdown-toggle">
+      <li ui-sref="home">
+        | <a class="dropdown-toggle">
           <span class="icon icon-icons-home"></span>
+        </a>
+      </li>
+      <!--li> |
+        <a class="os-notification-content">
+          <span class="icon icon-icons-notifications"></span>
+          <span class="os-notification-count">07</span>
+        </a>
+      </li> -->
+      <li class="dropdown">
+        | <a class="dropdown-toggle">
+          <span class="icon icon-icons-settings"></span>
         </a>
 
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
@@ -21,17 +32,11 @@
           <li><a ui-sref="login({logout:true})"  translate="user.logout">Log Out</a></li>
         </ul>
       </li>
-      <!--li> |
-        <a class="os-notification-content">
-          <span class="icon icon-icons-notifications"></span>
-          <span class="os-notification-count">07</span>
+      <li> 
+        <a>
+          <span class="link">Welcome, {{currentUser.lastName + ' ' + currentUser.firstName}}!</span>
         </a>
       </li>
-      <li>
-        <a>
-          <span class="icon icon-icons-settings"></span>
-        </a>
-      </li-->
     </ul>
   </div>
   <img src="images/os_gradient_nav_bar.jpg" class="os-header-gradient" />

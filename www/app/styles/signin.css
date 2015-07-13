@@ -13,13 +13,13 @@
   height: 6px;
 }
 
-.os-login-form-container .icon-icons-username, 
+.os-login-form-container .internal-icon-icons-user-count, 
 .os-login-form-container .icon-icons-password {
   color: #41464c;
-  font-size: 16pt;
+  font-size: 19px;
   position: relative;
-  top: 34px;
-  margin-left: 4px;
+  top: 32px;
+  margin-left: 10px;
 }
 
 .os-login-form-container input {
@@ -30,14 +30,14 @@
 .os-login-form-container .form-control {
   background-color: transparent;
   border-radius: 0px;
-  border-bottom: 1px solid #41464c;
+  border-bottom: 1px solid #9ea0a0;
   border-top: none;
   border-left: none;
   border-right: 0px;
   margin-bottom: 10px;
-  color: #41464c;
-  font-size: 14pt;
-  box-shadow: -13px 11px 0 -11px #41464c;
+  color: #9ea0a0;
+  font-size: 18px;
+  box-shadow: -13px 11px 0 -11px #9ea0a0;
 }
 
 .os-login-form-container .btn {
@@ -45,31 +45,31 @@
 }
 
 .os-login-header {
-  color: #2a2e32;
+  color: #41464c;
   font-family: "Roboto-Regular";
-  font-size: 16pt;
+  font-size: 22px;
   text-align: center;
   text-transform: uppercase;
 }
 
 .os-login-logo img {
-  height: 70px;
+  height: 81px;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
 .os-login-footer-link {
   font-family: "Roboto-Regular";
-  font-size: 14pt;
+  font-size: 18px;
   color: #41464c;
   text-align: center;
 }
 
 .os-login-footer-link .icon-icons-arrow {
   position: relative;
-  right: 38px;
-  top: 8px;
-  font-size: 26px;
+  right: 36px;
+  top: 6px;
+  font-size: 19px;
   color: #fffef2;
 }
 
@@ -90,15 +90,12 @@
 .os-login-footer .link:hover{
   color: #41464c;
   text-decoration: underline;
-  font-size: 12pt;
+  font-size: 16px;
 }
 
-.os-btn-login, 
-.os-btn-login:hover {
-  background-color: #50CA87;
-  color: #fffef2;
-  font-size: 13pt;
-  font-weight: bold;
+.btn.os-btn-login, 
+.btn.os-btn-login:hover {
+  font-size: 18px;
   width: 100px;
   padding-right: 24px;
 }
@@ -116,7 +113,7 @@
 
 .os-sign-up-label {
   font-family: "Cambria";
-  font-size: 13pt;
+  font-size: 18px;
 }
 
 .os-sign-up-label .link {
@@ -126,25 +123,25 @@
 /** Placeholder Customization styles **/
 
 .os-login-form-container .form-control:-moz-placeholder { /* Firefox 18- */
-   color: #41464c;  
+   color: #9ea0a0;  
    font-family: "Roboto-Regular";
-   font-size: 14pt;
+   font-size: 18px;
 }
 
 .os-login-form-container .form-control::-moz-placeholder {  /* Firefox 19+ */
-   color: #41464c;  
+   color: #9ea0a0;  
    font-family: "Roboto-Regular";
-   font-size: 14pt;
+   font-size: 18px;
 }
 
 .os-login-form-container .form-control:-ms-input-placeholder {  
-   color: #41464c;
+   color: #9ea0a0;
    font-family: "Roboto-Regular";
-   font-size: 14pt;
+   font-size: 18px;
 }
 
 .os-login-form-container .form-control::-webkit-input-placeholder {
-   color: #41464c;
+   color: #9ea0a0;
    font-family: "Roboto-Regular";
-   font-size: 14pt;
+   font-size: 18px;
 }

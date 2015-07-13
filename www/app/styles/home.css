@@ -1,26 +1,23 @@
 .os-home-items-container {
   position: absolute;
-  /* top: 114px; */
-  top: 135px;
+  top: 113px;
   bottom: 0px;
   height: auto;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
+  padding-top: 42px;
+  padding-left: 42px;
   overflow: auto;
 }
 
 .os-home-item {
-  height: 200px;
-  width: 225px;
-  margin: 20px 0px 0px 20px;
+  height: 135px;
+  width: 295px;
+  margin: 0px 30px 30px 0px;
   display: flex;
-  flex-direction: column;
   text-decoration: none;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  padding-top: 10px;
-  padding-bottom: 10px;
   -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -31,37 +28,44 @@
 
 .os-home-item > a {
   display: flex;
-  flex-direction: column;
   flex: 1;
+  padding: 10px;
   text-decoration: none;
 }
 
 .os-home-item-icon {
-  flex: 6;
+  flex: 3;
   text-align: center;
-  color: #888;
+  color: #41464c;
   display: block;
+  margin-top: 4px;
 }
 
-.os-home-item-icon .fa {
+.os-home-item-icon .icon {
   font-size: 90px;
 }
  
 .os-home-item-info {
-  flex: 3.5;
-  text-align: center;
-  padding: 6px 12px;
+  flex: 6;
+  text-align: left;
   display: block;
+  padding-left: 14px;
+  color: #41464c;
 }
 
 .os-home-item-info h3 {
+  font-family: "Roboto-Regular";
+  font-weight: bold;
   margin: 0px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  color: #333;
+  margin-top: 20px;
+  font-size: 17px;
+  color: #41464c;
 }
 
-.os-home-item-info span {
-  font-size: 14px;
-  color: #777;
+.os-home-item-info p {
+  font-family: "Cambria";
+  font-style: italic;
+  font-size: 15px;
+  color: #41464c;
+  line-height: 16px;
 }

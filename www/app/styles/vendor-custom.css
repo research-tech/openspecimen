@@ -130,7 +130,7 @@ body > .ui-select-bootstrap.open {
 .form-horizontal .control-label {
   font-family: "Roboto-Medium";
   font-weight: normal;
-  font-size: 15pt;
+  font-size: 19px;
   color: #41464C;
 }
 
@@ -147,7 +147,7 @@ body > .ui-select-bootstrap.open {
   border-color: #DEDEDC !important;
   color: #ACABA7;
   font-family: "Roboto-Regular";
-  font-size: 13pt;
+  font-size: 17px;
 }
 
 .container .ui-select-bootstrap .ui-select-toggle>.caret {
@@ -161,10 +161,10 @@ body > .ui-select-bootstrap.open {
 
 
 .form-group .btn-primary {
-  background: #1CBA72 !important;
+  background: #50ca87 !important;
   font-family: "Roboto-Medium";
-  font-size: 15pt;
-  color: #ffffff;
+  font-size: 19px;
+  color: #fffef2;
   border: none;
 }
 

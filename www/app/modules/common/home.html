@@ -7,123 +7,124 @@
     <li show-if-allowed="cpReadOpts" class="os-home-item">
       <a ui-sref="cp-list">
         <span class="os-home-item-icon"> 
-          <span class="fa fa-calendar"></span>
+          <i class="icon navigation-icons-collection-protocol"></i>
         </span>
         <span class="os-home-item-info"> 
           <h3 translate="menu.collection_protocols">Collection Protocols</h3>
-          <span translate="menu.cp_desc">Create, update SOP of visits and specimens</span>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item"> 
-      <a ui-sref="institute-list">
-        <span class="os-home-item-icon">
-          <span class="fa fa-institution"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.institutes">Institutes</h3>
-          <span translate="menu.institutes_desc">Update information about institutions</span>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item"> 
-      <a ui-sref="user-list">
-        <span class="os-home-item-icon">
-          <span class="fa fa-user"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.users">Users</h3>
-          <span translate="menu.users_desc">Add, rename and manage users</span>
-        </span>
-      </a>
-    </li>
-    <li show-if-allowed="userCreateUpdateOpts" class="os-home-item">
-      <a ui-sref="role-list">
-        <span class="os-home-item-icon"> 
-          <span class="fa fa-lock"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.roles">Roles</h3>
-          <span translate="menu.roles_desc">Create, update user access controls</span>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item"> 
-      <a ui-sref="site-list">
-        <span class="os-home-item-icon">
-          <span class="fa fa-hospital-o"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.sites">Sites</h3>
-          <span translate="menu.sites_desc">Add and update sites</span>
-        </span>
-      </a>
-    </li>
-    <li show-if-allowed="containerReadOpts" class="os-home-item">
-      <a ui-sref="container-list">
-        <span class="os-home-item-icon">
-          <span class="fa fa-dropbox"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.containers">Containers</h3>
-          <span translate="menu.containers_desc">Manage containers and their restrictions</span>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item">
-      <a ui-sref="query-list">
-        <span class="os-home-item-icon">
-          <span class="fa fa-dashboard"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.queries">Queries</h3>
-          <span translate="menu.queries_desc">Create, share and schedule queries</span>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item">
-      <a ui-sref="specimen-list">
-        <span class="os-home-item-icon">
-          <span class="fa fa-list"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.specimen_lists">Specimen Lists</h3>
-          <span translate="menu.specimen_lists_desc">Create and manage specimen lists</span>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item"> 
-      <a ui-sref="form-list">
-        <span class="os-home-item-icon">
-          <span class="fa fa-copy"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.forms">Forms</h3>
-          <span translate="menu.forms_desc">Create and manage custom forms</span>
+          <p translate="menu.cp_desc">Create, update SOP of visits and specimens</p>
         </span>
       </a>
     </li>
     <li show-if-admin class="os-home-item">
       <a ui-sref="dp-list">
         <span class="os-home-item-icon">
-          <span class="fa fa-truck"></span>
+          <span class="icon navigation-icons-distribution-protocol"></span>
         </span>
         <span class="os-home-item-info"> 
           <h3 translate="menu.distribution_protocols">Distribution Protocols</h3>
-          <span translate="menu.dp_desc">Create, update procedures for distributing specimens</span>
+          <p translate="menu.dp_desc">Create, update procedures for distributing specimens</p>
         </span>
       </a>
     </li>
+    <li class="os-home-item"> 
+      <a ui-sref="institute-list">
+        <span class="os-home-item-icon">
+          <i class="icon navigation-icons-institutes"></i>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.institutes">Institutes</h3>
+          <p translate="menu.institutes_desc">Update information about institutions</p>
+        </span>
+      </a>
+    </li>
+    <li class="os-home-item"> 
+      <a ui-sref="user-list">
+        <span class="os-home-item-icon">
+          <span class="icon navigation-icons-users"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.users">Users</h3>
+          <p translate="menu.users_desc">Add, rename and manage users</p>
+        </span>
+      </a>
+    </li>
+    <li show-if-allowed="userCreateUpdateOpts" class="os-home-item">
+      <a ui-sref="role-list">
+        <span class="os-home-item-icon"> 
+          <span class="icon navigation-icons-roles"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.roles">Roles</h3>
+          <p translate="menu.roles_desc">Create, update user access controls</p>
+        </span>
+      </a>
+    </li>
+    <li class="os-home-item"> 
+      <a ui-sref="site-list">
+        <span class="os-home-item-icon">
+          <span class="icon navigation-icons-sites"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.sites">Sites</h3>
+          <p translate="menu.sites_desc">Add and update sites</p>
+        </span>
+      </a>
+    </li>
+    <li show-if-allowed="containerReadOpts" class="os-home-item">
+      <a ui-sref="container-list">
+        <span class="os-home-item-icon">
+          <span class="icon navigation-icons-storage"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.containers">Containers</h3>
+          <p translate="menu.containers_desc">Manage containers and their restrictions</p>
+        </span>
+      </a>
+    </li>
+    <li class="os-home-item">
+      <a ui-sref="query-list">
+        <span class="os-home-item-icon">
+          <span class="icon navigation-icons-queries"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.queries">Queries</h3>
+          <p translate="menu.queries_desc">Create, share and schedule queries</p>
+        </span>
+      </a>
+    </li>
+    <li class="os-home-item">
+      <a ui-sref="specimen-list">
+        <span class="os-home-item-icon">
+          <span class="icon navigation-icons-specimen-list"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.specimen_lists">Specimen Lists</h3>
+          <p translate="menu.specimen_lists_desc">Create and manage specimen lists</p>
+        </span>
+      </a>
+    </li>
+    <li class="os-home-item"> 
+      <a ui-sref="form-list">
+        <span class="os-home-item-icon">
+          <span class="icon navigation-icons-specimen-list"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.forms">Forms</h3>
+          <p translate="menu.forms_desc">Create and manage custom forms</p>
+        </span>
+      </a>
+    </li>
+    
     <li show-if-allowed="orderReadOpts" class="os-home-item">
       <a ui-sref="order-list">
         <span class="os-home-item-icon">
-          <span class="fa fa-shopping-cart"></span>
+          <span class="icon navigation-icons-specimen-list"></span>
         </span>
         <span class="os-home-item-info"> 
           <h3 translate="menu.distribution_orders">Distribution Orders</h3>
-          <span translate="menu.distribution_orders_desc">
+          <p translate="menu.distribution_orders_desc">
             Create, execute request orders for distributing specimens
-          </span>
+          </p>
         </span>
       </a>
     </li>

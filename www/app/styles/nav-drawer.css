@@ -1,14 +1,12 @@
 .os-nav-drawer, .os-nav-drawer-overlay {
   position: absolute;
   height: auto;
-  /* top: 50px; */
-  top: 130px;
+  top: 113px;
   bottom: 0;
 }
 
 .os-nav-drawer {
   background: white;
-  /* border-right: 1px solid #ddd; */
   left: 0;
   width: 265px;
   height: 490px;
@@ -24,7 +22,7 @@
 
 .os-nav-drawer-overlay {
   display: none;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0);
   width: 100%;
   z-index: 1;
 }
@@ -42,17 +40,12 @@
   padding: 0;
   overflow-y: auto;
   position: absolute;
-  /* top: 0px; */
-  top: 13px;
+  top: 10px;
   bottom: 0px;
   height: auto;
   width: 100%;
   margin-bottom: 0px;
   background: #FFFFFF;
-}
-
-.os-nav-drawer .os-page-hdr ~ ul.os-menu-items {
-  /* top: 64px; */
 }
 
 .os-nav-drawer .os-menu-items > li {
@@ -82,6 +75,11 @@
   color: #FBFAF5;
 }
 
+.os-menu-items > li.active {
+  background: #44C1DF;
+  color: #FBFAF5;
+}
+
 .os-nav-drawer .os-page-hdr { 
   margin-bottom: 0px;
   position: relative;
@@ -90,11 +88,17 @@
 
 .os-page-hdr .os-nav-button {
   background: #ecece8;
-  margin-left: -19px;
-  padding-left: 13px;
-  margin-top: -12px !important;
-  height: 54px;
+  margin-left: -20px;
+  margin-top: -20px;
+  padding-left: 8px;
+  padding-top: 4px;
+  height: 38px;
+  width: 40px;
   font-size: 25px;
+}
+
+.os-nav-button.active {
+  transform: scale(-1, 1);
 }
 
 .os-menu-items .icon {
@@ -106,14 +110,13 @@
   width: 100%;
   height: 3px;
   position: absolute;
-  top: 131px;
+  top: 110px;
   z-index: 1;
 }
 
 .os-navbar-logo {
-  height: 58px;
-  padding-left: 10px;
-  padding-top: 5px;
+  height: 50px;
+  margin-top: 10px;
 }
 
 .os-navbar-content-text {
@@ -149,6 +152,6 @@
 
 .os-navigation-gradient {
   position: absolute;
-  height: 13px;
+  height: 10px;
   width: 100vw;
 }
