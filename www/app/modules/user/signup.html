@@ -10,13 +10,13 @@
   <div class="os-center-box os-sign-up-box">
     <form name="userForm" class="form-horizontal" os-form-validator="userForm" validator="userFormValidator" novalidate>
       <div class="os-header">
-        <h3 translate="user.create_account">Create your OpenSpecimen Account</h3>
+        <span translate="user.create_account">Create your OpenSpecimen Account</span>
       </div>
 
       <div class="os-body">
-        <div class="link">
+        <div class="header-link">
           <span translate="user.already_have_an_openspecimen_id">Already have an OpenSpecimen ID?</span> 
-          <a ui-sref="login" translate="user.sign_in_here">Sign In here </a>
+          <a ui-sref="login" class="link" translate="user.sign_in_here">Sign In here </a>
         </div>
         <div class="form-group">
           <div class="col-xs-6">
@@ -81,9 +81,10 @@
         </div>
 
         <div>
-          <button class="btn btn-block btn-primary" os-form-submit="signup()">
+          <button class="btn btn-primary os-btn-login" os-form-submit="signup()">
             <span translate="user.signup"> Sign up </span>
           </button>
+          <i class="icon icon-icons-arrow"></i>
         </div>
       </div>
     </form>

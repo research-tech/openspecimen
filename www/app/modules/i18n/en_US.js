@@ -648,7 +648,7 @@
        "all": "All Current & Future"
     },
 
-    "create_account": "Create your OpenSpecimen Account",
+    "create_account": "Create your account to access OpenSpecimen",
     "signup": "Sign up",
     "already_have_an_openspecimen_id": "Already have an OpenSpecimen ID?",
     "sign_in_here": "Sign In here",

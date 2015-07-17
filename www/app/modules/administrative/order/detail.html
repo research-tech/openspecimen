@@ -10,12 +10,12 @@
     <div class="os-btns right">
       <button show-if-allowed="orderResource.updateOpts" class="primary" 
         ui-sref="order-addedit({orderId: order.id})" ng-if="order.status == 'PENDING'">
-        <span class="fa fa-pencil"></span>
         <span translate="common.buttons.edit">Edit</span>
+        <span class="fa fa-pencil"></span>
       </button>
       <button class="default" ng-click="downloadReport()" ng-if="order.status == 'EXECUTED' && rptTmplConfigured">
-        <span class="fa fa-download"></span>
         <span translate="orders.buttons.download_report">Download Report</span>
+        <span class="fa fa-download"></span>
       </button>
     </div>
   </div>

@@ -12,17 +12,17 @@
     <div class="os-btns right">
       <button show-if-allowed="participantResource.updateOpts" class="primary"
         ui-sref="participant-addedit({cprId: cpr.id, cpId: cpr.cpId})">
-        <span class="fa fa-pencil"></span>
         <span translate="common.buttons.edit">Edit</span>
+        <span class="fa fa-pencil"></span>
       </button>
       <button ng-if="cpsForReg.length > 0" class="default"
         ui-sref="participant-newreg">
-        <span class="fa fa-plus"></span>
         <span>Register New</span>
+        <span class="icon icon-icons-create-button"></span>
       </button>
       <button show-if-allowed="participantResource.deleteOpts" class="default" ng-click="deleteReg()">
-        <span class="fa fa-trash"></span>
         <span translate="common.buttons.delete">Delete</span>
+        <span class="fa fa-trash"></span>
       </button>
     </div>
   </div>

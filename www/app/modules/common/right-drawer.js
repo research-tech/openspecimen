@@ -7,12 +7,12 @@ angular.module('openspecimen')
         element.addClass('os-right-drawer');
         element.removeAttr('os-right-drawer');
 
-        var header = element.find('div.os-head');
+        /*var header = element.find('div.os-head');
         if (header) {
           var divider = angular.element('<div/>')
             .addClass('os-divider');
           header.after(divider);
-        }
+        }*/
 
         osRightDrawerSvc.setDrawer(element);
       }
@@ -43,7 +43,7 @@ angular.module('openspecimen')
 
       drawerEl.addClass('active');
       drawerEl.find('input, textArea, select, button').filter(':visible:first').focus();
-      setCardsViewWidth('75%');
+      setCardsViewWidth('78%');
       drawerEl.scope().$emit('osRightDrawerOpen');
     }
 

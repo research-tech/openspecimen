@@ -1,6 +1,6 @@
 .os-breadcrumbs {
   position: relative;
-  bottom: 12px; 
+  bottom: 8px; 
   list-style-type: none;
   padding-left: 0px;
 }
@@ -22,9 +22,7 @@
   color: #44494D !important;
   font-family: "Cambria";
   font-weight: bold;
-  font-style: italic;
-  font-size: 16pt;
-  padding-right: 10px;
+  font-size: 15px;
   position: relative;
   top: -5px;
 }
@@ -33,11 +31,14 @@
   display: none;
 }
 
-.os-breadcrumbs > li + li:before {
-  content: '/\00a0';
-  display: inline-block;
-  color: #ccc;
-  padding: 0 5px;
+.os-breadcrumbs > li:after {
+  content: '>';
+  color: #41464c;
+  position: relative;
+  bottom: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0px 10px;
 }
 
 .os-breadcrumbs a:hover {
@@ -58,9 +59,8 @@
 }
 
 .os-icon-breadcrumbs {
-  font-size: 20pt;
-  line-height: 26px;
-  color: #44494D!important;
+  position: relative;
+  top: 1px;
 }
 
 .os-breadcrumbs h3 {

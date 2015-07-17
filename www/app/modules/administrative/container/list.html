@@ -6,13 +6,13 @@
     <div class="os-btns right">
       <button show-if-allowed="containerResource.createOpts" class="primary"
         title="{{'container.tooltip.add' | translate}}" ui-sref="container-addedit({containerId: ''})">
-        <span class="fa fa-plus"></span>
         <span translate="common.buttons.create">Create</span>
+        <span class="icon icon-icons-create-button"></span>
       </button>
       <div show-if-allowed="containerResource.createOpts" dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.import">Import</span>
-          <span class="fa fa-caret-down"></span>
+          <span class="icon icon-icons-import"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
@@ -31,7 +31,6 @@
       </div>
       <button class="default" os-right-drawer-toggle title="{{'container.tooltip.search' | translate}}">
         <span class="fa fa-search"></span>
-        <span translate="common.buttons.search">Search</span>
       </button>
     </div>
   </div>

@@ -8,17 +8,16 @@
     <div class="os-btns right">
       <button show-if-allowed="participantResource.registerOpts" class="primary"
         title="{{'participant.tooltip.register' | translate}}" ui-sref="participant-addedit({cprId: -1, cpId: cp.id})">
-        <span class="fa fa-plus"></span>
         <span translate="participant.buttons.register">Register</span>
+        <span class="icon icon-icons-create-button"></span>
       </button>
-      <button show-if-allowed="participantResource.registerOpts" class="default"
+      <button show-if-allowed="participantResource.registerOpts" class="os-btn-text"
         title="{{'participant.tooltip.bulk_register' | translate}}" ui-sref="bulk-registrations" ng-if="showBulkRegBtn">
-        <span class="fa fa-plus"></span>
         <span translate="participant.buttons.bulk_register">Bulk Register</span>
+        <span class="icon icon-icons-create-button"></span>
       </button>
       <button class="default" os-right-drawer-toggle title="{{'participant.tooltip.search' | translate}}">
         <span class="fa fa-search"></span>
-        <span translate="common.buttons.search">Search</span>
       </button>
     </div>
   </div>

@@ -32,29 +32,29 @@
         ng-if="!!visit.id && (!specimen.activityStatus || specimen.activityStatus == 'Active')"
         ng-switch on="!!specimen.id"> 
         <span ng-switch-when="true">
-          <span class="fa fa-pencil"></span>
           <span translate="common.buttons.edit">Edit</span>
+          <span class="fa fa-pencil"></span>
         </span>
         <span ng-switch-default>
-          <span class="fa fa-plus"></span>
           <span translate="specimens.buttons.collect">Collect</span>
+          <span class="fa fa-plus"></span>
         </span>
       </button>
       <button show-if-allowed="specimenResource.updateOpts" class="default" 
         ng-if="specimen.activityStatus == 'Active' && specimen.status == 'Collected'"
         ng-click="closeSpecimen()">
-        <span class="fa fa-remove"></span>
         <span translate="specimens.buttons.close">Close</span>
+        <span class="fa fa-remove"></span>
       </button>
       <button show-if-allowed="specimenResource.updateOpts" class="primary" ng-click="reopen()"
         ng-if="specimen.activityStatus == 'Closed'">
-        <span class="fa fa-check"></span>
         <span translate="specimens.buttons.reopen">Reopen</span>
+        <span class="fa fa-check"></span>
       </button>
       <button show-if-allowed="specimenResource.deleteOpts" class="default" 
         ng-if="!!specimen.id" ng-click="deleteSpecimen()">
-        <span class="fa fa-trash"></span>
         <span translate="common.buttons.delete">Delete</span>
+        <span class="fa fa-trash"></span>
       </button>
     </div>
   </div>

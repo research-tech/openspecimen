@@ -7,21 +7,21 @@
     <div class="os-btns right">
       <button show-if-allowed="containerResource.updateOpts" class="primary"
         title="{{'container.tooltip.add' | translate}}" ui-sref="container-addedit({containerId: container.id})">
-        <span class="fa fa-pencil"></span>
         <span translate="common.buttons.edit">Edit</span>
+        <span class="fa fa-pencil"></span>
       </button>
       <a class="btn default" href="{{downloadUri}}" target="_blank">
-        <span class="fa fa-download"></span>
         <span translate="common.buttons.export">Export</span>
+        <span class="fa fa-download"></span>
       </a>
       <button show-if-allowed="containerResource.createOpts" class="default"
         ui-sref="container-replicate({containerId: container.id})">
-        <span class="fa fa-copy"></span>
         <span translate="container.replicate">Replicate</span>
+        <span class="fa fa-copy"></span>
       </button>
       <button show-if-allowed="containerResource.deleteOpts" class="default" ng-click="deleteContainer()">
-        <span class="fa fa-trash"></span>
         <span translate="common.buttons.delete">Delete</span>
+        <span class="fa fa-trash"></span>
       </button>
     </div>
   </div>

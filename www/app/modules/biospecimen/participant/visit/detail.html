@@ -23,19 +23,19 @@
     <div class="os-btns right">
       <button show-if-allowed="specimenResource.updateOpts" class="primary" ng-switch on="!!visit.id" ui-sref="visit-addedit">
         <span ng-switch-when="true">
-          <span class="fa fa-pencil"></span>
           <span translate="common.buttons.edit">Edit</span>
+          <span class="fa fa-pencil"></span>
         </span>
         <span ng-switch-default>
-          <span class="fa fa-plus"></span>
           <span translate="common.buttons.add">Add</span>
+          <span class="fa fa-plus"></span>
         </span>
       </button>
  
       <button show-if-allowed="specimenResource.deleteOpts" class="default" 
         ng-if="!!visit.id" ng-click="deleteVisit()">
-        <span class="fa fa-trash"></span>
         <span translate="common.buttons.delete">Delete</span>
+        <span class="fa fa-trash"></span>
       </button>
     </div>
   </div>

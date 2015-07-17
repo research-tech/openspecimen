@@ -1,11 +1,10 @@
 .os-right-drawer {
   position: absolute;
-  height: auto;
-  background: #f5f5f5;
-  border-left: 1px solid #ddd;
+  background: #ffffff;
+  border: 1px solid #dededc;
   bottom: 0;
   right: 0;
-  width: 25%;
+  width: 22%;
   /* top: 114px; */
   top: 112px;
   transform: scaleX(0.00001);
@@ -21,30 +20,44 @@
 }
 
 .os-right-drawer .os-head {
-  margin-left: 15px;
+  height: 35px;
+  background-color: #909090;
+  color: #fbfaf5;
+  margin: 0px;
+}
+
+.os-head .os-title {
+  margin-top: 0px ;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .os-right-drawer .os-body {
-  margin: 15px;
-}
-
-.os-right-drawer .os-title {
-  color:#666666!important;
+  margin: 20px;
 }
 
 .os-right-drawer .control-label {
   color: #666666!important;
+  margin-bottom: 0px;
 }
 
 .os-right-drawer .os-md-input input,
 .os-right-drawer .os-md-input .ui-select-match,
 .os-right-drawer .os-md-input .ui-select-search {
-  background: #f5f5f5;
+  background: transparent;
   margin-top: 5px;
 }
 
 .os-right-drawer .os-md-input input:focus,
 .os-right-drawer .os-md-input button.ui-select-match:focus,
 .os-right-drawer .os-md-input .ui-select-match:hover {
-  background: #f5f5f5!important;
+  background: transparent !important;
 }
+
+/** bootstrap forms css override **/
+
+.os-body .form-group {
+  margin-bottom: 20px;
+}
+

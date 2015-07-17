@@ -16,30 +16,30 @@
     </h3>
     <div class="os-btns right">
       <button class="default" ng-click="editFilters()">
-        <span class="fa fa-pencil"></span>
         <span translate="queries.edit_filters">Edit Filters</span>
+        <span class="fa fa-pencil"></span>
       </button>
       <button class="default" ng-click="defineView()">
-        <span class="fa fa-eye"></span>
         <span translate="queries.define_view">Define View</span>
+        <span class="fa fa-eye"></span>
       </button>
       <button class="default" ng-click="rerun()">
-        <span class="fa fa-repeat"></span>
         <span translate="queries.rerun">Rerun</span>
+        <span class="fa fa-repeat"></span>
       </button>
       <button class="default" ng-click="downloadResults()">
-        <span class="fa fa-download"></span>
         <span translate="common.buttons.export">Export</span>
+        <span class="fa fa-download"></span>
       </button>
 
       <div dropdown class="btn-group" ng-if="showAddToSpecimenList">
         <button class="btn default" ng-if="!resultsCtx.selectAll" ng-click="selectAllRows()">
-          <span class="fa fa-check"></span>
           <span translate="queries.select_all">Select All</span>
+          <span class="fa fa-check"></span>
         </button>
         <button type="button" class="btn default" ng-if="resultsCtx.selectAll" ng-click="unSelectAllRows()">
           <span class="fa fa-remove"></span>
-            <span translate="queries.unselect_all">Unselect All</span>
+          <span translate="queries.unselect_all">Unselect All</span>
           </button>
         </button>
         <button class="btn default dropdown-toggle" ng-disabled="!selectedRows || selectedRows.length == 0">
