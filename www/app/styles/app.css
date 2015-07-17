@@ -516,17 +516,6 @@ button.primary:hover,
   margin-bottom: 0px;
 }
 
-.os-alert-container {
-  text-align: center;
-  z-index: 2000;
-  position: absolute;
-  width:100%;
-  border-radius: 0px;
-  left: 0;
-  /* top: 50px; */
-  top: 70px;
-}
-
 .os-home .os-alert-container {
   top: 0px;
 }
@@ -1109,5 +1098,13 @@ h4.os-sub-section-title, h5.os-sub-section-title, h6.os-sub-section-title {
 .os-welcome-box div {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.os-search .form-group {
+  margin-bottom: 30px;
+}
+
+.os-about-po {
+  width: 120px;
 }
 

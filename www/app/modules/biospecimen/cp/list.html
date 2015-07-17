@@ -104,7 +104,10 @@
           </li>
         </ul>
       </div>
-      <button class="btn default" os-right-drawer-toggle title="{{'cp.tooltip.search' | translate}}">
+
+      <os-plugin-hooks view-name="'cp-list'" sec-name="'page-header'"></os-plugin-hooks>
+
+      <button class="default" os-right-drawer-toggle title="{{'cp.tooltip.search' | translate}}">
         <span class="fa fa-search"></span>
         <!-- <span translate="common.buttons.search">Search</span> -->
       </button>
