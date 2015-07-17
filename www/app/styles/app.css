@@ -247,8 +247,8 @@ body {
 }
 
 .os-sign-up-box .icon {
-  left: -35px;
-  top: 4px;
+  left: -26px;
+  top: 5px;
 }
 
 .os-group-controls {
@@ -350,11 +350,10 @@ h4 + .btn-group {
 }
 
 .os-page-hdr + .container {
-  padding-top: 20px;
+  padding-top: 42px;
+  padding-left: 42px;
   position: absolute;
-  /* top: 114px; */
-  top: 135px;
-  bottom: 0px;
+  top: 113px;
   height: auto;
   width: 100%;
   overflow: auto;
