@@ -21,8 +21,8 @@
         <strong class="key key-sm" translate="cp.start_date">Start Date:</strong>
         <os-inline-edit editor="sdEditor" name="stDate" class="value value-md" value="cp.startDate">
           <span ng-if="sdEditor.isDisplayMode()">{{sdEditor.viewValue | date: global.dateFmt | osNoValue}}</span>
-          <input ng-if="sdEditor.isEditMode()" class="form-control" type="text" ng-model="sdEditor.editValue"
-            datepicker-popup="{{global.dateFmt}}" show-button-bar="false" is-open="dt.isOpen" ng-focus="dt.isOpen=true">
+          <os-date-picker ng-if="sdEditor.isEditMode()" date="sdEditor.editValue">
+          </os-date-picker>
         </os-inline-edit>
       </li>
 
@@ -30,8 +30,8 @@
         <strong class="key key-sm" translate="cp.end_date">End Date:</strong>
         <os-inline-edit editor="edEditor" name="endDate" class="value value-md" value="cp.endDate">
           <span ng-if="edEditor.isDisplayMode()">{{edEditor.viewValue | date: global.dateFmt | osNoValue}}</span>
-          <input ng-if="edEditor.isEditMode()" class="form-control" type="text" ng-model="edEditor.editValue"
-            datepicker-popup="{{global.dateFmt}}" show-button-bar="false" is-open="dt.isOpen" ng-focus="dt.isOpen=true">
+          <os-date-picker ng-if="edEditor.isEditMode()" date="edEditor.editValue">
+          </os-date-picker>
         </os-inline-edit>
       </li>
 
@@ -60,16 +60,56 @@
           </os-select>
         </os-inline-edit>
       </li>
+
       <li class="item">
-        <strong class="key key-sm" translate="cp.ppid_fmt">PPID Format</strong>
-        <span class="value value-md" ng-if="!cp.ppidFmt" translate="common.not_specified"></span>
-        <span class="value value-md" ng-if="!!cp.ppidFmt">
-          <span ng-if="ppidFmt.prefix">{{ppidFmt.prefix}}</span>
-          <span ng-if="ppidFmt.digitsWidth">[{{ppidFmt.digitsWidth}} <span translate="common.digits"></span>]</span>
-          <span ng-if="ppidFmt.suffix">{{ppidFmt.suffix}}</span>
-        </span>
+        <strong class="key key-sm" translate="cp.anticipated_participant_count">Expected Registrations</strong>
+        <span class="value value-md">{{cp.anticipatedParticipantsCount | osNoValue}}</span>
       </li>
     </ul>
+
+    <div class="os-section os-line-section">
+      <strong class="key key-sm" translate="cp.label_formats">Label Formats</strong>
+      <div>
+        <ul class="os-key-values os-one-col">
+          <li class="item">
+            <strong class="key key-sm" translate="cp.label_format.ppid">PPID Format</strong>
+            <span class="value value-md" ng-if="!cp.ppidFmt" translate="common.not_specified"></span>
+            <span class="value value-md" ng-if="!!cp.ppidFmt">
+              <span ng-if="ppidFmt.prefix">{{ppidFmt.prefix}}</span>
+              <span ng-if="ppidFmt.digitsWidth">
+                [{{ppidFmt.digitsWidth}} <span translate="common.digits"></span>]
+              </span>
+              <span ng-if="ppidFmt.suffix">{{ppidFmt.suffix}}</span>
+            </span>
+          </li>
+
+          <li class="item">
+            <strong class="key key-sm" translate="cp.label_format.visit">Visit</strong>
+            <span class="value value-md">{{cp.visitNameFmt | osNoValue}}</span>
+          </li>
+
+          <li class="item">
+            <strong class="key key-sm" translate="cp.label_format.specimen">Specimen</strong>
+            <span class="value value-md">{{cp.specimenLabelFmt | osNoValue}}</span>
+          </li>
+
+          <li class="item">
+            <strong class="key key-sm" translate="cp.label_format.aliquot">Aliquot</strong>
+            <span class="value value-md">{{cp.aliquotLabelFmt | osNoValue}}</span>
+          </li>
+
+          <li class="item">
+            <strong class="key key-sm" translate="cp.label_format.derivative">Derivative</strong>
+            <span class="value value-md">{{cp.derivativeLabelFmt | osNoValue}}</span>
+          </li>
+
+          <li class="item">
+            <strong class="key key-sm" translate="cp.label_format.manual">User Inputs Allowed for</strong>
+            <span class="value value-md">{{userInputLabels | osNoValue}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- div class="col-xs-4">
@@ -82,3 +122,5 @@
     </ul>
   </div -->
 </div>
+
+

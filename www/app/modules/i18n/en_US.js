@@ -133,7 +133,7 @@
     "aliquot_label_fmt": "Aliquot Label Format",
     "store_all_aliquots_in_same_container": "Store all Aliquots in same Container",
     "visit_name_fmt": "Visit Name Format",
-    "manual_enabled_for": "Manual Inputs Allowed For",
+    "manual_enabled_for": "User Inputs Allowed For",
     "ppids": "Participant Protocol IDs",
     "visit_names": "Visit Names",
     "spec_labels": "Specimen Labels",
@@ -186,6 +186,16 @@
       "pi": "Select Principal Investigator",
       "repository": "Repository",
       "select_repository": "Select Repository"
+    },
+    "label_formats" : "Label Formats",
+    "anticipated_participant_count": "Expected Registrations",
+    "label_format": {
+      "specimen": "Specimen",
+      "visit": "Visit",
+      "aliquot": "Aliquot",
+      "derivative": "Derivative",
+      "manual": "User Inputs Allowed",
+      "ppid": "PPID"
     }
   },
 
@@ -371,6 +381,7 @@
     "description": "Description",
     "location": "Location",
     "biohazards": "Biohazards",
+    "created_on": "Created On",
     "concentration_unit": "&#181;g/&#181;l",
     "apply_first_loc_to_all": "Copy First Location To All",
     "activity_full_info": "{{user}} created {{name}} on {{time | osServerTime: global.utcOffset | date: global.dateTimeFmt}}",
@@ -427,7 +438,9 @@
 
     "errors": {
       "duplicate_labels": "One or more specimens using same label",
-      "insufficient_qty": "Insufficient parent specimen quantity to create aliquots"
+      "insufficient_qty": "Insufficient parent specimen quantity to create aliquots",
+      "created_on_lt_parent": "Created on date/time of specimen less than that of parent specimen",
+      "created_on_gt_curr_time": "Created on date/time of specimen greater than current date/time"
     }
   },
 
