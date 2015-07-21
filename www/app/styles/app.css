@@ -21,6 +21,7 @@ body {
   margin: 0px;
   height: 100%;
   background: #FBFAF5;
+  color: #41464c;
   font-family: "Roboto-Regular";
 }
 
@@ -39,6 +40,10 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+.os-pointer-cursor {
+  cursor: pointer;
 }
 
 .os-navbar:after {
@@ -354,6 +359,7 @@ h4 + .btn-group {
   padding-left: 42px;
   position: absolute;
   top: 113px;
+  bottom: 0px;
   height: auto;
   width: 100%;
   overflow: auto;
@@ -417,6 +423,7 @@ button.primary:hover,
 
 .os-btns a.default,
 .os-btns button.default,
+.os-btn-text-secondary,
 .os-btn-text {
   color: #fbfaf5;
   background: #9F9F9D;
@@ -424,8 +431,10 @@ button.primary:hover,
 }
 
 .os-btns a.default:hover,
-.os-btns button.default:hover {
-  background: #9F9F9D;
+.os-btns button.default:hover,
+.os-btn-text-secondary:hover,
+.os-btn-text:hover {
+  background: #BDBDBD;
   border: none;
 }
 
@@ -535,11 +544,6 @@ input.ng-dirty.ng-invalid {
   color: #ffffff;
   background: #777;
   border-color: #555;
-}
-
-.os-btn-text-secondary {
-  background: transparent;
-  color: #a6a6a6;
 }
 
 .os-lavatar {
@@ -980,10 +984,6 @@ h4.os-sub-section-title, h5.os-sub-section-title, h6.os-sub-section-title {
 
 .os-col-100 {
   width: 100%;
-}
-
-.os-pointer-cursor {
-  cursor: pointer;
 }
 
 /* Container selector modal */

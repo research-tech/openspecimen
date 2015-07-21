@@ -1,10 +1,22 @@
 .os-permissions .os-status {
   font-weight: bold;
-  color: white;
-  background: #ab9364;
-  padding: 3px 5px;
+  color: #40464c;
   float: left;
-  margin-right: 5px;
+  padding: 0px 20px;
+  border-right: 2px solid #dededc;
+}
+
+.os-permissions .os-status:first-of-type {
+  padding-left: 0px;
+}
+
+.os-permissions .os-status:last-of-type {
+  border-right: none;
+}
+
+.os-permissions .os-status .fa,
+.os-permissions .os-status .icon {
+  margin-right: 8px;
 }
 
 .os-permissions-checkbox {
@@ -13,11 +25,20 @@
 }
 
 .os-permissions-checkbox .os-checkbox input[type="checkbox"] ~ span.box {
-  height: 13px;
-  width: 13px;
+  height: 16px;
+  width: 16px;
+  border-radius: 3px;
+}
+
+.os-permissions-checkbox .os-checkbox input[type="checkbox"]:checked ~ span.box {
+  background-color: #27AAE1;
 }
 
 .os-permissions-checkbox .os-checkbox input[type="checkbox"]:checked ~ span.tick {
-  height: 7px;
-  width: 13px;
+  height: 6px;
+  width: 10px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  left: 3px;
+  top: 4px;
 }

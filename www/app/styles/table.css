@@ -9,6 +9,30 @@
 .os-table .row {
   margin-right: 0px;
   margin-left: 0px;
+  display: flex;
+  background-color: #dededc;
+}
+
+.os-table .row .col.os-vertical-divider {
+  padding: 0% 2% !important;
+}
+
+.os-table .row .col.os-vertical-divider > div {
+  display: block;
+  height: 37px;
+  border-left: 1px solid #fff;
+}
+
+.os-table .row .col.os-vertical-divider > div.grey {
+  border-color: #ddd;
+}
+
+.os-roles-table {
+  width: 920px;
+}
+
+.os-roles-table .os-pointer-cursor:hover{
+  color: #27aae1;
 }
 
 .os-table .os-table-head .row .col,
@@ -19,10 +43,26 @@
   border-top: 1px solid #ddd;
 }
 
+.os-table .os-table-head .row .col:first-of-type,
+.os-table .os-table-body .row .col:first-of-type {
+  padding-left: 25px;
+}
+
+.os-table .os-table-head .row .col:last-of-type,
+.os-table .os-table-body .row .col:last-of-type {
+  padding-right: 25px;
+}
+
+
+.os-table .os-table-body .row .col {
+  background-color: #fff;	
+}
+
 .os-table .os-table-head .row .col {
   vertical-align: bottom;
   border-bottom: 1px solid #ddd;
   font-weight: bold;
+  background-color: #dededc;
 }
 
 .os-table .os-table-head .row:first-child .col {
@@ -30,14 +70,8 @@
 }
 
 .os-table-muted-hdr > .os-table-head > .row > .col {
-  color: #707070;
   font-size: 12px;
   border-bottom: 0px;
-  background: #f5f5f5;
-}
-
-.os-table-hover .os-table-body .row:hover {
-  background: #f7f7f7;
 }
 
 .os-table .col .progress {
@@ -64,7 +98,6 @@
 .os-table-tree a.fa-minus-square-o, 
 .os-table-tree a.fa-plus-square-o {
   text-decoration: none;
-  color: #707070;
 }
 
 .os-table .row.selected {

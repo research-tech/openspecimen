@@ -12,19 +12,21 @@
     </div>
   </div>
   <div class="container">
-    <div class="os-table os-table-muted-hdr os-border">
+    <div class="os-table os-border os-roles-table">
       <div class="os-table-head">
         <div class="row">
-          <div class="col col-xs-6" translate="role.name">Name</div>
-          <div class="col col-xs-6" translate="role.description">Description</div>
+          <div class="col os-col-25" translate="role.name">Name</div>
+          <div class="col os-col-5 os-vertical-divider"><div></div></div>
+          <div class="col os-col-70" translate="role.description">Description</div>
         </div>
       </div>
       <div class="os-table-body">
         <div ng-repeat="role in roles">
           <div class="row os-pointer-cursor" ng-click="showRoleOverview(role)"
              title="{{'role.tooltip.view_details' | translate}}">
-            <div class="col col-xs-6">{{role.name}}</div>
-            <div class="col col-xs-6">{{role.description}}</div>
+            <div class="col os-col-25">{{role.name}}</div>
+            <div class="col os-col-5 os-center"><span class="icon icon-icons-arrow"></span></div>
+            <div class="col os-col-70">{{role.description}}</div>
           </div>
         </div>
       </div>

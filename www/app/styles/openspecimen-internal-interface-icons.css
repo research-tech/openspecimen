@@ -56,6 +56,9 @@
 .internal-icon-icons-specimen-count:before {
   content: "e";
 }
+.internal-icon-icons-visit-count:before {
+  content: "e";
+}
 .internal-icon-icons-user-count:before {
   content: "h";
 }

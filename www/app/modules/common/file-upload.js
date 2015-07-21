@@ -63,12 +63,24 @@ angular.module('openspecimen')
             fail: function(e, data) {
               ctrl.fail(data);
             }
+          });
+          
+          element.find('.browse-btn').click(function() {
+            element.find('#fileUpload').click();
           })
         });
       },
       template: 
-        '<div class="os-file-upload">' +
+        /*'<div class="os-file-upload">' +
           '<input class="form-control" name="file" type="file">' +
+          '<span class="name" translate="common.no_file_selected">' +
+             'No File Selected' +
+          '</span>' +
+        '</div>'*/
+        '<div class="os-file-upload">' + 
+          '<input id="fileUpload" name="file" type="file">' +
+          '<input type="text" class="form-control"/>' +
+          '<input type="button" class="btn btn-primary browse-btn" style="height: 30px;" value="Browse">' +
           '<span class="name" translate="common.no_file_selected">' +
              'No File Selected' +
           '</span>' +
