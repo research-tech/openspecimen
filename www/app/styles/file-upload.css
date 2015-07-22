@@ -10,18 +10,15 @@
   position: absolute; 
   top: 6px; 
   left: 10px; 
-  min-width: 315px; 
-  background: #fff;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 70%; 
+  z-index: 2;
 }
 
-#fileUpload {
-  display: none;
-}
-
-.browse-btn {
-  position: relative;
-  float: right;
-  bottom: 30px;
+.fileUpload {
+  display: none !important;
 }
 
 .download-link {
