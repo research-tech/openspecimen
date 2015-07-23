@@ -14,10 +14,7 @@
   transform: translate(-265px, 0);
   transition: all 0.25s ease-in-out 0s;
   overflow: hidden;
-  border-right: #e3e3e3 solid 1px;
-  border-bottom: #e3e3e3 solid 1px;
   box-shadow: 2px 2px 5px rgba(0,0,0,.3);
--webkit-box-shadow: 2px 2px 5px c9c9c7;
 }
 
 .os-nav-drawer-overlay {
@@ -44,7 +41,7 @@
   bottom: 0px;
   height: auto;
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 28px;
   background: #FFFFFF;
 }
 
@@ -67,7 +64,6 @@
 }
 
 .os-nav-drawer .os-menu-items > li > a:hover {
-  /* background: #f5f5f5; */
   background: #44C1DF;
   color: #FBFAF5;
 }

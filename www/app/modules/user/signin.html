@@ -1,35 +1,25 @@
 <div>
-  <div class="os-custom-banner">
-    <div class="logo os-login-logo">
-      <img src="images/os_logo_large.png"></img>
-    </div>
-  </div>
-  <img src="images/os_gradient_nav_bar.jpg" class="os-login-gradient">
-  
   <div class="os-login-form-container">
     <h3 translate="user.sign_in_title" class="os-login-header">
       Log in to your account
     </h3>
     <form ng-submit="login()">
       <i class="icon internal-icon-icons-user-count"></i>
-      <input type="text" class="form-control" ng-model="loginData.loginName" 
-      placeholder="{{'user.login_name' | translate}}" /> 
+      <input type="text" class="form-control" ng-model="loginData.loginName" placeholder="{{'user.login_name' | translate}}" /> 
       <i class="icon icon-icons-password"></i>
-      <input type="password" class="form-control password" ng-model="loginData.password" 
-      placeholder="{{'user.password' | translate}}" />
+      <input type="password" class="form-control password" ng-model="loginData.password" placeholder="{{'user.password' | translate}}" />
       <div ng-if="domains.length > 1">
-        <os-select ng-model="loginData.domainName" list="domains" name="domain" 
-        placeholder="{{'user.domain_name' | translate}}">
+        <os-select ng-model="loginData.domainName" list="domains" name="domain" placeholder="{{'user.domain_name' | translate}}">
         </os-select>
       </div>
-      <div class="os-login-footer-link">
-        <div class="form-group os-login-footer">
+      <div class="os-login-footer">
+        <div class="form-group">
           <button type="submit" class="btn btn-primary os-btn-login" translate="user.sign_in">Log In</button>
           <i class="icon icon-icons-arrow"></i>
           <a class="link" ui-sref="forgot-password" translate="user.forgot_password">here</a>
         </div>
         <hr/>
-        <div class="os-login-footer os-sign-up-label">
+        <div class="os-sign-up-label">
           <span translate="user.dont_have_an_account"> Don't have an account? </span>
           <a class="link" ui-sref="sign-up">Sign up</a>
         </div>

@@ -15,27 +15,23 @@
 
 .os-login-form-container .internal-icon-icons-user-count, 
 .os-login-form-container .icon-icons-password {
-  color: #41464c;
+  color: #41464C;
   font-size: 19px;
   position: relative;
   top: 32px;
   margin-left: 10px;
 }
 
-.os-login-form-container input {
-  padding-left: 40px;
-  font-family: "Roboto-Regular";
-}
-
 .os-login-form-container .form-control {
   background-color: transparent;
   border-radius: 0px;
   border: none;
-  border-bottom: 1px solid #9ea0a0;
+  border-bottom: 1px solid #9EA0A0;
   margin-bottom: 10px;
-  color: #9ea0a0;
+  color: #9EA0A0;
   font-size: 18px;
-  box-shadow: -13px 11px 0 -11px #9ea0a0;
+  padding-left: 40px;
+  box-shadow: -13px 11px 0 -11px #9EA0A0;
 }
 
 .os-login-form-container .btn {
@@ -43,8 +39,6 @@
 }
 
 .os-login-header {
-  color: #41464c;
-  font-family: "Roboto-Regular";
   font-size: 22px;
   text-align: center;
   text-transform: uppercase;
@@ -56,37 +50,28 @@
   margin-bottom: 50px;
 }
 
-.os-login-footer-link {
-  font-family: "Roboto-Regular";
-  font-size: 18px;
-  color: #41464c;
-  text-align: center;
-}
-
-.os-login-footer-link .icon-icons-arrow {
-  position: relative;
-  right: 28px;
-  top: 3px;
-  font-size: 16px;
-  color: #fffef2;
-}
-
-.os-login-footer-link .remember-btn {
-  margin-right: 50px;
-}
-
-.os-login-footer-link hr {
-  border-top: 1px dotted #41464c;
-}
-
 .os-login-footer {
+  font-size: 18px;
+  text-align: center;
   margin-top: 32px;
   margin-bottom: 32px;
 }
 
+.os-login-footer .icon-icons-arrow {
+  position: relative;
+  right: 28px;
+  top: 3px;
+  font-size: 16px;
+  color: #FFFEF2;
+}
+
+.os-login-footer hr {
+  border-top: 1px dotted #41464C;
+}
+
 .os-login-footer .link, 
 .os-login-footer .link:hover{
-  color: #41464c;
+  color: #41464C;
   text-decoration: underline;
   font-size: 16px;
 }
@@ -95,10 +80,6 @@
 .btn.os-btn-login:hover {
   font-size: 14px;
   padding-right: 24px;
-}
-
-.os-footer-links, .os-footer-links:hover {
-  color: #6ED2E9;
 }
 
 .os-login-footer-banner {
@@ -119,26 +100,8 @@
 
 /** Placeholder Customization styles **/
 
-.os-login-form-container .form-control:-moz-placeholder { /* Firefox 18- */
-   color: #9ea0a0;  
-   font-family: "Roboto-Regular";
-   font-size: 18px;
-}
-
-.os-login-form-container .form-control::-moz-placeholder {  /* Firefox 19+ */
-   color: #9ea0a0;  
-   font-family: "Roboto-Regular";
-   font-size: 18px;
-}
-
-.os-login-form-container .form-control:-ms-input-placeholder {  
-   color: #9ea0a0;
-   font-family: "Roboto-Regular";
-   font-size: 18px;
-}
-
+.os-login-form-container .form-control::-moz-placeholder,
+.os-login-form-container .form-control:-ms-input-placeholder,
 .os-login-form-container .form-control::-webkit-input-placeholder {
-   color: #9ea0a0;
-   font-family: "Roboto-Regular";
-   font-size: 18px;
+   color: #9EA0A0;  
 }

@@ -12,7 +12,7 @@
             <div class="btn btn-default btn-xs" ng-switch-when="false" ng-click="showUploadMode()">
               <span class="fa fa-wrench"></span>
             </div>
-            <div class="btn-group" ng-switch-when="true">
+            <div ng-switch-when="true">
               <div class="btn btn-default btn-xs" ng-click="showUploadMode()">
                 <span class="fa fa-pencil"></span>
               </div>
@@ -43,10 +43,10 @@
       </li>
     </ul>
   </div>
-  <div class="col-xs-8 os-consents" ng-if="consentExists">
+  <div class="col-xs-7 os-consents" ng-if="consentExists">
     <div class="list-group">
       <div class="list-group-item clearfix os-section-hdr">
-        <span translate="participant.consent.consent_responses">Consent Responses</span>
+        <span class="col-xs-6" translate="participant.consent.consent_responses">Consent Responses</span>
         <div show-if-allowed="participantResource.updateOpts" class="btn-group os-btns right">
           <button class="btn btn-primary" ng-if="!editMode" ng-click="showEditConsents()">
             <span translate="common.buttons.edit">Edit</span>
@@ -58,44 +58,49 @@
         </div>
       </div>
       <div class="list-group-item clearfix">
-        <div class="row">
-          <div ng-switch on="editMode">
-            <div ng-switch-when="true">
-              <div class="col-xs-6">
-                <os-date-picker name="consentDate" date="consent.consentSignatureDate" md-type="true"
-                  placeholder="{{'participant.consent.signature_date'|translate}}">
-                </os-date-picker>
-              </div>
-              <div class="col-xs-6">
-                <div os-md-input ng-model="consent.witness" placeholder="{{'participant.consent.witness'|translate}}">
-                  <os-users ng-model="consent.witness" placeholder="{{'participant.consent.witness'|translate}}"> </os-users>
-                </div>
-              </div>
+        <div ng-switch on="editMode">
+          <div class="col-xs-4 consent-label">
+            <span translate="participant.consent.signature_date">Consent Signature Date</span>
+          </div>
+          <div ng-switch-when="true">
+            <div class="col-xs-8">
+              <os-date-picker name="consentDate" date="consent.consentSignatureDate"
+                placeholder="{{'participant.consent.signature_date'|translate}}">
+              </os-date-picker>
             </div>
-            <div ng-switch-when="false">
-              <div class="col-xs-6 os-md-input read">
-                <label class="os-md-input-label">
-                  <span translate="participant.consent.signature_date">Consent Signature Date</span>
-                </label>
-                <span>{{consent.consentSignatureDate | date: global.dateFmt | osNoValue}}</span>
-              </div>
-              <div class="col-xs-6 os-md-input read">
-                <label class="os-md-input-label">
-                  <span translate="participant.consent.witness">Consent Witness</span>
-                </label>
-                <span ng-if="consent.witness">{{consent.witness.lastName}}, {{consent.witness.firstName}}</span>
-                <span ng-if="!consent.witness" translate="common.not_specified">Not Specified</span>
-              </div>
+          </div>
+          <div ng-switch-when="false">
+            <div class="col-xs-8">
+              <span>{{consent.consentSignatureDate | date: global.dateFmt | osNoValue}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="list-group-item clearfix">
+        <div ng-switch on="editMode">
+          <div class="col-xs-4 consent-label">
+            <span translate="participant.consent.witness">Consent Witness</span>
+          </div>
+          <div ng-switch-when="true">
+            <div class="col-xs-8">
+              <os-users ng-model="consent.witness" placeholder="{{'participant.consent.witness'|translate}}"></os-users>
+            </div>
+          </div>
+          <div ng-switch-when="false">
+            <div class="col-xs-8">
+              <span ng-if="consent.witness">{{consent.witness.lastName}}, {{consent.witness.firstName}}</span>
+              <span ng-if="!consent.witness" translate="common.not_specified">Not Specified</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="list-group-item clearfix" ng-repeat="consentTierResponse in consent.consentTierResponses" ng-init="consentTierResponseIdx = $index">
-        <div>
-          <div class="os-consent-stmt">
-            <span title="{{consentTierResponse.statement}}">{{consentTierResponse.statement}}</span>
-          </div>
+      <div class="list-group-item clearfix" ng-repeat="consentTierResponse in consent.consentTierResponses" 
+        ng-init="consentTierResponseIdx = $index">
+        <div class="col-xs-4 consent-label">
+          <span title="{{consentTierResponse.statement}}">{{consentTierResponse.statement}}</span>
+        </div>
+        <div class="col-xs-8">
           <div ng-if="!editMode">
             <span>{{consentTierResponse.response | osNoValue:'common.none'| translate}}</span>
           </div>
@@ -105,7 +110,6 @@
                 ng-model="consentTierResponse.response" ng-value="response">
               <span>{{response}}</span>
             </label>
-
             <button class="btn btn-default btn-xs" ng-click="clearResponseSelection(consentTierResponse)">
               <span class="fa fa-remove" title="{{'participant.consent.clear' | translate}}"></span>
             </button>

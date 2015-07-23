@@ -176,7 +176,7 @@ body > .ui-select-bootstrap.open {
 
 /* enable absolute positioning */
 .inner-addon { 
-    position: relative; 
+  position: relative; 
 }
 
 /* style icon */

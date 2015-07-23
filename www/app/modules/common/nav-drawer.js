@@ -1,7 +1,7 @@
 angular.module('openspecimen')
   .directive('osNavDrawer', function($compile, $translate, osNavDrawerSvc) {
-    function getNavHeader() {
-      /*var div = angular.element('<div/>').addClass('os-page-hdr');
+    /*function getNavHeader() {
+      var div = angular.element('<div/>').addClass('os-page-hdr');
 
       var navBtn = angular.element('<button/>')
         .addClass('os-nav-button')
@@ -15,8 +15,8 @@ angular.module('openspecimen')
         .append(navigateTo);
 
       div.append(navBtn).append(title);
-      return div;*/
-    }
+      return div;
+    }*/
 
     return {
       restrict: 'A',

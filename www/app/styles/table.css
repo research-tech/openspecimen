@@ -10,7 +10,6 @@
   margin-right: 0px;
   margin-left: 0px;
   display: flex;
-  background-color: #dededc;
 }
 
 .os-table .row .col.os-vertical-divider {
@@ -20,11 +19,11 @@
 .os-table .row .col.os-vertical-divider > div {
   display: block;
   height: 37px;
-  border-left: 1px solid #fff;
+  border-left: 1px solid #FFFFFF;
 }
 
 .os-table .row .col.os-vertical-divider > div.grey {
-  border-color: #ddd;
+  border-color: #DDDDDD;
 }
 
 .os-roles-table {
@@ -32,7 +31,7 @@
 }
 
 .os-roles-table .os-pointer-cursor:hover{
-  color: #27aae1;
+  color: #27AAE1;
 }
 
 .os-table .os-table-head .row .col,
@@ -40,7 +39,7 @@
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #DDDDDD;
 }
 
 .os-table .os-table-head .row .col:first-of-type,
@@ -55,14 +54,14 @@
 
 
 .os-table .os-table-body .row .col {
-  background-color: #fff;	
+  background-color: #FFFFFF;	
 }
 
 .os-table .os-table-head .row .col {
   vertical-align: bottom;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #DDDDDD;
   font-weight: bold;
-  background-color: #dededc;
+  background-color: #DEDEDC;
 }
 
 .os-table .os-table-head .row:first-child .col {
