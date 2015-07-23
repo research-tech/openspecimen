@@ -12,8 +12,13 @@
   white-space: normal!important;
 }
 
-span.ui-select-match { 
+.ui-select-bootstrap .ui-select-match { 
   padding-left: 10px;
+}
+
+.ui-select-bootstrap .ui-select-match .btn-link {
+  color: #333;
+  opacity: 0.8;
 }
 
 .dropdown-menu:before {
