@@ -14,12 +14,12 @@ angular.module('openspecimen')
       var modelGetter = $parse(attrs['ngModel']);
       var modelSetter = modelGetter.assign;
       if (required && !multiple && !modelGetter(scope)) {
-        scope.$watch(attrs.list, function(newVal, oldVal) {
+        scope.$watchCollection(attrs.list, function(newVal, oldVal) {
           if (!!newVal && newVal.length == 1) {
             var value = !!attrs.selectProp ? newVal[0][attrs.selectProp] : newVal[0];
             modelSetter(scope, value);
           }
-        }, true);
+        });
       }
     }
 

@@ -8,6 +8,11 @@
   white-space: normal!important;
 }
 
+.ui-select-bootstrap .ui-select-match .btn.form-control {
+  height: auto;
+  padding-right: 40px;
+}
+
 .ui-select-bootstrap .ui-select-match .btn span {
   white-space: normal!important;
 }
@@ -15,6 +20,11 @@
 .ui-select-bootstrap .ui-select-match .btn-link {
   color: #333;
   opacity: 0.8;
+  position: absolute;
+  height: 10px;
+  top: 50%;
+  right: 10px;
+  margin-top: -10px;
 }
 
 .dropdown-menu:before {

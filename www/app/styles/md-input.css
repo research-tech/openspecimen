@@ -73,7 +73,6 @@
 .os-table.bulk-edit .os-md-input .ui-select-match,
 .os-table.bulk-edit .os-md-input .ui-select-search {
   margin-top: 0px;
-  height: 26px!important;
   background: transparent;
 }
 
@@ -81,7 +80,7 @@
   border: 0px;
   box-shadow: none;
   height: auto!important;
-  padding: 0px;
+  padding: 0px 30px 0px 0px;
   background: transparent;
 }
 
@@ -99,6 +98,10 @@
   border-color: #666;
   border-right: 6px solid transparent;
   border-left: 6px solid transparent;
+}
+
+.os-md-input .ui-select-bootstrap .ui-select-match .btn-link {
+  right: 0;
 }
 
 .os-md-input-addon, 
