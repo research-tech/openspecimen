@@ -82,7 +82,6 @@
 .os-page-hdr .os-nav-button {
   background: #ecece8;
   margin-left: -20px;
-  margin-top: -20px;
   padding-left: 8px;
   padding-top: 4px;
   height: 38px;
@@ -131,20 +130,15 @@
   text-align: center;
   border-top: #c7c7c7 solid 2px;
   background: #FBFAF5 !important;
-  border-bottom: none !important;
   cursor: pointer;
 }
 
 .os-home-nav a {
   position: relative;
-  top: 7px;
+  top: 6px;
   font-size: 15px;
   color: #41464c;
   text-decoration: none;
-}
-
-.os-home-nav a:hover {
-  background: #FBFAF5 !important;
 }
 
 .os-navigation-gradient {

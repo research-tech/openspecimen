@@ -17,13 +17,13 @@
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
             <a ui-sref="site-import">
-              <i class="fa fa-hospital-o"></i>
+              <i class="icon navigation-icons-sites"></i>
               <span translate="site.list">Sites</span>
             </a>
           </li>
           <li>
             <a ui-sref="site-import-jobs">
-              <i class="fa fa-table"></i>
+              <i class="icon icon-icons-view-jobs"></i>
               <span translate="common.view_jobs">View Jobs</span>
             </a>
           </li>
@@ -44,7 +44,7 @@
       <p title="{{'site.code' | translate}}">{{site.code || 'N/A'}}</p>
       <div class="stats">
         <div class="stat col-xs-6" title="{{'site.tooltip.cp_count' | translate}}">
-          <i class="icon internal-icon-icons-collection-protocol"></i>
+          <i class="icon internal-icon-icons-collection-protocol-count"></i>
           <span>{{site.cpCount || 0 | number: 0}}</span>
         </div>
       </div>

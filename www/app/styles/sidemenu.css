@@ -51,7 +51,7 @@ ul.os-side-menu li:first-child {
 }
 
 ul.os-side-menu li:last-child {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #FFFFFF;
 }
 
 ul.os-side-menu > li a {
@@ -111,7 +111,6 @@ ul.os-side-menu > li.active a {
 }
 
 .os-page-hdr ~ .os-side-menu-page-content {
-  /* top: 114px; */
   top: 135px;
 }
 

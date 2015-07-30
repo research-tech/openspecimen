@@ -18,7 +18,7 @@
               class="form-control" placeholder="{{'role.name' | translate}}">
           </os-inline-edit>
         </div>
-        <div class="col os-col-5 os-center"><span class="icon icon-icons-arrow"></span></div>
+        <div class="col os-col-5 os-center"><span class="icon icon-icons-right-arrow"></span></div>
         <div class="col os-col-80">
           <os-inline-edit editor="descriptionEditor" name="description" class="value value-md" value="role.description">
           <span ng-if="descriptionEditor.isDisplayMode()">{{descriptionEditor.viewValue | osNoValue}}</span>
@@ -54,7 +54,7 @@
                       </div>
 
                       <div class="os-status" ng-if="acl.operationNames.indexOf('Create') > -1">
-                        <span class="icon icon-icons-create-button"></span>
+                        <span class="fa fa-plus-square-o"></span>
                         <span translate="role.create">Create</span>
                       </div>
 
@@ -74,7 +74,7 @@
                       </div>
 
                       <div class="os-status" ng-if="acl.operationNames.indexOf('Unlock') > -1">
-                        <span class="fa fa-unlock"></span>
+                        <span class="fa fa-unlock-alt"></span>
                         <span translate="role.unlock">Unlock</span>
                       </div>
                     </div>

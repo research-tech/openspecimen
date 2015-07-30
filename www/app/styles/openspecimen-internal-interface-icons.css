@@ -2,11 +2,7 @@
 
 @font-face {
   font-family: "openspecimen-internal-interface-icons";
-  src:url("../fonts/openspecimen-internal-interface-icons.eot");
-  src:url("../fonts/openspecimen-internal-interface-icons.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/openspecimen-internal-interface-icons.woff") format("woff"),
-    url("../fonts/openspecimen-internal-interface-icons.ttf") format("truetype"),
-    url("../fonts/openspecimen-internal-interface-icons.svg#openspecimen-internal-interface-icons") format("svg");
+  src: url("../fonts/openspecimen-fonticons-internal.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 
@@ -38,30 +34,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.internal-icon-icons-collection-protocol:before {
+.internal-icon-icons-container-dimensions:before {
   content: "a";
 }
-.internal-icon-icons-container-dimensions:before {
-  content: "c";
-}
-.internal-icon-icons-distribution-protocol:before {
+.internal-icon-icons-count-of-completed-visits:before {
   content: "b";
+}
+.internal-icon-icons-count-of-free-locations:before {
+  content: "c";
 }
 .internal-icon-icons-institute-deparments:before {
   content: "d";
 }
-.internal-icon-icons-over-view:before {
-  content: "g";
+.internal-icon-icons-participant-count:before {
+  content: "e";
 }
 .internal-icon-icons-specimen-count:before {
-  content: "e";
-}
-.internal-icon-icons-visit-count:before {
-  content: "e";
-}
-.internal-icon-icons-user-count:before {
-  content: "h";
+  content: "f";
 }
 .internal-icon-icons-user-since:before {
-  content: "f";
+  content: "g";
+}
+.internal-icon-icons-collection-protocol-count:before {
+  content: "h";
+}
+.internal-icon-icons-distribution-protocol-count:before {
+  content: "i";
+}
+.internal-icon-icons-user-count:before {
+  content: "j";
 }

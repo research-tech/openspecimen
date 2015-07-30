@@ -8,7 +8,6 @@ angular.module('openspecimen')
         var elTop = sibling.outerHeight();
 
         element.css({
-          'height': $window.innerHeight, 
           'padding-top': elTop
         });
 

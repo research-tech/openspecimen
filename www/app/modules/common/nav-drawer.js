@@ -1,23 +1,5 @@
 angular.module('openspecimen')
   .directive('osNavDrawer', function($compile, $translate, osNavDrawerSvc) {
-    /*function getNavHeader() {
-      var div = angular.element('<div/>').addClass('os-page-hdr');
-
-      var navBtn = angular.element('<button/>')
-        .addClass('os-nav-button')
-        .append('<span class="fa fa-bars"></span>');
-
-      var navigateTo = $translate.instant("menu.navigate_to");
-      var title = angular.element('<h3/>')
-        .addClass('os-title')
-        .css('margin', 0)
-        .css('margin-top', '-11px')
-        .append(navigateTo);
-
-      div.append(navBtn).append(title);
-      return div;
-    }*/
-
     return {
       restrict: 'A',
 
@@ -35,7 +17,6 @@ angular.module('openspecimen')
         });
 
         element.addClass('os-nav-drawer');
-          /*.prepend(getNavHeader());*/
 
         var overlay = angular.element('<div/>').addClass('os-nav-drawer-overlay');
         element.after(overlay);

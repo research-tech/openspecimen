@@ -12,7 +12,7 @@
   white-space: normal!important;
 }
 
-.ui-select-bootstrap .ui-select-match { 
+span.ui-select-match { 
   padding-left: 10px;
 }
 

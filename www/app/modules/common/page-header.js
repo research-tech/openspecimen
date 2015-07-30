@@ -7,7 +7,6 @@ angular.module('openspecimen')
         var btn = angular.element('<button/>')
           .addClass('os-nav-button')
           .append('<span class="icon icon-icons-show-navigation-menu"></span>');
-          
 
         element.addClass('os-page-hdr').prepend(btn).removeAttr('os-page-header');
         element.find(":header").addClass("os-title");

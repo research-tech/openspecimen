@@ -10,9 +10,6 @@
   position: absolute; 
   top: 6px; 
   left: 10px; 
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis;
   width: 70%; 
   z-index: 2;
 }

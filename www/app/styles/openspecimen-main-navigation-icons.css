@@ -2,11 +2,7 @@
 
 @font-face {
   font-family: "openspecimen-main-navigation-icons";
-  src:url("../fonts/openspecimen-main-navigation-icons.eot");
-  src:url("../fonts/openspecimen-main-navigation-icons.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/openspecimen-main-navigation-icons.woff") format("woff"),
-    url("../fonts/openspecimen-main-navigation-icons.ttf") format("truetype"),
-    url("../fonts/openspecimen-main-navigation-icons.svg#openspecimen-main-navigation-icons") format("svg");
+  src: url("../fonts/openspecimen-fonticons-navigation-icons.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 
@@ -41,42 +37,42 @@
 .navigation-icons-collection-protocol:before {
   content: "a";
 }
-.navigation-icons-distribution-protocol:before {
+.navigation-icons-users:before {
   content: "b";
 }
-.navigation-icons-formss:before {
-  content: "j";
-}
-.navigation-icons-institutes:before {
+.navigation-icons-distribution-protocol:before {
   content: "c";
 }
+.navigation-icons-forms:before {
+  content: "d";
+}
+.navigation-icons-institutes:before {
+  content: "e";
+}
+.navigation-icons-jobs:before {
+  content: "f";
+}
 .navigation-icons-queries:before {
+  content: "g";
+}
+.navigation-icons-reports:before {
   content: "h";
 }
 .navigation-icons-roles:before {
-  content: "e";
-}
-.navigation-icons-reports:before {
   content: "i";
 }
 .navigation-icons-settings:before {
-  content: "k";
+  content: "j";
 }
 .navigation-icons-sites:before {
-  content: "f";
-}
-.navigation-icons-storage:before {
-  content: "g";
-}
-.navigation-icons-users:before {
-  content: "d";
+  content: "k";
 }
 .navigation-icons-specimen-list:before {
-  content: "k";
-}
-.navigation-icons-forms:before {
-  content: "k";
+  content: "l";
 }
 .navigation-icons-distribution-order:before {
-  content: "k";
+  content: "m";
+}
+.navigation-icons-storage:before {
+  content: "n";
 }

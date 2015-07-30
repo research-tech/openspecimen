@@ -714,7 +714,7 @@
 
   "forgot_password": {
     "title": "FORGOT PASSWORD?",
-    "enter_email_id": "Enter your e-mail id used at the time of registration.",
+    "enter_email_id": "Enter your username used at the time of registration.",
     "submit": "Submit",
     "message": "If you do not remember you email-id, contact the admin on admin@admin.com",
     "return_to_signin": "Return to sign in page",

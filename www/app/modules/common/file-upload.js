@@ -83,7 +83,7 @@ angular.module('openspecimen')
           '<span class="input-group-btn">' + 
             '<input type="button" class="btn btn-primary" value="Browse"/>' +
           '</span>' +
-          '<span class="name" translate="common.no_file_selected">' +
+          '<span class="name os-ellipsis" translate="common.no_file_selected">' +
             'No File Selected' +
           '</span>' +
         '</div>'

@@ -1,13 +1,8 @@
 @font-face {
   font-family: "openspecimen-generic-fonticons";
-  src:url("../fonts/openspecimen-generic-font-icons.eot");
-  src:url("../fonts/openspecimen-generic-font-icons.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/openspecimen-generic-font-icons.woff") format("woff"),
-    url("../fonts/openspecimen-generic-font-icons.ttf") format("truetype"),
-    url("../fonts/openspecimen-generic-font-icons.svg#openspecimen-generic-fonticons") format("svg");
+  src:url("../fonts/openspecimen-fonticons-generic.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-
 }
 
 [data-icon]:before {
@@ -36,66 +31,242 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-icons-arrow:before {
+.icon-icons-user-login:before {
   content: "a";
 }
-.icon-icons-calendar:before {
+
+.icon-icons-create-button:before {
+  content: "b";
+}
+
+.icon-icons-selected-check-box:before {
   content: "c";
 }
-.icon-icons-print:before {
+
+.icon-icons-repeat-visits:before {
+  content: "d";
+}
+
+.icon-icons-help:before {
+  content: "e";
+}
+
+.icon-icons-info:before {
+  content: "f";
+}
+
+.icon-icons-expand-information-row:before {
+  content: "g";
+}
+
+.icon-icons-unslected-check-box:before {
+  content: "h";
+}
+
+.icon-icons-search:before {
+  content: "i";
+}
+
+.icon-icons-password:before {
+  content: "j";
+}
+
+.icon-icons-close:before {
+  content: "k";
+}
+
+.icon-icons-left-arrow:before {
+  content: "l";
+}
+
+.icon-icons-right-arrow:before {
+  content: "m";
+}
+
+.icon-icons-separator:before {
   content: "n";
 }
-.icon-icons-read:before {
+
+.icon-icons-home:before {
   content: "o";
 }
+
 .icon-icons-settings:before {
   content: "p";
 }
+
 .icon-icons-show-navigation-menu:before {
   content: "q";
 }
-.icon-icons-update:before {
+
+.icon-icons-hide-navigation-menu:before {
   content: "r";
 }
-.icon-icons-view-reports:before {
+
+.icon-icons-drop-down-selection-arrow:before {
   content: "s";
 }
-.icon-icons-drop-down-arrow:before {
-  content: "f";
-}
-.icon-icons-delete:before {
-  content: "e";
-}
-.icon-icons-create-button:before {
-  content: "d";
-}
-.icon-icons-check-mark:before {
-  content: "b";
-}
-.icon-icons-edit-filter:before {
-  content: "g";
-}
-.icon-icons-events:before {
-  content: "h";
-}
-.icon-icons-export:before {
-  content: "i";
-}
-.icon-icons-hide-navigation-menu:before {
-  content: "j";
-}
-.icon-icons-home:before {
-  content: "k";
-}
+
 .icon-icons-import:before {
-  content: "l";
+  content: "t";
 }
-.icon-icons-notifications:before {
-  content: "m";
-}
-.icon-icons-username:before {
+
+.icon-icons-export:before {
   content: "u";
 }
-.icon-icons-password:before {
-  content: "u";
+
+.icon-icons-view-jobs:before {
+  content: "v";
+}
+
+.icon-icons-specimen-events:before {
+  content: "w";
+}
+
+.icon-icons-specimen-forms:before {
+  content: "x";
+}
+
+.icon-icons-specimen-aliquots:before {
+  content: "y";
+}
+
+.icon-icons-specimen-derivatives:before {
+  content: "z";
+}
+
+.icon-icons-visit-forms:before {
+  content: "A";
+
+}
+.icon-icons-visits:before {
+  content: "B";
+}
+
+.icon-icons-participant-forms:before {
+  content: "C";
+}
+
+.icon-icons-participant-update:before {
+  content: "D";
+}
+
+.icon-icons-participant-registration:before {
+  content: "E";
+}
+
+.icon-icons-calendar:before {
+  content: "F";
+}
+
+.icon-icons-edit:before {
+  content: "G";
+}
+
+.icon-icons-delete:before {
+  content: "H";
+}
+
+.icon-icons-locations:before {
+  content: "I";
+}
+
+.icon-icons-overview:before {
+  content: "J";
+}
+
+.icon-icons-forms:before {
+  content: "K";
+}
+
+.icon-icons-specimens:before {
+  content: "L";
+}
+
+.icon-icons-save:before {
+  content: "M";
+}
+
+.icon-icons-print:before {
+  content: "N";
+}
+
+.icon-icons-radio-button-selected:before {
+  content: "O";
+}
+
+.icon-icons-status-okay:before {
+  content: "P";
+}
+
+.icon-icons-status-closed:before {
+  content: "Q";
+}
+
+.icon-icons-refresh:before {
+  content: "R";
+}
+
+.icon-icons-assign-position:before {
+  content: "S";
+}
+
+.icon-icons-filter:before {
+  content: "T";
+}
+
+.icon-icons-upload:before {
+  content: "U";
+}
+
+.icon-icons-unselected-radio-button:before {
+  content: "V";
+}
+
+.icon-icons-warning:before {
+  content: "W";
+}
+
+.icon-icons-assign-to:before {
+  content: "X";
+}
+
+.icon-icons-lock:before {
+  content: "Y";
+}
+
+.icon-icons-additional-drop-down:before {
+  content: "Z";
+}
+
+.icon-icons-read:before {
+  content: "1";
+}
+
+.icon-icons-reopen:before {
+  content: "2";
+}
+
+.icon-icons-replicate:before {
+  content: "3";
+
+}
+.icon-icons-browse:before {
+  content: "4";
+}
+
+.icon-icons-collect-planned-specimen:before {
+  content: "5";
+}
+
+.icon-icons-unlock:before {
+  content: "6";
+}
+
+.icon-icons-consent:before {
+  content: "7";
+}
+
+.icon-icons-colour-coding:before {
+  content: "8";
 }

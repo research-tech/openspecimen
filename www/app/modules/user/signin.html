@@ -4,7 +4,7 @@
       Log in to your account
     </h3>
     <form ng-submit="login()">
-      <i class="icon internal-icon-icons-user-count"></i>
+      <i class="icon icon-icons-user-login"></i>
       <input type="text" class="form-control" ng-model="loginData.loginName" placeholder="{{'user.login_name' | translate}}" /> 
       
       <i class="icon icon-icons-password"></i>
@@ -17,8 +17,10 @@
       </div>
       <div class="os-login-footer">
         <div class="form-group">
-          <button type="submit" class="btn btn-primary os-btn-login" translate="user.sign_in">Log In</button>
-          <i class="icon icon-icons-arrow"></i>
+          <button type="submit" class="btn btn-primary">
+            <span translate="user.sign_in">Log In</span>
+            <i class="icon icon-icons-right-arrow"></i>
+          </button>
           <a class="link" ui-sref="forgot-password" translate="user.forgot_password">here</a>
         </div>
         <hr/>
