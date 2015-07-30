@@ -180,7 +180,7 @@
     },
 
     "filter": {
-      "filter_title": "Collection Protocol Filter",
+      "filter_title": "Filters",
       "title_or_short_title": "Title / Short Title",
       "title": "Type the Title",
       "pi": "Select Principal Investigator",
@@ -229,11 +229,11 @@
     "select_site": "Select Site",
     "pmis": "Medical Identifiers",
     "protocol_id": "PPID",
-    "filter_title": "Participants Filter", 
+    "filter_title": "Filters",
     "spmn_label_or_barcode": "Specimen Label / Barcode",
     "collection_protocol": "Collection Protocol",
     "regDate": "Registration Date",
-    "another_protocol": "Register to Another Protocol",
+    "reg_another_protocol": "Register to Another Protocol",
     "consent": {
       "signed_consent_form": "Signed Consent Form",
       "deleting_consent_form": "Deleting Signed Consent Form",
@@ -307,7 +307,8 @@
     "bulk_import": "Bulk Import Visits",
     "visit_extensions": "Visit Forms",
 
-    "spr": "Surgical Pathology Report",
+    "upload_spr": "Upload Surgical Pathology Report",
+    "spr_contents": "Report Contents",
     "spr_uploaded": "Surgical pathology report {{file}} uploaded successfully.",
     "no_spr": "No surgical pathology report uploaded.",
     "deleting_spr": "Deleting Surgical Pathology Report",
@@ -525,7 +526,7 @@
     },
 
     "filter": {
-      "title": "Institute Filter",
+      "title": "Filters",
       "name": "Type the Name"
     },
 
@@ -562,7 +563,7 @@
     },
 
     "filter": {
-      "title": "Site Filter",
+      "title": "Filters",
       "name": "Type the Name",
       "type": "Select Type"
     },
@@ -601,7 +602,7 @@
     },
 
     "filter": {
-      "filter_title": "Distribution Protocol Filter",
+      "filter_title": "Filters",
       "title_or_short_title": "Title / Short Title",
       "title": "Type the Title",
       "pi": "Select Principal Investigator"
@@ -691,7 +692,7 @@
     },
 
     "filter": {
-      "title": "User Filter",
+      "title": "Filters",
       "name": "Type the Name",
       "login_name": "Type the Login Name",
       "activity_status": "Select the Activity Status"
@@ -797,7 +798,7 @@
     },
 
     "filter": {
-      "title": "Storage Container Filter",
+      "title": "Filters",
       "name": "Type the Name"
     },
 
@@ -866,6 +867,12 @@
     "select_level": "Select Level",
     "attach_form": "Attach Form",
     "attached": "Form Successfully Attached",
+    "record_count": "Record Count",
+    "record_stats": "Following table shows {{caption}} form record counts",
+    "deleting_form": "Deleting {{caption}} form confirmation",
+    "confirm_delete": "{{caption}} form will be deleted forever. Are you sure you want to proceed?",
+    "confirm_delete_with_data": "You will lose data if you delete the {{caption}} form. Do you want to continue?",
+    "form_deleted": "{{caption}} form deleted successfully",
     "confirm_delete_association": "Are you sure you want to delete this form at <b>{{level.name}}</b> level from <b>{{!collectionProtocol.id ? 'All Protocols' : collectionProtocol.shortTitle}}</b>? \n Please note you will no longer be able to access data for this form",
     "association_deleted": "Successfully deleted form at {{level.name}} level from {{!collectionProtocol.id ? 'All Protocols' : collectionProtocol.shortTitle}}",
 
@@ -1083,7 +1090,7 @@
     },
 
     "filter": {
-      "title": "Queries Filter",
+      "title": "Filters",
       "id_or_title": "Query ID / Title",
       "type_id_or_title": "Enter query ID or title to search queries"
     }
