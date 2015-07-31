@@ -710,7 +710,7 @@
     },
     
     "proceed_sign_up": "Proceed to Sign Up",
-    "welcome_title": "Welcome to OpenSpecimen"
+    "welcome_title": "OpenSpecimen Introduction in One Minute"
   },
 
   "forgot_password": {
