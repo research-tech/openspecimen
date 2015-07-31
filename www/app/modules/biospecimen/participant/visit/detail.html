@@ -24,18 +24,18 @@
       <button show-if-allowed="specimenResource.updateOpts" class="primary" ng-switch on="!!visit.id" ui-sref="visit-addedit">
         <span ng-switch-when="true">
           <span translate="common.buttons.edit">Edit</span>
-          <span class="fa fa-pencil"></span>
+          <span class="icon icon-icons-edit"></span>
         </span>
         <span ng-switch-default>
           <span translate="common.buttons.add">Add</span>
-          <span class="fa fa-plus"></span>
+          <span class="icon icon-icons-create-button"></span>
         </span>
       </button>
  
       <button show-if-allowed="specimenResource.deleteOpts" class="default" 
         ng-if="!!visit.id" ng-click="deleteVisit()">
         <span translate="common.buttons.delete">Delete</span>
-        <span class="fa fa-trash"></span>
+        <span class="icon icon-icons-delete"></span>
       </button>
     </div>
   </div>
@@ -44,19 +44,19 @@
     <ul>
       <li ui-sref-active="active">
         <a ui-sref=".overview"> 
-          <i class="fa fa-eye"></i>
+          <i class="icon icon-icons-overview"></i>
           <span class="os-title" translate="visits.menu.overview">Overview</span>
         </a>
       </li>
       <li show-if-allowed="sprResource.readOpts" ui-sref-active="active" ng-if="!!visit.id">
         <a ui-sref=".spr">
-          <i class="fa fa-file-text-o"></i>
+          <i class="icon navigation-icons-reports"></i>
           <span class="os-title" translate="visits.menu.spr_report">Surgical Pathology Report</span>
         </a>
       </li>
       <li ui-sref-active="active" ng-if="!!visit.id">
         <a ui-sref=".extensions.list">
-          <i class="fa fa-files-o"></i>
+          <i class="icon icon-icons-forms"></i>
           <span class="os-title" translate="visits.menu.extensions">Forms</span>
         </a>
       </li>

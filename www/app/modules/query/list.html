@@ -19,7 +19,7 @@
           </li>
           <li>
             <a ng-click="importQuery()">
-              <i class="fa fa-upload"></i>
+              <i class="icon icon-icons-import"></i>
               <span translate="common.buttons.import">Import</span>
             </a>
           </li>
@@ -27,8 +27,8 @@
       </div>
       <div dropdown ng-if="selectedQueries.length > 0" class="inline">
         <button class="default dropdown-toggle">
-          <span class="fa fa-folder"></span>
           <span translate="queries.assign">Assign</span>
+          <span class="fa fa-folder"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right os-query-folders-dd">
           <li>
@@ -52,7 +52,6 @@
       </div>
       <button os-right-drawer-toggle class="default">
         <span class="fa fa-search"></span>
-        <span translate="common.buttons.search">Search</span>
       </button>
     </div>
   </div>    
@@ -112,7 +111,7 @@
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
                 <a ui-sref="query-addedit({queryId: query.id})">
-                  <i class="fa fa-pencil"></i>
+                  <i class="icon icon-icons-edit"></i>
                   <span translate="queries.edit"></span>
                 </a>
               </li>
@@ -130,7 +129,7 @@
               </li>-->
               <li ng-click="deleteQuery(query)">
                 <a>
-                  <i class="fa fa-trash"></i>
+                  <i class="icon icon-icons-delete"></i>
                   <span translate="queries.delete"></span>
                 </a>
               </li>
@@ -199,7 +198,7 @@
 
             <div class="pull-right">
               <button type="button" class="btn btn-xs btn-default" ng-click="editFolder(folder)">
-                <span class="fa fa-pencil"></span>
+                <span class="icon icon-icons-edit"></span>
               </button> 
             </div>
           </div>

@@ -32,15 +32,15 @@
           <button class="btn btn-default" ng-click="displayFilter(filter)" ng-if="!filter.expr"
             title="{{'queries.edit_filter' | translate}}" data-placement="left" 
             content-template="modules/query/addedit-filter.html" bs-popover>
-            <span class="fa fa-pencil"></span>
+            <span class="icon icon-icons-edit"></span>
           </button>
           <button class="btn btn-default" ng-click="displayFilter(filter)" ng-if="filter.expr"
             title="{{'queries.edit_filter' | translate}}" data-placement="left" data-container="body"
             content-template="modules/query/addedit-temporal-filter.html" bs-popover>
-            <span class="fa fa-pencil"></span>
+            <span class="icon icon-icons-edit"></span>
           </button>
           <button class="btn btn-default" ng-click="deleteFilter(filter)">
-            <span class="fa fa-trash"></span>
+            <span class="icon icon-icons-delete"></span>
           </button>
         </div>
       </div>

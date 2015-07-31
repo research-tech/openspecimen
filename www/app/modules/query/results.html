@@ -17,11 +17,11 @@
     <div class="os-btns right">
       <button class="default" ng-click="editFilters()">
         <span translate="queries.edit_filters">Edit Filters</span>
-        <span class="fa fa-pencil"></span>
+        <span class="icon icon-icons-edit"></span>
       </button>
       <button class="default" ng-click="defineView()">
         <span translate="queries.define_view">Define View</span>
-        <span class="fa fa-eye"></span>
+        <span class="icon icon-icons-read"></span>
       </button>
       <button class="default" ng-click="rerun()">
         <span translate="queries.rerun">Rerun</span>
@@ -38,13 +38,13 @@
           <span class="fa fa-check"></span>
         </button>
         <button type="button" class="btn default" ng-if="resultsCtx.selectAll" ng-click="unSelectAllRows()">
-          <span class="fa fa-remove"></span>
           <span translate="queries.unselect_all">Unselect All</span>
+          <span class="fa fa-remove"></span>
           </button>
         </button>
         <button class="btn default dropdown-toggle" ng-disabled="!selectedRows || selectedRows.length == 0">
           <span class="fa fa-folder"></span>
-          <span class="fa fa-caret-down"></span>
+          <span class="icon icon-icons-drop-down-selection-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right os-query-folders-dd">
           <li>

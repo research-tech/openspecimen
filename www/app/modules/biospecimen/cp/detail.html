@@ -11,17 +11,17 @@
     <div class="os-btns right">
       <button show-if-allowed="cpResource.updateOpts" class="primary" ui-sref="cp-addedit({cpId:cp.id})">
         <span translate="common.buttons.edit">Edit</span>
-        <span class="fa fa-pencil"></span>
+        <span class="icon icon-icons-edit"></span>
       </button>
       <div dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.more">More</span>
-          <span class="fa fa-caret-down"></span>
+          <span class="icon icon-icons-drop-down-selection-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li show-if-allowed="cpResource.deleteOpts" ng-click="deleteCp()">
             <a>
-              <i class="fa fa-trash"></i>
+              <i class="icon icon-icons-delete"></i>
               <span translate="cp.menu_options.delete">Delete</span>
             </a>
           </li>
@@ -40,19 +40,19 @@
     <ul>
      <li ui-sref-active="active">
        <a ui-sref=".overview">
-         <i class="fa fa-eye"></i>
+         <i class="icon icon-icons-overview"></i>
          <span class="os-title" translate="cp.tab.overview">Overview</span>
        </a>
      </li>
      <li ui-sref-active="active">
        <a ui-sref=".consents">
-         <i class="fa fa-pencil-square-o"></i>
+         <i class="icon icon-icons-consent"></i>
          <span class="os-title" translate="cp.tab.consents">Consents</span>
        </a>
      </li>
      <li ui-sref-active="active">
        <a ui-sref=".specimen-requirements">
-         <i class="fa fa-list-alt"></i>
+         <i class="icon icon-icons-specimen-events"></i>
          <span class="os-title" translate="cp.tab.events">Events</span>
        </a>
      </li>

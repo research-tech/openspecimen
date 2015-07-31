@@ -18,21 +18,21 @@
     <div class="os-btns right">
       <button class="default" ng-click="saveQuery()"
         ng-disabled="!queryLocal.isValid || queryLocal.filters.length == 0">
-        <span class="fa fa-save"></span>
         <span translate="common.buttons.save">Save</span>
+        <span class="icon icon-icons-save"></span>
       </button>
       <button class="default" ng-click="getCount()" 
         ng-disabled="!queryLocal.isValid || queryLocal.filters.length == 0"
         title="{{'queries.count_results' | translate}}"
         data-placement="bottom" data-container="body"
         content-template="modules/query/count.html" bs-popover>
-        <span class="fa fa-dashboard"></span>
         <span translate="queries.get_count">Get Count</span>
+        <span class="fa fa-dashboard"></span>
       </button>
       <button class="default" ui-sref="query-results({queryId: queryLocal.id, editMode: 1})"
         ng-disabled="!queryLocal.isValid || queryLocal.filters.length == 0">
-        <span class="fa fa-list"></span>
         <span translate="queries.view_records">View Records</span>
+        <span class="fa fa-list"></span>
       </button>
     </div>
   </div>
@@ -107,7 +107,7 @@
                     ng-click="extnForm.showExtnFields = !extnForm.showExtnFields" 
                     ng-show="filteredExtnFields.length > 0">
                     {{::extnForm.caption}}
-                    <i ng-if="form.showExtnFields || extnForm.showExtnFields" class="fa fa-caret-down"></i>
+                    <i ng-if="form.showExtnFields || extnForm.showExtnFields" class="icon icon-icons-drop-down-selection-arrow"></i>
                     <i ng-if="!form.showExtnFields && !extnForm.showExtnFields" class="fa fa-caret-right"></i>
                   </span>
 

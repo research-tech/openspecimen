@@ -21,12 +21,12 @@
       <button show-if-allowed="participantResource.updateOpts" class="primary"
         ui-sref="participant-addedit({cprId: cpr.id, cpId: cpr.cpId})">
         <span translate="common.buttons.edit">Edit</span>
-        <span class="fa fa-pencil"></span>
+        <span class="icon icon-icons-edit"></span>
       </button>
       <div dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.more">More</span>
-          <span class="fa fa-caret-down"></span>
+          <span class="icon icon-icons-drop-down-selection-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li ng-if="cpsForReg.length > 0">
@@ -39,7 +39,7 @@
           </li>
           <li show-if-allowed="participantResource.deleteOpts">
             <a ng-click="deleteReg()">
-              <span class="fa fa-trash"></span>
+              <span class="icon icon-icons-delete"></span>
               <span translate="common.buttons.delete">Delete</span>
             </a>
           </li>
@@ -52,25 +52,25 @@
     <ul>
       <li ui-sref-active="active"> 
         <a ui-sref=".overview"> 
-          <i class="fa fa-eye"></i>
+          <i class="icon icon-icons-overview"></i>
           <span class="os-title" translate="participant.menu.overview">Overview</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref=".consents">
-          <i class="fa fa-pencil-square-o"></i>
+          <i class="icon icon-icons-consent"></i>
           <span class="os-title" translate="participant.menu.consents">Consents</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref=".visits">
-          <i class="fa fa-list-alt"></i>
+          <i class="icon icon-icons-visits"></i>
           <span class="os-title" translate="participant.menu.visits">Visits</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref=".extensions.list">
-          <i class="fa fa-files-o"></i>
+          <i class="icon icon-icons-forms"></i>
           <span class="os-title" translate="participant.menu.extensions">Forms</span>
         </a>
       </li>
