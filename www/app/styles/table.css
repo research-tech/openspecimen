@@ -26,11 +26,11 @@
   border-color: #DDDDDD;
 }
 
-.os-roles-table {
-  width: 920px;
+.os-table .os-table-body .row {
+  background-color: #FFFFFF;
 }
 
-.os-roles-table .os-pointer-cursor:hover{
+.os-table .os-table-body .row.os-pointer-cursor:hover{
   color: #27AAE1;
 }
 
@@ -52,11 +52,6 @@
   padding-right: 25px;
 }
 
-
-.os-table .os-table-body .row .col {
-  background-color: #FFFFFF;	
-}
-
 .os-table .os-table-head .row .col {
   vertical-align: bottom;
   border-bottom: 1px solid #DDDDDD;
@@ -75,6 +70,12 @@
 
 .os-table .col .progress {
   margin-bottom: 0px;
+}
+
+.os-table .os-table-body .row.title .fa.fa-stop {
+  color: #9e9c96;
+  padding-top: 2px;
+  padding-right: 6px;
 }
 
 .os-table-fixed {

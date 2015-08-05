@@ -1,5 +1,5 @@
 
-.ui-select-bootstrap .ui-select-choices-row>a {
+.ui-select-bootstrap .ui-select-choices-row > a {
   white-space: normal!important;
 }
 
@@ -140,12 +140,6 @@ body > .ui-select-bootstrap.open {
   margin-bottom: 10px;
 }
 
-.form-horizontal .control-label {
-  font-family: "Roboto-Regular";
-  font-size: 14px;
-  color: #41464C;
-}
-
 @media(min-width: 768px) {
   .form-horizontal .control-label {
     padding-top: 7px;
@@ -154,15 +148,14 @@ body > .ui-select-bootstrap.open {
   }
 }
 
-.container .form-control {
+.container .form-control,
+.form-group .form-control {
   border-color: #DEDEDC !important;
   color: #ACABA7;
-  font-family: "Roboto-Regular";
   font-size: 12px;
-  min-height: 30px;
 }
 
-.container .ui-select-bootstrap .ui-select-toggle>.caret {
+.container .ui-select-bootstrap .ui-select-toggle > .caret {
   color: #9E9C96;
 }
 

@@ -24,7 +24,7 @@
   margin: 0px;
 }
 
-.os-head .os-title {
+.os-right-drawer .os-head .os-title {
   margin-top: 0px ;
   font-weight: bold;
   padding-left: 20px;
@@ -55,7 +55,7 @@
 
 /** bootstrap forms css override **/
 
-.os-body .form-group {
+.os-right-drawer .os-body .form-group {
   margin-bottom: 20px;
 }
 
