@@ -239,7 +239,9 @@ body {
 }
 
 .os-page-hdr .os-title {
-  margin-top: -9px;
+  margin: 0px;
+  margin-right: 24px;
+  height: 26px;
 }
 
 button.btn.os-round-btn {
@@ -307,12 +309,7 @@ h4 + .btn-group {
 }
 
 .os-page-hdr .os-breadcrumbs ~ .os-btns {
-  position: absolute;
   bottom: 10px;
-}
-
-.os-page-hdr .os-btns {
-  position: absolute;
 }
 
 .os-page-hdr .os-btns div.inline {
@@ -365,6 +362,7 @@ button.primary:hover,
 .os-page-hdr .os-btns.right {
   right: 25px;
   top: 3px;
+  float: right;
 }
 
 .os-more-options {
