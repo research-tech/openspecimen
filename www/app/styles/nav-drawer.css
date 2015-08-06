@@ -86,6 +86,7 @@
   height: 38px;
   width: 40px;
   font-size: 16px;
+  flex: none;
 }
 
 .os-nav-button.active {

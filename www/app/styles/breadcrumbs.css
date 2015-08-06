@@ -51,6 +51,7 @@
 
 .os-page-hdr .os-breadcrumbs {
   margin: 0px;
+  flex: none;
 }
 
 .os-breadcrumbs > li {
