@@ -6,95 +6,95 @@
         <button show-if-allowed="cpResource.createOpts" class="primary dropdown-toggle" title="Click to add new Collection Protocol"
           ui-sref="cp-addedit({cpId: ''})">
           <span translate="common.buttons.create">Create</span>
-          <span class="icon icon-icons-create-button"></span>
+          <span class="os-icon os-icons-create"></span>
         </button>
         <ul class="dropdown-menu">
           <li>
             <a ui-sref="cp-addedit">
-              <span class="icon icon-icons-create-button"></span>
+              <span class="os-icon os-icons-create"></span>
               <span translate="common.buttons.create">Create</span>
             </a>
           </li>
           <li>
             <a ui-sref="cp-import">
-              <span class="icon icon-icons-import"></span>
+              <span class="os-icon os-icons-import"></span>
               <span translate="common.buttons.import">Import</span>
             </a>
           </li>
         </ul>
       </div>
       <div dropdown class="inline">
-        <button class="os-btn-text dropdown-toggle">
+        <button class="default dropdown-toggle">
           <span translate="common.buttons.import">Import</span>
-          <span class="icon icon-icons-import"></span>
+          <span class="os-icon os-icons-import"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'cpr'})">
-              <i class="icon icon-icons-participant-registration"></i>
+              <i class="os-icon os-icons-register-participant"></i>
               <span translate="participant.registrations">Participant Registrations</span>
             </a>
           </li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'participant'})">
-              <i class="icon icon-icons-participant-update"></i>
+              <i class="os-icon os-icons-participant-update"></i>
               <span translate="participant.part_updates">Participant Updates</span>
             </a>
           </li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'extensions', entityType: 'Participant'})">
-              <i class="icon icon-icons-participant-forms"></i>
+              <i class="os-icon os-icons-participant-forms"></i>
               <span translate="participant.part_extensions">Participant Forms</span>
             </a>
           </li>
           <li class="os-divider"></li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'visit'})">
-              <i class="icon icon-icons-visits"></i>
+              <i class="os-icon os-icons-visits"></i>
               <span translate="visits.list">Visits</span>
             </a>
           </li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'extensions', entityType: 'SpecimenCollectionGroup'})">
-              <i class="icon icon-icons-visit-forms"></i>
+              <i class="os-icon os-icons-visit-forms"></i>
               <span translate="visits.visit_extensions">Visit Forms</span>
             </a>
           </li>
           <li class="os-divider"></li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'specimen'})">
-              <i class="icon icon-icons-specimens"></i>
+              <i class="os-icon os-icons-specimens"></i>
               <span translate="specimens.list">Specimens</span>
             </a>
           </li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'specimenDerivative'})">
-              <i class="icon icon-icons-specimen-derivatives"></i>
+              <i class="os-icon os-icons-derivatives"></i>
               <span translate="specimens.spmn_derivatives">Specimen Derivatives</span>
             </a>
           </li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'specimenAliquot'})">
-              <i class="icon icon-icons-specimen-aliquots"></i>
+              <i class="os-icon os-icons-aliquots"></i>
               <span translate="specimens.spmn_aliquots">Specimen Aliquots</span>
             </a>
           </li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'extensions', entityType: 'Specimen'})">
-              <i class="icon icon-icons-specimen-forms"></i>
+              <i class="os-icon os-icons-specimen-forms"></i>
               <span translate="specimens.spmn_extensions">Specimen Forms</span>
             </a>
           </li>
           <li>
             <a ui-sref="import-biospecimen-objs({objectType: 'extensions', entityType: 'SpecimenEvent'})">
-              <i class="icon icon-icons-specimen-events"></i>
+              <i class="os-icon os-icons-specimen-events"></i>
               <span translate="specimens.spmn_events">Specimen Events</span>
             </a>
           </li>
           <li class="os-divider"></li>
           <li>
             <a ui-sref="biospecimen-obj-import-jobs">
-              <i class="icon icon-icons-view-jobs"></i>
+              <i class="os-icon os-icons-view-jobs"></i>
               <span translate="common.view_jobs">View Jobs</span>
             </a>
           </li>
@@ -120,11 +120,11 @@
       <p>{{cp.startDate | date: global.dateFmt}}</p>
       <div class="stats">
         <div class="stat col-xs-6" title="{{'cp.tooltip.reg_participants_count' | translate}}">
-          <i class="icon internal-icon-icons-user-count"></i>
+          <i class="os-icon os-int-user-count"></i>
           <span>{{cp.participantCount | number: 0}}</span>
         </div>
         <div class="stat col-xs-6" title="{{'cp.tooltip.collected_specimens_count' | translate}}">
-          <i class="icon internal-icon-icons-specimen-count"></i>
+          <i class="os-icon os-int-specimen-count"></i>
           <span>{{cp.specimenCount | number: 0}}</span>
         </div>
       </div>

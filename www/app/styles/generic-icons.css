@@ -1,0 +1,276 @@
+@font-face {
+  font-family: "os-generic-icons";
+  src:url("../fonts/os-generic-icons.eot");
+  src:url("../fonts/os-generic-icons.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/os-generic-icons.woff") format("woff"),
+    url("../fonts/os-generic-icons.ttf") format("truetype"),
+    url("../fonts/os-generic-icons.svg#openspecimen-generic-fonticons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "os-generic-icons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="os-icons-"]:before,
+[class*=" os-icons-"]:before {
+  font-family: "os-generic-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.os-icons-username:before {
+  content: "a";
+}
+
+.os-icons-create:before {
+  content: "b";
+}
+
+.os-icons-checkbox-checked:before {
+  content: "c";
+}
+
+.os-icons-repeat-visits:before {
+  content: "d";
+}
+
+.os-icons-help:before {
+  content: "e";
+}
+
+.os-icons-info:before {
+  content: "f";
+}
+
+.os-icons-expand-row:before {
+  content: "g";
+}
+
+.os-icons-checkbox-unchecked:before {
+  content: "h";
+}
+
+.os-icons-search:before {
+  content: "i";
+}
+
+.os-icons-password:before {
+  content: "j";
+}
+
+.os-icons-close:before {
+  content: "k";
+}
+
+.os-icons-left-arrow:before {
+  content: "l";
+}
+
+.os-icons-right-arrow:before {
+  content: "m";
+}
+
+.os-icons-separator:before {
+  content: "n";
+}
+
+.os-icons-home:before {
+  content: "o";
+}
+
+.os-icons-settings:before {
+  content: "p";
+}
+
+.os-icons-show-nav-menu:before {
+  content: "q";
+}
+
+.os-icons-hide-nav-menu:before {
+  content: "r";
+}
+
+.os-icons-dropdown-arrow:before {
+  content: "s";
+}
+
+.os-icons-import:before {
+  content: "t";
+}
+
+.os-icons-export:before {
+  content: "u";
+}
+
+.os-icons-view-jobs:before {
+  content: "v";
+}
+
+.os-icons-specimen-events:before {
+  content: "w";
+}
+
+.os-icons-specimen-forms:before {
+  content: "x";
+}
+
+.os-icons-aliquots:before {
+  content: "y";
+}
+
+.os-icons-derivatives:before {
+  content: "z";
+}
+
+.os-icons-visit-forms:before {
+  content: "A";
+
+}
+.os-icons-visits:before {
+  content: "B";
+}
+
+.os-icons-participant-forms:before {
+  content: "C";
+}
+
+.os-icons-participant-update:before {
+  content: "D";
+}
+
+.os-icons-register-participant:before {
+  content: "E";
+}
+
+.os-icons-calendar:before {
+  content: "F";
+}
+
+.os-icons-edit:before {
+  content: "G";
+}
+
+.os-icons-delete:before {
+  content: "H";
+}
+
+.os-icons-locations:before {
+  content: "I";
+}
+
+.os-icons-overview:before {
+  content: "J";
+}
+
+.os-icons-forms:before {
+  content: "K";
+}
+
+.os-icons-specimens:before {
+  content: "L";
+}
+
+.os-icons-save:before {
+  content: "M";
+}
+
+.os-icons-print:before {
+  content: "N";
+}
+
+.os-icons-radio-checked:before {
+  content: "O";
+}
+
+.os-icons-status-okay:before {
+  content: "P";
+}
+
+.os-icons-status-closed:before {
+  content: "Q";
+}
+
+.os-icons-refresh:before {
+  content: "R";
+}
+
+.os-icons-assign-position:before {
+  content: "S";
+}
+
+.os-icons-filter:before {
+  content: "T";
+}
+
+.os-icons-upload:before {
+  content: "U";
+}
+
+.os-icons-radio-unchecked:before {
+  content: "V";
+}
+
+.os-icons-warning:before {
+  content: "W";
+}
+
+.os-icons-assign-to:before {
+  content: "X";
+}
+
+.os-icons-lock:before {
+  content: "Y";
+}
+
+.os-icons-horizontal-bars:before {
+  content: "Z";
+}
+
+.os-icons-read:before {
+  content: "1";
+}
+
+.os-icons-reopen:before {
+  content: "2";
+}
+
+.os-icons-replicate:before {
+  content: "3";
+
+}
+.os-icons-browse:before {
+  content: "4";
+}
+
+.os-icons-collect-specimen:before {
+  content: "5";
+}
+
+.os-icons-unlock:before {
+  content: "6";
+}
+
+.os-icons-consent:before {
+  content: "7";
+}
+
+.os-icons-colour-coding:before {
+  content: "8";
+}

@@ -33,11 +33,11 @@
         ng-switch on="!!specimen.id"> 
         <span ng-switch-when="true">
           <span translate="common.buttons.edit">Edit</span>
-          <span class="fa fa-pencil"></span>
+          <span class="os-icon os-icons-edit"></span>
         </span>
         <span ng-switch-default>
           <span translate="specimens.buttons.collect">Collect</span>
-          <span class="fa fa-plus"></span>
+          <span class="os-icon os-icons-create"></span>
         </span>
       </button>
       <button show-if-allowed="specimenResource.updateOpts" class="default" 
@@ -54,7 +54,7 @@
       <button show-if-allowed="specimenResource.deleteOpts" class="default" 
         ng-if="!!specimen.id" ng-click="deleteSpecimen()">
         <span translate="common.buttons.delete">Delete</span>
-        <span class="fa fa-trash"></span>
+        <span class="os-icon os-icons-delete"></span>
       </button>
     </div>
   </div>
@@ -63,19 +63,19 @@
     <ul>
       <li ui-sref-active="active">
         <a ui-sref=".overview"> 
-          <i class="icon icon-icons-overview"></i>
+          <i class="os-icon os-icons-overview"></i>
           <span class="os-title" translate="specimens.menu.overview">Overview</span>
         </a>
       </li>
       <li ui-sref-active="active" ng-if="!!specimen.id">
         <a ui-sref=".extensions.list">
-          <i class="icon icon-icons-forms"></i>
+          <i class="os-icon os-icons-forms"></i>
           <span class="os-title" translate="specimens.menu.extensions">Forms</span>
         </a>
       </li>
       <li ui-sref-active="active" ng-if="!!specimen.id">
         <a ui-sref=".events">
-          <i class="icon icon-icons-specimen-events"></i>
+          <i class="os-icon os-icons-specimen-events"></i>
           <span class="os-title">Events</span>
         </a>
       </li>

@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "os-navigation-icons";
+  src:url("../fonts/os-navigation-icons.eot");
+  src:url("../fonts/os-navigation-icons.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/os-navigation-icons.woff") format("woff"),
+    url("../fonts/os-navigation-icons.ttf") format("truetype"),
+    url("../fonts/os-navigation-icons.svg#os-navigation-icons") format("svg");  
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "os-navigation-iconss" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+}
+
+[class^="os-nav-"]:before,
+[class*=" os-nav-"]:before {
+  font-family: "os-navigation-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+}
+
+.os-nav-cp:before {
+  content: "a";
+}
+.os-nav-users:before {
+  content: "b";
+}
+.os-nav-dp:before {
+  content: "c";
+}
+.os-nav-forms:before {
+  content: "d";
+}
+.os-nav-institutes:before {
+  content: "e";
+}
+.os-nav-jobs:before {
+  content: "f";
+}
+.os-nav-queries:before {
+  content: "g";
+}
+.os-nav-reports:before {
+  content: "h";
+}
+.os-nav-roles:before {
+  content: "i";
+}
+.os-nav-settings:before {
+  content: "j";
+}
+.os-nav-sites:before {
+  content: "k";
+}
+.os-nav-specimen-list:before {
+  content: "l";
+}
+.os-nav-distribution-order:before {
+  content: "m";
+}
+.os-nav-storage:before {
+  content: "n";
+}

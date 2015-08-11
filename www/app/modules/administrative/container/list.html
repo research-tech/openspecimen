@@ -7,23 +7,23 @@
       <button show-if-allowed="containerResource.createOpts" class="primary"
         title="{{'container.tooltip.add' | translate}}" ui-sref="container-addedit({containerId: ''})">
         <span translate="common.buttons.create">Create</span>
-        <span class="icon icon-icons-create-button"></span>
+        <span class="os-icon os-icons-create"></span>
       </button>
       <div show-if-allowed="containerResource.createOpts" dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.import">Import</span>
-          <span class="icon icon-icons-import"></span>
+          <span class="os-icon os-icons-import"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
             <a ui-sref="container-import">
-              <i class="icon navigation-icons-storage"></i>
+              <i class="os-icon os-nav-storage"></i>
               <span translate="container.list">Storage Containers</span>
             </a>
           </li>
           <li>
             <a ui-sref="container-import-jobs">
-              <i class="icon icon-icons-view-jobs"></i>
+              <i class="os-icon os-icons-view-jobs"></i>
               <span translate="common.view_jobs">View Jobs</span>
             </a>
           </li>
@@ -50,11 +50,11 @@
       </h5>
       <div class="stats">
         <div class="stat col-xs-6" title="{{'container.dimension' | translate}}">
-          <i class="icon internal-icon-icons-container-dimensions"></i>
+          <i class="os-icon os-int-container-dimensions"></i>
           <span>{{container.noOfRows}} X {{container.noOfColumns}}</span>
         </div>
         <div class="stat col-xs-6" title="{{'container.tooltip.count_free_locations' | translate}}">
-          <i class="icon internal-icon-icons-count-of-free-locations"></i>
+          <i class="os-icon os-int-free-locations-count"></i>
           <span>{{container.freePositions}}</span>
         </div>
       </div>

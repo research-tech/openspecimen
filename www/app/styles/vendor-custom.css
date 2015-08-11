@@ -147,7 +147,7 @@ body > .ui-select-bootstrap.open {
 
 /** Bootstrap Customization styles **/
 
-.form-group .icon-icons-calendar {
+.form-group .os-icons-calendar {
   color: #9e9c96;
 }
 
@@ -166,7 +166,6 @@ body > .ui-select-bootstrap.open {
 .container .form-control,
 .form-group .form-control {
   border-color: #DEDEDC !important;
-  color: #ACABA7;
   font-size: 12px;
 }
 
@@ -193,7 +192,7 @@ body > .ui-select-bootstrap.open {
 }
 
 /* style icon */
-.inner-addon .icon {
+.inner-addon .os-icon {
   position: absolute;
   padding: 10px;
   padding-right: 25px;
@@ -201,7 +200,7 @@ body > .ui-select-bootstrap.open {
 }
 
 /* align icon */
-.right-addon .icon { 
+.right-addon .os-icon { 
   right: 0px;
   font-size: 16px;
 }

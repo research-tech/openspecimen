@@ -21,17 +21,17 @@
       <button show-if-allowed="participantResource.updateOpts" class="primary"
         ui-sref="participant-addedit({cprId: cpr.id, cpId: cpr.cpId})">
         <span translate="common.buttons.edit">Edit</span>
-        <span class="icon icon-icons-edit"></span>
+        <span class="os-icon os-icons-edit"></span>
       </button>
       <div dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.more">More</span>
-          <span class="icon icon-icons-drop-down-selection-arrow"></span>
+          <span class="os-icon os-icons-dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li ng-if="cpsForReg.length > 0">
             <a ui-sref="participant-newreg">
-              <span class="fa fa-plus"></span>
+              <span class="os-icon os-icons-create"></span>
               <span translate="participant.reg_another_protocol">
                 Register to Another Protocol
               </span>
@@ -39,7 +39,7 @@
           </li>
           <li show-if-allowed="participantResource.deleteOpts">
             <a ng-click="deleteReg()">
-              <span class="icon icon-icons-delete"></span>
+              <span class="os-icon os-icons-delete"></span>
               <span translate="common.buttons.delete">Delete</span>
             </a>
           </li>
@@ -52,25 +52,25 @@
     <ul>
       <li ui-sref-active="active"> 
         <a ui-sref=".overview"> 
-          <i class="icon icon-icons-overview"></i>
+          <i class="os-icon os-icons-overview"></i>
           <span class="os-title" translate="participant.menu.overview">Overview</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref=".consents">
-          <i class="icon icon-icons-consent"></i>
+          <i class="os-icon os-icons-consent"></i>
           <span class="os-title" translate="participant.menu.consents">Consents</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref=".visits">
-          <i class="icon icon-icons-visits"></i>
+          <i class="os-icon os-icons-visits"></i>
           <span class="os-title" translate="participant.menu.visits">Visits</span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref=".extensions.list">
-          <i class="icon icon-icons-forms"></i>
+          <i class="os-icon os-icons-forms"></i>
           <span class="os-title" translate="participant.menu.extensions">Forms</span>
         </a>
       </li>

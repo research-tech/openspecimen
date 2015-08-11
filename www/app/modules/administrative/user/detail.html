@@ -11,11 +11,11 @@
         <button show-if-allowed="userResource.updateOpts" class="primary" title="{{'user.tooltip.edit' | translate}}"
           ui-sref="user-addedit({userId: user.id})">
           <span translate="common.buttons.edit">Edit</span>
-          <span class="icon icon-icons-edit"></span>
+          <span class="os-icon os-icons-edit"></span>
         </button>
         <button show-if-allowed="userResource.deleteOpts" class="default" ng-click="deleteUser()">
           <span translate="common.buttons.delete">Delete</span>
-          <span class="icon icon-icons-delete"></span>
+          <span class="os-icon os-icons-delete"></span>
         </button>
         <button ng-if="currentUser.id != user.id && currentUser.admin" class="default" ui-sref="user-password({userId: user.id})">
           <span translate="common.buttons.reset_password">Reset Password</span>
@@ -29,13 +29,13 @@
     <ul>
       <li ui-sref-active="active">
         <a ui-sref=".overview">
-          <i class="icon icon-icons-overview"></i>
+          <i class="os-icon os-icons-overview"></i>
           <span class="os-title" translate="user.menu.overview">Overview</span>
         </a>
       </li>
       <li ng-if="!user.admin" ui-sref-active="active">
         <a ui-sref=".roles">
-          <i class="icon navigation-icons-roles"></i>
+          <i class="os-icon os-nav-roles"></i>
           <span class="os-title" translate="user.menu.roles">Roles</span>
         </a>
       </li>

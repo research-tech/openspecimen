@@ -1,35 +1,37 @@
 <div>
-  <div class="os-login-form-container">
+  <div class="os-login-form">
     <h3 translate="user.sign_in_title" class="os-login-header">
       Log in to your account
     </h3>
     <form ng-submit="login()">
-      <i class="icon icon-icons-user-login"></i>
-      <input type="text" class="form-control" ng-model="loginData.loginName" placeholder="{{'user.login_name' | translate}}" /> 
-      
-      <i class="icon icon-icons-password"></i>
-      <input type="password" class="form-control password" ng-model="loginData.password" placeholder="{{'user.password' | translate}}" />
-      
+      <div>
+        <i class="os-icon os-icons-username"></i>
+        <input type="text" class="form-control" ng-model="loginData.loginName" 
+          placeholder="{{'user.login_name' | translate}}" /> 
+      </div>
+      <div>
+        <i class="os-icon os-icons-password"></i>
+        <input type="password" class="form-control password" ng-model="loginData.password" 
+          placeholder="{{'user.password' | translate}}" />
+      </div>
       <div ng-if="domains.length > 1">
         <os-select ng-model="loginData.domainName" list="domains" name="domain" 
           placeholder="{{'user.domain_name' | translate}}" required>
         </os-select>
       </div>
-      <div class="os-login-footer">
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary">
-            <span translate="user.sign_in">Log In</span>
-            <i class="icon icon-icons-right-arrow"></i>
-          </button>
-          <a class="link" ui-sref="forgot-password" translate="user.forgot_password">here</a>
-        </div>
+
+      <div class="os-login-actions">
+        <button type="submit" class="btn btn-primary">
+          <span translate="user.sign_in">Log In</span>
+          <i class="os-icon os-icons-right-arrow"></i>
+        </button>
+        <a ui-sref="forgot-password" translate="user.forgot_password">here</a>
         <hr/>
-        <div class="os-sign-up-label">
+        <div class="os-sign-up-link">
           <span translate="user.dont_have_an_account"> Don't have an account? </span>
-          <a class="link" ui-sref="sign-up">Sign up</a>
+          <a ui-sref="sign-up">Sign up</a>
         </div>
       </div>
     </form>
   </div>
 </div>
-

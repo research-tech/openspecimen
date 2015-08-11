@@ -8,7 +8,7 @@
       <button show-if-allowed="containerResource.updateOpts" class="primary"
         title="{{'container.tooltip.add' | translate}}" ui-sref="container-addedit({containerId: container.id})">
         <span translate="common.buttons.edit">Edit</span>
-        <span class="icon icon-icons-edit"></span>
+        <span class="os-icon os-icons-edit"></span>
       </button>
       <a class="btn default" href="{{downloadUri}}" target="_blank">
         <span translate="common.buttons.export">Export</span>
@@ -17,11 +17,11 @@
       <button show-if-allowed="containerResource.createOpts" class="default"
         ui-sref="container-replicate({containerId: container.id})">
         <span translate="container.replicate">Replicate</span>
-        <span class="icon icon-icons-replicate"></span>
+        <span class="os-icon os-icons-replicate"></span>
       </button>
       <button show-if-allowed="containerResource.deleteOpts" class="default" ng-click="deleteContainer()">
         <span translate="common.buttons.delete">Delete</span>
-        <span class="icon icon-icons-delete"></span>
+        <span class="os-icon os-icons-delete"></span>
       </button>
     </div>
   </div>
@@ -30,13 +30,13 @@
     <ul>
       <li ui-sref-active="active">
         <a ui-sref=".overview">
-          <i class="icon icon-icons-overview"></i>
+          <i class="os-icon os-icons-overview"></i>
           <span class="os-title" translate="container.menu.overview"> Overview </span>
         </a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref=".locations">
-          <i class="icon icon-icons-locations"></i>
+          <i class="os-icon os-icons-locations"></i>
           <span class="os-title" translate="container.menu.locations"> Locations </span> 
         </a>
       </li>

@@ -11,7 +11,7 @@
       <button show-if-allowed="orderResource.updateOpts" class="primary" 
         ui-sref="order-addedit({orderId: order.id})" ng-if="order.status == 'PENDING'">
         <span translate="common.buttons.edit">Edit</span>
-        <span class="icon icon-icons-edit"></span>
+        <span class="os-icon os-icons-edit"></span>
       </button>
       <button class="default" ng-click="downloadReport()" ng-if="order.status == 'EXECUTED' && rptTmplConfigured">
         <span translate="orders.buttons.download_report">Download Report</span>
@@ -24,7 +24,7 @@
     <ul>
       <li ui-sref-active="active">
         <a ui-sref="order-detail.overview"> 
-          <i class="icon icon-icons-overview"></i>
+          <i class="os-icon os-icons-overview"></i>
           <span class="os-title" translate="orders.menu.overview">Overview</span>
         </a>
       </li>

@@ -14,10 +14,10 @@
             </div>
             <div class="btn-group" ng-switch-when="true">
               <div class="btn btn-default btn-xs" ng-click="showUploadMode()">
-                <span class="icon icon-icons-edit"></span>
+                <span class="os-icon os-icons-edit"></span>
               </div>
               <div class="btn btn-default btn-xs" ng-click="confirmDeleteSpr()">
-                <span class="icon icon-icons-delete"></span>
+                <span class="os-icon os-icons-delete"></span>
               </div>
             </div>
           </div>
@@ -51,12 +51,12 @@
         <button show-if-allowed="sprResource.lockOpts" ng-switch-when="false" class="default"
           title="{{'visits.lock_spr'|translate}}" ng-click="toggleSprLock(true)">
           <span translate="role.lock">Lock</span>
-          <span class="icon icon-icons-lock"></span>
+          <span class="os-icon os-icons-lock"></span>
         </button>
         <button show-if-allowed="sprResource.unlockOpts" ng-switch-when="true" class="default"
           title="{{'visits.unlock_spr'|translate}}" ng-click="toggleSprLock(false)">
           <span translate="role.unlock">Unlock</span>
-          <span class="icon icon-icons-unlock"></span>
+          <span class="os-icon os-icons-unlock"></span>
         </button>
       </div>
     </div>

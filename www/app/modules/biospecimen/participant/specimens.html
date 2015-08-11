@@ -3,15 +3,15 @@
     <span translate="specimens.list">Specimens</span>
     <div dropdown class="btn-group os-action-btns" ng-if = "visit.status != 'Missed Collection'">
       <button ng-if="!allowedOps || allowedOps.update" class="btn btn-primary" ng-click="collectSpecimens()">
-        <span class="fa fa-plus"></span>
+        <span class="os-icon os-icons-create"></span>
         <span translate="specimens.buttons.collect"> Collect </span>
       </button>
       <button class="btn btn-default" ng-click="printSpecimenLabels()">
-        <span class="icon icon-icons-print"></span>
+        <span class="os-icon os-icons-print"></span>
         <span translate="specimens.buttons.print"> Print </span>
       </button>
       <button class="btn btn-default dropdown-toggle">
-        <span class="icon icon-icons-assign-to"></span>
+        <span class="os-icon os-icons-assign-to"></span>
         <span translate="specimens.buttons.assign_to"> Assign To </span>
       </button>
       <ul class="dropdown-menu dropdown-menu-right os-query-folders-dd">
@@ -120,7 +120,7 @@
                   <li>
                     <a ui-sref="specimen-detail.overview(
                                   {eventId: visit.eventId, visitId: visit.id, specimenId: specimen.id, srId: specimen.reqId})">
-                      <i class="icon icon-icons-read"></i>
+                      <i class="os-icon os-icons-read"></i>
                       <span translate="specimens.ctx_menu.view_specimen">View Specimen</span>
                     </a>
                   </li>
@@ -129,20 +129,20 @@
                                  specimenId: specimen.id, srId: specimen.reqId})" 
                     ng-if="(!allowedOps || allowedOps.update) && specimen.activityStatus == 'Active'">
                     <a href="#">
-                      <i class="icon icon-icons-edit"></i>
+                      <i class="os-icon os-icons-edit"></i>
                       <span translate="specimens.ctx_menu.edit_specimen">Edit Specimen</span>
                     </a>
                   </li>
                   <li class="divider"></li>
                   <li ng-if="(!allowedOps || allowedOps.update) && specimen.activityStatus == 'Active'">
                     <a ng-click="showCreateAliquots(specimen)">
-                      <i class="icon icon-icons-specimen-aliquots"></i>
+                      <i class="os-icon os-icons-aliquots"></i>
                       <span translate="specimens.ctx_menu.create_aliquots">Create Aliquots</span>
                     </a>
                   </li>
                   <li ng-if="(!allowedOps || allowedOps.update) && specimen.activityStatus == 'Active'">
                     <a ng-click="showCreateDerivative(specimen)">
-                      <i class="icon icon-icons-specimen-derivatives"></i>
+                      <i class="os-icon os-icons-derivatives"></i>
                       <span translate="specimens.ctx_menu.create_derivative">Create Derivative</span>
                     </a>
                   </li>
@@ -151,7 +151,7 @@
                     <a ui-sref="
                          specimen-detail.events({eventId: visit.eventId, visitId: visit.id, 
                            specimenId: specimen.id, srId: specimen.reqId})">
-                      <i class="icon icon-icons-calendar"></i>
+                      <i class="os-icon os-icons-calendar"></i>
                       <span translate="specimens.ctx_menu.add_event">Add Event</span>
                     </a>
                   </li>

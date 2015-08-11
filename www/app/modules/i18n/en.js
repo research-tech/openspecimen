@@ -634,7 +634,7 @@
     "permissions": "Permissions",
     "password": "Password",
     "confirm_password": "Confirm Password",
-    "sign_in_title": "Log in to your account",
+    "sign_in_title": "LOG IN TO YOUR ACCOUNT",
     "password_rule": "Tip: Password should contain at least 1 uppercase letter, 1 lowercase letter, 1 number and should be minimum 8 characters long.",
     "sign_in_failed": "The username or password you entered is incorrect",
     "sign_in": "Log In",
@@ -720,7 +720,6 @@
     "message": "If you do not remember you email-id, contact the admin on admin@admin.com",
     "return_to_signin": "Return to sign in page",
     "reset_email_sent": "Thank You! You can now reset the password. A link has been sent to the email-id you provided.",
-    "resend_link": "Resend the link?",
     "invalid_login_name": "We couldn't find a user associated with {{loginName}}"
   },
 

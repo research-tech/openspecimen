@@ -19,7 +19,7 @@
       <button class="default" ng-click="saveQuery()"
         ng-disabled="!queryLocal.isValid || queryLocal.filters.length == 0">
         <span translate="common.buttons.save">Save</span>
-        <span class="icon icon-icons-save"></span>
+        <span class="os-icon os-icons-save"></span>
       </button>
       <button class="default" ng-click="getCount()" 
         ng-disabled="!queryLocal.isValid || queryLocal.filters.length == 0"
@@ -107,7 +107,7 @@
                     ng-click="extnForm.showExtnFields = !extnForm.showExtnFields" 
                     ng-show="filteredExtnFields.length > 0">
                     {{::extnForm.caption}}
-                    <i ng-if="form.showExtnFields || extnForm.showExtnFields" class="icon icon-icons-drop-down-selection-arrow"></i>
+                    <i ng-if="form.showExtnFields || extnForm.showExtnFields" class="os-icon os-icons-dropdown-arrow"></i>
                     <i ng-if="!form.showExtnFields && !extnForm.showExtnFields" class="fa fa-caret-right"></i>
                   </span>
 

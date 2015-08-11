@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-.os-login-form-container {
+.os-login-form {
   margin: 0 auto;
   width: 360px;
   margin-top: 40px;
@@ -8,13 +8,13 @@
 }
 
 .os-login-gradient {
-  position: absolute;
   width: 100%;
   height: 6px;
+  background: linear-gradient(to right, #985292, #3C8FB7, #2C9DAB, #419A6C); 
 }
 
-.os-login-form-container .icon-icons-user-login, 
-.os-login-form-container .icon-icons-password {
+.os-login-form .os-icons-username, 
+.os-login-form .os-icons-password {
   color: #41464C;
   font-size: 19px;
   position: relative;
@@ -22,79 +22,64 @@
   margin-left: 10px;
 }
 
-.os-login-form-container .form-control {
+.os-login-form .form-control {
   background-color: transparent;
   border-radius: 0px;
   border: none;
   border-bottom: 1px solid #9EA0A0;
   margin-bottom: 10px;
-  color: #9EA0A0;
   font-size: 18px;
   padding-left: 40px;
   box-shadow: -13px 11px 0 -11px #9EA0A0;
 }
 
-.os-login-form-container .btn {
-  border: none;
-}
-
 .os-login-header {
   font-size: 22px;
   text-align: center;
-  text-transform: uppercase;
 }
 
-.os-login-logo img {
+.os-custom-banner img.logo {
   height: 81px;
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-.os-login-footer {
-  font-size: 18px;
+.os-login-actions {
   text-align: center;
   margin-top: 32px;
-  margin-bottom: 32px;
 }
 
-.os-login-footer .icon-icons-right-arrow {
+.os-login-actions .btn .os-icons-right-arrow {
   position: relative;
   top: 3px;
   font-size: 16px;
   color: #FFFEF2;
 }
 
-.os-login-footer hr {
+.os-login-actions hr {
   border-top: 1px dotted #41464C;
 }
 
-.os-login-footer .link, 
-.os-login-footer .link:hover{
+.os-login-actions a, 
+.os-login-actions a:hover{
   color: #41464C;
   text-decoration: underline;
   font-size: 16px;
 }
 
-.os-login-footer-banner {
-  width:100%;
-  height: 15px;
-  position: fixed;
-  bottom: 0;
-}
-
-.os-sign-up-label {
+.os-login-actions .os-sign-up-link {
   font-family: "Cambria";
   font-size: 18px;
 }
 
-.os-sign-up-label .link {
+.os-login-actions .os-sign-up-link a {
   font-weight: bold;
 }
 
-/** Placeholder Customization styles **/
-
-.os-login-form-container .form-control::-moz-placeholder,
-.os-login-form-container .form-control:-ms-input-placeholder,
-.os-login-form-container .form-control::-webkit-input-placeholder {
-   color: #9EA0A0;  
+.os-login-footer-banner {
+  width:100%;
+  height: 15px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to right, #985292, #3C8FB7, #2C9DAB, #419A6C); 
 }

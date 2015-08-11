@@ -1,30 +1,10 @@
 <div class="os-home">
-  <!-- <div class="os-navbar os-navbar-default os-navbar-docked">
-    <a class="logo" href="#">
-      <img src="images/os_logo.png"></img>
-    </a>
-    <ul class="menu">
-      <li class="form-input">
-        <a ui-sref="welcome" class="btn btn-primary">Sign Up</a>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle">
-          <span class="fa fa-info-circle"></span>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-          <li>
-            <div ng-include src="'modules/common/about.html'"></div>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div> -->
   <div class="os-custom-banner">
-    <a class="os-login-logo" href="http://www.openspecimen.org">
-      <img src="images/os_logo_large.png"></img>
+    <a href="http://www.openspecimen.org">
+      <img class="logo" src="images/os_logo_large.png"/>
     </a>
+    <div class="os-login-gradient"/>
   </div>
-  <img src="images/os_gradient_nav_bar.jpg" class="os-login-gradient">
 
   <div os-content="os-navbar">
     <div class="os-alert-container" ng-class="{'show': alerts.length > 0}">
@@ -33,4 +13,4 @@
     <div ui-view></div>
   </div>
 </div>
-<img src="images/os_gradient_login.jpg" class="os-login-footer-banner"/>
+<div class="os-login-footer-banner" />

@@ -11,17 +11,17 @@
     <div class="os-btns right">
       <button show-if-allowed="cpResource.updateOpts" class="primary" ui-sref="cp-addedit({cpId:cp.id})">
         <span translate="common.buttons.edit">Edit</span>
-        <span class="icon icon-icons-edit"></span>
+        <span class="os-icon os-icons-edit"></span>
       </button>
       <div dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.more">More</span>
-          <span class="icon icon-icons-drop-down-selection-arrow"></span>
+          <span class="os-icon os-icons-dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li show-if-allowed="cpResource.deleteOpts" ng-click="deleteCp()">
             <a>
-              <i class="icon icon-icons-delete"></i>
+              <i class="os-icon os-icons-delete"></i>
               <span translate="cp.menu_options.delete">Delete</span>
             </a>
           </li>
@@ -40,19 +40,19 @@
     <ul>
      <li ui-sref-active="active">
        <a ui-sref=".overview">
-         <i class="icon icon-icons-overview"></i>
+         <i class="os-icon os-icons-overview"></i>
          <span class="os-title" translate="cp.tab.overview">Overview</span>
        </a>
      </li>
      <li ui-sref-active="active">
        <a ui-sref=".consents">
-         <i class="icon icon-icons-consent"></i>
+         <i class="os-icon os-icons-consent"></i>
          <span class="os-title" translate="cp.tab.consents">Consents</span>
        </a>
      </li>
      <li ui-sref-active="active">
        <a ui-sref=".specimen-requirements">
-         <i class="icon icon-icons-specimen-events"></i>
+         <i class="os-icon os-icons-specimen-events"></i>
          <span class="os-title" translate="cp.tab.events">Events</span>
        </a>
      </li>

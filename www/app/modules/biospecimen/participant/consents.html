@@ -14,10 +14,10 @@
             </div>
             <div ng-switch-when="true">
               <div class="btn btn-default btn-xs" ng-click="showUploadMode()">
-                <span class="icon icon-icons-edit"></span>
+                <span class="os-icon os-icons-edit"></span>
               </div>
               <div class="btn btn-default btn-xs" ng-click="confirmDeleteConsentForm()">
-                <span class="icon icon-icons-delete"></span>
+                <span class="os-icon os-icons-delete"></span>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
         <div show-if-allowed="participantResource.updateOpts" class="btn-group os-btns right">
           <button class="btn btn-primary" ng-if="!editMode" ng-click="showEditConsents()">
             <span translate="common.buttons.edit">Edit</span>
-            <span class="icon icon-icons-edit"></span>
+            <span class="os-icon os-icons-edit"></span>
           </button>
           <button class="btn btn-primary" ng-if="editMode" ng-click="saveConsents()">
             <span translate="common.buttons.save">Save</span>

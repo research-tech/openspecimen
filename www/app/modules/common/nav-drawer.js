@@ -9,7 +9,7 @@ angular.module('openspecimen')
           osNavDrawerSvc.toggle();
         });
         element.find('li').on('click', function() {
-          angular.element(document.querySelector('li.active')).removeClass('active');
+          element.find('li.active').removeClass('active');
           angular.element(this).addClass('active');
         });
         element.find('div.os-home-nav').on('click', function() {
@@ -49,7 +49,7 @@ angular.module('openspecimen')
 
       toggle: function() {
         drawerEl.toggleClass('active');
-        angular.element(document.querySelector('.os-nav-button')).toggleClass('active');
+        angular.element('.os-nav-button').toggleClass('active');
       }
     }
   });

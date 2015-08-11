@@ -1,6 +1,8 @@
 <div>
   <div class="os-navbar os-navbar-default os-navbar-docked">
-    <a href="http://www.openspecimen.org/"><img src="images/os_logo_large.png" class="os-navbar-logo"></img></a>
+    <a href="http://www.openspecimen.org/">
+      <img src="images/os_logo_large.png" class="os-navbar-logo"/>
+    </a>
     <!-- div class="search">
       <input type="text" class="form-control" placeholder="Quick Search"></input>
       <button class="btn btn-primary">
@@ -9,21 +11,21 @@
     </div -->
     <ul class="menu">
       <li ui-sref="home">
-        <i class="icon icon-icons-separator"></i>
+        <i class="os-icon os-icons-separator"></i>
         <a class="dropdown-toggle">
-          <i class="icon icon-icons-home"></i>
+          <i class="os-icon os-icons-home"></i>
         </a>
       </li>
       <!--li> |
         <a class="os-notification-content">
-          <span class="icon icon-icons-notifications"></span>
+          <span class="os-icon os-icons-notifications"></span>
           <span class="os-notification-count">07</span>
         </a>
       </li> -->
       <li class="dropdown">
-        <i class="icon icon-icons-separator"></i>
+        <i class="os-icon os-icons-separator"></i>
         <a class="dropdown-toggle">
-          <i class="icon icon-icons-settings"></i>
+          <i class="os-icon os-icons-settings"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
           <li><a>{{currentUser.lastName + ' ' + currentUser.firstName}}</a></li>
@@ -35,7 +37,7 @@
       </li>
       <li class="dropdown">
         <a class="dropdown-toggle">
-          <i class="icon icon-icons-info"></i>
+          <i class="os-icon os-icons-info"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
           <li>
@@ -50,8 +52,8 @@
       </li>
     </ul>
   </div>
-  <img src="images/os_gradient_nav_bar.jpg" class="os-header-gradient" />
-  <img src="images/os_gradient_nav_bar.jpg" class="os-navbar-gradient" />
+  <div class="os-header-gradient" />
+  <div class="os-navbar-gradient" />
   <div>
     <div class="os-alert-container" ng-class="{'show': alerts.length > 0}">
       <alert type="{{alert.type}}" ng-repeat="alert in alerts">
@@ -60,85 +62,87 @@
     </div>
     <div>
       <div os-nav-drawer>
-        <img src="images/os_gradient_nav_bar.jpg" class="os-navigation-gradient" />
+        <div class="os-navigation-gradient" />
         <ul role="menu">
           <li show-if-allowed="cpReadOpts">
             <a ui-sref="cp-list">
-              <span class="icon navigation-icons-collection-protocol"></span>
-              <span translate="menu.collection_protocols" class="os-navbar-content-text">Collection Protocols</span>
+              <span class="os-icon os-nav-cp"></span>
+              <span translate="menu.collection_protocols" class="os-navbar-text">Collection Protocols</span>
             </a>
           </li>
            <li show-if-admin>
             <a ui-sref="dp-list">
-              <span class="icon navigation-icons-distribution-protocol"></span>
-              <span translate="menu.distribution_protocols" class="os-navbar-content-text">Distribution Protocols</span>
+              <span class="os-icon os-nav-dp"></span>
+              <span translate="menu.distribution_protocols" class="os-navbar-text">Distribution Protocols</span>
             </a>
           </li>
           <li>
             <a ui-sref="institute-list">
-              <span class="icon navigation-icons-institutes"></span>
-              <span translate="menu.institutes" class="os-navbar-content-text">Institutes</span>
+              <span class="os-icon os-nav-institutes"></span>
+              <span translate="menu.institutes" class="os-navbar-text">Institutes</span>
             </a>
           </li>
           <li>
             <a ui-sref="user-list">
-              <span class="icon navigation-icons-users"></span>
-              <span translate="menu.users" class="os-navbar-content-text">Users</span>
+              <span class="os-icon os-nav-users"></span>
+              <span translate="menu.users" class="os-navbar-text">Users</span>
             </a>
           </li>
           <li show-if-allowed="userCreateUpdateOpts">
             <a ui-sref="role-list">
-              <span class="icon navigation-icons-roles"></span>
-              <span translate="menu.roles" class="os-navbar-content-text">Roles</span>
+              <span class="os-icon os-nav-roles"></span>
+              <span translate="menu.roles" class="os-navbar-text">Roles</span>
             </a>
           </li>
           <li>
             <a ui-sref="site-list">
-              <span class="icon navigation-icons-sites"></span>
-              <span translate="menu.sites" class="os-navbar-content-text">Sites</span>
+              <span class="os-icon os-nav-sites"></span>
+              <span translate="menu.sites" class="os-navbar-text">Sites</span>
             </a>
           </li>
           <li show-if-allowed="containerReadOpts">
-            <a ui-sref="container-list" >
-              <span class="icon navigation-icons-storage"></span>
-              <span translate="menu.containers" class="os-navbar-content-text">Storage Containers</span>
+            <a ui-sref="container-list">
+              <span class="os-icon os-nav-storage"></span>
+              <span translate="menu.containers" class="os-navbar-text">Storage Containers</span>
             </a>
           </li>
           <li>
-            <a ui-sref="query-list" >
-              <span class="icon navigation-icons-queries"></span>
-              <span translate="menu.queries" class="os-navbar-content-text">Queries</span>
+            <a ui-sref="query-list">
+              <span class="os-icon os-nav-queries"></span>
+              <span translate="menu.queries" class="os-navbar-text">Queries</span>
             </a>
           </li>
           
           <li>
             <a ui-sref="specimen-list">
-              <span class="icon navigation-icons-specimen-list"></span>
-              <span translate="menu.specimen_lists" class="os-navbar-content-text">Specimen Lists</span>
+              <span class="os-icon os-nav-specimen-list"></span>
+              <span translate="menu.specimen_lists" class="os-navbar-text">Specimen Lists</span>
             </a>
           </li>
           <li show-if-admin>
-            <a ui-sref="form-list" >
-              <span class="icon navigation-icons-forms"></span>
-              <span translate="menu.forms" class="os-navbar-content-text">Forms</span>
+            <a ui-sref="form-list">
+              <span class="os-icon os-nav-forms"></span>
+              <span translate="menu.forms" class="os-navbar-text">Forms</span>
             </a>
           </li>
           <li show-if-allowed="orderReadOpts">
-            <a ui-sref="order-list" >
-              <span class="icon navigation-icons-distribution-order"></span>
-              <span translate="menu.distribution_orders" class="os-navbar-content-text">Distribution Orders</span>
+            <a ui-sref="order-list">
+              <span class="os-icon os-nav-distribution-order"></span>
+              <span translate="menu.distribution_orders" class="os-navbar-text">Distribution Orders</span>
             </a>
           </li>
 
           <li show-if-allowed="scheduledJobReadOpts">
-            <a ui-sref="job-list" >
-              <span class="icon navigation-icons-jobs"></span>
-              <span translate="menu.jobs" class="os-navbar-content-text">Jobs</span>
+            <a ui-sref="job-list">
+              <span class="os-icon os-nav-jobs"></span>
+              <span translate="menu.jobs" class="os-navbar-text">Jobs</span>
             </a>
           </li>
         </ul>
         <div ui-sref="home" class="os-home-nav">
-          <a class="os-center"><span class="icon icon-icons-home"></span> </a>
+          <a class="os-center">
+            <span class="os-icon os-icons-home"></span> 
+          </a>
         </div>
       </div>
       <div>
