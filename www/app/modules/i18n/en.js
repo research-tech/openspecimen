@@ -55,6 +55,7 @@
     "build_version": "Version",
     "build_date": "Build date",
     "build_commit_revision": "Revision",
+    "confirm_navigation": " You've unsaved form changes. If you navigate away from this page without submitting form, the changes will be lost. Are you sure you want to leave this form/page?",
 
     "buttons": {
       "add": "Add",
@@ -202,7 +203,7 @@
   "participant": {
     "list": "Participants",
    
-    "id": "MPI / MRN / SSN",
+    "id": "MPI / MRN / NIN",
     "register_participant": "Register Participant",
     "edit_participant": "Edit Participant",
     "reg_date": "Registration Date",
@@ -212,8 +213,8 @@
     "last_name": "Last Name",
     "middle_name": "Middle Name",
     "birth_date": "Birth Date",
-    "uid": "Social Security Number", 
-    "uid_short": "SSN",
+    "uid": "National Identity Number",
+    "uid_short": "NIN",
     "mpi": "Master Patient Index",
     "gender": "Gender",
     "vital_status": "Vital Status",
@@ -249,7 +250,7 @@
     "matching_attr": {
       "empi": "EMPI",
       "pmi": "MRN",
-      "uid": "SSN",
+      "uid": "NIN",
       "lnameAndDob": "Last Name and DOB"
     },
 
@@ -413,6 +414,7 @@
     "bulk_import_aliquots": "Bulk Import Aliquots",
     "spmn_derivatives": "Specimen Derivatives",
     "bulk_import_derivatives": "Bulk Import Derivatives",
+    "new_aliquot_count": "Number of aliquots",
 
     "ctx_menu": {
       "view_specimen": "View Specimen",
@@ -442,7 +444,8 @@
       "duplicate_labels": "One or more specimens using same label",
       "insufficient_qty": "Insufficient parent specimen quantity to create aliquots",
       "created_on_lt_parent": "Created on date/time of specimen less than that of parent specimen",
-      "created_on_gt_curr_time": "Created on date/time of specimen greater than current date/time"
+      "created_on_gt_curr_time": "Created on date/time of specimen greater than current date/time",
+      "aliquot_label_mismatch": "There is a mismatch in number of specified labels and aliquots"
     }
   },
 
