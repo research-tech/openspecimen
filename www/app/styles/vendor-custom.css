@@ -182,10 +182,6 @@ body > .ui-select-bootstrap.open {
   display: inline-block;
 }
 
-.btn {
-  border-radius: 2px !important;
-}
-
 /* enable absolute positioning */
 .inner-addon { 
   position: relative; 

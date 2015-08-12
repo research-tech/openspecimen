@@ -230,22 +230,12 @@ body {
   color: #666666;
 }
   
-.os-page-hdr .os-nav-button,
-.os-page-hdr .os-options-button,
-.os-page-hdr .os-more-options button {
-  color: #666666;
-  background: transparent;
+.os-page-hdr .os-nav-button {
   border: none;
   outline: none;
   margin-top: -20px;
   margin-right: 24px;
   margin-left: -10px;
-}
-
-.os-page-hdr .os-nav-button .fa,
-.os-page-hdr .os-options-button .fa,
-.os-page-hdr .os-more-options button .fa {
-  font-size: 23px;
 }
 
 .os-page-hdr .os-title {
@@ -263,31 +253,8 @@ button.btn.os-round-btn {
   padding: 0px;
 }
 
-.os-page-hdr .os-round-btn {
-  cursor: pointer;
-  height: 24px;
-  width: 24px;
-  border: 1px solid #428BCA; 
-  border-radius: 100%;
-  position: relative;
-  background: #428BCA;
-}
-
 h4 + .btn-group {
   margin-left: 10px;
-}
-
-.os-page-hdr .os-round-btn > span {
-  color: white;
-}
-
-.os-page-hdr .os-round-btn:hover {
-  cursor: pointer;
-}
-
-.os-page-hdr .os-round-btn + .dropdown-menu {
-  top: inherit;
-  left: inherit;
 }
 
 .os-page-hdr + .container {
@@ -310,16 +277,6 @@ h4 + .btn-group {
   transition: width 0.25s ease-in-out 0s;
 }
 
-.os-page-hdr .os-more-options {
-  position: absolute;
-  right: 0px;
-  top: 25px;
-}
-
-.os-page-hdr .os-more-options .dropdown-menu-right {
-  margin-right: 24px;
-}
-
 .os-page-hdr .os-breadcrumbs ~ .os-btns {
   bottom: 10px;
 }
@@ -334,33 +291,31 @@ h4 + .btn-group {
   border-radius: 3px;
   padding: 4px 10px;
   display: inline-block;
-  color: #FFFFFF !important;
-  border: none !important;
 }
 
 .os-btns button.primary,
 .btn-primary {
   color: #FFFFFF;
-  background-color: #50CA87 !important;
-  border-color: #50CA87 !important;
+  background: #27AAE1;
+  border: 1px solid #2C97D5;
 }
 
 .os-btns button.primary:hover,
 .btn-primary:hover {
-  background-color: #57DF95 !important;
+  background: #2C97D5;
+  border: 1px solid #2C97D5;
 }
 
 .os-btns a.default,
 .os-btns button.default {
-  color: #FBFAF5;
-  background: #9F9F9D;
-  border: none;
+  color: #666666;
+  background: #F5F5F5;
+  border: 1px solid #CCCCCC;
 }
 
 .os-btns a.default:hover,
 .os-btns button.default:hover {
-  background: #BDBDBD;
-  border: none;
+  background: #DDDDDD;
 }
 
 .os-btns button.full-width {
@@ -397,7 +352,7 @@ h4 + .btn-group {
 
 .list-group-item .os-more-options .dropdown-toggle, 
 .list-group-item .os-more-options > .fa {
-  font-size: 17px;
+  font-size: 18px;
   color: #777777;
 }
 
@@ -416,7 +371,7 @@ h4 + .btn-group {
 }
 
 .os-table-body .os-more-options .dropdown-toggle {
-  font-size: 19px;
+  font-size: 20px;
   color: #777777;
   background: transparent;
   border: 0px;
@@ -451,10 +406,6 @@ h4 + .btn-group {
 
 .os-section-hdr label {
   margin-bottom: 0px;
-}
-
-.os-home .os-alert-container {
-  top: 0px;
 }
 
 input.ng-dirty.ng-invalid {

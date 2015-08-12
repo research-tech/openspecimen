@@ -71,12 +71,6 @@ angular.module('openspecimen')
         });
       },
       template: 
-        /*'<div class="os-file-upload">' +
-          '<input class="form-control" name="file" type="file">' +
-          '<span class="name" translate="common.no_file_selected">' +
-             'No File Selected' +
-          '</span>' +
-        '</div>'*/
         '<div class="input-group os-file-upload">' + 
           '<input class="fileUpload" name="file" type="file"/>' +
           '<input type="text" class="form-control"/>' +

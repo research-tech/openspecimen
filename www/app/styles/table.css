@@ -17,8 +17,7 @@
 }
 
 .os-table .row .col.os-vertical-divider > div {
-  display: block;
-  height: 37px;
+  padding: 8px;
   border-left: 1px solid #FFFFFF;
 }
 

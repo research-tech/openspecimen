@@ -107,7 +107,8 @@
                     ng-click="extnForm.showExtnFields = !extnForm.showExtnFields" 
                     ng-show="filteredExtnFields.length > 0">
                     {{::extnForm.caption}}
-                    <i ng-if="form.showExtnFields || extnForm.showExtnFields" class="os-icon os-icons-dropdown-arrow"></i>
+                    <i ng-if="form.showExtnFields || extnForm.showExtnFields" 
+                      class="os-icon os-icons-dropdown-arrow"></i>
                     <i ng-if="!form.showExtnFields && !extnForm.showExtnFields" class="fa fa-caret-right"></i>
                   </span>
 
