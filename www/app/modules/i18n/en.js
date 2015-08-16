@@ -97,7 +97,7 @@
     "specimenQty": "Invalid quantity",
     "match": "This field does not match with above field",
     "dist_qty_gt_avail_qty": "Distribution quantity cannot be greater than specimen's available quantity",
-    "dist_qty_le_zero": "Distribution quantity cannot be less than or equals zero",
+    "dist_qty_le_zero": "Distribution quantity cannot be less than or equal to zero",
     "nan": "Not a valid number"
   },
 
