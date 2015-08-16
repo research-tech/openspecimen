@@ -54,7 +54,7 @@
     "build_info_title": "About OpenSpecimen",
     "build_version": "Version",
     "build_date": "Build date",
-    "build_commit_revision": "Revision",
+    "build_commit_revision": "Github revision",
     "confirm_navigation": "Your edits will be lost. Are you sure you want to leave this page?",
 
     "buttons": {
@@ -86,17 +86,17 @@
   },
 
   "form_errors": {
-    "required": "Please fill out this field",
+    "required": "This field cannot be blank",
     "min": "This field value is too less",
     "minlength": "This field value is too short",
     "maxlength": "This field value is too long",
-    "date": "This field value is not valid date",
-    "pattern": "This field value is not valid",
-    "email": "This field value is not valid email",
+    "date": "This is not a valid date",
+    "pattern": "Data entered is not valid",
+    "email": "Thisis not a valid email address",
     "uniqueSpecimenLabel": "Not unique",
     "specimenQty": "Invalid quantity",
     "match": "This field does not match with above field",
-    "dist_qty_gt_avail_qty": "Distribution quantity greater than available",
+    "dist_qty_gt_avail_qty": "Distribution quantity cannot be greater than specimen's available quantity",
     "dist_qty_le_zero": "Distribution quantity cannot be less than or equals zero",
     "nan": "Not a valid number"
   },
@@ -112,7 +112,7 @@
 
     "cp_def_file": "Collection Protocol Definition File",
   
-    "repositories": "Repositories", 
+    "repositories": "Sites Involved", 
     "title": "Title",
     "short_title": "Short Title",
     "pi": "Principal Investigator",
@@ -127,17 +127,17 @@
     "ppid_digits": "No. of digits",
     "ppid_suffix": "Suffix",
     "clinical_diagnoses": "Clinical Diagnoses",
-    "anticipated_participants_cnt": "Anticipated Participants Count",
+    "anticipated_participants_cnt": "Anticipated Participant Count",
     "desc_url": "Description URL",
     "specimen_label_fmt": "Specimen Label Format",
     "derivative_label_fmt": "Derivative Label Format",
     "aliquot_label_fmt": "Aliquot Label Format",
     "store_all_aliquots_in_same_container": "Store all Aliquots in same Container",
     "visit_name_fmt": "Visit Name Format",
-    "manual_enabled_for": "User Inputs Allowed For",
-    "ppids": "Participant Protocol IDs",
-    "visit_names": "Visit Names",
-    "spec_labels": "Specimen Labels",
+    "manual_enabled_for": "User Input Allowed For",
+    "ppids": "Participant Protocol ID",
+    "visit_names": "Visit Name",
+    "spec_labels": "Specimen Label",
 
     "unsigned_consent_url": "Unsigned Consent Form URL",
     "consent_tiers": "Consent Tiers", 
@@ -195,7 +195,7 @@
       "visit": "Visit",
       "aliquot": "Aliquot",
       "derivative": "Derivative",
-      "manual": "User Inputs Allowed",
+      "manual": "User Input Allowed",
       "ppid": "PPID"
     }
   },
@@ -212,10 +212,10 @@
     "first_name": "First Name",
     "last_name": "Last Name",
     "middle_name": "Middle Name",
-    "birth_date": "Birth Date",
-    "uid": "National Identity Number",
+    "birth_date": "Date of Birth",
+    "uid": "National Identity Number (NIN)",
     "uid_short": "NIN",
-    "mpi": "Master Patient Index",
+    "mpi": "Master Patient Index (eMPI)",
     "gender": "Gender",
     "vital_status": "Vital Status",
     "ethnicity": "Ethnicity",
@@ -245,7 +245,7 @@
       "clear": "Clear response"
      },
 
-    "similar_participants": "Following participants found that are similar to new participant being registered",
+    "similar_participants": "Matching participants found. ",
     "matched_attrs": "Matched Attributes",
     "matching_attr": {
       "empi": "EMPI",
@@ -279,7 +279,7 @@
     },
 
     "tooltip": {
-      "register": "Click to register new Participant",
+      "register": "Click to register a new Participant",
       "view_details": "Click to view or edit Participant details",
       "completed_visits_count": "Count of Completed Visits",
       "collected_specimens_count": "Count of Collected Specimens",
@@ -1214,11 +1214,11 @@
      "details": "Order Details",
      "no_specimens_in_list": "No specimens in order list to distribute. Add at least one specimen",
      "enter_specimen_label": "Enter specimen labels separated by comma, tab or newline",
-     "specimens_not_found_or_no_access": "One or more specimens could not be loaded either because they do not exists or you do not have sufficient rights to access them",
+     "specimens_not_found_or_no_access": "One or more specimens in the order could not be displayed since you do not have privileges to access them",
 
-     "report_gen_initiated": "Generating distribution order report...",
-     "downloading_report": "Downloading distribution order report...",
-     "report_will_be_emailed": "Generating distribution order report is taking more time than anticipated. Link to download report will be sent to you by email",
+     "report_gen_initiated": "Generating distribution report...",
+     "downloading_report": "Downloading distribution report...",
+     "report_will_be_emailed": "Sorry, this is taking more time than anticipated! A link to download report will be emailed to you.",
 
      "filters": "Filters",
    
@@ -1275,11 +1275,11 @@
      "fqn": "Implementation",
      "fqn_desc": "Fully qualified name of class implementing the task to run",
 
-     "run_args": "Runtime Arguments",
+     "run_args": "Start-date End-date ",
      "args_provided": "Provided",
      "args_not_provided": "Not Provided",
      "args_help_text": "Help Text",
-     "args_help_text_desc": "Text to display users at time of collecting arguments for job run",
+     "args_help_text_desc": "Text to display when collecting arguments for the job",
     
      "run_job": "Run Job",
      "edit_job": "Edit Job Details",
