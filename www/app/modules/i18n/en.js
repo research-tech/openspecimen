@@ -21,14 +21,14 @@
     "institutes_desc": "Update information about institutions",
     "users_desc": "Add, rename and manage users",
     "roles_desc": "Create, update user access controls",
-    "sites_desc": "Add and update sites",
-    "containers_desc": "Manage containers and their restrictions",
-    "queries_desc": "Create, share and schedule queries",
+    "sites_desc": "Add and update sites (e.g. hospitals and repositories)",
+    "containers_desc": "Manage containers (e.g. freezers, racks and boxes)",
+    "queries_desc": "Create, share and download queries",
     "specimen_lists_desc": "Create, share and manage specimen lists",
     "forms_desc": "Create and manage custom forms",
     "settings_desc": "Manage application configuration settings",
-    "distribution_orders_desc": "Create, execute request orders for distributing specimens",
-    "jobs_desc": "Create, schedule, execute jobs"
+    "distribution_orders_desc": "Distribute specimens to requestors",
+    "jobs_desc": "Configure custom jobs"
   },
 
   "common": {
@@ -39,10 +39,10 @@
     "yes": "Yes",
     "no": "No",
     "none": "None",
-    "form_validation_error": "There are validation errors as highlighted below. Please correct them",
+    "form_validation_error": "There are some validation errors as highlighted below. Please correct them to proceed.",
     "server_error": "Internal Server Error. Please report this problem to system administrator",
     "ui_error": "UI Error. Please report this problem to system administrator",
-    "server_connect_error": "Unable to connect server",
+    "server_connect_error": "Unable to connect server. Please check internet connectivity.",
     "recent_activity": "Recent Activity",
     "no_file_selected": "No File Selected",
     "view_jobs": "View Jobs",
@@ -55,7 +55,7 @@
     "build_version": "Version",
     "build_date": "Build date",
     "build_commit_revision": "Revision",
-    "confirm_navigation": " You've unsaved form changes. If you navigate away from this page without submitting form, the changes will be lost. Are you sure you want to leave this form/page?",
+    "confirm_navigation": "Your edits will be lost. Are you sure you want to leave this page?",
 
     "buttons": {
       "add": "Add",
@@ -174,7 +174,7 @@
     },
 
     "tooltip": {
-      "view_details": "Click to view/edit Collection Protocol details",
+      "view_details": "Click to view or edit Collection Protocol details",
       "reg_participants_count": "Count of Registered Participants",
       "collected_specimens_count": "Count of Collected Specimens",
       "search": "Click to search Collection Protocols"
@@ -182,7 +182,7 @@
 
     "filter": {
       "filter_title": "Filters",
-      "title_or_short_title": "Title / Short Title",
+      "title_or_short_title": "Title or Short Title",
       "title": "Type the Title",
       "pi": "Select Principal Investigator",
       "repository": "Repository",
@@ -203,7 +203,7 @@
   "participant": {
     "list": "Participants",
    
-    "id": "MPI / MRN / NIN",
+    "id": "MPI, MRN or NIN",
     "register_participant": "Register Participant",
     "edit_participant": "Edit Participant",
     "reg_date": "Registration Date",
@@ -231,7 +231,7 @@
     "pmis": "Medical Identifiers",
     "protocol_id": "PPID",
     "filter_title": "Filters",
-    "spmn_label_or_barcode": "Specimen Label / Barcode",
+    "spmn_label_or_barcode": "Specimen Label or Barcode",
     "collection_protocol": "Collection Protocol",
     "regDate": "Registration Date",
     "reg_another_protocol": "Register to Another Protocol",
@@ -280,7 +280,7 @@
 
     "tooltip": {
       "register": "Click to register new Participant",
-      "view_details": "Click to view/edit Participant details",
+      "view_details": "Click to view or edit Participant details",
       "completed_visits_count": "Count of Completed Visits",
       "collected_specimens_count": "Count of Collected Specimens",
       "search": "Click to filter Participants",
@@ -443,9 +443,9 @@
     "errors": {
       "duplicate_labels": "One or more specimens using same label",
       "insufficient_qty": "Insufficient parent specimen quantity to create aliquots",
-      "created_on_lt_parent": "Created on date/time of specimen less than that of parent specimen",
-      "created_on_gt_curr_time": "Created on date/time of specimen greater than current date/time",
-      "aliquot_label_mismatch": "There is a mismatch in number of specified labels and aliquots"
+      "created_on_lt_parent": "Created on date-time of specimen less than that of parent specimen's date-time",
+      "created_on_gt_curr_time": "Created on date-time of specimen greater than current date-time",
+      "aliquot_label_mismatch": "Number of labels specified does not match with number of aliquots"
     }
   },
 
@@ -500,7 +500,7 @@
     },
 
     "errors": {
-      "insufficient_qty": "Insufficient parent requirement quantity to create aliquots"
+      "insufficient_qty": "Insufficient quantity in parent specimen to create aliquots"
     }
   },
 
@@ -516,7 +516,7 @@
     "bulk_import_jobs": "Import Institutes Job List",
 
     "tooltip": {
-      "view_details": "Click to view/edit Institute details",
+      "view_details": "Click to view or edit Institute details",
       "add": "Click to add new Institute",
       "edit": "Click to edit institute",
       "cp_count": "Count of Collection Protocols in Institute",
@@ -554,7 +554,7 @@
     "bulk_import_jobs": "Import Sites Job List",
 
     "tooltip": {
-      "view_details": "Click to view/edit Site details",
+      "view_details": "Click to view or edit Site details",
       "add": "Click to add new Site",
       "edit": "Click to edit site",
       "cp_count": "Count of Collection Protocols",
@@ -592,7 +592,7 @@
     "order_report_query": "Order Report Query",
 
     "tooltip": {
-      "view_details": "Click to view/edit Distribution Protocol details",
+      "view_details": "Click to view or edit Distribution Protocol details",
       "add": "Click to add new Distribution Protocol",
       "edit": "Click to edit Distribution Protocol",
       "pending_count": "Pending to distribute specimens count",
@@ -606,7 +606,7 @@
 
     "filter": {
       "filter_title": "Filters",
-      "title_or_short_title": "Title / Short Title",
+      "title_or_short_title": "Title or Short Title",
       "title": "Type the Title",
       "pi": "Select Principal Investigator"
     },
@@ -678,7 +678,7 @@
     "return_to_signin": "Return to Sign in",
 
     "tooltip": {
-      "view_details": "Click to view/edit User details",
+      "view_details": "Click to view or edit User details",
       "add": "Click to add new User",
       "edit": "Click to edit User",
       "email_address": "Email Address",
@@ -766,7 +766,7 @@
     "stores_specimens": "Stores Specimens",
     "confirm_delete": "{{entityType}} {{entityName}} and its child containers will be deleted forever. Are you sure you want to proceed?",
     "assign_positions": "Assign Positions",
-    "paste_specimen_labels": "Paste or input specimen labels separated by comma/tab/newline",
+    "paste_specimen_labels": "Paste or input specimen labels separated by comma, tab or newline",
     "no_free_locs": "Container does not have enough free locations to accommodate input specimen labels",
     "replicated_successfully": "Container {{name}} replicated successfully",
 
@@ -787,7 +787,7 @@
     "bulk_import_jobs": "Import Storage Containers Jobs List",
 
     "tooltip": {
-      "view_details": "Click to view/edit Storage Container details",
+      "view_details": "Click to view or edit Storage Container details",
       "add": "Click to add new Storage Container",
       "edit": "Click to edit Storage Container",
       "count_free_locations": "Count of free locations",
@@ -843,7 +843,7 @@
     },
 
     "tooltip": {
-      "view_details": "Click to view/edit Role",
+      "view_details": "Click to view or edit Role",
       "add": "Click to add new Role"
     }
   },
@@ -970,7 +970,7 @@
     "cond_value": "Condition Value",
     "select_cond_value": "Select Condition Value",
     "select_cond_values": "Select Condition Values",
-    "specify_multiple_cond": "Specify multiple Condition Values separated by comma/tab/newline",
+    "specify_multiple_cond": "Specify multiple Condition Values separated by comma, tab or newline",
     "range_min": "Range Min",
     "range_max": "Range Max",
     "select_date": "Select Date",
@@ -1093,7 +1093,7 @@
 
     "filter": {
       "title": "Filters",
-      "id_or_title": "Query ID / Title",
+      "id_or_title": "Query ID or Title",
       "type_id_or_title": "Enter query ID or title to search queries"
     }
   },
@@ -1213,7 +1213,7 @@
      "sender_comments": "Sender Comments",
      "details": "Order Details",
      "no_specimens_in_list": "No specimens in order list to distribute. Add at least one specimen",
-     "enter_specimen_label": "Enter specimen labels separated by comma/tab/newline",
+     "enter_specimen_label": "Enter specimen labels separated by comma, tab or newline",
      "specimens_not_found_or_no_access": "One or more specimens could not be loaded either because they do not exists or you do not have sufficient rights to access them",
 
      "report_gen_initiated": "Generating distribution order report...",
