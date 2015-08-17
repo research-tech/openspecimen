@@ -1,6 +1,6 @@
 {
   "menu": {
-    "navigate_to": "Navigate To",
+    "navigate_to": "Navigate to",
     "home": "Home",
     "collection_protocols": "Collection Protocols",
     "settings": "Settings",
@@ -27,7 +27,7 @@
     "specimen_lists_desc": "Create, share and manage specimen lists",
     "forms_desc": "Create and manage custom forms",
     "settings_desc": "Manage application configuration settings",
-    "distribution_orders_desc": "Distribute specimens to requestors",
+    "distribution_orders_desc": "Distribute specimens to researchers",
     "jobs_desc": "Configure custom jobs"
   },
 
@@ -110,7 +110,7 @@
     "create_cp_title": "Create Collection Protocol",
     "import_cp_title": "Import Collection Protocol",
 
-    "cp_def_file": "Collection Protocol Definition File",
+    "cp_def_file": "Collection Protocol definition file",
   
     "repositories": "Sites Involved", 
     "title": "Title",
@@ -175,9 +175,9 @@
 
     "tooltip": {
       "view_details": "Click to view or edit Collection Protocol details",
-      "reg_participants_count": "Count of Registered Participants",
-      "collected_specimens_count": "Count of Collected Specimens",
-      "search": "Click to search Collection Protocols"
+      "reg_participants_count": "Count of registered participants",
+      "collected_specimens_count": "Count of collected specimens",
+      "search": "Click to search collection protocols"
     },
 
     "filter": {
@@ -222,8 +222,8 @@
     "death_date": "Death Date",
     "race": "Race",
     "select_race": "Select Race",
-    "more_demographics": "More Demographic Information",
-    "less_demographics": "Less Demographic Information",
+    "more_demographics": "Click to see more demographics",
+    "less_demographics": "Click to see less demographics",
     "mrn": "Medical Record Number",
     "mrn_short": "MRN",
     "site": "Site",
@@ -279,12 +279,12 @@
     },
 
     "tooltip": {
-      "register": "Click to register a new Participant",
-      "view_details": "Click to view or edit Participant details",
-      "completed_visits_count": "Count of Completed Visits",
-      "collected_specimens_count": "Count of Collected Specimens",
-      "search": "Click to Filter Participants",
-      "bulk_register": "Click to Register Participants"
+      "register": "Click to register a new participant",
+      "view_details": "Click to view or edit participant details",
+      "completed_visits_count": "Count of completed visits",
+      "collected_specimens_count": "Count of collected specimens",
+      "search": "Click to filter participants",
+      "bulk_register": "Click to register participants"
     }
   },
 
@@ -293,13 +293,13 @@
     "list": "Visits",
     "occurred_visits": "Occurred Visits",
     "collection_status": "Collection Statistics",
-    "anticipated_visits": "Anticipated Visits",
+    "anticipated_visits": "Pending Visits",
     "missed_visits": "Missed Visits",
-    "anticipated_specimens": "Anticipated Specimens",
+    "anticipated_specimens": "Pending Specimens",
     "visit_status": "Status",
     "name": "Name",
     "visit_date": "Visit Date",
-    "anticipated_visit_date": "Anticipated Visit Date",
+    "anticipated_visit_date": "Pending Visit Date",
     "visit_site": "Visit Site",
     "clinical_diagnosis": "Clinical Diagnosis",
     "clinical_status": "Clinical Status",
@@ -311,13 +311,13 @@
     "upload_spr": "Upload Surgical Pathology Report",
     "spr_contents": "Report Contents",
     "spr_uploaded": "Surgical pathology report {{file}} uploaded successfully.",
-    "no_spr": "No surgical pathology report uploaded.",
+    "no_spr": "Surgical pathology report could not be uploaded.",
     "deleting_spr": "Deleting Surgical Pathology Report",
     "confirm_delete_spr": "Are you sure you want to delete {{sprName}} ?",
     "spr_locked": "Surgical pathology report locked successfully.",
     "spr_unlocked": "Surgical pathology report unlocked successfully.",
-    "lock_spr": "Click to lock Surgical Pathology Report",
-    "unlock_spr": "Click to unlock Surgical Pathology Report",
+    "lock_spr": "Click to lock surgical pathology report",
+    "unlock_spr": "Click to unlock surgical pathology report",
     "reason": "Reason",
     "status": {
       "pending": "Pending",
@@ -346,7 +346,7 @@
   "specimens": {
     "title": "Specimen",
     "list": "Specimens",
-    "anticipated_list": "Anticipated Specimens",
+    "anticipated_list": "Pending Specimens",
     "status": {
       "collected": "Collected",
       "not_collected": "Missed Collection",
@@ -402,7 +402,7 @@
     "event_time": "Date and Time",
     "no_events": "No events to show",
 
-    "no_specimens_for_collection": "Please select at least one anticipated specimen for collection",
+    "no_specimens_for_collection": "Please select at least one pending specimen for collection",
     "no_specimens_for_print": "Please select at least one collected specimen for label printing",
     "no_specimens_for_specimen_list": "Please select at least one specimen to add specimen list",
 
@@ -441,7 +441,7 @@
     },
 
     "errors": {
-      "duplicate_labels": "Same label value used for one or more specimens",
+      "duplicate_labels": "Same label value is used for one or more specimens. Please specify unique value.",
       "insufficient_qty": "Insufficient parent specimen quantity to create aliquots",
       "created_on_lt_parent": "Created on date-time of specimen less than that of parent specimen's date-time",
       "created_on_gt_curr_time": "Created on date-time of specimen greater than current date-time",
@@ -595,8 +595,8 @@
       "view_details": "Click to view or edit Distribution Protocol details",
       "add": "Click to add new Distribution Protocol",
       "edit": "Click to edit Distribution Protocol",
-      "pending_count": "Pending to distribute specimens count",
-      "distributed_count": "Distributed specimens count",
+      "pending_count": "Count of specimens pending distribution",
+      "distributed_count": "Count of distributed specimens",
       "search": "Click to search Distribution Protocols"
     },
     
@@ -648,7 +648,7 @@
     "request_pending": "Note: {{firstName}}  {{lastName}} would like to access OpenSpecimen. Approve or Reject?",
     "user_request_approved": "User request approved successfully",
     "activity_status": "Activity Status",
-    "confirm_reject": "Rejecting the User {{entityName}} will delete this user from the database. Are you sure you want to go ahead?",
+    "confirm_reject": "Rejecting the User {{entityName}} will delete this user. Are you sure you want to go ahead?",
     "locked": "User {{firstName}} {{lastName}} has been locked. Unlock?",
     "unlock_user": "Unlock User",
     "user_unlocked": "User unlocked successfully",
