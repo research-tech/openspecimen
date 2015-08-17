@@ -212,7 +212,7 @@
     "first_name": "First Name",
     "last_name": "Last Name",
     "middle_name": "Middle Name",
-    "birth_date": "Date of Birth",
+    "birth_date": "Date of Birth (DOB)",
     "uid": "National Identity Number (NIN)",
     "uid_short": "NIN",
     "mpi": "Master Patient Index (eMPI)",
@@ -266,7 +266,7 @@
       "register": "Register",
       "update_registration": "Update",
       "register_selected_participant": "Register Selected participant",
-      "ignore_matches": "Ignore Matches and Register Participant",
+      "ignore_matches": "Ignore Matches and Register New Participant",
       "lookup_again": "Lookup Again",
       "bulk_register": "Bulk Register"  
     },
@@ -283,8 +283,8 @@
       "view_details": "Click to view or edit Participant details",
       "completed_visits_count": "Count of Completed Visits",
       "collected_specimens_count": "Count of Collected Specimens",
-      "search": "Click to filter Participants",
-      "bulk_register": "Click to register participants"
+      "search": "Click to Filter Participants",
+      "bulk_register": "Click to Register Participants"
     }
   },
 
@@ -292,7 +292,7 @@
     "title": "Visit",
     "list": "Visits",
     "occurred_visits": "Occurred Visits",
-    "collection_status": "Collection Status",
+    "collection_status": "Collection Statistics",
     "anticipated_visits": "Anticipated Visits",
     "missed_visits": "Missed Visits",
     "anticipated_specimens": "Anticipated Specimens",
@@ -404,7 +404,7 @@
 
     "no_specimens_for_collection": "Please select at least one anticipated specimen for collection",
     "no_specimens_for_print": "Please select at least one collected specimen for label printing",
-    "no_specimens_for_specimen_list": "Please select at least one specmen to add specimen list",
+    "no_specimens_for_specimen_list": "Please select at least one specimen to add specimen list",
 
     "labels_print_job_created": "Specimen labels print job {{jobId}} created successfully",
     "bulk_import": "Bulk Import Specimens",
@@ -441,7 +441,7 @@
     },
 
     "errors": {
-      "duplicate_labels": "One or more specimens using same label",
+      "duplicate_labels": "Same label value used for one or more specimens",
       "insufficient_qty": "Insufficient parent specimen quantity to create aliquots",
       "created_on_lt_parent": "Created on date-time of specimen less than that of parent specimen's date-time",
       "created_on_gt_curr_time": "Created on date-time of specimen greater than current date-time",
@@ -500,7 +500,7 @@
     },
 
     "errors": {
-      "insufficient_qty": "Insufficient quantity in parent specimen to create aliquots"
+      "insufficient_qty": "Insufficient quantity to create aliquots"
     }
   },
 
@@ -519,8 +519,8 @@
       "view_details": "Click to view or edit Institute details",
       "add": "Click to add new Institute",
       "edit": "Click to edit institute",
-      "cp_count": "Count of Collection Protocols in Institute",
-      "user_count": "Count of Users in Institute",
+      "cp_count": "Count of Collection Protocols",
+      "user_count": "Count of Users",
       "search": "Click to search Institutes"
     },
 
