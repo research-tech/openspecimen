@@ -164,26 +164,33 @@ h4 + .btn-group {
   position: relative;
 }
 
-.os-btns .fa, .btn-group .fa,
-.os-btns .os-icon, .btn-group .os-icon {
+.os-btns .fa, 
+.os-btns .os-icon, 
+.btn-group .fa,
+.btn-group .os-icon {
   float: left;
   padding-right: 5px;
 }
 
-.os-btns .os-icon, .btn-group .os-icon {
+.os-btns .os-icon, 
+.btn-group .os-icon {
   padding-top: 2px;
 }
 
-.os-btns .fa, .btn-group .fa {
+.os-btns .fa, 
+.btn-group .fa {
   padding-top: 3px;
   padding-bottom: 5px;
 }
 
-.os-round-btn .os-icon, .os-round-btn .fa,
-.btn-xs .os-icon, .btn-xs .fa,
-.btn-group-xs .os-icon, .btn-group-xs .fa {
+.btn-xs .fa,
+.btn-xs .os-icon, 
+.btn-group-xs .fa
+.btn-group-xs .os-icon,
+.os-round-btn .fa,
+.os-round-btn .os-icon {
   float: none;
-  margin-top: 0px;
+  margin-top: 1px;
   padding-right: 0px;
 }
 
