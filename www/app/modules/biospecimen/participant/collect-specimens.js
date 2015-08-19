@@ -108,6 +108,8 @@ angular.module('os.biospecimen.participant.collect-specimens',
           if (expandGrp) {
             expandOrCollapseAliquotsGrp(specimen, expandGrp);
           }
+
+          specimen.aliquotLabels = getAliquotGrpLabels(specimen);
         });
       }
 
@@ -146,38 +148,56 @@ angular.module('os.biospecimen.participant.collect-specimens',
         setShowInTree(aliquot, expandOrCollapse)
         aliquot.expanded = expandOrCollapse;
         if (!aliquot.expanded) {
-          aliquot.aliquotLabels = aliquot.aliquotGrp.map(
-            function(s) {
-              return s.label;
-            }
-          ).join(aliquot.aliquotLabels ? "," : "");
+          aliquot.aliquotLabels = getAliquotGrpLabels(aliquot);
         }
+      }
 
-        angular.forEach(aliquot.aliquotGrp, function(sibling){
-          if (aliquot != sibling) {
-            setChildrenShowInTree(sibling, sibling.showInTree);
+      function getAliquotGrpLabels(specimen) {
+        return specimen.aliquotGrp.filter(
+          function(s) {
+            return !!s.label;
           }
-        });
-
+        ).map(
+          function(s) {
+            return s.label;
+          }
+        ).join(",");
       }
 
       function setShowInTree(aliquot, showInTree) {
-        angular.forEach(aliquot.aliquotGrp, function(sibling) {
-          if (aliquot != sibling) {
-            sibling.showInTree = showInTree;
+        angular.forEach(aliquot.aliquotGrp, function(specimen) {
+          if (specimen == aliquot) {
+            return;
+          }
+
+          if (showInTree) {
+            specimen.showInTree = true;
+            showSpecimenInTree(specimen);
+          } else {
+            hideSpecimenInTree(specimen);
           }
         });
       }
 
-      function setChildrenShowInTree(aliquot, showInTree) {
-        angular.forEach(aliquot.children, function(child) {
-          child.showInTree = showInTree;
-          if (!child.children[0].aliquotGrp) {
-            setChildrenShowInTree(child, showInTree);
-          } else {
-            child.children[0].showInTree = showInTree;
-          }
+
+      function showSpecimenInTree(specimen) {
+        if (specimen.grpLeader && (!specimen.children || specimen.children.length == 0)) {
+          return;
+        }
+
+        specimen.showInTree = true;
+        angular.forEach(specimen.children, function(child) {
+          showSpecimenInTree(child);
         });
+      }
+
+      function hideSpecimenInTree(specimen) {
+        specimen.showInTree = false;
+        if (specimen.children.length > 0) {
+          angular.forEach(specimen.children, function(child) {
+            hideSpecimenInTree(child);
+          });
+        }
       }
 
       function addAliquotsToGrp(grpLeader, newSpmnsCnt) {
@@ -265,15 +285,39 @@ angular.module('os.biospecimen.participant.collect-specimens',
           var grp = specimen.grpLeader.aliquotGrp;
           var grpIdx = grp.indexOf(specimen);
           grp.splice(grpIdx, 1);
-        }
-
-        if (specimen.aliquotGrp) {
-          angular.forEach(specimen.aliquotGrp, function(aliquot) {
-            aliquot.selected = false;
-            aliquot.removed = true;
-          });
+        } else if (specimen.aliquotGrp) {
+          if (!specimen.expanded) {
+            angular.forEach(specimen.aliquotGrp, function(aliquot) {
+              aliquot.selected = false;
+              aliquot.removed = true;
+            });
+          } else {
+            // logic of changing group leader.
+            adjustGrpLeader(specimen);
+          }
         }
       };
+
+      function adjustGrpLeader(specimen) {
+        if (!specimen.aliquotGrp) {
+          return;
+        }
+
+        var members = specimen.aliquotGrp.splice(1);
+        var newLeader = members.length > 0 ? members[0] : null;
+        if (!newLeader) {
+          return;
+        }
+
+        newLeader.aliquotGrp = members;
+        newLeader.expanded = true;
+        newLeader.grpLeader = null;
+        angular.forEach(members, function(member) {
+          if (member != newLeader) {
+            member.grpLeader = newLeader;
+          }
+        });
+      }
 
       $scope.statusChanged = function(specimen) {
         setDescendentStatus(specimen); 
