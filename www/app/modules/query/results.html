@@ -17,11 +17,11 @@
     <div class="os-btns right">
       <button class="default" ng-click="editFilters()">
         <span translate="queries.edit_filters">Edit Filters</span>
-        <span class="os-icon os-icons-edit"></span>
+        <span class="os-icon os-icon-edit"></span>
       </button>
       <button class="default" ng-click="defineView()">
         <span translate="queries.define_view">Define View</span>
-        <span class="os-icon os-icons-read"></span>
+        <span class="os-icon os-icon-read"></span>
       </button>
       <button class="default" ng-click="rerun()">
         <span translate="queries.rerun">Rerun</span>
@@ -29,7 +29,7 @@
       </button>
       <button class="default" ng-click="downloadResults()">
         <span translate="common.buttons.export">Export</span>
-        <span class="fa fa-download"></span>
+        <span class="os-icon os-icon-import"></span>
       </button>
 
       <div dropdown class="btn-group" ng-if="showAddToSpecimenList">
@@ -39,12 +39,12 @@
         </button>
         <button type="button" class="btn default" ng-if="resultsCtx.selectAll" ng-click="unSelectAllRows()">
           <span translate="queries.unselect_all">Unselect All</span>
-          <span class="fa fa-remove"></span>
+          <span class="fa fa-close"></span>
           </button>
         </button>
         <button class="btn default dropdown-toggle" ng-disabled="!selectedRows || selectedRows.length == 0">
           <span class="fa fa-folder"></span>
-          <span class="os-icon os-icons-dropdown-arrow"></span>
+          <span class="os-icon os-icon-dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right os-query-folders-dd">
           <li>

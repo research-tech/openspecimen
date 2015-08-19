@@ -8,10 +8,6 @@ angular.module('openspecimen')
         element.find('ul').on('click', function() {
           osNavDrawerSvc.toggle();
         });
-        element.find('li').on('click', function() {
-          element.find('li.active').removeClass('active');
-          angular.element(this).addClass('active');
-        });
         element.find('div.os-home-nav').on('click', function() {
           osNavDrawerSvc.toggle();
         });

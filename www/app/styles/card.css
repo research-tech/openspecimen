@@ -10,8 +10,8 @@
 }
 
 .os-card {
-  height: 194px;
-  width: 293px;
+  height: 166px;
+  width: 282px;
   background: #fff;
   padding: 20px;
   cursor: pointer;
@@ -20,6 +20,12 @@
   position: relative;
   color: #41464c;
   border: #dededc solid 1px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.os-card:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
 }
 
 .os-card a {
@@ -32,10 +38,10 @@
   font-size: 20px;
   color: #41464c;
   bottom: 0px;
-  width: 293px;
+  width: 100%;
   left: 0px;
-  height: 57px;
-  padding: 16px 5px;
+  height: 48px;
+  padding: 10px 5px;
   background: #e9e9e4;
   font-weight: bold;
 }
@@ -49,7 +55,7 @@
 
 .os-card h4 {
   margin-top: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 16px;
 }
 
@@ -95,10 +101,10 @@
 
 .os-card .stats .stat .os-icon {
   font-size: 25px;
-  margin: 7px 7px 0px 0px;
+  margin: 0px 7px 0px 0px;
 }
 
-.os-card .stats .stat span {
+.os-card .stats .stat span:nth-of-type(2) {
   position: relative;
-  top: -5px;
+  bottom: 3px;
 }

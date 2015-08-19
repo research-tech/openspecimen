@@ -1,10 +1,14 @@
 @CHARSET "UTF-8";
 
 .os-login-form {
-  margin: 0 auto;
   width: 360px;
-  margin-top: 40px;
   padding-left: 20px;
+}
+
+.os-login-form hr {
+  border-top: 1px dotted #41464C;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .os-login-gradient {
@@ -13,70 +17,37 @@
   background: linear-gradient(to right, #985292, #3C8FB7, #2C9DAB, #419A6C); 
 }
 
-.os-login-form .os-icons-username, 
-.os-login-form .os-icons-password {
-  color: #41464C;
+.os-login-form .os-icon-username, 
+.os-login-form .os-icon-password {
   font-size: 19px;
   position: relative;
-  top: 32px;
+  top: 42px;
   margin-left: 10px;
 }
 
 .os-login-form .form-control {
-  background-color: transparent;
-  border-radius: 0px;
-  border: none;
-  border-bottom: 1px solid #9EA0A0;
   margin-bottom: 10px;
   font-size: 18px;
   padding-left: 40px;
-  box-shadow: -13px 11px 0 -11px #9EA0A0;
 }
 
-.os-login-header {
-  font-size: 22px;
-  text-align: center;
+.os-login-form .os-actions {
+  margin-top: 20px;
+  font-size: 16px;
 }
 
-.os-custom-banner img.logo {
-  height: 81px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.os-login-actions {
-  text-align: center;
-  margin-top: 32px;
-}
-
-.os-login-actions .btn .os-icons-right-arrow {
+.os-login-form .os-actions .btn .os-icon-right-arrow {
   position: relative;
   top: 3px;
   font-size: 16px;
   color: #FFFEF2;
 }
 
-.os-login-actions hr {
-  border-top: 1px dotted #41464C;
+.os-login-form .os-actions div {
+  margin-top: 10px;
 }
 
-.os-login-actions a, 
-.os-login-actions a:hover{
-  color: #41464C;
-  text-decoration: underline;
-  font-size: 16px;
-}
-
-.os-login-actions .os-sign-up-link {
-  font-family: "Cambria";
-  font-size: 18px;
-}
-
-.os-login-actions .os-sign-up-link a {
-  font-weight: bold;
-}
-
-.os-login-footer-banner {
+.os-footer-banner {
   width:100%;
   height: 15px;
   position: absolute;

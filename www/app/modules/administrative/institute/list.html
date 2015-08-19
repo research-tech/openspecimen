@@ -7,23 +7,23 @@
       <button show-if-admin class="primary" title="{{'institutes.tooltip.add' | translate}}"
         ui-sref="institute-addedit({instituteId: ''})">
         <span translate="common.buttons.create">Create</span>
-        <span class="os-icon os-icons-create"></span>
+        <span class="fa fa-plus"></span>
       </button>
       <div show-if-admin dropdown class="inline">
-        <button class="btn default dropdown-toggle">
+        <button class="default dropdown-toggle">
           <span translate="common.buttons.import">Import</span>
-          <span class="os-icon os-icons-import"></span>
+          <span class="os-icon os-icon-import"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
             <a ui-sref="institute-import">
-              <i class="os-icon os-nav-institutes"></i>
+              <span class="os-icon os-nav-institutes"></span>
               <span translate="institutes.list">Institutes</span>
             </a>
           </li>
           <li>
             <a ui-sref="institute-import-jobs">
-              <i class="os-icon os-icons-view-jobs"></i>
+              <span class="os-icon os-icon-view-jobs"></span>
               <span translate="common.view_jobs">View Jobs</span>
             </a>
           </li>
@@ -45,11 +45,11 @@
       </h4>
       <div class="stats">
         <div class="stat col-xs-6" title="{{'institutes.tooltip.cp_count' | translate}}">
-          <i class="os-icon os-int-cp-count"></i>
+          <span class="os-icon os-int-cp-count"></span>
           <span>{{institute.cpsCount | number: 0}}</span>
         </div>
         <div class="stat col-xs-6" title="{{'institutes.tooltip.user_count' | translate}}">
-          <i class="os-icon os-int-user-count"></i>
+          <span class="os-icon os-int-user-count"></span>
           <span>{{institute.usersCount | number: 0}}</span>
         </div>
       </div>

@@ -95,7 +95,7 @@ angular.module('os.administrative.container.map', ['os.administrative.container.
 
     function getAddContainerMarker() {
       return $("<div class='slot_add'/>")
-        .append("<span class='os-icon os-icons-create'></span>");
+        .append("<span class='fa fa-plus'></span>");
     };
 
     return {

@@ -1,0 +1,103 @@
+.os-navbar {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.os-navbar:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.os-navbar .search {
+  flex-grow: 4;
+  padding-top: 10px;
+  display: flex;
+}
+
+.os-navbar .search input {
+  font-weight: normal;
+}
+
+.os-navbar .search .btn {
+  margin-left: -7px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  height: 34px;
+}
+
+.os-navbar .menu {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.os-navbar .menu {
+  list-style: none;
+  padding: 5px 10px 0px 0px; 
+  margin-bottom: 0px;
+}
+
+.os-navbar .menu > li {
+  padding: 15px 5px;
+}
+
+.os-navbar > ul > span.os-icon.os-icon-separator {
+  position: relative;
+  top: 18px;
+}
+
+.os-navbar > ul > li > a {
+  text-decoration: none;
+  padding: 5px 5px;
+}
+
+.os-navbar > ul > li > a:hover {
+  color: #27AAE1;
+}
+
+.os-navbar > ul > li > a > span {
+  font-size: 14px;
+}
+
+.os-navbar-default {
+  background: #174352;
+  font-weight: bold;
+}
+
+.os-navbar-default > ul > li > a {
+  color: #FFFFFF;
+}
+
+.os-navbar-default > ul > li > a > .os-icon.os-icon-dropdown-arrow {
+  position: relative;
+  top: 2px;
+}
+
+.os-navbar-docked {
+  position: fixed;
+  top: 0px;
+  z-index: 999;
+}
+
+/*.os-notification-content {
+  position: relative;
+  left: 10px;
+}
+
+.os-notification-count {
+  width: 18px;
+  height: 14px;
+  position: relative;
+  line-height: 15px;
+  background: #f76373;
+  border-radius: 3px;
+  font-size: 11px;
+  font-family: Cambria;
+  padding: 0px 2px;
+  top: -10px;
+  left: -11px;
+}*/

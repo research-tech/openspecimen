@@ -11,16 +11,28 @@
         <button show-if-allowed="userResource.updateOpts" class="primary" title="{{'user.tooltip.edit' | translate}}"
           ui-sref="user-addedit({userId: user.id})">
           <span translate="common.buttons.edit">Edit</span>
-          <span class="os-icon os-icons-edit"></span>
+          <span class="os-icon os-icon-edit"></span>
         </button>
-        <button show-if-allowed="userResource.deleteOpts" class="default" ng-click="deleteUser()">
-          <span translate="common.buttons.delete">Delete</span>
-          <span class="os-icon os-icons-delete"></span>
-        </button>
-        <button ng-if="currentUser.id != user.id && currentUser.admin" class="default" ui-sref="user-password({userId: user.id})">
-          <span translate="common.buttons.reset_password">Reset Password</span>
-          <span class="fa fa-key"></span>
-        </button>
+        <div show-if-allowed="userResource.deleteOpts" dropdown class="inline">
+          <button class="default dropdown-toggle">
+            <span translate="common.buttons.more">More</span>
+            <span class="os-icon os-icon-dropdown-arrow"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <a ng-click="deleteUser()">
+                <span class="os-icon os-icon-delete"></span>
+                <span translate="common.buttons.delete">Delete</span>
+              </a>
+            </li>
+            <li ng-if="currentUser.id != user.id && currentUser.admin">
+              <a ui-sref="user-password({userId: user.id})">
+                <span class="fa fa-key"></span>
+                <span translate="common.buttons.reset_password">Reset Password</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -29,13 +41,13 @@
     <ul>
       <li ui-sref-active="active">
         <a ui-sref=".overview">
-          <i class="os-icon os-icons-overview"></i>
+          <span class="os-icon os-icon-overview"></span>
           <span class="os-title" translate="user.menu.overview">Overview</span>
         </a>
       </li>
       <li ng-if="!user.admin" ui-sref-active="active">
         <a ui-sref=".roles">
-          <i class="os-icon os-nav-roles"></i>
+          <span class="os-icon os-nav-roles"></span>
           <span class="os-title" translate="user.menu.roles">Roles</span>
         </a>
       </li>

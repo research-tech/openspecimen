@@ -1,0 +1,27 @@
+.os-inplace-form-edit-po {
+  border: 1px solid #DDDDDD;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-radius: 4px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+  background-clip: padding-box;
+}
+
+.os-inplace-form-edit-po .title {
+  background: #EDEFF0;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.os-inplace-form-edit-po .list-group-item .title {
+  margin: -10px -15px 9px -15px; 
+  padding: 10px 15px;
+}
+
+.os-inplace-form-edit-po .content {
+  padding: 9px 15px;
+}
+
+.os-inplace-form-edit-po .content .alert {
+  padding: 6px 12px;
+}
+

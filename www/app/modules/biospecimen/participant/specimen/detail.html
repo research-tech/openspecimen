@@ -33,29 +33,41 @@
         ng-switch on="!!specimen.id"> 
         <span ng-switch-when="true">
           <span translate="common.buttons.edit">Edit</span>
-          <span class="os-icon os-icons-edit"></span>
+          <span class="os-icon os-icon-edit"></span>
         </span>
         <span ng-switch-default>
           <span translate="specimens.buttons.collect">Collect</span>
-          <span class="os-icon os-icons-create"></span>
+          <span class="fa fa-plus"></span>
         </span>
       </button>
-      <button show-if-allowed="specimenResource.updateOpts" class="default" 
-        ng-if="specimen.activityStatus == 'Active' && specimen.status == 'Collected'"
-        ng-click="closeSpecimen()">
-        <span translate="specimens.buttons.close">Close</span>
-        <span class="fa fa-remove"></span>
-      </button>
-      <button show-if-allowed="specimenResource.updateOpts" class="primary" ng-click="reopen()"
-        ng-if="specimen.activityStatus == 'Closed'">
-        <span translate="specimens.buttons.reopen">Reopen</span>
-        <span class="fa fa-check"></span>
-      </button>
-      <button show-if-allowed="specimenResource.deleteOpts" class="default" 
-        ng-if="!!specimen.id" ng-click="deleteSpecimen()">
-        <span translate="common.buttons.delete">Delete</span>
-        <span class="os-icon os-icons-delete"></span>
-      </button>
+      
+      <div dropdown class="inline">
+        <button class="default dropdown-toggle">
+          <span translate="common.buttons.more">More</span>
+          <span class="os-icon os-icon-dropdown-arrow"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li show-if-allowed="specimenResource.updateOpts" 
+            ng-if="specimen.activityStatus == 'Active' && specimen.status == 'Collected'">
+            <a ng-click="closeSpecimen()">
+              <span class="fa fa-close"></span>
+              <span translate="specimens.buttons.close">Close</span>
+            </a>
+          </li>
+          <li show-if-allowed="specimenResource.updateOpts" ng-if="specimen.activityStatus == 'Closed'">
+            <a ng-click="reopen()">
+              <span class="fa fa-check"></span>
+              <span translate="specimens.buttons.reopen">Reopen</span>
+            </a>
+          </li>
+          <li show-if-allowed="specimenResource.deleteOpts" ng-if="!!specimen.id">
+            <a ng-click="deleteSpecimen()">
+              <span class="os-icon os-icon-delete"></span>
+              <span translate="common.buttons.delete">Delete</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -63,19 +75,19 @@
     <ul>
       <li ui-sref-active="active">
         <a ui-sref=".overview"> 
-          <i class="os-icon os-icons-overview"></i>
+          <span class="os-icon os-icon-overview"></span>
           <span class="os-title" translate="specimens.menu.overview">Overview</span>
         </a>
       </li>
       <li ui-sref-active="active" ng-if="!!specimen.id">
         <a ui-sref=".extensions.list">
-          <i class="os-icon os-icons-forms"></i>
+          <span class="os-icon os-icon-forms"></span>
           <span class="os-title" translate="specimens.menu.extensions">Forms</span>
         </a>
       </li>
       <li ui-sref-active="active" ng-if="!!specimen.id">
         <a ui-sref=".events">
-          <i class="os-icon os-icons-specimen-events"></i>
+          <span class="os-icon os-icon-specimen-events"></span>
           <span class="os-title">Events</span>
         </a>
       </li>

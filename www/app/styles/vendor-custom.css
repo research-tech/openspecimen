@@ -59,6 +59,10 @@ span.ui-select-match {
   content: ''; 
 }
 
+.dropdown-menu .os-divider {
+  margin: 9px 0px;
+}
+
 .dropdown-menu-right:before {
   right: 9px!important;
   left: inherit!important;
@@ -69,13 +73,15 @@ span.ui-select-match {
   left: inherit!important;
 }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
   background-color: #e5e5e5;
   color: #333;
 }
 
-.dropdown-menu > li > a > .fa {
-  padding: 6px 12px 6px 0px;
+.dropdown-menu > li > a > .fa,
+.dropdown-menu > li > a > .os-icon {
+  padding-right: 12px;
 }
 
 .dropdown-menu-subgroup {
@@ -147,25 +153,22 @@ body > .ui-select-bootstrap.open {
 
 /** Bootstrap Customization styles **/
 
-.form-group .os-icons-calendar {
+.form-group .os-icon-calendar {
   color: #9e9c96;
-}
-
-.form-horizontal .form-group {
-  margin-bottom: 10px;
 }
 
 @media(min-width: 768px) {
   .form-horizontal .control-label {
     padding-top: 7px;
     margin-bottom: 0;
-    text-align: left;
+    text-align: right;
   }
 }
 
 .container .form-control,
-.form-group .form-control {
-  border-color: #DEDEDC !important;
+.form-group .form-control,
+.list-group .form-control {
+  border-color: #DEDEDC;
   font-size: 12px;
 }
 
@@ -207,4 +210,10 @@ body > .ui-select-bootstrap.open {
 .os-offset-form-horizontal {
   margin-right: 15px;
   margin-left: 15px;
+}
+
+.dropdown-menu .os-icon {
+  float: none;
+  position: relative;
+  top: 2px;
 }

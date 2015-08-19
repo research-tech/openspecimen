@@ -1,0 +1,19 @@
+.os-activity-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.os-activity-list .os-activity {
+  margin-bottom: 15px;
+}
+
+.os-activity-list .os-activity .title {
+  font-size: 14px;
+}
+
+.os-activity-list .os-activity .info {
+  font-size: 12px;
+  color: #707070;
+}
+

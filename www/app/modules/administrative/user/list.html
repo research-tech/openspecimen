@@ -8,29 +8,29 @@
       <button show-if-allowed="userResource.createOpts" class="primary" title="{{'user.tooltip.add' | translate}}"
         ui-sref="user-addedit({userId: ''})">
         <span translate="common.buttons.create">Create</span>
-        <span class="os-icon os-icons-create"></span>
+        <span class="fa fa-plus"></span>
       </button>
       <div show-if-allowed="userResource.createOpts" dropdown class="inline">
         <button class="default dropdown-toggle">
           <span translate="common.buttons.import">Import</span>
-          <span class="os-icon os-icons-import"></span>
+          <span class="os-icon os-icon-import"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
           <li>
             <a ui-sref="user-import({objectType: 'user'})">
-              <i class="os-icon os-nav-users"></i>
+              <span class="os-icon os-nav-users"></span>
               <span translate="user.list">Users</span>
             </a>
           </li>
           <li>
             <a ui-sref="user-import({objectType: 'userRoles'})">
-              <i class="os-icon os-nav-roles"></i>
+              <span class="os-icon os-nav-roles"></span>
               <span translate="user.user_roles">User Roles</span>
             </a>
           </li>
           <li>
             <a ui-sref="user-import-jobs">
-              <i class="os-icon os-icons-view-jobs"></i>
+              <span class="os-icon os-icon-view-jobs"></span>
               <span translate="common.view_jobs">View Jobs</span>
             </a>
           </li>
@@ -57,11 +57,11 @@
       
       <div class="stats">
         <div class="stat col-xs-6" title="{{'user.tooltip.cp_count' | translate}}">
-          <i class="os-icon os-int-cp-count"></i>
+          <span class="os-icon os-int-cp-count"></span>
           <span>{{(user.cpCount || 0 )| number: 0}}</span>
         </div>
         <div class="stat col-xs-6" title="{{'user.tooltip.user_since' | translate}}">
-          <i class="os-icon os-int-user-since"></i>
+          <span class="os-icon os-int-user-since"></span>
           <span ng-if="!!user.creationDate">
             {{user.creationDate | date: 'yyyy'}}
           </span>

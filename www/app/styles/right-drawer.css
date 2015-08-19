@@ -5,6 +5,7 @@
   right: 0;
   width: 22%;
   top: 112px;
+  bottom: 0px;
   transform: scaleX(0.00001);
   transform-origin:100% 50%;
   transition: all 0.25s ease-in-out 0s;
@@ -17,10 +18,14 @@
   display: block;
 }
 
+.os-right-drawer .os-divider {
+  display: none;
+}
+
 .os-right-drawer .os-head {
   height: 35px;
-  background-color: #909090;
-  color: #fbfaf5;
+  background-color: #E9E9E4;
+  color: #909090;
   margin: 0px;
 }
 

@@ -1,16 +1,16 @@
 <div>
-  <div class="os-login-form">
-    <h3 translate="user.sign_in_title" class="os-login-header">
+  <div class="os-center-box os-login-form">
+    <h3 translate="user.sign_in_title" class="os-header">
       Log in to your account
     </h3>
     <form ng-submit="login()">
       <div>
-        <i class="os-icon os-icons-username"></i>
+        <span class="os-icon os-icon-username"></span>
         <input type="text" class="form-control" ng-model="loginData.loginName" 
           placeholder="{{'user.login_name' | translate}}" /> 
       </div>
       <div>
-        <i class="os-icon os-icons-password"></i>
+        <span class="os-icon os-icon-password"></span>
         <input type="password" class="form-control password" ng-model="loginData.password" 
           placeholder="{{'user.password' | translate}}" />
       </div>
@@ -20,18 +20,19 @@
         </os-select>
       </div>
 
-      <div class="os-login-actions">
+      <div class="os-actions">
         <button type="submit" class="btn btn-primary">
           <span translate="user.sign_in">Log In</span>
-          <i class="os-icon os-icons-right-arrow"></i>
+          <span class="os-icon os-icon-right-arrow"></span>
         </button>
-        <a ui-sref="forgot-password" translate="user.forgot_password">here</a>
-        <hr/>
-        <div class="os-sign-up-link">
-          <span translate="user.dont_have_an_account"> Don't have an account? </span>
-          <a ui-sref="sign-up">Sign up</a>
+        <div>
+          <span translate="user.forgot_password"> Forgot your password? </span>
+          <a ui-sref="forgot-password" translate="user.reset_link"> Reset it </a>
         </div>
-      </div>
+        <hr/>
+        <span translate="user.dont_have_an_account"> Don't have an account? </span>
+        <a ui-sref="sign-up">Sign up</a>
+      </div>        
     </form>
   </div>
 </div>

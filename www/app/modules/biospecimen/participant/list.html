@@ -9,7 +9,7 @@
       <button show-if-allowed="participantResource.registerOpts" class="primary"
         title="{{'participant.tooltip.register' | translate}}" ui-sref="participant-addedit({cprId: -1, cpId: cp.id})">
         <span translate="participant.buttons.register">Register</span>
-        <span class="os-icon os-icons-create"></span>
+        <span class="fa fa-plus"></span>
       </button>
 
       <os-plugin-hooks view-name="'participant-list'" sec-name="'page-header'"></os-plugin-hooks>
@@ -42,11 +42,11 @@
 
       <div class="stats">
         <div class="stat col-xs-6" title="{{'participant.tooltip.completed_visits_count' | translate}}">
-          <i class="os-icon os-int-completed-visits-count"></i>
+          <span class="os-icon os-int-completed-visits-count"></span>
           <span>{{cpr.scgCount | number: 0}}</span>
         </div>
         <div class="stat col-xs-6" title="{{'participant.tooltip.collected_specimens_count' | translate}}">
-          <i class="os-icon os-int-specimen-count"></i>
+          <span class="os-icon os-int-specimen-count"></span>
           <span>{{cpr.specimenCount | number: 0}}</span>
         </div>
       </div>

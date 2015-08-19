@@ -18,7 +18,7 @@
               class="form-control" placeholder="{{'role.name' | translate}}">
           </os-inline-edit>
         </div>
-        <div class="col os-col-5 os-center"><span class="os-icon os-icons-right-arrow"></span></div>
+        <div class="col os-col-5 os-center"><span class="os-icon os-icon-right-arrow"></span></div>
         <div class="col os-col-70">
           <os-inline-edit editor="descriptionEditor" name="description" class="value value-md" value="role.description">
           <span ng-if="descriptionEditor.isDisplayMode()">{{descriptionEditor.viewValue | osNoValue}}</span>
@@ -45,36 +45,36 @@
                 <div ng-repeat="acl in role.acl">
                   <div class="row">
                     <div class="col os-col-25">{{ 'role.resources.' + acl.resourceName | translate}}</div>
-                    <div class="col os-col-5 os-vertical-divider"><div class="grey"></div></div>
+                    <div class="col os-col-5 os-vertical-divider"><div class="grey">&nbsp;</div></div>
                     <div class="col os-col-70">
                       <div class="os-permissions">
                         <div class="os-status" ng-if="acl.operationNames.indexOf('Read') > -1">
-                          <span class="os-icon os-icons-read"></span>
+                          <span class="os-icon os-icon-read"></span>
                           <span translate="role.read">Read</span>
                         </div>
 
                         <div class="os-status" ng-if="acl.operationNames.indexOf('Create') > -1">
-                          <span class="os-icon os-icons-create"></span>
+                          <span class="fa fa-plus"></span>
                           <span translate="role.create">Create</span>
                         </div>
 
                         <div class="os-status" ng-if="acl.operationNames.indexOf('Update') > -1">
-                          <span class="os-icon os-icons-edit"></span>
+                          <span class="os-icon os-icon-edit"></span>
                           <span translate="role.update">Update</span>
                         </div>
 
                         <div class="os-status" ng-if="acl.operationNames.indexOf('Delete') > -1">
-                          <span class="os-icon os-icons-delete"></span>
+                          <span class="os-icon os-icon-delete"></span>
                           <span translate="role.delete">Delete</span>
                         </div>
 
                         <div class="os-status" ng-if="acl.operationNames.indexOf('Lock') > -1">
-                          <span class="os-icon os-icons-lock"></span>
+                          <span class="os-icon os-icon-lock"></span>
                           <span translate="role.lock">Lock</span>
                         </div>
 
                         <div class="os-status" ng-if="acl.operationNames.indexOf('Unlock') > -1">
-                          <span class="os-icon os-icons-unlock"></span>
+                          <span class="os-icon os-icon-unlock"></span>
                           <span translate="role.unlock">Unlock</span>
                         </div>
                       </div>

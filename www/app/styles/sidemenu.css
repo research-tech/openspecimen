@@ -97,7 +97,7 @@ ul.os-side-menu > li.active a {
 }
 
 .os-side-menu-page-content {
-  padding: 15px 20px 0px 66px; 
+  padding: 15px 20px 0px 50px; 
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -111,7 +111,7 @@ ul.os-side-menu > li.active a {
 }
 
 .os-page-hdr ~ .os-side-menu-page-content {
-  top: 135px;
+  top: 113px;
 }
 
 .os-side-menu-wrapper.closed .os-side-menu li .os-title {

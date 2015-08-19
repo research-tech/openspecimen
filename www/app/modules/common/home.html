@@ -7,7 +7,7 @@
     <li show-if-allowed="cpReadOpts" class="os-home-item">
       <a ui-sref="cp-list">
         <span class="os-home-item-icon"> 
-          <i class="os-icon os-nav-cp"></i>
+          <span class="os-icon os-nav-cp"></span>
         </span>
         <span class="os-home-item-info"> 
           <h3 translate="menu.collection_protocols">Collection Protocols</h3>
@@ -15,58 +15,14 @@
         </span>
       </a>
     </li>
-    <li show-if-admin class="os-home-item">
-      <a ui-sref="dp-list">
-        <span class="os-home-item-icon">
-          <span class="os-icon os-nav-dp"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.distribution_protocols">Distribution Protocols</h3>
-          <p translate="menu.dp_desc">Create, update procedures for distributing specimens</p>
-        </span>
-      </a>
-    </li>
     <li class="os-home-item"> 
       <a ui-sref="institute-list">
         <span class="os-home-item-icon">
-          <i class="os-icon os-nav-institutes"></i>
+          <span class="os-icon os-nav-institutes"></span>
         </span>
         <span class="os-home-item-info"> 
           <h3 translate="menu.institutes">Institutes</h3>
           <p translate="menu.institutes_desc">Update information about institutions</p>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item"> 
-      <a ui-sref="user-list">
-        <span class="os-home-item-icon">
-          <span class="os-icon os-nav-users"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.users">Users</h3>
-          <p translate="menu.users_desc">Add, rename and manage users</p>
-        </span>
-      </a>
-    </li>
-    <li show-if-allowed="userCreateUpdateOpts" class="os-home-item">
-      <a ui-sref="role-list">
-        <span class="os-home-item-icon"> 
-          <span class="os-icon os-nav-roles"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.roles">Roles</h3>
-          <p translate="menu.roles_desc">Create, update user access controls</p>
-        </span>
-      </a>
-    </li>
-    <li class="os-home-item"> 
-      <a ui-sref="site-list">
-        <span class="os-home-item-icon">
-          <span class="os-icon os-nav-sites"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.sites">Sites</h3>
-          <p translate="menu.sites_desc">Add and update sites</p>
         </span>
       </a>
     </li>
@@ -92,6 +48,28 @@
         </span>
       </a>
     </li>
+    <li class="os-home-item"> 
+      <a ui-sref="user-list">
+        <span class="os-home-item-icon">
+          <span class="os-icon os-nav-users"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.users">Users</h3>
+          <p translate="menu.users_desc">Add, rename and manage users</p>
+        </span>
+      </a>
+    </li>
+    <li class="os-home-item"> 
+      <a ui-sref="site-list">
+        <span class="os-home-item-icon">
+          <span class="os-icon os-nav-sites"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.sites">Sites</h3>
+          <p translate="menu.sites_desc">Add and update sites</p>
+        </span>
+      </a>
+    </li>
     <li class="os-home-item">
       <a ui-sref="specimen-list">
         <span class="os-home-item-icon">
@@ -100,6 +78,52 @@
         <span class="os-home-item-info"> 
           <h3 translate="menu.specimen_lists">Specimen Lists</h3>
           <p translate="menu.specimen_lists_desc">Create and manage specimen lists</p>
+        </span>
+      </a>
+    </li>
+    <li show-if-admin class="os-home-item">
+      <a ui-sref="dp-list">
+        <span class="os-home-item-icon">
+          <span class="os-icon os-nav-dp"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.distribution_protocols">Distribution Protocols</h3>
+          <p translate="menu.dp_desc">Create, update procedures for distributing specimens</p>
+        </span>
+      </a>
+    </li>
+    <li show-if-allowed="orderReadOpts" class="os-home-item">
+      <a ui-sref="order-list">
+        <span class="os-home-item-icon">
+          <span class="os-icon os-nav-distribution-order"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.distribution_orders">Distribution Orders</h3>
+          <p translate="menu.distribution_orders_desc">
+            Create, execute request orders for distributing specimens
+          </p>
+        </span>
+      </a>
+    </li>
+    <li show-if-allowed="scheduledJobReadOpts" class="os-home-item">
+      <a ui-sref="job-list">
+        <span class="os-home-item-icon">
+          <span class="os-icon os-nav-jobs"></span>
+        </span>
+        <span class="os-home-item-info">
+          <h3 translate="menu.jobs">Jobs</h3>
+          <span translate="menu.jobs_desc">Create, execute, schedule jobs</span>
+        </span>
+      </a>
+    </li>
+    <li show-if-allowed="userCreateUpdateOpts" class="os-home-item">
+      <a ui-sref="role-list">
+        <span class="os-home-item-icon"> 
+          <span class="os-icon os-nav-roles"></span>
+        </span>
+        <span class="os-home-item-info"> 
+          <h3 translate="menu.roles">Roles</h3>
+          <p translate="menu.roles_desc">Create, update user access controls</p>
         </span>
       </a>
     </li>
@@ -114,33 +138,6 @@
         </span>
       </a>
     </li>
-    
-    <li show-if-allowed="orderReadOpts" class="os-home-item">
-      <a ui-sref="order-list">
-        <span class="os-home-item-icon">
-          <span class="os-icon os-nav-distribution-order"></span>
-        </span>
-        <span class="os-home-item-info"> 
-          <h3 translate="menu.distribution_orders">Distribution Orders</h3>
-          <p translate="menu.distribution_orders_desc">
-            Create, execute request orders for distributing specimens
-          </p>
-        </span>
-      </a>
-    </li>
-
-    <li show-if-allowed="scheduledJobReadOpts" class="os-home-item">
-      <a ui-sref="job-list">
-        <span class="os-home-item-icon">
-          <span class="os-icon os-nav-jobs"></span>
-        </span>
-        <span class="os-home-item-info">
-          <h3 translate="menu.jobs">Jobs</h3>
-          <span translate="menu.jobs_desc">Create, execute, schedule jobs</span>
-        </span>
-      </a>
-    </li>
-
     <os-plugin-hooks view-name="'home'" sec-name="'page-body'"></os-plugin-hooks>
     <!--<li show-if-admin class="os-home-item">
       <a> 

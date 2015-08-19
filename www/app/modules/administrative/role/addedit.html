@@ -74,7 +74,7 @@
 
           <div class="col-xs-1">
             <button class="btn btn-default" ng-click="removeResource($index)">
-              <span class="glyphicon glyphicon-trash"></span>
+              <span class="os-icon os-icon-delete"></span>
             </button>
           </div>
         </ng-form>
@@ -82,10 +82,10 @@
 
       <div class="form-group clearfix">
         <div class="col-xs-3 col-xs-offset-2">
-          <a ng-click="addResource()">
-            <span class="os-icon os-icons-create"></span>
+          <a class="btn btn-default" ng-click="addResource()">
+            <span class="fa fa-plus"></span>
+            <span translate="role.add_resource">Add Resource</span>
           </a>
-          <span translate="role.add_resource">Add Resource</span>
         </div>
       </div>
 

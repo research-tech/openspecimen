@@ -25,7 +25,12 @@
   border-color: #DDDDDD;
 }
 
-.os-table .os-table-body .row {
+.os-table .os-table-head .row,
+.os-table .os-table .os-table-head .row {
+  background-color: #DEDEDC;
+}
+
+.os-table .os-table-body .row .os-table .os-table-body .row {
   background-color: #FFFFFF;
 }
 
@@ -52,10 +57,7 @@
 }
 
 .os-table .os-table-head .row .col {
-  vertical-align: bottom;
   border-bottom: 1px solid #DDDDDD;
-  font-weight: bold;
-  background-color: #DEDEDC;
 }
 
 .os-table .os-table-head .row:first-child .col {
@@ -97,6 +99,7 @@
 .os-table-tree a.fa-minus-square-o, 
 .os-table-tree a.fa-plus-square-o {
   text-decoration: none;
+  color: #707070;
 }
 
 .os-table .row.selected {

@@ -8,18 +8,18 @@
       <div dropdown class="inline">
         <button class="primary dropdown-toggle">
           <span translate="common.buttons.create">Create</span>
-          <span class="os-icon os-icons-create"></span>
+          <span class="fa fa-plus"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
           <li>
             <a ui-sref="query-addedit({queryId: undefined})">
-              <i class="os-icon os-icons-create"></i>
+              <span class="fa fa-plus"></span>
               <span translate="common.buttons.create">Create</span>
             </a>
           </li>
           <li>
             <a ng-click="importQuery()">
-              <i class="os-icon os-icons-import"></i>
+              <span class="os-icon os-icon-import"></span>
               <span translate="common.buttons.import">Import</span>
             </a>
           </li>
@@ -111,25 +111,25 @@
             <ul class="dropdown-menu dropdown-menu-right">
               <li>
                 <a ui-sref="query-addedit({queryId: query.id})">
-                  <i class="os-icon os-icons-edit"></i>
+                  <span class="os-icon os-icon-edit"></span>
                   <span translate="queries.edit"></span>
                 </a>
               </li>
               <li>
                 <a href="{{query.getQueryDefUrl()}}" target="_blank">
-                  <i class="fa fa-download"></i>
+                  <span class="os-icon os-icon-import"></span>
                   <span translate="queries.download_def"></span>
                 </a>
               </li>
               <!--<li>
                 <a>
-                  <i class="fa fa-list"></i>
+                  <span class="fa fa-list"></span>
                   <span translate="queries.view_query_run_log"></span>
                 </a>
               </li>-->
               <li ng-click="deleteQuery(query)">
                 <a>
-                  <i class="os-icon os-icons-delete"></i>
+                  <span class="os-icon os-icon-delete"></span>
                   <span translate="queries.delete"></span>
                 </a>
               </li>
@@ -198,7 +198,7 @@
 
             <div class="pull-right">
               <button type="button" class="btn btn-xs btn-default" ng-click="editFolder(folder)">
-                <span class="os-icon os-icons-edit"></span>
+                <span class="os-icon os-icon-edit"></span>
               </button> 
             </div>
           </div>

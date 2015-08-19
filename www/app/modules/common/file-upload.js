@@ -54,7 +54,7 @@ angular.module('openspecimen')
               xhr.setRequestHeader('X-OS-API-TOKEN', $http.defaults.headers.common['X-OS-API-TOKEN']);
             },
             add: function (e, data) {
-              element.find('span.name').text(data.files[0].name);
+              element.find('span').text(data.files[0].name);
               ctrl.data = data;
             },
             done: function(e, data) {
@@ -63,22 +63,14 @@ angular.module('openspecimen')
             fail: function(e, data) {
               ctrl.fail(data);
             }
-          });
-          
-          element.find('.input-group-btn > input').click(function() {
-            element.find('.fileUpload').click();
           })
         });
       },
       template: 
-        '<div class="input-group os-file-upload">' + 
-          '<input class="fileUpload" name="file" type="file"/>' +
-          '<input type="text" class="form-control"/>' +
-          '<span class="input-group-btn">' + 
-            '<input type="button" class="btn btn-primary" value="Browse"/>' +
-          '</span>' +
-          '<span class="name os-ellipsis" translate="common.no_file_selected">' +
-            'No File Selected' +
+        '<div class="os-file-upload">' +
+          '<input class="form-control" name="file" type="file">' +
+          '<span class="name" translate="common.no_file_selected">' +
+             'No File Selected' +
           '</span>' +
         '</div>'
     };

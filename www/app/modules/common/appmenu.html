@@ -11,33 +11,21 @@
     </div -->
     <ul class="menu">
       <li ui-sref="home">
-        <i class="os-icon os-icons-separator"></i>
-        <a class="dropdown-toggle">
-          <i class="os-icon os-icons-home"></i>
+        <a class="dropdown-toggle" class="os-title" title="Home">
+          <span class="fa fa-home"></span>
         </a>
       </li>
+      <span class="os-icon os-icon-separator"></span>
       <!--li> |
         <a class="os-notification-content">
-          <span class="os-icon os-icons-notifications"></span>
+          <span class="os-icon os-icon-notifications"></span>
           <span class="os-notification-count">07</span>
         </a>
       </li> -->
       <li class="dropdown">
-        <i class="os-icon os-icons-separator"></i>
-        <a class="dropdown-toggle">
-          <i class="os-icon os-icons-settings"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-          <li><a>{{currentUser.lastName + ' ' + currentUser.firstName}}</a></li>
-          <li class="divider"></li>
-          <li><a ui-sref="user-password({userId: currentUser.id})" translate="user.change_password.change_password">Change Password</a></li>
-          <li class="divider"></li>
-          <li><a ui-sref="login({logout:true})"  translate="user.logout">Log Out</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle">
-          <i class="os-icon os-icons-info"></i>
+        <a class="dropdown-toggle" class="os-title" title="App information">
+          <span class="fa fa-info-circle"></span>
+          <span class="os-icon os-icon-dropdown-arrow"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
           <li>
@@ -45,10 +33,18 @@
           </li>
         </ul>
       </li>
-      <li> 
-        <a>
-          <span class="link">Welcome, {{currentUser.lastName + ' ' + currentUser.firstName}}!</span>
+      <span class="os-icon os-icon-separator"></span>
+      <li class="dropdown">
+        <a class="dropdown-toggle" class="os-title" title="User settings">
+          <span class="os-user">{{currentUser.lastName + ' ' + currentUser.firstName}}!</span>
+          <span class="fa fa-user"></span>
+          <span class="os-icon os-icon-dropdown-arrow"></span>
         </a>
+        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+          <li><a ui-sref="user-password({userId: currentUser.id})" translate="user.change_password.change_password">Change Password</a></li>
+          <li class="divider"></li>
+          <li><a ui-sref="login({logout:true})"  translate="user.logout">Log Out</a></li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -70,34 +66,10 @@
               <span translate="menu.collection_protocols" class="os-navbar-text">Collection Protocols</span>
             </a>
           </li>
-           <li show-if-admin>
-            <a ui-sref="dp-list">
-              <span class="os-icon os-nav-dp"></span>
-              <span translate="menu.distribution_protocols" class="os-navbar-text">Distribution Protocols</span>
-            </a>
-          </li>
           <li>
             <a ui-sref="institute-list">
               <span class="os-icon os-nav-institutes"></span>
               <span translate="menu.institutes" class="os-navbar-text">Institutes</span>
-            </a>
-          </li>
-          <li>
-            <a ui-sref="user-list">
-              <span class="os-icon os-nav-users"></span>
-              <span translate="menu.users" class="os-navbar-text">Users</span>
-            </a>
-          </li>
-          <li show-if-allowed="userCreateUpdateOpts">
-            <a ui-sref="role-list">
-              <span class="os-icon os-nav-roles"></span>
-              <span translate="menu.roles" class="os-navbar-text">Roles</span>
-            </a>
-          </li>
-          <li>
-            <a ui-sref="site-list">
-              <span class="os-icon os-nav-sites"></span>
-              <span translate="menu.sites" class="os-navbar-text">Sites</span>
             </a>
           </li>
           <li show-if-allowed="containerReadOpts">
@@ -112,7 +84,18 @@
               <span translate="menu.queries" class="os-navbar-text">Queries</span>
             </a>
           </li>
-          
+          <li>
+            <a ui-sref="user-list">
+              <span class="os-icon os-nav-users"></span>
+              <span translate="menu.users" class="os-navbar-text">Users</span>
+            </a>
+          </li>
+          <li>
+            <a ui-sref="site-list">
+              <span class="os-icon os-nav-sites"></span>
+              <span translate="menu.sites" class="os-navbar-text">Sites</span>
+            </a>
+          </li>
           <li>
             <a ui-sref="specimen-list">
               <span class="os-icon os-nav-specimen-list"></span>
@@ -120,9 +103,9 @@
             </a>
           </li>
           <li show-if-admin>
-            <a ui-sref="form-list">
-              <span class="os-icon os-nav-forms"></span>
-              <span translate="menu.forms" class="os-navbar-text">Forms</span>
+            <a ui-sref="dp-list">
+              <span class="os-icon os-nav-dp"></span>
+              <span translate="menu.distribution_protocols" class="os-navbar-text">Distribution Protocols</span>
             </a>
           </li>
           <li show-if-allowed="orderReadOpts">
@@ -131,17 +114,28 @@
               <span translate="menu.distribution_orders" class="os-navbar-text">Distribution Orders</span>
             </a>
           </li>
-
           <li show-if-allowed="scheduledJobReadOpts">
             <a ui-sref="job-list">
               <span class="os-icon os-nav-jobs"></span>
               <span translate="menu.jobs" class="os-navbar-text">Jobs</span>
             </a>
           </li>
+          <li show-if-allowed="userCreateUpdateOpts">
+            <a ui-sref="role-list">
+              <span class="os-icon os-nav-roles"></span>
+              <span translate="menu.roles" class="os-navbar-text">Roles</span>
+            </a>
+          </li>
+          <li show-if-admin>
+            <a ui-sref="form-list">
+              <span class="os-icon os-nav-forms"></span>
+              <span translate="menu.forms" class="os-navbar-text">Forms</span>
+            </a>
+          </li>
         </ul>
         <div ui-sref="home" class="os-home-nav">
           <a class="os-center">
-            <span class="os-icon os-icons-home"></span> 
+            <span class="fa fa-home"></span> 
           </a>
         </div>
       </div>

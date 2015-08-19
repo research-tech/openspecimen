@@ -637,11 +637,12 @@
     "permissions": "Permissions",
     "password": "Password",
     "confirm_password": "Confirm Password",
-    "sign_in_title": "LOG IN TO YOUR ACCOUNT",
+    "sign_in_title": "Log in to OpenSpecimen",
     "password_rule": "Tip: Password should contain at least 1 uppercase letter, 1 lowercase letter, 1 number and should be minimum 8 characters long.",
     "sign_in_failed": "The username or password you entered is incorrect",
     "sign_in": "Log In",
-    "forgot_password": "Forgot Password",
+    "forgot_password": "Forgot your password?",
+    "reset_link": "Reset it",
     "dont_have_an_account" : "Don't have an account?",
     "approve_user": "Approve User",
     "reject_user": "Reject User",
@@ -672,7 +673,7 @@
 
     "create_account": "Create your account to access OpenSpecimen",
     "signup": "Sign up",
-    "already_have_an_openspecimen_id": "Already have an OpenSpecimen ID?",
+    "already_have_an_openspecimen_id": "Already have an OpenSpecimen account?",
     "sign_in_here": "Sign In here",
     "signed_up": "Your membership request has been received. Please wait for an approval email from OpenSpecimen Administrator. Thank you.",
     "return_to_signin": "Return to Sign in",
@@ -717,13 +718,14 @@
   },
 
   "forgot_password": {
-    "title": "FORGOT PASSWORD?",
-    "enter_email_id": "Enter your username used at the time of registration.",
+    "title": "Reset Your OpenSpecimen Password",
+    "enter_email_id": "Submit your username and we’ll send you a link to reset your password.",
     "submit": "Submit",
     "message": "If you do not remember you email-id, contact the admin on admin@admin.com",
     "return_to_signin": "Return to sign in page",
-    "reset_email_sent": "Thank You! You can now reset the password. A link has been sent to the email-id you provided.",
-    "invalid_login_name": "We couldn't find a user associated with {{loginName}}"
+    "reset_email_sent": "Check your email. Help in on the way.",
+    "invalid_login_name": "We couldn't find a user associated with {{loginName}}",
+    "back_to_sign_in": "Back to Sign in"
   },
 
   "reset_password": {

@@ -19,6 +19,11 @@
   text-decoration: none;
   border: 1px solid #D2D1CC;
   background-color: #ffffff;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.os-home-item:hover {
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
 }
 
 .os-home-item > a {
