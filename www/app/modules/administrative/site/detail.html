@@ -11,13 +11,13 @@
         <span translate="common.buttons.edit">Edit</span>
         <span class="os-icon os-icon-edit"></span>
       </button>
-      <div show-if-admin dropdown class="inline">
+      <div dropdown class="inline" os-show-if-items>
         <button class="default dropdown-toggle">
           <span translate="common.buttons.more">More</span>
           <span class="os-icon os-icon-dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
-          <li>
+          <li show-if-admin>
             <a ng-click="deleteSite()">
               <span class="os-icon os-icon-delete"></span>
               <span translate="common.buttons.delete">Delete</span>

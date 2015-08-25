@@ -1,8 +1,10 @@
 .os-breadcrumbs {
-  position: relative;
-  bottom: 4px; 
   list-style-type: none;
   padding-left: 0px;
+  flex: none;
+  font-family: "Cambria";
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .os-breadcrumbs.hover .collapsed {
@@ -18,12 +20,7 @@
 }
 
 .os-breadcrumbs a {
-  color: #44494D !important;
-  font-family: "Cambria";
-  font-weight: bold;
-  font-size: 15px;
-  position: relative;
-  top: -5px;
+  color: #41464C !important;
 }
 
 .os-breadcrumbs.hover > li.collapsed + li:before {
@@ -33,10 +30,6 @@
 .os-breadcrumbs > li:after {
   content: '>';
   color: #41464c;
-  position: relative;
-  bottom: 5px;
-  font-weight: bold;
-  font-size: 16px;
   padding: 0px 10px;
 }
 
@@ -45,17 +38,9 @@
   text-decoration: underline;
 }
 
-.os-breadcrumbs {
-  margin: 10px 0px 0px;
-}
-
-.os-page-hdr .os-breadcrumbs {
-  margin: 0px;
-  flex: none;
-}
-
 .os-breadcrumbs > li {
   display: inline-block;
+  margin-top: 13px;
 }
 
 .os-breadcrumbs h3 {
