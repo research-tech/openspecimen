@@ -13,13 +13,13 @@
         <span translate="common.buttons.edit">Edit</span>
         <span class="os-icon os-icon-edit"></span>
       </button>
-      <div dropdown class="inline" ng-if="order.status == 'EXECUTED' && rptTmplConfigured">
+      <div dropdown class="inline" os-show-if-items>
         <button class="default dropdown-toggle">
           <span translate="common.buttons.more">More</span>
           <span class="os-icon os-icon-dropdown-arrow"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-right">
-          <li>
+          <li ng-if="order.status == 'EXECUTED' && rptTmplConfigured">
             <a ng-click="downloadReport()" >
               <span class="os-icon os-icon-import"></span>
               <span translate="orders.buttons.download_report">Download Report</span>

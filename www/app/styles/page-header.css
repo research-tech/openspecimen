@@ -1,0 +1,70 @@
+.os-page-hdr {
+  background: #FFFFFF;
+  height: 47px;
+  color: #666666;
+  display: flex;
+  position: absolute;
+  top: 63px;
+  width: 100%;
+}
+
+.os-page-hdr h3 {
+  font-family: "Cambria";
+  font-weight: bold;
+  color: #27AAE1;
+  font-size: 15px;
+}
+
+.os-page-hdr a {
+  text-decoration: none;
+  color: #666666;
+}
+  
+.os-page-hdr .os-nav-button {
+  background: #ecece8;
+  border: none;
+  outline: none;
+  margin-right: 24px;
+  height: 48px;
+  width: 40px;
+  font-size: 16px;
+  flex: none;
+}
+
+.os-page-hdr .os-nav-button.active {
+  transform: scale(-1, 1);
+}
+
+.os-page-hdr .os-title {
+  margin: 15px 0px;
+  width: 70%;
+}
+
+.os-page-hdr + .container {
+  padding-top: 20px;
+  padding-left: 42px;
+  position: absolute;
+  top: 113px;
+  bottom: 0px;
+  height: auto;
+  width: 100%;
+  overflow: auto;
+}
+
+.os-page-hdr + .os-cards {
+  position: absolute;
+  top: 113px;
+  bottom: 0px;
+  height: auto;
+  overflow-y: auto;
+  transition: width 0.25s ease-in-out 0s;
+}
+
+.os-page-hdr .os-breadcrumbs ~ .os-btns {
+  bottom: 10px;
+}
+
+.os-page-hdr .os-btns div.inline {
+  display: inline-block;
+  position: relative;
+}

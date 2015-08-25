@@ -65,10 +65,12 @@
 
 .os-page-hdr .os-status-closed {
   background: #d9534f!important;
-  padding: 2px 4px;
+  padding: 4px;
   color: #fff;
   font-weight: bold;
   border-radius: 4px;
+  margin: 10px 2px;
+  flex: none;
 }
 
 /** Used in CP events **/

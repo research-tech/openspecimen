@@ -81,7 +81,9 @@ span.ui-select-match {
 
 .dropdown-menu > li > a > .fa,
 .dropdown-menu > li > a > .os-icon {
-  padding-right: 12px;
+  position: relative;
+  top: 2px;
+  padding-right: 13px;
 }
 
 .dropdown-menu-subgroup {
@@ -210,10 +212,4 @@ body > .ui-select-bootstrap.open {
 .os-offset-form-horizontal {
   margin-right: 15px;
   margin-left: 15px;
-}
-
-.dropdown-menu .os-icon {
-  float: none;
-  position: relative;
-  top: 2px;
 }
