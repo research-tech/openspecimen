@@ -213,3 +213,7 @@ body > .ui-select-bootstrap.open {
   margin-right: 15px;
   margin-left: 15px;
 }
+
+.progress {
+  display: flex;
+}

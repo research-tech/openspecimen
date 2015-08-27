@@ -36,20 +36,20 @@
 .os-home-item-icon {
   color: #41464c;
   display: flex;
+  align-items: center;
 }
 
 .os-home-item-icon .os-icon {
   font-size: 60px;
-  display: flex;
-  margin: auto;
 }
  
 .os-home-item-info {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  padding-left: 14px;
+  padding-left: 10px;
   color: #41464c;
+  display: flex;
+  flex: 6;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .os-home-item-info h3 {
@@ -66,5 +66,5 @@
   font-size: 13px;
   color: #41464c;
   line-height: 16px;
-  margin: 5px auto;
+  margin: 5px 0px;
 }
