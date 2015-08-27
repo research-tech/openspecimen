@@ -12,7 +12,7 @@ angular.module('os.biospecimen.models.specimen', ['os.common.models', 'os.biospe
         }
       }
     );
- 
+
     Specimen.listFor = function(cprId, visitDetail) {
       return Specimen.query(angular.extend({cprId: cprId}, visitDetail || {}));
     };
@@ -73,6 +73,22 @@ angular.module('os.biospecimen.models.specimen', ['os.common.models', 'os.biospe
       return $http.get(Specimen.url() + specimenId + '/cpr-visit-ids').then(
         function(resp) {
           return resp.data;
+        }
+      );
+    }
+
+    Specimen.bulkDelete = function(specimenIds) {
+      return $http.delete(Specimen.url(), {params: {id: specimenIds}}).then(
+        function(result) {
+          return result.data;
+        }
+      );
+    }
+
+    Specimen.bulkStatusUpdate = function(statusSpecs) {
+      return $http.put(Specimen.url() + '/status', statusSpecs).then(
+        function(result) {
+          return result.data;
         }
       );
     }
@@ -155,7 +171,7 @@ angular.module('os.biospecimen.models.specimen', ['os.common.models', 'os.biospe
           
       var attrs = ['id', 'name', 'pathologyStatus', 
                    'collector', 'collectionProcedure', 'collectionContainer', 
-                   'receiver', 'labelFmt'];
+                   'receiver'];
       attrs.forEach(function(attr) {
         delete sr[attr];
       });

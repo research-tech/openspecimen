@@ -115,12 +115,12 @@
     "repositories": "Sites Involved", 
     "title": "Title",
     "short_title": "Short Title",
+    "code": "Short Code",
     "pi": "Principal Investigator",
     "coordinators": "Protocol Coordinators",
     "date": "Date",
     "start_date": "Start Date",
     "end_date": "End Date",
-    "consents_waived": "Consents Waived",
     "ethics_approval_id": "Ethics Approval ID",
     "ppid_fmt": "PPID Format",
     "ppid_prefix": "Prefix",
@@ -139,6 +139,8 @@
     "visit_names": "Visit Name",
     "spec_labels": "Specimen Label",
 
+    "consents_waived": "Is participant consent waived?",
+    "consents_waived_updated": "Participant consent {{waived ? 'waived' : 'enabled'}} successfully.",
     "unsigned_consent_url": "Unsigned Consent Form URL",
     "consent_tiers": "Consent Tiers", 
     "add_consent_tier": "Add Statement...",
@@ -153,6 +155,7 @@
     "no_cpes": "There are no collection protocol events to show. Please create an event by clicking on Add Event...",
     "add_cpe": "Add Event...",
     "cpe_list": "Events",
+    "cpe_code": "Event Code",
     "cpe_point": "Event Point (in Days)",
     "cpe_point_label": "Event Point Label",
     "deleting_event": "Deleting Event...",
@@ -362,7 +365,6 @@
     "type": "Type",
     "pathology": "Pathology",
     "pathology_status": "Pathology Status",
-    "container": "Container",
     "collection_status": "Collection Status",
     "class": "Class",
     "anatomic_site": "Anatomic Site",
@@ -384,11 +386,13 @@
     "from": "from",
     "collected_in": "collected in",
     "description": "Description",
-    "location": "Location",
+    "container": "Container",
     "biohazards": "Biohazards",
     "created_on": "Created On",
     "concentration_unit": "&#181;g/&#181;l",
-    "apply_first_loc_to_all": "Copy First Location To All",
+    "copy_first_to_all": "Copy First To All",
+    "row": "Row",
+    "column": "Column",
     "activity_full_info": "{{user}} created {{name}} on {{time | date: global.dateTimeFmt}}",
     "activity_user_info": "{{user}} created {{name}}",
     "activity_time_info": "{{name}} created on {{time | date: global.dateTimeFmt}}",
@@ -396,6 +400,7 @@
     "activity_status": "Activity Status",
     "more_info": "More Specimen Information",
     "less_info": "Less Specimen Information",
+    "location" : "Location",
 
     "reason_for_closing": "Reason for closing",
 
@@ -408,7 +413,11 @@
 
     "no_specimens_for_collection": "Please select at least one pending specimen for collection",
     "no_specimens_for_print": "Please select at least one collected specimen for label printing",
-    "no_specimens_for_specimen_list": "Please select at least one specimen to add specimen list",
+    "no_specimens_for_specimen_list": "Please select at least one specmen to add specimen list",
+    "no_specimens_for_delete":"Please select at least one collected specimen to delete",
+    "no_specimens_for_close":"Please select at least one collected specimen to close",
+
+    "pos_selector": "Specimen Position Selector",
 
     "labels_print_job_created": "Specimen labels print job {{jobId}} created successfully",
     "bulk_import": "Bulk Import Specimens",
@@ -419,6 +428,30 @@
     "spmn_derivatives": "Specimen Derivatives",
     "bulk_import_derivatives": "Bulk Import Derivatives",
     "new_aliquot_count": "Number of aliquots",
+
+    "specimens_hierarchy_deleted": "Selected specimens and their children are deleted successfully",
+    "specimens_deleted": "Selected specimens are deleted successfully",
+    "delete_specimens_heirarchy": "Are you sure you want to delete selected specimens and all its children ?",
+    "delete_specimens":  "Are you sure you want to delete selected specimens ?",
+    "specimens_closed": "Selected specimens are closed successfully",
+    "specimen_closed": "Specimen is closed successfully",
+
+    "col_event": {
+      "title": "COLLECTION DETAILS",
+      "user_time": "User and Time",
+      "user": "Collector",
+      "date": "Collection Date",
+      "collection_container": "Container",
+      "collection_proc": "Procedure"
+    },
+
+    "recv_event": {
+      "title": "RECEIVED DETAILS",
+      "user_time": "User and Time",
+      "user": "Receiver",
+      "date": "Receive Date",
+      "received_quality": "Quality"
+    },
 
     "ctx_menu": {
       "view_specimen": "View Specimen",
@@ -466,6 +499,7 @@
     "new_sr": "New Specimen Requirement",
 
     "name": "Name",
+    "code": "Short Code",
     "type": "Type",
     "pathology": "Pathology",
     "storage_type": "Storage Type",
@@ -480,6 +514,7 @@
     "anatomic_site": "Anatomic Site",
     "laterality": "Laterality",
     "initial_qty": "Initial Quantity",
+    "cannot_change_class_or_type": "Specimen class or type cannot be changed once specimens are collected",
     "collector": "Collector",
     "receiver": "Receiver",
     "collection_container": "Collection Container",
@@ -750,7 +785,6 @@
     "update_container": "Update Storage Container",
     "parent_container": "Parent Container",
     "parent_site": "Parent Site",
-    "parent_location": "Parent Location",
     "site": "Site",
     "container": "Container",
     "one": "One",
@@ -781,8 +815,6 @@
     "new_name": "New Container Name",
     "row": "Row",
     "column": "Column",
-    "target_site": "Target Site",
-    "target_parent_cont": "Target Parent Container",
     "replicate": "Replicate",
     "add_another": "Add Another",
 

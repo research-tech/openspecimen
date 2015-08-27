@@ -24,6 +24,7 @@ import com.krishagni.catissueplus.core.biospecimen.domain.SpecimenRequirement;
 import com.krishagni.catissueplus.core.biospecimen.domain.Visit;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.CollectionProtocolRegistrationFactory;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.ConsentResponsesFactory;
+import com.krishagni.catissueplus.core.biospecimen.domain.factory.CpErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.CpeErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.CprErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.VisitErrorCode;
@@ -117,13 +118,9 @@ public class CollectionProtocolRegistrationServiceImpl implements CollectionProt
 			CollectionProtocolRegistration existing = getCpr(detail.getId(), detail.getCpId(), detail.getPpid());
 			AccessCtrlMgr.getInstance().ensureUpdateCprRights(existing);
 
-			//
-			// Note: PPID edit is not allowed; therefore PPID validity is
-			// not checked
-			//
-						
 			CollectionProtocolRegistration cpr = cprFactory.createCpr(detail);			
 			OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
+			ensureValidAndUniquePpid(existing, cpr, ose);
 			ensureUniqueBarcode(existing, cpr, ose);
 			ose.checkAndThrow();
 			
@@ -212,6 +209,10 @@ public class CollectionProtocolRegistrationServiceImpl implements CollectionProt
 			}
 			
 			AccessCtrlMgr.getInstance().ensureUpdateCprRights(existing);
+			
+			if (existing.getCollectionProtocol().isConsentsWaived()) {
+				return ResponseEvent.userError(CpErrorCode.CONSENTS_WAIVED, existing.getCollectionProtocol().getShortTitle());
+			}
 			
 			String newFileName = UUID.randomUUID() + "_" + detail.getFileName(); 
 			File newFile = new File(getConsentDirPath() + newFileName);
@@ -388,7 +389,7 @@ public class CollectionProtocolRegistrationServiceImpl implements CollectionProt
 		
 		OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
 		
-		ensureValidAndUniquePpid(cpr, ose);
+		ensureValidAndUniquePpid(null, cpr, ose);
 		ensureUniqueParticipantReg(cpr, ose);		
 		ensureUniqueBarcode(null, cpr, ose);
 		
@@ -445,7 +446,11 @@ public class CollectionProtocolRegistrationServiceImpl implements CollectionProt
 		}
 	}
 
-	private void ensureValidAndUniquePpid(CollectionProtocolRegistration cpr, OpenSpecimenException ose) {
+	private void ensureValidAndUniquePpid(CollectionProtocolRegistration existing, CollectionProtocolRegistration cpr, OpenSpecimenException ose) {
+		if (existing != null && existing.getPpid().equals(cpr.getPpid())) {
+			return;
+		}
+		
 		CollectionProtocol cp = cpr.getCollectionProtocol();
 		boolean ppidReq = cp.isManualPpidEnabled() || StringUtils.isBlank(cp.getPpidFormat());
 		

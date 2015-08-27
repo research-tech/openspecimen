@@ -138,6 +138,12 @@ button.os-round-btn .fa {
   padding-right: 0px;
 }
 
+.os-page-hdr .os-btns div.inline,
+.os-inline-btn {
+  display: inline-block;
+  position: relative;
+}
+
 .os-btns a.btn, 
 .os-btns button {
   border-radius: 3px;
@@ -321,6 +327,30 @@ h4.os-sub-section-title, h5.os-sub-section-title, h6.os-sub-section-title {
 
 .os-two-cols > .item {
   width: 50%;
+}
+
+.os-line-section >.key:after {
+  content: '';
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid ;
+  border-color: #E6E6E6;
+}
+
+.os-line-section >.key {
+  background: #ffffff;
+}
+
+.os-section-divider {
+  border-top: 1px solid #ddd;
+  font-weight: bold;
+  color: #959595;
+  margin-top: 30px;
+  font-size: 12px;
+  padding-top: 5px;
+  letter-spacing: 1px;
 }
 
 .os-key-values .item .key, 
@@ -647,6 +677,14 @@ h4.os-sub-section-title, h5.os-sub-section-title, h6.os-sub-section-title {
 
 .os-padding-top-4 {
   padding-top: 4px;
+}
+
+.os-no-padding {
+  padding: 0px;
+}
+
+.os-no-left-padding {
+  padding-left: 0px;
 }
 
 .os-big-dropdown-menu {
