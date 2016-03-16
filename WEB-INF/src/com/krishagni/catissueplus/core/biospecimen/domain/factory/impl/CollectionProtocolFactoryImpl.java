@@ -1,5 +1,6 @@
 package com.krishagni.catissueplus.core.biospecimen.domain.factory.impl;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -104,29 +105,34 @@ public class CollectionProtocolFactoryImpl implements CollectionProtocolFactory 
 		setTitle(input, cp, ose);
 		setShortTitle(input, cp, ose);
 		setCode(input, cp, ose);
-
-		if (CollectionUtils.isNotEmpty(input.getCpSites())) {
+		
+		if (input.isAttrModified("cpSites")) {
 			setSites(input, cp, ose);
 		}
 		
-		if (input.getPrincipalInvestigator() != null) {
+		if (input.isAttrModified("principalInvestigator")) {
 			setPrincipalInvestigator(input, cp, ose);
 		}
-
-		if (CollectionUtils.isNotEmpty(input.getCoordinators())) {
+		
+		if (input.isAttrModified("coordinators")) {
+			cp.setCoordinators(Collections.<User>emptySet());
 			setCoordinators(input, cp, ose);
 		}
 
-		if (input.getStartDate() != null) {
+		if (input.isAttrModified("startDate")) {
 			cp.setStartDate(input.getStartDate());
 		}
 		
-		if (input.getEndDate() != null) {
+		if (input.isAttrModified("endDate")) {
 			cp.setEndDate(input.getEndDate());
 		}
 		
-		if (StringUtils.isNotBlank(input.getIrbId())) {
+		if (input.isAttrModified("irbId")) {
 			cp.setIrbIdentifier(input.getIrbId());
+		}
+		
+		if (input.isAttrModified("anticipatedParticipantsCount")) {
+			cp.setEnrollment(input.getAnticipatedParticipantsCount());
 		}
 		
 		ose.checkAndThrow();
@@ -216,7 +222,7 @@ public class CollectionProtocolFactoryImpl implements CollectionProtocolFactory 
 			return;
 		}
 		
-		Set<User> coordinators = new HashSet<User>();		
+		Set<User> coordinators = new HashSet<User>();
 		for (UserSummary user : users) {
 			User coordinator = getUser(user);
 			if (coordinator == null) {
