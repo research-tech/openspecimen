@@ -528,7 +528,6 @@
     "create_aliquots": "Create Aliquots",
     "specimen_type": "Specimen Type",
     "anatomic_site": "Anatomic Site",
-    "freeze_thaw_cycle_lt_parent": "Child specimen's freeze/thaw cycle count can not be less than that of parent specimen",
 
     "col_event": {
       "title": "Collection Details",
@@ -983,6 +982,7 @@
     "creating_hierarchy": "Create Hierarchy?",
     "num_of_containers": "Number of Containers",
     "hierarchy_created_successfully": "Container hierarchy of type {{typeName}} created successfully.",
+    "creation_success": "Container {{name}} successfully created.",
 
     "tooltip": {
       "view_details": "Click to view Container details",
@@ -1702,7 +1702,9 @@
         "token_inactive_interval": "Session Timeout Limit (minutes)",
         "token_inactive_interval_desc": "Minutes of inactiveness after which a user is automatically logged out.",
         "verify_token_ip_address": "IP Address Validation",
-        "verify_token_ip_address_desc": "Check whether requests are made from the same IP address to which the login token was issued."
+        "verify_token_ip_address_desc": "Check whether requests are made from the same IP address to which the login token was issued.",
+        "saml_enable": "Enable SAML authentication",
+        "saml_enable_desc": "Enable single sign on using SAML based identity provider"
       },
       
       "administrative": {
