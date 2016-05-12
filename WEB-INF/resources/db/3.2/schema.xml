@@ -43,4 +43,123 @@
       <column name="SPECIMEN_TYPE"/>
     </createIndex>
   </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop curated_path_to_path table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="curated_path_to_path"/>
+    </preConditions>
+	
+    <dropTable tableName="curated_path_to_path"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop curated_path table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="curated_path"/>
+    </preConditions>
+	
+    <dropTable tableName="curated_path"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_user_pe table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_user_pe"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_user_pe"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_user_group_role_pg table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_user_group_role_pg"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_user_group_role_pg"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_user_group table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_user_group"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_user_group"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_user table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_user"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_user"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_role_privilege table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_role_privilege"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_role_privilege"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_role table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_role"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_role"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_pg_pe table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_pg_pe"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_pg_pe"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_protection_element table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_protection_element"/>
+    </preConditions>
+    <dropTable tableName="csm_protection_element"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_protection_group table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_protection_group"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_protection_group"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_privilege table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_privilege"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_privilege"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_migrate_user table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_migrate_user"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_migrate_user"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_group table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_group"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_group"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop csm_application table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="csm_application"/>
+    </preConditions>
+	
+    <dropTable tableName="csm_application"/>
+  </changeSet>
 </databaseChangeLog>
