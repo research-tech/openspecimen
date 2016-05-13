@@ -44,122 +44,741 @@
     </createIndex>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop curated_path_to_path table">
+  <changeSet author="nmarwaha" id="Drop CURATED_PATH_TO_PATH table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="curated_path_to_path"/>
+      <tableExists tableName="CURATED_PATH_TO_PATH"/>
     </preConditions>
 	
-    <dropTable tableName="curated_path_to_path"/>
+    <dropTable tableName="CURATED_PATH_TO_PATH"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop curated_path table">
+  <changeSet author="nmarwaha" id="Drop CURATED_PATH table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="curated_path"/>
+      <tableExists tableName="CURATED_PATH"/>
     </preConditions>
 	
-    <dropTable tableName="curated_path"/>
+    <dropTable tableName="CURATED_PATH"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_user_pe table">
+  <changeSet author="nmarwaha" id="Drop CSM_USER_PE table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_user_pe"/>
+      <tableExists tableName="CSM_USER_PE"/>
     </preConditions>
 	
-    <dropTable tableName="csm_user_pe"/>
+    <dropTable tableName="CSM_USER_PE"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_user_group_role_pg table">
+  <changeSet author="nmarwaha" id="Drop CSM_USER_GROUP_ROLE_PG table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_user_group_role_pg"/>
+      <tableExists tableName="CSM_USER_GROUP_ROLE_PG"/>
     </preConditions>
 	
-    <dropTable tableName="csm_user_group_role_pg"/>
+    <dropTable tableName="CSM_USER_GROUP_ROLE_PG"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_user_group table">
+  <changeSet author="nmarwaha" id="Drop CSM_USER_GROUP table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_user_group"/>
+      <tableExists tableName="CSM_USER_GROUP"/>
     </preConditions>
 	
-    <dropTable tableName="csm_user_group"/>
+    <dropTable tableName="CSM_USER_GROUP"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_user table">
+  <changeSet author="nmarwaha" id="Drop CSM_USER table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_user"/>
+      <tableExists tableName="CSM_USER"/>
     </preConditions>
 	
-    <dropTable tableName="csm_user"/>
+    <dropTable tableName="CSM_USER"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_role_privilege table">
+  <changeSet author="nmarwaha" id="Drop CSM_ROLE_PRIVILEGE table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_role_privilege"/>
+      <tableExists tableName="CSM_ROLE_PRIVILEGE"/>
     </preConditions>
 	
-    <dropTable tableName="csm_role_privilege"/>
+    <dropTable tableName="CSM_ROLE_PRIVILEGE"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_role table">
+  <changeSet author="nmarwaha" id="Drop CSM_ROLE table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_role"/>
+      <tableExists tableName="CSM_ROLE"/>
     </preConditions>
 	
-    <dropTable tableName="csm_role"/>
+    <dropTable tableName="CSM_ROLE"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_pg_pe table">
+  <changeSet author="nmarwaha" id="Drop CSM_PG_PE table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_pg_pe"/>
+      <tableExists tableName="CSM_PG_PE"/>
     </preConditions>
 	
-    <dropTable tableName="csm_pg_pe"/>
+    <dropTable tableName="CSM_PG_PE"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_protection_element table">
+  <changeSet author="nmarwaha" id="Drop CSM_PROTECTION_ELEMENT table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_protection_element"/>
+      <tableExists tableName="CSM_PROTECTION_ELEMENT"/>
     </preConditions>
-    <dropTable tableName="csm_protection_element"/>
+    <dropTable tableName="CSM_PROTECTION_ELEMENT"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_protection_group table">
+  <changeSet author="nmarwaha" id="Drop CSM_PROTECTION_GROUP table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_protection_group"/>
-    </preConditions>
-	
-    <dropTable tableName="csm_protection_group"/>
-  </changeSet>
-  
-  <changeSet author="nmarwaha" id="Drop csm_privilege table">
-    <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_privilege"/>
+      <tableExists tableName="CSM_PROTECTION_GROUP"/>
     </preConditions>
 	
-    <dropTable tableName="csm_privilege"/>
+    <dropTable tableName="CSM_PROTECTION_GROUP"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_migrate_user table">
+  <changeSet author="nmarwaha" id="Drop CSM_PRIVILEGE table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_migrate_user"/>
+      <tableExists tableName="CSM_PRIVILEGE"/>
     </preConditions>
 	
-    <dropTable tableName="csm_migrate_user"/>
+    <dropTable tableName="CSM_PRIVILEGE"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_group table">
+  <changeSet author="nmarwaha" id="Drop CSM_MIGRATE_USER table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_group"/>
+      <tableExists tableName="CSM_MIGRATE_USER"/>
     </preConditions>
 	
-    <dropTable tableName="csm_group"/>
+    <dropTable tableName="CSM_MIGRATE_USER"/>
   </changeSet>
   
-  <changeSet author="nmarwaha" id="Drop csm_application table">
+  <changeSet author="nmarwaha" id="Drop CSM_GROUP table">
     <preConditions onFail="MARK_RAN">
-      <tableExists tableName="csm_application"/>
+      <tableExists tableName="CSM_GROUP"/>
     </preConditions>
 	
-    <dropTable tableName="csm_application"/>
+    <dropTable tableName="CSM_GROUP"/>
   </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CSM_APPLICATION table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CSM_APPLICATION"/>
+    </preConditions>
+	
+    <dropTable tableName="CSM_APPLICATION"/>
+  </changeSet>
+  
+  <!-- Unused table deletion -->
+  
+    <changeSet author="nmarwaha" id="Drop CATISSUE_IMAGE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_IMAGE"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_IMAGE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_EQUIPMENT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_EQUIPMENT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_EQUIPMENT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CONCEPT_REFERENT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CONCEPT_REFERENT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CONCEPT_REFERENT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CONCEPT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CONCEPT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CONCEPT"/>
+  </changeSet>
+
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CONCEPT_CLASSIFICATN table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CONCEPT_CLASSIFICATN"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CONCEPT_CLASSIFICATN"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CONT_HOLDS_SPARRTYPE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CONT_HOLDS_SPARRTYPE"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CONT_HOLDS_SPARRTYPE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CP_EXTAPP_STUDY_REL table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CP_EXTAPP_STUDY_REL"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CP_EXTAPP_STUDY_REL"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_EXTERNAL_APPLICATION table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_EXTERNAL_APPLICATION"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_EXTERNAL_APPLICATION"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_DEPARTMENT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_DEPARTMENT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_DEPARTMENT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_EXIST_SP_AR_ORD_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_EXIST_SP_AR_ORD_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_EXIST_SP_AR_ORD_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_EXISTING_SP_ORD_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_EXISTING_SP_ORD_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_EXISTING_SP_ORD_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_DERIEVED_SP_ORD_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_DERIEVED_SP_ORD_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_DERIEVED_SP_ORD_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_PATH_CASE_ORDER_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_PATH_CASE_ORDER_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_PATH_CASE_ORDER_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_NEW_SPEC_ORD_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_NEW_SPEC_ORD_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_NEW_SPEC_ORD_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECIMEN_ORDER_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECIMEN_ORDER_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECIMEN_ORDER_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_NEW_SP_AR_ORDER_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_NEW_SP_AR_ORDER_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_NEW_SP_AR_ORDER_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SP_ARRAY_ORDER_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SP_ARRAY_ORDER_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SP_ARRAY_ORDER_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_ORDER_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_ORDER_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_ORDER_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_DISTRIBUTED_ITEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_DISTRIBUTED_ITEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_DISTRIBUTED_ITEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop OS_DISTRIBUTION_PROTOCOL table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="OS_DISTRIBUTION_PROTOCOL"/>
+    </preConditions>
+	
+    <dropTable tableName="OS_DISTRIBUTION_PROTOCOL"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_STORTY_HOLDS_SPARRTY table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_STORTY_HOLDS_SPARRTY"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_STORTY_HOLDS_SPARRTY"/>
+  </changeSet>
+    
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECI_ARRAY_CONTENT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECI_ARRAY_CONTENT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECI_ARRAY_CONTENT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECIMEN_ARRAY table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECIMEN_ARRAY"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECIMEN_ARRAY"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECIMEN_TYPE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECIMEN_TYPE"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECIMEN_TYPE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECIMEN_ARRAY_TYPE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECIMEN_ARRAY_TYPE"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECIMEN_ARRAY_TYPE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_DISTRIBUTION table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_DISTRIBUTION"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_DISTRIBUTION"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_ORDER table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_ORDER"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_ORDER"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECIMEN_PRINT_DATA table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECIMEN_PRINT_DATA"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECIMEN_PRINT_DATA"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop OS_SPECIMEN_PRINT_RULE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="OS_SPECIMEN_PRINT_RULE"/>
+    </preConditions>
+	
+    <dropTable tableName="OS_SPECIMEN_PRINT_RULE"/>
+  </changeSet>
+
+  <changeSet author="nmarwaha" id="Drop JOB_DETAILS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="JOB_DETAILS"/>
+    </preConditions>
+	
+    <dropTable tableName="JOB_DETAILS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECIMEN_REQUIREMENT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECIMEN_REQUIREMENT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECIMEN_REQUIREMENT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_STOR_CONT_UTILIZATION table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_STOR_CONT_UTILIZATION"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_STOR_CONT_UTILIZATION"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CONTAINER_CPS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CONTAINER_CPS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CONTAINER_CPS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CAT_STOR_CONT_SPEC_TYPES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CAT_STOR_CONT_SPEC_TYPES"/>
+    </preConditions>
+	
+    <dropTable tableName="CAT_STOR_CONT_SPEC_TYPES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_STORAGE_CONTAINERS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_STORAGE_CONTAINERS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_STORAGE_CONTAINERS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SYNCH_CP_AUDIT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SYNCH_CP_AUDIT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SYNCH_CP_AUDIT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECIMEN_LABEL_COUNT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECIMEN_LABEL_COUNT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECIMEN_LABEL_COUNT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_LDAP_DETAILS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_LDAP_DETAILS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_LDAP_DETAILS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_AUTH_DOMAINS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_AUTH_DOMAINS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_AUTH_DOMAINS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_AUTH_PROVIDERS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_AUTH_PROVIDERS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_AUTH_PROVIDERS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_STOR_TYPE_HOLDS_TYPE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_STOR_TYPE_HOLDS_TYPE"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_STOR_TYPE_HOLDS_TYPE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_STOR_TYPE_SPEC_CLASS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_STOR_TYPE_SPEC_CLASS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_STOR_TYPE_SPEC_CLASS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_STOR_TYPE_SPEC_TYPE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_STOR_TYPE_SPEC_TYPE"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_STOR_TYPE_SPEC_TYPE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop SCHEDULED_ITEMS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="SCHEDULED_ITEMS"/>
+    </preConditions>
+	
+    <dropTable tableName="SCHEDULED_ITEMS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop REPORT_SCHEDULE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="REPORT_SCHEDULE"/>
+    </preConditions>
+	
+    <dropTable tableName="REPORT_SCHEDULE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop REPORT_JOB_DETAILS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="REPORT_JOB_DETAILS"/>
+    </preConditions>
+	
+    <dropTable tableName="REPORT_JOB_DETAILS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop REPORT_DETAILS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="REPORT_DETAILS"/>
+    </preConditions>
+	
+    <dropTable tableName="REPORT_DETAILS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop SCHEDULE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="SCHEDULE"/>
+    </preConditions>
+	
+    <dropTable tableName="SCHEDULE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SPECI_SHIPMNT_REQ_REL table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SPECI_SHIPMNT_REQ_REL"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SPECI_SHIPMNT_REQ_REL"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SHIPMENT_CONTAINR_REL table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SHIPMENT_CONTAINR_REL"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SHIPMENT_CONTAINR_REL"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SHIPMENT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SHIPMENT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SHIPMENT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SHIPMENT_REQUEST table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SHIPMENT_REQUEST"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SHIPMENT_REQUEST"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_SEMANTIC_TYPE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_SEMANTIC_TYPE"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_SEMANTIC_TYPE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_REPORTED_PROBLEM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_REPORTED_PROBLEM"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_REPORTED_PROBLEM"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_NOTIFICATION_STATUS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_NOTIFICATION_STATUS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_NOTIFICATION_STATUS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_ROLE_PRIVILEGES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_ROLE_PRIVILEGES"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_ROLE_PRIVILEGES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_PRIVILEGES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_PRIVILEGES"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_PRIVILEGES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CP_SITE_ROLES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CP_SITE_ROLES"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CP_SITE_ROLES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CP_USER_ROLES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CP_USER_ROLES"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CP_USER_ROLES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_ROLES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_ROLES"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_ROLES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_LOGIN_AUDIT_EVENT_LOG table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_LOGIN_AUDIT_EVENT_LOG"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_LOGIN_AUDIT_EVENT_LOG"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_NEXTGEN_AUDIT_DETAILS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_NEXTGEN_AUDIT_DETAILS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_NEXTGEN_AUDIT_DETAILS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_AUDIT_EVENT_DETAILS table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_AUDIT_EVENT_DETAILS"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_AUDIT_EVENT_DETAILS"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_AUDIT_EVENT_QUERY_LOG table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_AUDIT_EVENT_QUERY_LOG"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_AUDIT_EVENT_QUERY_LOG"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_DATA_AUDIT_EVENT_LOG table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_DATA_AUDIT_EVENT_LOG"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_DATA_AUDIT_EVENT_LOG"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_AUDIT_EVENT_LOG table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_AUDIT_EVENT_LOG"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_AUDIT_EVENT_LOG"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_AUDIT_EVENT table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_AUDIT_EVENT"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_AUDIT_EVENT"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CELL_REQ_SPECIMEN table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CELL_REQ_SPECIMEN"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CELL_REQ_SPECIMEN"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_CELL_SPECIMEN table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_CELL_SPECIMEN"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_CELL_SPECIMEN"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_MOL_REQ_SPECIMEN table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_MOL_REQ_SPECIMEN"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_MOL_REQ_SPECIMEN"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop CATISSUE_MOLECULAR_SPECIMEN table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_MOLECULAR_SPECIMEN"/>
+    </preConditions>
+	
+    <dropTable tableName="CATISSUE_MOLECULAR_SPECIMEN"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop COMMONS_GRAPH_TO_EDGES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="COMMONS_GRAPH_TO_EDGES"/>
+    </preConditions>
+	
+    <dropTable tableName="COMMONS_GRAPH_TO_EDGES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop COMMONS_GRAPH_EDGE table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="COMMONS_GRAPH_EDGE"/>
+    </preConditions>
+	
+    <dropTable tableName="COMMONS_GRAPH_EDGE"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop COMMONS_GRAPH_TO_VERTICES table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="COMMONS_GRAPH_TO_VERTICES"/>
+    </preConditions>
+	
+    <dropTable tableName="COMMONS_GRAPH_TO_VERTICES"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop SPECIMEN_ORDER_VIEW view">
+    <preConditions onFail="MARK_RAN">
+      <viewExists viewName="SPECIMEN_ORDER_VIEW"/>
+    </preConditions>
+	
+    <dropView viewName="SPECIMEN_ORDER_VIEW"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop SHIPMENT_BASE_VIEW view">
+    <preConditions onFail="MARK_RAN">
+      <viewExists viewName="SHIPMENT_BASE_VIEW"/>
+    </preConditions>
+	
+    <dropView viewName="SHIPMENT_BASE_VIEW"/>
+  </changeSet>
+  
+  <changeSet author="nmarwaha" id="Drop SPECIMEN_SHIPMENT_VIEW view">
+    <preConditions onFail="MARK_RAN">
+      <viewExists viewName="SPECIMEN_SHIPMENT_VIEW"/>
+    </preConditions>
+	
+    <dropView viewName="SPECIMEN_SHIPMENT_VIEW"/>
+  </changeSet>
+   
 </databaseChangeLog>
