@@ -35,4 +35,6 @@ public interface SpecimenDao extends Dao<Specimen> {
 	public String getDistributionStatus(Long specimenId);
 
 	public List<Visit> getSpecimenVisits(SpecimenListCriteria crit);
+
+	public boolean areDuplicateLabelsPresent();
 }

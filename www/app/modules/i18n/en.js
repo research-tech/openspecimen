@@ -1756,7 +1756,9 @@
         "cp_expiry_rem_notif": "CP Expiry Reminder",
         "cp_expiry_rem_notif_desc": "Number of days prior to collection protocol expiry when email notification should be sent to the PI.",
         "cp_expiry_rem_rept_inter": "Repeat CP Expiry Reminder",
-        "cp_expiry_rem_rept_inter_desc": "Number of days after which email notification should be repeated for collection protocol expiry."
+        "cp_expiry_rem_rept_inter_desc": "Number of days after which email notification should be repeated for collection protocol expiry.",
+        "unique_spmn_label_per_cp": "Unique Specimen Label per CP",
+        "unique_spmn_label_per_cp_desc": "Enable or Disable uniqueness of Specimen labels at CP level. Enabling this setting ensures Specimen labels are unique only within Collection Protocol. Disabling this setting ensures no two specimen labels are same throughout the system."
       },
 
       "common": {

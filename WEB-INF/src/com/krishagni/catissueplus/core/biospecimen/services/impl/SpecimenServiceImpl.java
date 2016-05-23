@@ -15,6 +15,7 @@ import java.util.Set;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.BooleanUtils;
+import org.springframework.beans.factory.InitializingBean;
 
 import com.krishagni.catissueplus.core.administrative.events.StorageLocationSummary;
 import com.krishagni.catissueplus.core.biospecimen.ConfigParams;
@@ -49,6 +50,7 @@ import com.krishagni.catissueplus.core.common.events.EntityQueryCriteria;
 import com.krishagni.catissueplus.core.common.events.EntityStatusDetail;
 import com.krishagni.catissueplus.core.common.events.RequestEvent;
 import com.krishagni.catissueplus.core.common.events.ResponseEvent;
+import com.krishagni.catissueplus.core.common.service.ConfigChangeListener;
 import com.krishagni.catissueplus.core.common.service.ConfigurationService;
 import com.krishagni.catissueplus.core.common.service.LabelGenerator;
 import com.krishagni.catissueplus.core.common.service.LabelPrinter;
@@ -57,7 +59,7 @@ import com.krishagni.catissueplus.core.common.util.AuthUtil;
 import com.krishagni.catissueplus.core.common.util.NumUtil;
 import com.krishagni.catissueplus.core.common.util.Status;
 
-public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsResolver {
+public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsResolver, ConfigChangeListener, InitializingBean {
 
 	private DaoFactory daoFactory;
 
@@ -80,7 +82,7 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 	public void setCfgSvc(ConfigurationService cfgSvc) {
 		this.cfgSvc = cfgSvc;
 	}
-	
+
 	public void setLabelGenerator(LabelGenerator labelGenerator) {
 		this.labelGenerator = labelGenerator;
 	}
@@ -433,6 +435,21 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 		}
 
 		return daoFactory.getSpecimenDao().getCprAndVisitIds(key, value);
+	}
+
+	@Override
+	public void onConfigChange(String name, String value) {
+		if (name.equals(ConfigParams.UNIQUE_SPMN_LABEL_PER_CP) && !"true".equalsIgnoreCase(value)) {
+			boolean dupSpmnLabels = daoFactory.getSpecimenDao().areDuplicateLabelsPresent();
+			if (dupSpmnLabels) {
+				throw OpenSpecimenException.userError(SpecimenErrorCode.UQ_LBL_CP_CHG_NA);
+			}
+		}
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		cfgSvc.registerChangeListener("biospecimen", this);
 	}
 
 	private List<Specimen> getSpecimens(SpecimenListCriteria crit) {

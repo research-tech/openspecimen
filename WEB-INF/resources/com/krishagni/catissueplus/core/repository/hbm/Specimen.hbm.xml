@@ -186,5 +186,18 @@
       group by
         sp.id
     </query>
+
+    <query name="getDuplicateLabelCount">
+      select
+        count(id)
+      from
+        com.krishagni.catissueplus.core.biospecimen.domain.Specimen
+      where
+        label is not null
+      group by
+        label
+      having
+        count(id) > 1
+    </query>
   </class>
 </hibernate-mapping>

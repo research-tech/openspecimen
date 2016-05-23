@@ -220,6 +220,15 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 		return query.list();
 	}
 
+	@Override
+	public boolean areDuplicateLabelsPresent() {
+		List<Object[]> rows = getSessionFactory().getCurrentSession()
+			.getNamedQuery(GET_DUPLICATE_LABEL_COUNT)
+			.list();
+
+		return rows.size() > 0;
+	}
+
 	private void addIdsCond(Criteria query, List<Long> ids) {
 		addInCond(query, "specimen.id", ids);
 	}
@@ -338,4 +347,6 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 	private static final String GET_BY_VISIT_NAME = FQN + ".getByVisitName";
 	
 	private static final String GET_LATEST_DISTRIBUTION_AND_RETURN_DATES = FQN + ".getLatestDistributionAndReturnDates";
+
+	private static final String GET_DUPLICATE_LABEL_COUNT = FQN + ".getDuplicateLabelCount";
 }

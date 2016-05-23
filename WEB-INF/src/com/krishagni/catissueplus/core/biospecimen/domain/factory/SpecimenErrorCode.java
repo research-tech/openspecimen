@@ -122,7 +122,9 @@ public enum SpecimenErrorCode implements ErrorCode {
 	
 	NO_POOLED_SPMN,
 
-	INVALID_FREEZE_THAW_CYCLES;
+	INVALID_FREEZE_THAW_CYCLES,
+
+	UQ_LBL_CP_CHG_NA;
 
 	public String code() {
 		return "SPECIMEN_" + this.name();
