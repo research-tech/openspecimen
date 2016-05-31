@@ -1355,7 +1355,10 @@
     "consent_response": "Consent Response",
     "consent": "Consent",
     "container": "Container",
-    "container_type": "Container Type"
+    "container_type": "Container Type",
+    "participant_extension": "Participant Custom Fields",
+    "visit_extension": "Visit Custom Fields",
+    "specimen_extension": "Specimen Custom Fields"
   },
 
   "bulk_imports": {

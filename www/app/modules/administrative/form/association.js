@@ -53,12 +53,17 @@ angular.module('os.administrative.form.formctxts', ['os.administrative.models'])
           cpIds.push(formCtxt.selectedCps[i].id);
         }
       }
+      
+      var multiRecord = formCtxt.isMultiRecord;
+      if (formCtxt.selectedEntity.name.includes('Extension')) {
+        multiRecord = false;
+      }
 
       var formContext = {
         form: $scope.form,
         cpIds: cpIds,
         entity: formCtxt.selectedEntity.name,
-        isMultiRecord: formCtxt.isMultiRecord
+        isMultiRecord: multiRecord
       }
 
       formContext = $scope.form.newFormContext(formContext); 

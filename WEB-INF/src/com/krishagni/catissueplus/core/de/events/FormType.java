@@ -15,6 +15,12 @@ public enum FormType {
 	
 	CP_EXTN_FORM("CollectionProtocolExtension"),
 	
+	PARTICIPANT_EXTNS("ParticipantExtension"),
+	
+	VISIT_EXTNS("VisitExtension"),
+	
+	SPECIMEN_EXTNS("SpecimenExtension"),
+	
 	QUERY_FORMS("Query");
 	
 	private String type;
