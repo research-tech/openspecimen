@@ -102,6 +102,19 @@
         s.label = :label
     </query>
 
+    <query name="getByLabelAndCp">
+      select
+        s
+      from
+        com.krishagni.catissueplus.core.biospecimen.domain.Specimen s
+        join s.visit v
+        join v.registration reg
+        join reg.collectionProtocol cp
+      where
+        s.label = :label and
+        cp.shortTitle = :cpShortTitle
+    </query>
+
     <query name="getByVisitAndReq">
       select
         s

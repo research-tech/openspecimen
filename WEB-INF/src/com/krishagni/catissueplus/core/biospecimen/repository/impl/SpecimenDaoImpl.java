@@ -28,7 +28,7 @@ import com.krishagni.catissueplus.core.biospecimen.repository.SpecimenListCriter
 import com.krishagni.catissueplus.core.common.Pair;
 import com.krishagni.catissueplus.core.common.repository.AbstractDao;
 
-public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDao {	
+public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDao {
 	public Class<?> getType() {
 		return Specimen.class;
 	}
@@ -65,6 +65,17 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 			.getNamedQuery(GET_BY_LABEL)
 			.setString("label", label)
 			.list();
+		return specimens.isEmpty() ? null : specimens.iterator().next();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Specimen getByLabelAndCp(String cpShortTitle, String label) {
+		List<Specimen> specimens = getCurrentSession().getNamedQuery(GET_BY_LABEL_AND_CP)
+			.setString("label", label)
+			.setString("cpShortTitle", cpShortTitle)
+			.list();
+
 		return specimens.isEmpty() ? null : specimens.iterator().next();
 	}
 	
@@ -347,6 +358,8 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 	private static final String FQN = Specimen.class.getName();
 	
 	private static final String GET_BY_LABEL = FQN + ".getByLabel";
+
+	private static final String GET_BY_LABEL_AND_CP = FQN + ".getByLabelAndCp";
 	
 	private static final String GET_BY_VISIT_AND_SR = FQN + ".getByVisitAndReq";
 

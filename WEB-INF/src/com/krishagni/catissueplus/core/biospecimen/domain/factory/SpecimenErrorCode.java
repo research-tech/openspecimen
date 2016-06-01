@@ -23,6 +23,8 @@ public enum SpecimenErrorCode implements ErrorCode {
 	LABEL_REQUIRED,
 	
 	DUP_LABEL,
+
+	DUP_LABEL_IN_CP,
 	
 	INVALID_LABEL,
 	

@@ -13,8 +13,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
 
 import com.krishagni.catissueplus.core.administrative.events.StorageLocationSummary;
@@ -22,6 +22,7 @@ import com.krishagni.catissueplus.core.biospecimen.ConfigParams;
 import com.krishagni.catissueplus.core.biospecimen.domain.CollectionProtocol;
 import com.krishagni.catissueplus.core.biospecimen.domain.Specimen;
 import com.krishagni.catissueplus.core.biospecimen.domain.Visit;
+import com.krishagni.catissueplus.core.biospecimen.domain.factory.CpErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.SpecimenErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.SpecimenFactory;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.VisitErrorCode;
@@ -32,6 +33,8 @@ import com.krishagni.catissueplus.core.biospecimen.events.SpecimenAliquotsSpec;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenDeleteCriteria;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenInfo;
+import com.krishagni.catissueplus.core.biospecimen.events.SpecimenQueryCriteria;
+import com.krishagni.catissueplus.core.biospecimen.events.SpecimenStatusDetail;
 import com.krishagni.catissueplus.core.biospecimen.repository.DaoFactory;
 import com.krishagni.catissueplus.core.biospecimen.repository.SpecimenListCriteria;
 import com.krishagni.catissueplus.core.biospecimen.services.SpecimenService;
@@ -46,8 +49,6 @@ import com.krishagni.catissueplus.core.common.errors.CommonErrorCode;
 import com.krishagni.catissueplus.core.common.errors.ErrorType;
 import com.krishagni.catissueplus.core.common.errors.OpenSpecimenException;
 import com.krishagni.catissueplus.core.common.events.DependentEntityDetail;
-import com.krishagni.catissueplus.core.common.events.EntityQueryCriteria;
-import com.krishagni.catissueplus.core.common.events.EntityStatusDetail;
 import com.krishagni.catissueplus.core.common.events.RequestEvent;
 import com.krishagni.catissueplus.core.common.events.ResponseEvent;
 import com.krishagni.catissueplus.core.common.service.ConfigChangeListener;
@@ -89,12 +90,12 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 	
 	@Override
 	@PlusTransactional
-	public ResponseEvent<SpecimenDetail> getSpecimen(RequestEvent<EntityQueryCriteria> req) {
+	public ResponseEvent<SpecimenDetail> getSpecimen(RequestEvent<SpecimenQueryCriteria> req) {
 		try {
-			EntityQueryCriteria crit = req.getPayload();
+			SpecimenQueryCriteria crit = req.getPayload();
 			
 			OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
-			Specimen specimen = getSpecimen(crit.getId(), crit.getName(), ose);
+			Specimen specimen = getSpecimen(crit.getId(), crit.getCpShortTitle(), crit.getName(), ose);
 			if (specimen == null) {
 				return ResponseEvent.error(ose);
 			}
@@ -144,7 +145,7 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 		try {
 			SpecimenDetail detail = req.getPayload();
 			OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
-			Specimen existing = getSpecimen(detail.getId(), detail.getLabel(), ose);
+			Specimen existing = getSpecimen(detail.getId(), detail.getCpShortTitle(), detail.getLabel(), ose);
 			if (existing == null) {
 				return ResponseEvent.error(ose);
 			}
@@ -161,13 +162,13 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 
 	@Override
 	@PlusTransactional
-	public ResponseEvent<List<SpecimenDetail>> updateSpecimensStatus(RequestEvent<List<EntityStatusDetail>> req) {
+	public ResponseEvent<List<SpecimenDetail>> updateSpecimensStatus(RequestEvent<List<SpecimenStatusDetail>> req) {
 		try {
 			List<SpecimenDetail> result = new ArrayList<SpecimenDetail>();
 
 			OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
-			for (EntityStatusDetail detail : req.getPayload()) {
-				Specimen specimen = getSpecimen(detail.getId(), detail.getName(), ose);
+			for (SpecimenStatusDetail detail : req.getPayload()) {
+				Specimen specimen = getSpecimen(detail.getId(), detail.getCpShortTitle(), detail.getName(), ose);
 				if (specimen == null) {
 					return ResponseEvent.error(ose);
 				}
@@ -192,13 +193,13 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 		OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
 
 		for (SpecimenDeleteCriteria criteria : request.getPayload()) {
-			Specimen specimen = getSpecimen(criteria.getId(), criteria.getLabel(), ose);
+			Specimen specimen = getSpecimen(criteria.getId(), criteria.getCpShortTitle(), criteria.getLabel(), ose);
 			if (specimen == null) {
 				return ResponseEvent.error(ose);
 			}
 
 			AccessCtrlMgr.getInstance().ensureDeleteSpecimenRights(specimen);
-			specimen.disable(!criteria.getForceDelete());
+			specimen.disable(!criteria.isForceDelete());
 			result.add(SpecimenDetail.from(specimen));
 		}
 
@@ -207,11 +208,11 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 
 	@Override
 	@PlusTransactional
-	public ResponseEvent<List<DependentEntityDetail>> getDependentEntities(RequestEvent<EntityQueryCriteria> req) {
+	public ResponseEvent<List<DependentEntityDetail>> getDependentEntities(RequestEvent<SpecimenQueryCriteria> req) {
 		try {
-			EntityQueryCriteria crit = req.getPayload();
+			SpecimenQueryCriteria crit = req.getPayload();
 			OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
-			Specimen specimen = getSpecimen(crit.getId(), crit.getName(), ose);
+			Specimen specimen = getSpecimen(crit.getId(), crit.getCpShortTitle(), crit.getName(), ose);
 			if (specimen == null) {
 				return ResponseEvent.error(ose);
 			}
@@ -258,7 +259,7 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 			OpenSpecimenException ose = new OpenSpecimenException(ErrorType.USER_ERROR);
 			
 			SpecimenAliquotsSpec spec = req.getPayload();
-			Specimen parentSpecimen = getSpecimen(spec.getParentId(), spec.getParentLabel(), ose);
+			Specimen parentSpecimen = getSpecimen(spec.getParentId(), spec.getCpShortTitle(), spec.getParentLabel(), ose);
 			ose.checkAndThrow();
 			
 			if (!parentSpecimen.isCollected()) {
@@ -334,7 +335,7 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 
 			ResponseEvent<SpecimenDetail> resp = createSpecimen(new RequestEvent<SpecimenDetail>(spmnDetail));
 			if (resp.isSuccessful() && spmnDetail.closeParent()) {
-				Specimen parent = getSpecimen(spmnDetail.getParentId(), spmnDetail.getParentLabel(), null);
+				Specimen parent = getSpecimen(spmnDetail.getParentId(), spmnDetail.getCpShortTitle(), spmnDetail.getParentLabel(), null);
 				parent.close(AuthUtil.getCurrentUser(), new Date(), "");
 			}
 
@@ -348,11 +349,11 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 
 	@Override
 	@PlusTransactional
-	public ResponseEvent<Boolean> doesSpecimenExists(RequestEvent<String> req) {
-		return ResponseEvent.response(daoFactory.getSpecimenDao().getByLabel(req.getPayload()) != null);
+	public ResponseEvent<Boolean> doesSpecimenExists(RequestEvent<SpecimenQueryCriteria> req) {
+		SpecimenQueryCriteria crit = req.getPayload();
+		return ResponseEvent.response(getSpecimen(crit.getCpShortTitle(), crit.getName()) != null);
 	}
-	
-	
+
 	@Override
 	@PlusTransactional
 	public ResponseEvent<LabelPrintJobSummary> printSpecimenLabels(RequestEvent<PrintSpecimenLabelDetail> req) {
@@ -449,7 +450,7 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		cfgSvc.registerChangeListener("biospecimen", this);
+		cfgSvc.registerChangeListener(ConfigParams.MODULE, this);
 	}
 
 	private List<Specimen> getSpecimens(SpecimenListCriteria crit) {
@@ -551,9 +552,13 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 				return;
 			}
 		}
-		
-		if (daoFactory.getSpecimenDao().getByLabel(label) != null) {
-			ose.addError(SpecimenErrorCode.DUP_LABEL, label);
+
+		if (getSpecimen(cp.getShortTitle(), label) != null) {
+			if (areLabelsUniquePerCp()) {
+				ose.addError(SpecimenErrorCode.DUP_LABEL_IN_CP, label, cp.getShortTitle());
+			} else {
+				ose.addError(SpecimenErrorCode.DUP_LABEL, label);
+			}
 		}
 	}
 
@@ -726,7 +731,7 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 		return result;
 	}
 
-	private Specimen getSpecimen(Long specimenId, String label, OpenSpecimenException ose) {
+	private Specimen getSpecimen(Long specimenId, String cpShortTitle, String label, OpenSpecimenException ose) {
 		Specimen specimen = null;
 		Object key = null;
 		
@@ -735,7 +740,7 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 			specimen = daoFactory.getSpecimenDao().getById(specimenId);
 		} else if (StringUtils.isNotBlank(label)) {
 			key = label;
-			specimen = daoFactory.getSpecimenDao().getByLabel(label);
+			specimen = getSpecimen(cpShortTitle, label);
 		}
 		
 		if (specimen == null) {
@@ -743,6 +748,25 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 		}
 		
 		return specimen;
+	}
+
+	private Specimen getSpecimen(String cpShortTitle, String label) {
+		Specimen specimen = null;
+		if (areLabelsUniquePerCp()) {
+			if (StringUtils.isBlank(cpShortTitle)) {
+				throw OpenSpecimenException.userError(CpErrorCode.SHORT_TITLE_REQUIRED);
+			}
+
+			specimen = daoFactory.getSpecimenDao().getByLabelAndCp(cpShortTitle, label);
+		} else {
+			specimen = daoFactory.getSpecimenDao().getByLabel(label);
+		}
+
+		return specimen;
+	}
+
+	private boolean areLabelsUniquePerCp() {
+		return cfgSvc.getBoolSetting(ConfigParams.MODULE, ConfigParams.UNIQUE_SPMN_LABEL_PER_CP, false);
 	}
 
 	private void incrParentFreezeThawCycles(SpecimenDetail detail, Specimen spec) {

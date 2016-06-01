@@ -98,4 +98,15 @@
       update catissue_specimenlist_tags set last_updated_on = created_on;
     </sql>
   </changeSet>
+
+  <changeSet author="ckhilosiya" id="Remove unique constraint to allow duplicate specimen label">
+    <dropUniqueConstraint tableName="CATISSUE_SPECIMEN" constraintName="LABEL"/>
+  </changeSet>
+
+  <changeSet author="ckhilosiya" id="Add index for faster lookup on specimen label">
+    <!-- Removal of unique constraint forces us to have an explicit index on specimen label -->
+    <createIndex indexName="CATISSUE_SPECIMEN_LABEL_IDX" tableName="CATISSUE_SPECIMEN">
+      <column name="LABEL"></column>
+    </createIndex>
+  </changeSet>
 </databaseChangeLog>
