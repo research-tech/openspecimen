@@ -5,13 +5,12 @@ import java.util.Map;
 
 import com.krishagni.catissueplus.core.biospecimen.domain.Specimen;
 import com.krishagni.catissueplus.core.biospecimen.domain.SpecimenList;
+import com.krishagni.catissueplus.core.biospecimen.events.SpecimenListSummary;
 import com.krishagni.catissueplus.core.common.repository.Dao;
 
 public interface SpecimenListDao extends Dao<SpecimenList> {
-	public List<SpecimenList> getSpecimenLists();
+	public List<SpecimenListSummary> getSpecimenLists(SpecimenListsCriteria crit);
 	
-	public List<SpecimenList> getUserSpecimenLists(Long userId);
-
 	public Map<Long, List<Specimen>> getListCpSpecimens(Long listId);
 
 	public List<Long> getListSpecimensCpIds(Long listId);
@@ -22,7 +21,7 @@ public interface SpecimenListDao extends Dao<SpecimenList> {
 
 	public SpecimenList getDefaultSpecimenList(Long userId);
 	
-	public Long getListSpecimensCount(Long listId);
+	public int getListSpecimensCount(Long listId);
 	
 	public void deleteSpecimenList(SpecimenList listId);
 }

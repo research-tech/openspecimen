@@ -25,6 +25,7 @@ import com.krishagni.catissueplus.core.biospecimen.events.SpecimenListSummary;
 import com.krishagni.catissueplus.core.biospecimen.events.UpdateListSpecimensOp;
 import com.krishagni.catissueplus.core.biospecimen.repository.DaoFactory;
 import com.krishagni.catissueplus.core.biospecimen.repository.SpecimenListCriteria;
+import com.krishagni.catissueplus.core.biospecimen.repository.SpecimenListsCriteria;
 import com.krishagni.catissueplus.core.biospecimen.services.SpecimenListService;
 import com.krishagni.catissueplus.core.common.Pair;
 import com.krishagni.catissueplus.core.common.PlusTransactional;
@@ -68,33 +69,14 @@ public class SpecimenListServiceImpl implements SpecimenListService {
 
 	@Override
 	@PlusTransactional
-	public ResponseEvent<List<SpecimenListSummary>> getUserSpecimenLists(RequestEvent<?> req) {
+	public ResponseEvent<List<SpecimenListSummary>> getSpecimenLists(RequestEvent<SpecimenListsCriteria> req) {
 		try {
-			User currentUser = AuthUtil.getCurrentUser();
-			List<SpecimenList> specimenLists = new ArrayList<SpecimenList>();
-			if (AuthUtil.isAdmin()){
-				specimenLists = daoFactory.getSpecimenListDao().getSpecimenLists();
-			} else {
-				specimenLists = daoFactory.getSpecimenListDao().getUserSpecimenLists(currentUser.getId());
+			SpecimenListsCriteria crit = req.getPayload();
+			if (!AuthUtil.isAdmin()) {
+				crit.userId(AuthUtil.getCurrentUser().getId());
 			}
 
-			List<SpecimenListSummary> result = new ArrayList<SpecimenListSummary>();
-			SpecimenList defUserList = null;
-			for (SpecimenList specimenList : specimenLists) {
-				if (specimenList.isDefaultList(currentUser)) {
-					defUserList = specimenList;
-					continue;
-				}
-
-				result.add(SpecimenListSummary.fromSpecimenList(specimenList));
-			}
-
-			if (defUserList == null) {
-				defUserList = createDefaultList(currentUser, 0L);
-			}
-
-			result.add(0, SpecimenListSummary.fromSpecimenList(defUserList));
-			return ResponseEvent.response(result);
+			return ResponseEvent.response(daoFactory.getSpecimenListDao().getSpecimenLists(crit));
 		} catch (Exception e) {
 			return ResponseEvent.serverError(e);
 		}
@@ -175,7 +157,7 @@ public class SpecimenListServiceImpl implements SpecimenListService {
 
 			SpecimenList specimenList = getSpecimenList(listId, null);
 
-			Long specimensCount = null;
+			Integer specimensCount = null;
 			if (crit.includeStat()) {
 				specimensCount = daoFactory.getSpecimenListDao().getListSpecimensCount(listId);
 				crit.includeStat(false);
@@ -207,7 +189,7 @@ public class SpecimenListServiceImpl implements SpecimenListService {
 			List<Pair<Long, Long>> siteCpPairs = AccessCtrlMgr.getInstance().getReadAccessSpecimenSiteCps();
 			
 			if (labels == null || labels.isEmpty()) {
-				specimens = new ArrayList<Specimen>();
+				specimens = new ArrayList<>();
 			} else {
 				ensureValidSpecimens(labels, siteCpPairs);
 				specimens = daoFactory.getSpecimenDao().getSpecimens(new SpecimenListCriteria().labels(labels));
@@ -228,10 +210,9 @@ public class SpecimenListServiceImpl implements SpecimenListService {
 			}
 			
 			daoFactory.getSpecimenListDao().saveOrUpdate(specimenList, true);
-			
-			Long specimensCount = daoFactory.getSpecimenListDao().getListSpecimensCount(specimenList.getId());
+
 			List<Specimen> readAccessSpecimens = getReadAccessSpecimens(specimenList.getId(), siteCpPairs);
-			return ResponseEvent.response(ListSpecimensDetail.from(readAccessSpecimens, specimensCount));
+			return ResponseEvent.response(ListSpecimensDetail.from(readAccessSpecimens, specimenList.size()));
 		} catch (OpenSpecimenException ose) {
 			return ResponseEvent.error(ose);
 		} catch (Exception e) {

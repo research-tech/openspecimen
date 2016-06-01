@@ -51,4 +51,51 @@
       </column>
     </addColumn>
   </changeSet>
+
+  <changeSet author="vpawar" id="Bulk import job parameters table">
+    <createTable tableName="OS_BULK_IMPORT_JOB_PARAMS">
+      <column name="JOB_ID" type="${int.type}">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="PARAM" type="${text.type}(32)">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="VALUE" type="${text.type}(64)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet author="vpawar" id="Foreign key on job ID of params table">
+    <addForeignKeyConstraint
+      constraintName="FK_JOB_PARAMS_JOB_ID"
+      baseTableName="OS_BULK_IMPORT_JOB_PARAMS"
+      baseColumnNames="JOB_ID"
+      referencedTableName="OS_BULK_IMPORT_JOBS"
+      referencedColumnNames="IDENTIFIER"/>
+  </changeSet>
+
+  <changeSet author="slakhani" id="User allowed to manage custom form">
+    <addColumn tableName="CATISSUE_USER">
+      <column name="MANAGE_FORMS" type="${boolean.type}" defaultValueBoolean="0">
+        <constraints nullable="false"/>
+      </column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="vpawar" id="Track when specimen list/cart was last updated">
+    <addColumn tableName="CATISSUE_SPECIMENLIST_TAGS">
+      <column name="LAST_UPDATED_ON" type="${nullable.ts.type}">
+        <constraints nullable="true"/>
+      </column>
+    </addColumn>
+  </changeSet>
+
+  <changeSet author="vpawar" id="Update last updated on to start with created on time for existing carts">
+    <sql>
+      update catissue_specimenlist_tags set last_updated_on = created_on;
+    </sql>
+  </changeSet>
 </databaseChangeLog>
