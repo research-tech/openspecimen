@@ -1049,41 +1049,34 @@
 
   <changeSet author="nmarwaha" id="Drop older DE generated tables" dbms="oracle">
     <sql endDelimiter="//">
-      drop procedure if exists delete_de_tables//
+      create or replace  procedure delete_de_tables is
+        tableName varchar2(200);
+        ctr int;
 
-      create procedure delete_de_tables ()
-      begin
-        declare tableName varchar2(200);
-        declare ctr int;
-        declare endOfTable boolean;
+        cursor curs is
+          select
+            distinct name
+          from
+            dyextn_database_properties
+          where
+            regexp_like (name, '^DE_E_[0-9]+$');
+      BEGIN
 
-        declare curs cursor for 
-          select 
-            distinct name 
-          from 
-            dyextn_database_properties 
-          where 
-            name regexp '^DE_E_[0-9]+$';
-
-        declare continue handler for not found set endOfTable := TRUE;
-        
         open curs;
-        while not endOfTable do
-
+        LOOP
           fetch curs into tableName;
-  
+          EXIT when curs%notfound;
+
           select count(*) into ctr from user_tables where table_name = upper(tableName);
-          if ctr == 1 then
+          if ctr = 1 then
             execute immediate('drop table ' || tableName || ' cascade constraints');
           end if;
-
-        end while;
+        END LOOP;
         close curs;
-
       end
       //
     </sql>
-  </changeSet>  
+  </changeSet>
   
   <changeSet author="nitesh" id="Deleting dynamically created older DE tables">   
     <preConditions onFail="MARK_RAN">
