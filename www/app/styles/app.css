@@ -29,16 +29,24 @@ body {
 
 .os-navbar .logo {
   height: 50px;
-  width: 235px;
   padding: 2.5px;
-  flex-grow: 0.25;
+}
+
+.os-navbar .os-environment {
+  font-size: 10px;
+  color: #fff;
+  height: 16px;
+  background-color: #c33;
+  padding: 2px 4px;
+  margin: 8px 6px;
+  border-radius: 4px;
 }
 
 .os-navbar .search {
   flex-grow: 1;
   padding-top: 10px;
   display: flex;
-  margin-left: 100px;
+  margin-left: 150px;
 }
 
 .os-navbar .search input {

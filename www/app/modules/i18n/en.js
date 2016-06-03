@@ -1806,7 +1806,9 @@
         "field_separator": "Field Separator",
         "field_separator_desc": "A single character that specifies how records in delimited text file should be split into fields. For example: CSV files use comma (,) as the field separator",
         "training_url": "Training URL ",
-        "training_url_desc": "Training documentation URL"
+        "training_url_desc": "Training documentation URL",
+        "os_environment": "Environment",
+        "os_environment_desc": "OpenSpecimen deployment environment"
       },
 
       "email": {

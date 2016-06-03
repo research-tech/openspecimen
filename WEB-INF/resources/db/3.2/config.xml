@@ -46,4 +46,14 @@
       //
     </sql>
   </changeSet>
+  
+  <changeSet author="slakhani" id="Config setting to specify OS environment">
+    <sql>
+      call add_cfg_prop(
+        'common', 'os_environment',
+        'os_environment', 'os_deployment_environment',
+        'STRING', 'TEST'
+      );
+    </sql>
+  </changeSet>
 </databaseChangeLog>
