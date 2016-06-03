@@ -326,6 +326,14 @@
     <dropTable tableName="CATISSUE_SPECIMEN_ARRAY_TYPE"/>
   </changeSet>
   
+  <changeSet author="nmarwaha" id="Drop CATISSUE_DISTRI_EVENT_PARAM table">
+    <preConditions onFail="MARK_RAN">
+      <tableExists tableName="CATISSUE_DISTRI_EVENT_PARAM"/>
+    </preConditions>
+
+    <dropTable tableName="CATISSUE_DISTRI_EVENT_PARAM"/>
+  </changeSet>
+  
   <changeSet author="nmarwaha" id="Drop CATISSUE_DISTRIBUTION table">
     <preConditions onFail="MARK_RAN">
       <tableExists tableName="CATISSUE_DISTRIBUTION"/>
