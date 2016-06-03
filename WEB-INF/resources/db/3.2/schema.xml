@@ -43,5 +43,4 @@
       <column name="SPECIMEN_TYPE"/>
     </createIndex>
   </changeSet>
-  
 </databaseChangeLog>
