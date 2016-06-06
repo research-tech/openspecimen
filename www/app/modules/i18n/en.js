@@ -475,6 +475,7 @@
     "container": "Container",
     "biohazards": "Biohazards",
     "created_on": "Created On",
+    "cp": "Collection Protocol",
     "concentration_unit": "&#181;g/&#181;l",
     "copy_first_to_all": "Copy First To All",
     "row": "Row",
@@ -485,6 +486,7 @@
     "activity_info": "{{name}} created",
     "activity_status": "Activity Status",
     "location" : "Location",
+    "search_results": "Specimen Search Result for {{key}}",
 
     "reason_for_closing": "Reason for closing",
 
