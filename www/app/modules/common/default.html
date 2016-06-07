@@ -3,7 +3,9 @@
     <a class="logo" href="http://www.openspecimen.org">
       <img src="images/os_logo.png"></img>
     </a>
-    <span class="os-environment">{{global.appProps.os_environment | uppercase | limitTo : 10}}</span>
+    <span ng-if="global.appProps.os_environment" class="os-environment">
+      {{global.appProps.os_environment | uppercase | limitTo : 10}}
+    </span>
     <ul class="menu">
       <li class="form-input">
         <a ui-sref="welcome" class="btn btn-primary">Sign Up</a>
