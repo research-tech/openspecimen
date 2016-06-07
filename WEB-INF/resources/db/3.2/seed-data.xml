@@ -25,4 +25,31 @@
     </sql>
   </changeSet>
   
+  <changeSet author="mdnasim" id="Delete unused PVs">
+    <sql>
+      delete from catissue_permissible_value where public_id in ('2004100', '2003990','4284', '4285', '2004200', '2004000', '2004300');
+    </sql>
+  </changeSet>
+  
+  <changeSet author="mdnasim" id="Delete unused attributes">
+    <sql>
+      delete from catissue_cde where public_id in ('2004100', '2003990','4284', '4285', '2004200', '2004000', '2004300');
+    </sql>
+  </changeSet>
+  
+  <changeSet author="mdnasim" id="Rename long name of attributes">
+    <sql>
+      update catissue_cde set long_name = 'Anatomic site' where public_id = 'Tissue_Site_PID';
+      
+      update catissue_cde set long_name = 'Laterality' where public_id = '2003992';
+      
+      update catissue_cde set long_name = 'Visit Collection Status' where public_id = 'scg_collection_status';
+      
+      update catissue_cde set long_name = 'Vital Status' where public_id = '2004001';
+      
+      update catissue_cde set long_name = 'Morphological Abnormality' where public_id = 'Morphological_Abnormalitiy_PID';
+      
+      update catissue_cde set long_name = 'Frozen Method' where public_id = '2003998';
+    </sql>
+  </changeSet>
 </databaseChangeLog>
