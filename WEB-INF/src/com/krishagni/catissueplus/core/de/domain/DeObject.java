@@ -30,6 +30,9 @@ import edu.common.dynamicextensions.domain.nui.SubFormControl;
 import edu.common.dynamicextensions.domain.nui.UserContext;
 import edu.common.dynamicextensions.napi.ControlValue;
 import edu.common.dynamicextensions.napi.FileControlValue;
+import edu.common.dynamicextensions.napi.FormChangeListener;
+import edu.common.dynamicextensions.napi.FormChangeNotifyManager;
+import edu.common.dynamicextensions.napi.FormContextChangeListener;
 import edu.common.dynamicextensions.napi.FormData;
 import edu.common.dynamicextensions.napi.FormDataManager;
 import krishagni.catissueplus.beans.FormContextBean;
@@ -37,7 +40,7 @@ import krishagni.catissueplus.beans.FormRecordEntryBean;
 import krishagni.catissueplus.beans.FormRecordEntryBean.Status;
 
 @Configurable
-public abstract class DeObject {	
+public abstract class DeObject implements FormChangeListener, FormContextChangeListener {
 	@Autowired
 	private FormDataManager formDataMgr;
 	
@@ -57,6 +60,10 @@ public abstract class DeObject {
 	private static Map<String, Container> formMap = new HashMap<String, Container>();
 	
 	private static Map<String, FormContextBean> formCtxMap = new HashMap<String, FormContextBean>();
+	
+	static {
+		registerListener();
+	}
 	
 	public DeObject() { }
 	
@@ -232,6 +239,38 @@ public abstract class DeObject {
 	}
 	
 	public abstract void setAttrValues(Map<String, Object> attrValues);
+	
+	public static void registerListener() {
+		DeObject deObj = new DeObject() {
+			
+			@Override
+			public void setAttrValues(Map<String, Object> attrValues) {
+			}
+			
+			@Override
+			public Long getObjectId() {
+				return null;
+			}
+			
+			@Override
+			public String getFormName() {
+				return null;
+			}
+			
+			@Override
+			public String getEntityType() {
+				return null;
+			}
+			
+			@Override
+			public Long getCpId() {
+				return null;
+			}
+		};
+		
+		FormChangeNotifyManager.getInstance().addFormChangeListener(deObj);
+		FormChangeNotifyManager.getInstance().addCtxtRemoveListener(deObj);
+	}
 	
 	public static Long saveFormData(
 			final String formName, 
@@ -412,6 +451,18 @@ public abstract class DeObject {
 				(v1, v2) -> {throw new IllegalStateException("Duplicate key");},
 				LinkedHashMap::new)
 		);
+	}
+	
+	@Override
+	public void onChange(Container container) {
+		formMap.put(container.getName(), container);
+	}
+	
+	@Override
+	public void onRemove(String entityType) {
+		String formName = entityTypeFormNameMap.get(entityType);
+		entityTypeFormNameMap.remove(entityType);
+		formMap.remove(formName);
 	}
 
 	public static class Attr {

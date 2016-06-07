@@ -61,6 +61,7 @@ import edu.common.dynamicextensions.domain.nui.SubFormControl;
 import edu.common.dynamicextensions.domain.nui.ValidationErrors;
 import edu.common.dynamicextensions.napi.ControlValue;
 import edu.common.dynamicextensions.napi.FileControlValue;
+import edu.common.dynamicextensions.napi.FormChangeNotifyManager;
 import edu.common.dynamicextensions.napi.FormData;
 import edu.common.dynamicextensions.napi.FormDataManager;
 import edu.common.dynamicextensions.napi.impl.FormDataManagerImpl;
@@ -153,8 +154,14 @@ public class FormServiceImpl implements FormService {
 			AccessCtrlMgr.getInstance().ensureFormUpdateRights();
 			
 			Long formId = req.getPayload();
+			List<FormContextDetail> ctxts = formDao.getFormContexts(formId);
+			
 			if (Container.softDeleteContainer(formId)) {
 				formDao.deleteFormContexts(formId);
+				for (FormContextDetail ctxt : ctxts) {
+					FormChangeNotifyManager.getInstance().notifyListener(ctxt.getLevel());
+				}
+				
 				return ResponseEvent.response(true);
 			} else {
 				return ResponseEvent.userError(FormErrorCode.NOT_FOUND);
@@ -521,6 +528,7 @@ public class FormServiceImpl implements FormService {
 					break;
 			}
 			
+			FormChangeNotifyManager.getInstance().notifyListener(formCtx.getEntityType());
 			return ResponseEvent.response(true);
 		} catch (OpenSpecimenException ose) {
 			return ResponseEvent.error(ose);
