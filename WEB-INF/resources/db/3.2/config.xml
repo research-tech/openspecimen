@@ -47,11 +47,11 @@
     </sql>
   </changeSet>
   
-  <changeSet author="slakhani" id="Config setting to specify OS environment">
+  <changeSet author="slakhani" id="Config setting to specify OS deploy environment">
     <sql>
       call add_cfg_prop(
-        'common', 'os_environment',
-        'os_environment', 'os_deployment_environment',
+        'common', 'deploy_env',
+        'deploy_env', 'deploy_env_desc',
         'STRING', 'TEST'
       );
     </sql>
