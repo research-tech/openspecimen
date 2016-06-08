@@ -478,10 +478,12 @@ public abstract class DeObject implements FormChangeListener, FormContextChangeL
 	public void onRemove(Long cpId, String entityType) {
 		Map<String, String> entityTypeFormNameMap = cpBasedEntityTypeFormNameMap.get(cpId);
 		
-		String formName = entityTypeFormNameMap.get(entityType);
-		entityTypeFormNameMap.remove(entityType);
-		formCtxMap.remove(formName);
-		formMap.remove(formName);
+		if (entityTypeFormNameMap.containsKey(entityType)) {
+			String formName = entityTypeFormNameMap.get(entityType);
+			entityTypeFormNameMap.remove(entityType);
+			formCtxMap.remove(formName);
+			formMap.remove(formName);
+		}
 	}
 
 	public static class Attr {
