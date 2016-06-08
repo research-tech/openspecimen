@@ -55,7 +55,7 @@ public abstract class DeObject implements FormChangeListener, FormContextChangeL
 	
 	private List<Attr> attrs = new ArrayList<Attr>();
 	
-	private static Map<String, String> entityTypeFormNameMap = new HashMap<String, String>();
+	private static Map<Long, Map<String, String>> cpBasedEntityTypeFormNameMap = new HashMap<Long, Map<String,String>>();
  	
 	private static Map<String, Container> formMap = new HashMap<String, Container>();
 	
@@ -203,16 +203,32 @@ public abstract class DeObject implements FormChangeListener, FormContextChangeL
 		setAttrValues(attrValues);
 	}
 	
-	protected String getFormNameByEntityType() {
-		if (!entityTypeFormNameMap.containsKey(getEntityType())) {
+	protected String getFormNameByEntityType(Long cpId) {
+		String formName = getFormByCpAndEntityType(cpId, getEntityType());
+		if (StringUtils.isEmpty(formName)) {
+			formName = getFormByCpAndEntityType(-1L, getEntityType());
+		}
+		
+		return formName;
+	}
+	
+	private String getFormByCpAndEntityType(Long cpId, String entityType) {
+		if (!cpBasedEntityTypeFormNameMap.containsKey(cpId)) {
+			cpBasedEntityTypeFormNameMap.put(cpId, new HashMap<String, String>());
+		}
+		
+		Map<String, String> entityTypeFormNameMap = cpBasedEntityTypeFormNameMap.get(cpId);
+		if (!entityTypeFormNameMap.containsKey(entityType)) {
 			synchronized(entityTypeFormNameMap) {
-				List<FormSummary> forms = daoFactory.getFormDao().getFormsByEntityType(getEntityType());
+				List<FormSummary> forms = daoFactory.getFormDao().getFormsByCpAndEntityType(cpId, entityType);
 				String formName = forms.isEmpty() ? null: forms.get(0).getName();
-				entityTypeFormNameMap.put(getEntityType(), formName);
+				if (formName != null) {
+					entityTypeFormNameMap.put(entityType, formName);
+				}
 			}
 		}
 		
-		return entityTypeFormNameMap.get(getEntityType());
+		return entityTypeFormNameMap.get(entityType);
 	}
 	
 	public abstract Long getObjectId();
@@ -292,7 +308,7 @@ public abstract class DeObject implements FormChangeListener, FormContextChangeL
 			@Override
 			public String getFormName() {
 				if (StringUtils.isBlank(formName)) {
-					return getFormNameByEntityType();
+					return getFormNameByEntityType(getCpId());
 				}
 				return formName;
 			}
@@ -459,9 +475,12 @@ public abstract class DeObject implements FormChangeListener, FormContextChangeL
 	}
 	
 	@Override
-	public void onRemove(String entityType) {
+	public void onRemove(Long cpId, String entityType) {
+		Map<String, String> entityTypeFormNameMap = cpBasedEntityTypeFormNameMap.get(cpId);
+		
 		String formName = entityTypeFormNameMap.get(entityType);
 		entityTypeFormNameMap.remove(entityType);
+		formCtxMap.remove(formName);
 		formMap.remove(formName);
 	}
 

@@ -159,7 +159,8 @@ public class FormServiceImpl implements FormService {
 			if (Container.softDeleteContainer(formId)) {
 				formDao.deleteFormContexts(formId);
 				for (FormContextDetail ctxt : ctxts) {
-					FormChangeNotifyManager.getInstance().notifyListener(ctxt.getLevel());
+					Long cpId = ctxt.getCollectionProtocol().getId() == null ? -1L : ctxt.getCollectionProtocol().getId();
+					FormChangeNotifyManager.getInstance().notifyListener(cpId, ctxt.getLevel());
 				}
 				
 				return ResponseEvent.response(true);
@@ -528,7 +529,7 @@ public class FormServiceImpl implements FormService {
 					break;
 			}
 			
-			FormChangeNotifyManager.getInstance().notifyListener(formCtx.getEntityType());
+			FormChangeNotifyManager.getInstance().notifyListener(formCtx.getCpId(), formCtx.getEntityType());
 			return ResponseEvent.response(true);
 		} catch (OpenSpecimenException ose) {
 			return ResponseEvent.error(ose);

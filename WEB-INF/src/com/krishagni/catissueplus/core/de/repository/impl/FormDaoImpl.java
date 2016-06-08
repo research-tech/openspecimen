@@ -14,6 +14,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.BooleanType;
@@ -55,18 +56,8 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 	@Override
 	public List<FormSummary> getAllFormsSummary(FormListCriteria crit) {
 		String sql = getSqlQuery(crit);
-		Query query = sessionFactory.getCurrentSession().createSQLQuery(sql)
-				.addScalar("formId", new LongType())
-				.addScalar("formName", new StringType())
-				.addScalar("formCaption", new StringType())
-				.addScalar("creationTime", new TimestampType())
-				.addScalar("modificationTime", new TimestampType())
-				.addScalar("cpCount", new IntegerType())
-				.addScalar("allCp", new IntegerType())
-				.addScalar("sysForm", new BooleanType())
-				.addScalar("userId", new LongType())
-				.addScalar("userFirstName", new StringType())
-				.addScalar("userLastName", new StringType())
+		SQLQuery sqlQuery = sessionFactory.getCurrentSession().createSQLQuery(sql);
+		Query query = addScalars(sqlQuery)
 				.setFirstResult(crit.startAt())
 				.setMaxResults(crit.maxResults());
 		
@@ -88,12 +79,29 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 	@SuppressWarnings("unchecked")
  	@Override
   	public List<FormSummary> getFormsByEntityType(String entityType) {
-		List<Object[]> rows = sessionFactory.getCurrentSession()
-				.getNamedQuery(GET_FORMS_BY_ENTITY_TYPE)
-				.setString("entityType", entityType)
+		String sql = getEntityFormsQuery(" ctxt.entity_type = :entityType and ");
+		SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery(sql);
+				
+		List<Object[]> rows = addScalars(query)
+				.setParameter("entityType", entityType)
 				.list();
+		
 		return getForms(rows);
-   }
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FormSummary> getFormsByCpAndEntityType(Long cpId, String entityType) {
+		String sql = getEntityFormsQuery(" ctxt.entity_type = :entityType and ctxt.cp_id = :cpId and ");
+		SQLQuery query = sessionFactory.getCurrentSession().createSQLQuery(sql);
+		
+		List<Object[]> rows = addScalars(query)
+				.setParameter("entityType", entityType)
+				.setParameter("cpId", cpId)
+				.list();
+		
+		return getForms(rows);
+	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -546,7 +554,23 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 		}
 		
 		sqlBuilder.append(" order by modificationTime desc ");
-		return sqlBuilder.toString();
+		return String.format(sqlBuilder.toString(), " (ctxt.entity_type is null or ctxt.entity_type != 'Query') and ");
+	}
+	
+	private SQLQuery addScalars(SQLQuery query) {
+		query.addScalar("formId", new LongType())
+			 .addScalar("formName", new StringType())
+			 .addScalar("formCaption", new StringType())
+			 .addScalar("creationTime", new TimestampType())
+			 .addScalar("modificationTime", new TimestampType())
+			 .addScalar("cpCount", new IntegerType())
+			 .addScalar("allCp", new IntegerType())
+			 .addScalar("sysForm", new BooleanType())
+			 .addScalar("userId", new LongType())
+			 .addScalar("userFirstName", new StringType())
+			 .addScalar("userLastName", new StringType());
+		
+		return query;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -715,9 +739,11 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 		return dependentEntities;
  	}
 	
-	private static final String FQN = FormContextBean.class.getName();
+	private String getEntityFormsQuery(String str) {
+		return String.format(GET_ALL_FORMS, str);
+	}
 	
-	private static final String GET_FORMS_BY_ENTITY_TYPE = FQN + ".getFormsByEntityType";
+	private static final String FQN = FormContextBean.class.getName();
 	
 	private static final String GET_QUERY_FORMS = FQN + ".getQueryForms";
 	
@@ -814,7 +840,7 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 			"      left join catissue_collection_protocol cp on ctxt.cp_id = cp.identifier " +
 			"    where " +
 			"      ic.deleted_on is null and " +
-			"      (ctxt.entity_type is null or ctxt.entity_type != 'Query') and " +
+			"      %s" +
 			"      (cp.identifier is null or cp.activity_status != 'Disabled') " +
 			"    group by " +
 			"      ic.identifier " +
