@@ -26,7 +26,9 @@ import com.krishagni.catissueplus.core.biospecimen.events.CprSummary;
 import com.krishagni.catissueplus.core.biospecimen.events.ParticipantSummary;
 import com.krishagni.catissueplus.core.biospecimen.repository.CollectionProtocolRegistrationDao;
 import com.krishagni.catissueplus.core.biospecimen.repository.CprListCriteria;
+import com.krishagni.catissueplus.core.common.access.AccessCtrlMgr;
 import com.krishagni.catissueplus.core.common.repository.AbstractDao;
+import com.krishagni.catissueplus.core.common.util.AuthUtil;
 import com.krishagni.catissueplus.core.common.util.Utility;
 
 public class CollectionProtocolRegistrationDaoImpl 
@@ -49,13 +51,20 @@ public class CollectionProtocolRegistrationDaoImpl
 			query.setProjection(cprFields);
 		}
 		
-		
 		List<CprSummary> cprs = new ArrayList<CprSummary>();
 		Map<Long, CprSummary> cprMap = new HashMap<Long, CprSummary>();
 		
 		List<Object[]> rows = query.list();
 		for (Object[] row : rows) {
-			CprSummary cpr = getCprSummary(row);
+			boolean includePhi = false;
+			
+			if (AuthUtil.isAdmin() || cprCrit.cpId() != -1L) {
+				includePhi = cprCrit.includePhi();
+			} else {
+				includePhi = cprCrit.phiCps().contains(row[3]);
+			}
+			
+			CprSummary cpr = getCprSummary(row, includePhi);
 			if (cprCrit.includeStat()) {
 				cprMap.put(cpr.getCprId(), cpr);
 			}
@@ -200,11 +209,22 @@ public class CollectionProtocolRegistrationDaoImpl
 	}
 
 	private void addCpRestrictions(Criteria query, CprListCriteria cprCrit) {
-		if (cprCrit.cpId() == null || cprCrit.cpId() == -1) {
+		if (cprCrit.cpId() != -1L) {
+			query.add(Restrictions.eq("cp.id", cprCrit.cpId()));
 			return;
 		}
-
-		query.add(Restrictions.eq("cp.id", cprCrit.cpId()));
+		
+		if (AuthUtil.isAdmin()) {
+			return;
+		}
+		
+		if (cprCrit.dob() != null || StringUtils.isNotBlank(cprCrit.name()) || StringUtils.isNotBlank(cprCrit.participantId())) {
+			query.add(Restrictions.in("cp.id", cprCrit.phiCps()));
+			return;
+		} else {
+			query.add(Restrictions.in("cp.id", cprCrit.allCps()));
+			return;
+		}
 	}
 
 	private void addRegDateCondition(Criteria query, CprListCriteria crit) {
@@ -223,26 +243,29 @@ public class CollectionProtocolRegistrationDaoImpl
 		}
 		
 		boolean participantIdSpecified   = StringUtils.isNotBlank(crit.participantId());
-		boolean sitesSpecified = CollectionUtils.isNotEmpty(crit.siteIds());
+		boolean isSiteBasedAccess = AccessCtrlMgr.getInstance().isAccessRestrictedBasedOnMrn() 
+				&& CollectionUtils.isNotEmpty(crit.siteIds());
 		
 		if (participantIdSpecified) {
 			query.createAlias("participant.pmis", "pmi", JoinType.LEFT_OUTER_JOIN);
 			
-			Conjunction pmiCond = Restrictions.conjunction();
-			pmiCond.add(Restrictions.ilike("pmi.medicalRecordNumber", crit.participantId(), MatchMode.ANYWHERE));
-
-			if (sitesSpecified) {
+			if (isSiteBasedAccess) {
 				query.createAlias("pmi.site", "site");
-				pmiCond.add(Restrictions.in("site.id", crit.siteIds()));
+				Disjunction siteCond = Restrictions.disjunction();
+				siteCond.add(Restrictions.isNull("site.id"))
+					.add(Restrictions.in("site.id", crit.siteIds()));
+				
+				query.add(siteCond);
 			}
 			
 			Disjunction orCond = Restrictions.disjunction();
-			orCond.add(pmiCond)
+			orCond.add(Restrictions.ilike("pmi.medicalRecordNumber", crit.participantId(), MatchMode.ANYWHERE))
 				.add(Restrictions.ilike("participant.empi", crit.participantId(), MatchMode.ANYWHERE))
 				.add(Restrictions.ilike("participant.uid", crit.participantId(), MatchMode.ANYWHERE));
 			
 			query.add(orCond);
-		} else if (sitesSpecified) {
+			
+		} else if (isSiteBasedAccess) {
 			query.createAlias("participant.pmis", "pmi", JoinType.LEFT_OUTER_JOIN)
 			.createAlias("pmi.site", "site", JoinType.LEFT_OUTER_JOIN)
 			.add(Restrictions.disjunction()
@@ -330,7 +353,7 @@ public class CollectionProtocolRegistrationDaoImpl
 		return projs;
 	}
 	
-	private CprSummary getCprSummary(Object[] row) {
+	private CprSummary getCprSummary(Object[] row, boolean includePhi) {
 		int idx = 0;
 		CprSummary cpr = new CprSummary();
 		cpr.setCprId((Long)row[idx++]);
@@ -342,7 +365,7 @@ public class CollectionProtocolRegistrationDaoImpl
 		ParticipantSummary participant = new ParticipantSummary();
 		cpr.setParticipant(participant);
 		participant.setId((Long)row[idx++]);
-		if (row.length > idx) {
+		if (includePhi) {
 			participant.setFirstName((String)row[idx++]);
 			participant.setLastName((String) row[idx++]);
 			participant.setEmpi((String) row[idx++]);

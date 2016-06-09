@@ -22,6 +22,10 @@ public class CprListCriteria extends AbstractListCriteria<CprListCriteria> {
 	private String specimen;
 	
 	private Set<Long> siteIds;
+	
+	private Set<Long> phiCps;
+	
+	private Set<Long> allCps;
 
 	private String uid;
 
@@ -109,5 +113,21 @@ public class CprListCriteria extends AbstractListCriteria<CprListCriteria> {
 	
 	public void siteIds(Set<Long> siteIds) {
 		this.siteIds = siteIds;
+	}
+	
+	public Set<Long> phiCps() {
+		return phiCps;
+	}
+	
+	public void phiCps(Set<Long> phiCps) {
+		this.phiCps = phiCps;
+	}
+	
+	public Set<Long> allCps() {
+		return allCps;
+	}
+	
+	public void allCps(Set<Long> allCps) {
+		this.allCps = allCps;
 	}
 }

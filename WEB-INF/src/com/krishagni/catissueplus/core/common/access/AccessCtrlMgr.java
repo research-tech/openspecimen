@@ -256,6 +256,10 @@ public class AccessCtrlMgr {
 		public boolean admin;
 
 		public Set<Long> siteIds;
+		
+		public Set<Long> phiCPs = new HashSet<Long>();
+		
+		public Set<Long> allCPs = new HashSet<Long>();
 
 		public boolean phiAccess;
 	}
@@ -272,17 +276,18 @@ public class AccessCtrlMgr {
 		Long userId = AuthUtil.getCurrentUser().getId();
 		String resource = Resource.PARTICIPANT.getName();
 		String[] ops = {Operation.READ.getName()};
+		
 		List<SubjectAccess> accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, resource, ops);
+		if (accessList.isEmpty()) {
+			accessList = daoFactory.getSubjectDao().getAccessList(userId, resource, ops);
+		}
+		
 		if (accessList.isEmpty()) {
 			resource = Resource.PARTICIPANT_DEID.getName();
 			accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, resource, ops);
 			result.phiAccess = false;
 		}
 		
-		if (!isAccessRestrictedBasedOnMrn()) {
-			return result;
-		}
-
 		Set<Long> siteIds = new HashSet<Long>();
 		for (SubjectAccess access : accessList) {
 			Site accessSite = access.getSite();
@@ -294,8 +299,17 @@ public class AccessCtrlMgr {
 					siteIds.add(site.getId());
 				}
 			}
+			
+			CollectionProtocol cp = access.getCollectionProtocol();
+			if (cp.getId() != null) {
+				result.phiCPs.add(cp.getId());
+			}
 		}
-
+		
+		if (!AuthUtil.isAdmin()) {
+			result.allCPs = getReadableCpIds();
+		}
+		
 		result.siteIds = siteIds;
 		return result;
 	}

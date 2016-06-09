@@ -180,6 +180,11 @@ public class CollectionProtocolServiceImpl implements CollectionProtocolService,
 				listCrit.siteIds(access.siteIds);
 			}
 			
+			if (listCrit.cpId() == -1) {
+				listCrit.allCps(access.allCPs);
+				listCrit.phiCps(access.phiCPs);
+			}
+			
 			return ResponseEvent.response(daoFactory.getCprDao().getCprList(listCrit));
 		} catch (Exception e) {
 			return ResponseEvent.serverError(e);
