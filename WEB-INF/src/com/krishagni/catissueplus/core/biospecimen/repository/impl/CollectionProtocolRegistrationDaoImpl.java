@@ -238,15 +238,15 @@ public class CollectionProtocolRegistrationDaoImpl
 	}
 	
 	private void addMrnSiteAndEmpiAndSsnCondition(Criteria query, CprListCriteria crit) {
-		if (!crit.includePhi()) {
-			return;
-		}
-		
 		boolean participantIdSpecified   = StringUtils.isNotBlank(crit.participantId());
 		boolean isSiteBasedAccess = AccessCtrlMgr.getInstance().isAccessRestrictedBasedOnMrn() 
 				&& CollectionUtils.isNotEmpty(crit.siteIds());
 		
 		if (participantIdSpecified) {
+			if (!crit.includePhi()) {
+				return;
+			}
+			
 			query.createAlias("participant.pmis", "pmi", JoinType.LEFT_OUTER_JOIN);
 			
 			if (isSiteBasedAccess) {

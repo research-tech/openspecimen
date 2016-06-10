@@ -121,7 +121,9 @@ public class VisitServiceImpl implements VisitService, ObjectStateParamsResolver
 		while (iterator.hasNext()) {
 			Visit visit = iterator.next();
 			try {
-				AccessCtrlMgr.getInstance().ensureReadVisitRights(visit, false);
+				if (!AccessCtrlMgr.getInstance().ensureReadVisitRights(visit, true)) {
+					iterator.remove();
+				}
 			} catch (OpenSpecimenException ose) {
 				if (ose.getErrorType().equals(ErrorType.USER_ERROR)) {
 					iterator.remove();

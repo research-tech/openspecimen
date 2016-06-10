@@ -277,9 +277,11 @@ public class AccessCtrlMgr {
 		String resource = Resource.PARTICIPANT.getName();
 		String[] ops = {Operation.READ.getName()};
 		
-		List<SubjectAccess> accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, resource, ops);
-		if (accessList.isEmpty()) {
+		List<SubjectAccess> accessList = null;
+		if (cpId == null || cpId == -1L) {
 			accessList = daoFactory.getSubjectDao().getAccessList(userId, resource, ops);
+		} else {
+			accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, resource, ops);
 		}
 		
 		if (accessList.isEmpty()) {
