@@ -124,7 +124,7 @@ public class VisitServiceImpl implements VisitService, ObjectStateParamsResolver
 				AccessCtrlMgr.getInstance().ensureReadVisitRights(visit, false);
 			} catch (OpenSpecimenException ose) {
 				if (ose.getErrorType().equals(ErrorType.USER_ERROR)) {
-					visits.remove(visit);
+					iterator.remove();
 				}
 			}
 		}
