@@ -112,4 +112,29 @@
       <column name="VISIT_NAME_PRINT_COPIES" type="${int.type}"/>
     </addColumn>
   </changeSet>
+  
+  <changeSet author="mdnasim" id="OS permissible value properties table">
+    <createTable tableName="OS_PV_PROPS">
+      <column name="PV_ID" type="${int.type}">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="NAME" type="${text.type}(32)">
+        <constraints nullable="false"/>
+      </column>
+
+      <column name="VALUE" type="${text.type}(255)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+  
+  <changeSet author="mdnasim" id="FK on permissible value of permissible value props">
+    <addForeignKeyConstraint 
+      constraintName="FK_PV_PROPS_PV_ID"
+      baseTableName="OS_PV_PROPS"
+      baseColumnNames="PV_ID"
+      referencedTableName="CATISSUE_PERMISSIBLE_VALUE"
+      referencedColumnNames="IDENTIFIER"/>
+  </changeSet>
 </databaseChangeLog>

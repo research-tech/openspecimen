@@ -1,7 +1,9 @@
 
 package com.krishagni.catissueplus.core.administrative.domain;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import com.krishagni.catissueplus.core.biospecimen.domain.BaseEntity;
@@ -18,6 +20,8 @@ public class PermissibleValue extends BaseEntity {
 	private Long sortOrder;
 	
 	private Set<PermissibleValue> children = new HashSet<PermissibleValue>();
+	
+	private Map<String, String> props = new HashMap<String, String>();
 
 	public String getValue() {
 		return value;
@@ -67,11 +71,20 @@ public class PermissibleValue extends BaseEntity {
 		this.children = children;
 	}
 
+	public Map<String, String> getProps() {
+		return props;
+	}
+
+	public void setProps(Map<String, String> props) {
+		this.props = props;
+	}
+
 	public void update(PermissibleValue other) {
 		setConceptCode(other.getConceptCode());
 		setAttribute(other.getAttribute());
 		setParent(other.getParent());
 		setValue(other.getValue());
 		setSortOrder(other.getSortOrder());
+		setProps(other.props);
 	}
 }
