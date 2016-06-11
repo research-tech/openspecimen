@@ -11,6 +11,8 @@ public interface SubjectDao extends Dao<Subject> {
 	
 	public List<SubjectAccess> getAccessList(Long subjectId, String resource, String[] ops);
 	
+	public List<SubjectAccess> getAccessList(Long subjectId, String[] resource, String[] ops);
+	
 	public List<SubjectAccess> getAccessList(Long subjectId, String resource, String[] ops, String[] siteNames);
 	
 	public List<SubjectAccess> getAccessList(Long subjectId, Long cpId, String resource, String[] ops);

@@ -110,10 +110,12 @@ public class VisitServiceImpl implements VisitService, ObjectStateParamsResolver
 	public ResponseEvent<List<VisitDetail>> getVisits(RequestEvent<VisitsListCriteria> criteria) {
 		VisitsListCriteria crit = criteria.getPayload();
 		List<Visit> visits = new ArrayList<Visit>();
+		boolean checkPhi = false;
 
 		if (StringUtils.isNotEmpty(crit.name())) {
 			visits.add(getVisit(null, crit.name()));
 		} else if (StringUtils.isNotEmpty(crit.sprNumber())) {
+			checkPhi = true;
 			visits.addAll(daoFactory.getVisitsDao().getBySpr(crit.sprNumber()));
 		}
 
@@ -121,7 +123,8 @@ public class VisitServiceImpl implements VisitService, ObjectStateParamsResolver
 		while (iterator.hasNext()) {
 			Visit visit = iterator.next();
 			try {
-				if (!AccessCtrlMgr.getInstance().ensureReadVisitRights(visit, true)) {
+				boolean allowed = AccessCtrlMgr.getInstance().ensureReadVisitRights(visit, checkPhi);
+				if (checkPhi && !allowed) {
 					iterator.remove();
 				}
 			} catch (OpenSpecimenException ose) {

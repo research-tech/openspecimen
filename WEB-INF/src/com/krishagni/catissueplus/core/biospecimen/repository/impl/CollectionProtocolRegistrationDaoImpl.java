@@ -57,8 +57,7 @@ public class CollectionProtocolRegistrationDaoImpl
 		List<Object[]> rows = query.list();
 		for (Object[] row : rows) {
 			boolean includePhi = false;
-			
-			if (AuthUtil.isAdmin() || cprCrit.cpId() != -1L) {
+			if (AuthUtil.isAdmin() || (cprCrit.cpId() != null && cprCrit.cpId() != -1L)) {
 				includePhi = cprCrit.includePhi();
 			} else {
 				includePhi = cprCrit.phiCps().contains(row[3]);
@@ -209,7 +208,7 @@ public class CollectionProtocolRegistrationDaoImpl
 	}
 
 	private void addCpRestrictions(Criteria query, CprListCriteria cprCrit) {
-		if (cprCrit.cpId() != -1L) {
+		if (cprCrit.cpId() != null && cprCrit.cpId() != -1L) {
 			query.add(Restrictions.eq("cp.id", cprCrit.cpId()));
 			return;
 		}

@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 
@@ -266,50 +267,63 @@ public class AccessCtrlMgr {
 
 	public ParticipantReadAccess getParticipantReadAccess(Long cpId) {
 		ParticipantReadAccess result = new ParticipantReadAccess();
-		result.phiAccess = true;
 
 		if (AuthUtil.isAdmin()) {
 			result.admin = true;
+			result.phiAccess = true;
 			return result;
 		}
 
 		Long userId = AuthUtil.getCurrentUser().getId();
-		String resource = Resource.PARTICIPANT.getName();
+		String participantPhi = Resource.PARTICIPANT.getName();
+		String participantDeid = Resource.PARTICIPANT_DEID.getName();
 		String[] ops = {Operation.READ.getName()};
 		
 		List<SubjectAccess> accessList = null;
 		if (cpId == null || cpId == -1L) {
-			accessList = daoFactory.getSubjectDao().getAccessList(userId, resource, ops);
+			accessList = daoFactory.getSubjectDao().getAccessList(userId, new String[] {participantPhi, participantDeid}, ops);
 		} else {
-			accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, resource, ops);
+			accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, participantPhi, ops);
 		}
 		
 		if (accessList.isEmpty()) {
-			resource = Resource.PARTICIPANT_DEID.getName();
-			accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, resource, ops);
+			accessList = daoFactory.getSubjectDao().getAccessList(userId, cpId, participantDeid, ops);
 			result.phiAccess = false;
 		}
 		
 		Set<Long> siteIds = new HashSet<Long>();
+		Set<Long> userInstituteSites = new HashSet<Long>();
 		for (SubjectAccess access : accessList) {
 			Site accessSite = access.getSite();
+			Set<Long> accessibleSites = new HashSet<Long>();
 			if (accessSite != null) {
-				siteIds.add(accessSite.getId());
-			} else if (accessSite == null) {
-				Set<Site> sites = getUserInstituteSites(userId);
-				for (Site site : sites) {
-					siteIds.add(site.getId());
-				}
+				accessibleSites.add(accessSite.getId());
+			} else if (CollectionUtils.isEmpty(userInstituteSites)) {
+				getUserInstituteSites(userId).forEach(site -> userInstituteSites.add(site.getId()));
+				accessibleSites = userInstituteSites;
+			} else {
+				accessibleSites = userInstituteSites;
 			}
 			
-			CollectionProtocol cp = access.getCollectionProtocol();
-			if (cp.getId() != null) {
-				result.phiCPs.add(cp.getId());
+			siteIds.addAll(accessibleSites);
+			
+			Set<Long> cpIds = new HashSet<Long>();
+			CollectionProtocol accessCp = access.getCollectionProtocol();
+			if (accessCp != null) {
+				cpIds.add(accessCp.getId());
+			} else {
+				cpIds.addAll(daoFactory.getCollectionProtocolDao().getCpIdsBySiteIds(accessibleSites));
 			}
+			
+			if (StringUtils.equals(access.getResource(), participantPhi)) {
+				result.phiCPs.addAll(cpIds);
+			}
+			
+			result.allCPs.addAll(cpIds);
 		}
 		
-		if (!AuthUtil.isAdmin()) {
-			result.allCPs = getReadableCpIds();
+		if (result.phiCPs.size() != 0) {
+			result.phiAccess = true;
 		}
 		
 		result.siteIds = siteIds;
