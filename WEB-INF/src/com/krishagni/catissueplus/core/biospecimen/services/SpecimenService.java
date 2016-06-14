@@ -13,6 +13,7 @@ import com.krishagni.catissueplus.core.biospecimen.events.SpecimenDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenInfo;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenQueryCriteria;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenStatusDetail;
+import com.krishagni.catissueplus.core.common.errors.OpenSpecimenException;
 import com.krishagni.catissueplus.core.common.events.DependentEntityDetail;
 import com.krishagni.catissueplus.core.common.events.RequestEvent;
 import com.krishagni.catissueplus.core.common.events.ResponseEvent;
@@ -49,7 +50,12 @@ public interface SpecimenService {
 	/** Mostly present for UI **/
 	public ResponseEvent<Map<String, Object>> getCprAndVisitIds(RequestEvent<Long> req);
 
+	//
+	// For internal and plugin usage purpose
+	//
 	public List<Specimen> getSpecimensByLabel(List<String> labels);
 
 	public List<Specimen> getSpecimensById(List<Long> ids);
+
+	public Specimen getSpecimen(Long specimenId, String label, String cpShortTitle, OpenSpecimenException ose);
 }

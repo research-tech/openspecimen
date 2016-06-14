@@ -417,6 +417,7 @@
     <property name="containerFactory" ref="storageContainerFactory"/>
     <property name="mapExporter" ref="containerMapExporter"/>
     <property name="nameGenerator" ref="containerNameGenerator"/>
+    <property name="specimenSvc" ref="specimenSvc"/>
   </bean>
 
   <bean id="containerTypeFactory" class="com.krishagni.catissueplus.core.administrative.domain.factory.impl.ContainerTypeFactoryImpl">

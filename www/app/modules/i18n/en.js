@@ -531,6 +531,10 @@
     "specimen_type": "Specimen Type",
     "anatomic_site": "Anatomic Site",
 
+    "multiple_cp_specimens": "Specimen labels with multiple protocols",
+    "select_protocol": "Following specimen labels are present in multiple protocols. Please select the right protocol before proceeding",
+    "specimen_not_found": "Specimen {{label}} does not exist",
+
     "col_event": {
       "title": "Collection Details",
       "user_time": "User and Time",

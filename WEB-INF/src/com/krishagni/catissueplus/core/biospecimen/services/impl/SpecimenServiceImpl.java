@@ -424,6 +424,28 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 	}
 
 	@Override
+	public Specimen getSpecimen(Long specimenId, String cpShortTitle, String label, OpenSpecimenException ose) {
+		Specimen specimen = null;
+		Object key = null;
+
+		if (specimenId != null) {
+			key = specimenId;
+			specimen = daoFactory.getSpecimenDao().getById(specimenId);
+		} else if (StringUtils.isNotBlank(label)) {
+			key = label;
+			specimen = getSpecimen(cpShortTitle, label);
+		}
+
+		if (key == null) {
+			ose.addError(SpecimenErrorCode.LABEL_REQUIRED);
+		} else if (specimen == null) {
+			ose.addError(SpecimenErrorCode.NOT_FOUND, key);
+		}
+
+		return specimen;
+	}
+
+	@Override
 	public String getObjectName() {
 		return "specimen";
 	}
@@ -729,25 +751,6 @@ public class SpecimenServiceImpl implements SpecimenService, ObjectStateParamsRe
 		}
 
 		return result;
-	}
-
-	private Specimen getSpecimen(Long specimenId, String cpShortTitle, String label, OpenSpecimenException ose) {
-		Specimen specimen = null;
-		Object key = null;
-		
-		if (specimenId != null) {
-			key = specimenId;
-			specimen = daoFactory.getSpecimenDao().getById(specimenId);
-		} else if (StringUtils.isNotBlank(label)) {
-			key = label;
-			specimen = getSpecimen(cpShortTitle, label);
-		}
-		
-		if (specimen == null) {
-			ose.addError(SpecimenErrorCode.NOT_FOUND, key);
-		}
-		
-		return specimen;
 	}
 
 	private Specimen getSpecimen(String cpShortTitle, String label) {

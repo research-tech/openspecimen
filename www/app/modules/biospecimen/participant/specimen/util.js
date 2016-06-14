@@ -1,5 +1,5 @@
 angular.module('os.biospecimen.specimen')
-  .factory('SpecimenUtil', function(Specimen, PvManager, Alerts) {
+  .factory('SpecimenUtil', function($modal, Specimen, PvManager, Alerts, Util) {
 
     function collectAliquots(scope) {
       var spec = scope.aliquotSpec;
@@ -169,6 +169,83 @@ angular.module('os.biospecimen.specimen')
       return formCtrl.getFormData();
     }
 
+    function getSpecimens(labels) {
+      return Specimen.listByLabels(labels).then(
+        function(specimens) {
+          return resolveSpecimens(labels, specimens);
+        }
+      );
+    }
+
+    function resolveSpecimens(labels, specimens) {
+      var specimensMap = {};
+      angular.forEach(specimens, function(spmn) {
+        if (!specimensMap[spmn.label]) {
+          specimensMap[spmn.label] = [spmn];
+        } else {
+          specimensMap[spmn.label].push(spmn);
+        }
+      });
+
+      //
+      // {label: label, specimens; [s1, s2], selected: s1}
+      //
+      var labelsInfo = [];
+      var dupLabels = [], notFoundLabels = [];
+
+      angular.forEach(labels, function(label) {
+        var labelInfo = {label: label};
+        var spmns = specimensMap[label];
+        if (!spmns) {
+          notFoundLabels.push(label);
+          return;
+        }
+
+        labelInfo.specimens = spmns;
+        if (spmns.length > 1) {
+          dupLabels.push(labelInfo);
+        } else {
+          labelInfo.selected = spmns[0];
+        }
+
+        labelsInfo.push(labelInfo);
+      });
+
+      if (notFoundLabels.length != 0) {
+        Alerts.error('specimens.specimen_not_found', {label: notFoundLabels.join()});
+        return undefined;
+      }
+
+      if (dupLabels.length == 0) {
+        return specimens;
+      }
+
+      var modalInstance = $modal.open({
+        templateUrl: 'modules/biospecimen/participant/specimen/resolve-specimens.html',
+        controller: 'ResolveSpecimensCtrl',
+        resolve: {
+          labels: function() {
+            return dupLabels;
+          }
+        }
+      });
+
+      return modalInstance.result.then(
+        function(spmns) {
+          //
+          // Duplicate labels info passed to modal is a sub-view of labelsInfo list;
+          // therefore any updates/selection done in modal are visible in labelsInfo
+          // list as well
+          //
+          return labelsInfo.map(
+            function(labelInfo) {
+              return labelInfo.selected;
+            }
+          );
+        }
+      );
+    }
+
     return {
       collectAliquots: collectAliquots,
 
@@ -180,6 +257,30 @@ angular.module('os.biospecimen.specimen')
 
       loadSpecimenTypes: loadSpecimenTypes,
 
-      loadPathologyStatuses: loadPathologyStatuses
+      loadPathologyStatuses: loadPathologyStatuses,
+
+      getSpecimens: getSpecimens
     }
+  })
+  .controller('ResolveSpecimensCtrl', function($scope, $modalInstance, labels, Alerts) {
+    function init() {
+      $scope.labels = labels;
+    }
+
+    $scope.cancel = function() {
+      $modalInstance.dismiss('cancel');
+    };
+
+    $scope.done = function() {
+      var selectedSpmns = $scope.labels.map(
+        function(label) {
+          return label.selected;
+        }
+      );
+
+      $modalInstance.close(selectedSpmns);
+    }
+
+    init();
   });
+  
