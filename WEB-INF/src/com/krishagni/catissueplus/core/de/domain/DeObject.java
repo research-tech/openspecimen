@@ -22,7 +22,6 @@ import com.krishagni.catissueplus.core.common.util.MessageUtil;
 import com.krishagni.catissueplus.core.de.events.ExtensionDetail;
 import com.krishagni.catissueplus.core.de.events.ExtensionDetail.AttrDetail;
 import com.krishagni.catissueplus.core.de.events.FormRecordSummary;
-import com.krishagni.catissueplus.core.de.events.FormSummary;
 import com.krishagni.catissueplus.core.de.repository.DaoFactory;
 
 import edu.common.dynamicextensions.domain.nui.Container;
@@ -32,12 +31,13 @@ import edu.common.dynamicextensions.napi.ControlValue;
 import edu.common.dynamicextensions.napi.FileControlValue;
 import edu.common.dynamicextensions.napi.FormData;
 import edu.common.dynamicextensions.napi.FormDataManager;
-import krishagni.catissueplus.beans.FormContextBean;
 import krishagni.catissueplus.beans.FormRecordEntryBean;
 import krishagni.catissueplus.beans.FormRecordEntryBean.Status;
 
 @Configurable
-public abstract class DeObject {	
+public abstract class DeObject {
+	private static FormInfoCache formInfoCache = new FormInfoCache();
+
 	@Autowired
 	private FormDataManager formDataMgr;
 	
@@ -51,13 +51,7 @@ public abstract class DeObject {
 	private boolean useUdn = false;
 	
 	private List<Attr> attrs = new ArrayList<Attr>();
-	
-	private static Map<String, String> entityTypeFormNameMap = new HashMap<String, String>();
- 	
-	private static Map<String, Container> formMap = new HashMap<String, Container>();
-	
-	private static Map<String, FormContextBean> formCtxMap = new HashMap<String, FormContextBean>();
-	
+
 	public DeObject() { }
 	
 	public DeObject(boolean useUdn) {
@@ -122,9 +116,7 @@ public abstract class DeObject {
 	}
 	
 	public void saveRecordEntry() {
-		UserContext userCtx = getUserCtx();
-		Long formCtxtId = getFormContext().getIdentifier();
-		FormRecordEntryBean re = prepareRecordEntry(userCtx, formCtxtId, getId());
+		FormRecordEntryBean re = prepareRecordEntry(getUserCtx(), getFormContext(), getId());
 		daoFactory.getFormDao().saveOrUpdateRecordEntry(re);
 	}
 	
@@ -133,9 +125,7 @@ public abstract class DeObject {
 			return;
 		}
 
-		Long formCtxId = getFormContext().getIdentifier();
-		Long objectId = getObjectId();
-		FormRecordEntryBean re = daoFactory.getFormDao().getRecordEntry(formCtxId, objectId, getId());
+		FormRecordEntryBean re = daoFactory.getFormDao().getRecordEntry(getFormContext(), getObjectId(), getId());
 		if (re == null) {
 			return;
 		}
@@ -146,14 +136,12 @@ public abstract class DeObject {
 	
 	/** Hackish method */
 	public List<Long> getRecordIds() {
-		FormContextBean formCtx = getFormContext();
+		Long formCtx = getFormContext();
 		if (formCtx == null) {
 			return null;
 		}
 		
-		List<FormRecordSummary> records = daoFactory.getFormDao()
-				.getFormRecords(formCtx.getIdentifier(), getObjectId());
-		
+		List<FormRecordSummary> records = daoFactory.getFormDao().getFormRecords(formCtx, getObjectId());
 		List<Long> recIds = new ArrayList<Long>();
 		for (FormRecordSummary rec : records) {
 			recIds.add(rec.getRecordId());
@@ -195,17 +183,22 @@ public abstract class DeObject {
 		
 		setAttrValues(attrValues);
 	}
-	
+
 	protected String getFormNameByEntityType() {
-		if (!entityTypeFormNameMap.containsKey(getEntityType())) {
-			synchronized(entityTypeFormNameMap) {
-				List<FormSummary> forms = daoFactory.getFormDao().getFormsByEntityType(getEntityType());
-				String formName = forms.isEmpty() ? null: forms.get(0).getName();
-				entityTypeFormNameMap.put(getEntityType(), formName);
-			}
+		return getFormNameByEntityType(-1L);
+	}
+
+	protected String getFormNameByEntityType(Long cpId) {
+		if (cpId == null || cpId <= 0L) {
+			cpId = -1L;
 		}
-		
-		return entityTypeFormNameMap.get(getEntityType());
+
+		String formName = formInfoCache.getFormName(cpId, getEntityType());
+		if (StringUtils.isBlank(formName) && cpId != -1L) {
+			formName = formInfoCache.getFormName(-1L, getEntityType());
+		}
+
+		return formName;
 	}
 	
 	public abstract Long getObjectId();
@@ -253,7 +246,7 @@ public abstract class DeObject {
 			@Override
 			public String getFormName() {
 				if (StringUtils.isBlank(formName)) {
-					return getFormNameByEntityType();
+					return getFormNameByEntityType(getCpId());
 				}
 				return formName;
 			}
@@ -349,32 +342,21 @@ public abstract class DeObject {
 	}	
 		
 	private Container getForm() {
-		Container form = formMap.get(getFormName());
-		if (form == null) {
-			synchronized (formMap) {
-				form = Container.getContainer(getFormName());
-				formMap.put(getFormName(), form);
-			} 
-		}
-		
-		return form;
+		return formInfoCache.getForm(getFormName());
 	}
-	
-	private FormContextBean getFormContext() {
+
+	private Long getFormContext() {
 		String formName = getFormName();
 		if (StringUtils.isBlank(formName)) {
 			return null;
 		}
-		
-		FormContextBean formCtxt = formCtxMap.get(formName);
-		if (formCtxt == null) {
-			synchronized (formCtxMap) {
-				Long formId = getForm().getId();
-				formCtxt = daoFactory.getFormDao().getFormContext(formId, getCpId(), getEntityType());
-				formCtxMap.put(formName, formCtxt);
-			}
+
+		Long cpId = getCpId();
+		Long formCtxt = formInfoCache.getFormContext(cpId, getEntityType(), formName);
+		if (formCtxt == null && cpId != -1) {
+			formCtxt = formInfoCache.getFormContext(-1L, getEntityType(), formName);
 		}
-		
+
 		return formCtxt;
 	}
 

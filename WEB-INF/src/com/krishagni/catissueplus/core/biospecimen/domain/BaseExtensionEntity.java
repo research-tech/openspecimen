@@ -57,7 +57,7 @@ public abstract class BaseExtensionEntity extends BaseEntity {
 			
 			@Override
 			public String getFormName() {
-				return getFormNameByEntityType();
+				return getFormNameByEntityType(getCpId());
 			}
 			
 			@Override

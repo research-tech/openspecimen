@@ -421,6 +421,22 @@
         c.deleted_on is null and
         fc.deleted_on is null
     </sql-query>
+
+    <sql-query name="getFormNameContextId">
+      <return-scalar column="formName" type="string"/>
+      <return-scalar column="ctxtId" type="long"/>
+
+      select
+        c.name as formName, fc.identifier as ctxtId
+      from
+        dyextn_containers c
+        inner join catissue_form_context fc on fc.container_id = c.identifier
+      where
+        c.deleted_on is null and
+        fc.deleted_on is null and
+        fc.entity_type = :entityType and
+        fc.cp_id = :cpId
+    </sql-query>
                          
     <sql-query name="getFormIds">
       <return-scalar column="formId" type="long"/>

@@ -104,7 +104,7 @@ public class FormServiceImpl implements FormService {
 	
 	private FormDao formDao;
 	
-	private Map<String, List<FormContextProcessor>> ctxtProcs = new HashMap<String, List<FormContextProcessor>>();
+	private Map<String, List<FormContextProcessor>> ctxtProcs = new HashMap<>();
 
 	public void setFormDao(FormDao formDao) {
 		this.formDao = formDao;
@@ -255,12 +255,7 @@ public class FormServiceImpl implements FormService {
 				}
 				formCtxt.setSortOrder(formCtxtDetail.getSortOrder());
 
-				List<FormContextProcessor> procs = ctxtProcs.get(entity);
-				if (procs != null) {
-					for (FormContextProcessor proc : procs) {
-						proc.onSaveOrUpdate(formCtxt);
-					}
-				}
+				notifyContextSaved(formCtxt);
 
 				formDao.saveOrUpdate(formCtxt);
 				formCtxtDetail.setFormCtxtId(formCtxt.getIdentifier());
@@ -489,7 +484,7 @@ public class FormServiceImpl implements FormService {
 			FormContextBean formCtx = formDao.getFormContext(
 					opDetail.getFormId(), 
 					opDetail.getCpId(), 
-					opDetail.getFormType().getType());
+					opDetail.getEntityType());
 			
 			if (formCtx == null) {
 				return ResponseEvent.userError(FormErrorCode.NO_ASSOCIATION);
@@ -507,13 +502,7 @@ public class FormServiceImpl implements FormService {
 				AccessCtrlMgr.getInstance().ensureUpdateCpRights(formCtx.getCpId());
 			}
 
-			List<FormContextProcessor> procs = ctxtProcs.get(formCtx.getEntityType());
-			if (procs != null) {
-				for (FormContextProcessor proc : procs) {
-					proc.onRemove(formCtx);
-				}
-			}
-			
+			notifyContextRemoved(formCtx);
 			switch (opDetail.getRemoveType()) {
 				case SOFT_REMOVE:
 					formCtx.setDeletedOn(Calendar.getInstance().getTime());
@@ -889,5 +878,29 @@ public class FormServiceImpl implements FormService {
 		}
 		
 		return existing;
+	}
+
+	private void notifyContextSaved(FormContextBean formCtxt) {
+		notifyContextSaved(formCtxt.getEntityType(), formCtxt);
+		notifyContextSaved("*", formCtxt);
+	}
+
+	private void notifyContextSaved(String entityType, FormContextBean formCtxt) {
+		List<FormContextProcessor> procs = ctxtProcs.get(entityType);
+		if (procs != null) {
+			procs.forEach(proc -> proc.onSaveOrUpdate(formCtxt));
+		}
+	}
+
+	private void notifyContextRemoved(FormContextBean formCtxt) {
+		notifyContextRemoved(formCtxt.getEntityType(), formCtxt);
+		notifyContextRemoved("*", formCtxt);
+	}
+
+	private void notifyContextRemoved(String entityType, FormContextBean formCtxt) {
+		List<FormContextProcessor> procs = ctxtProcs.get(entityType);
+		if (procs != null) {
+			procs.forEach(proc -> proc.onRemove(formCtxt));
+		}
 	}
 }

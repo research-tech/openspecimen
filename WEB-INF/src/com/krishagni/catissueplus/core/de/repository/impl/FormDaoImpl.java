@@ -26,6 +26,7 @@ import com.krishagni.catissueplus.core.administrative.repository.FormListCriteri
 import com.krishagni.catissueplus.core.biospecimen.domain.Specimen;
 import com.krishagni.catissueplus.core.biospecimen.domain.Visit;
 import com.krishagni.catissueplus.core.biospecimen.events.CollectionProtocolSummary;
+import com.krishagni.catissueplus.core.common.Pair;
 import com.krishagni.catissueplus.core.common.events.DependentEntityDetail;
 import com.krishagni.catissueplus.core.common.events.UserSummary;
 import com.krishagni.catissueplus.core.common.repository.AbstractDao;
@@ -275,6 +276,22 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 		}
 		
 		return formContexts;
+	}
+
+	@Override
+	public Pair<String, Long> getFormNameContext(Long cpId, String entityType) {
+		List<Object[]> rows = getCurrentSession()
+				.getNamedQuery(GET_FORM_NAME_CTXT_ID)
+				.setLong("cpId", cpId)
+				.setString("entityType", entityType)
+				.list();
+
+		if (CollectionUtils.isEmpty(rows)) {
+			return null;
+		}
+
+		Object[] row = rows.iterator().next();
+		return Pair.make((String)row[0], (Long)row[1]);
 	}
 	
 	@Override
@@ -752,6 +769,8 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 
 	private static final String GET_FORM_CTX_ID = FQN + ".getFormContextId";
 
+	private static final String GET_FORM_NAME_CTXT_ID = FQN + ".getFormNameContextId";
+
 	private static final String RE_FQN = FormRecordEntryBean.class.getName();
 	
 	private static final String GET_RECORD_ENTRY = RE_FQN + ".getRecordEntry";
@@ -835,5 +854,4 @@ public class FormDaoImpl extends AbstractDao<FormContextBean> implements FormDao
 			"  on ctxt.container_id = c.identifier and ctxt.deleted_on is null " +
 			"left join catissue_collection_protocol cp " +
 			"  on ctxt.cp_id = cp.identifier and cp.activity_status != 'Disabled' ";
-
 }
