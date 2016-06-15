@@ -208,7 +208,9 @@ public abstract class DeObject {
 	public abstract String getFormName();
 	
 	public abstract Long getCpId();
-	
+
+	public abstract void setAttrValues(Map<String, Object> attrValues);
+
 	public Map<String, Object> getAttrValues() {
 		loadRecordIfNotLoaded();
 		
@@ -223,9 +225,18 @@ public abstract class DeObject {
 		
 		return vals;
 	}
-	
-	public abstract void setAttrValues(Map<String, Object> attrValues);
-	
+
+	public Map<String, String> getLabelValueMap() {
+		String notSpecified = MessageUtil.getInstance().getMessage("common_not_specified");
+		return getAttrs().stream().collect(
+			Collectors.toMap(
+				attr -> attr.getCaption(),
+				attr -> attr.getDisplayValue(notSpecified),
+				(v1, v2) -> {throw new IllegalStateException("Duplicate key");},
+				LinkedHashMap::new)
+		);
+	}
+
 	public static Long saveFormData(
 			final String formName, 
 			final String entityType, 
@@ -300,6 +311,10 @@ public abstract class DeObject {
 		attrs.addAll(existingAttrs.values());
 		extension.setAttrs(attrs);
 		return extension;
+	}
+
+	public static Map<String, Object> getFormInfo(Long cpId, String entity) {
+		return formInfoCache.getFormInfo(cpId, entity);
 	}
 	
 	private UserContext getUserCtx() {
@@ -383,17 +398,6 @@ public abstract class DeObject {
 		}
 
 		return attrs;
-	}
-
-	public Map<String, String> getLabelValueMap() {
-		String notSpecified = MessageUtil.getInstance().getMessage("common_not_specified");
-		return getAttrs().stream().collect(
-			Collectors.toMap(
-				attr -> attr.getCaption(),
-				attr -> attr.getDisplayValue(notSpecified),
-				(v1, v2) -> {throw new IllegalStateException("Duplicate key");},
-				LinkedHashMap::new)
-		);
 	}
 
 	public static class Attr {

@@ -10,19 +10,19 @@ angular.module('os.administrative.form.entities', ['os.common'])
     list.addItem({
       name: 'ParticipantExtension',
       caption: '', key: 'entities.participant_extension',
-      allCps: true, multipleRecs: false
+      multipleRecs: false
     });
 
     list.addItem({
       name: 'VisitExtension',
       caption: '', key: 'entities.visit_extension',
-      allCps: true, multipleRecs: false
+      multipleRecs: false
     });
 
     list.addItem({
       name: 'SpecimenExtension',
       caption: '', key: 'entities.specimen_extension',
-      allCps: true, multipleRecs: false
+      multipleRecs: false
     });
 
     list.addItem({

@@ -3,6 +3,7 @@ package com.krishagni.catissueplus.core.administrative.services;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import com.krishagni.catissueplus.core.administrative.events.DpRequirementDetail;
 import com.krishagni.catissueplus.core.administrative.events.DistributionOrderStat;
@@ -44,5 +45,5 @@ public interface DistributionProtocolService {
 	
 	public ResponseEvent<File> exportOrderStats(RequestEvent<DistributionOrderStatListCriteria> req);
 
-	public ResponseEvent<FormCtxtSummary> getExtensionForm();
+	public ResponseEvent<Map<String, Object>> getExtensionForm();
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 
@@ -102,16 +103,21 @@ class FormInfoCache implements FormContextProcessor, FormEventsListener {
 		return form;
 	}
 
-	private ContextInfo getCpContextInfo(Long cpId) {
-		if (!contextInfoMap.containsKey(cpId)) {
-			synchronized (contextInfoMap) {
-				if (!contextInfoMap.containsKey(cpId)) {
-					contextInfoMap.put(cpId, new ContextInfo());
-				}
-			}
+	public Map<String, Object> getFormInfo(Long cpId, String entity) {
+		String formName = getFormName(cpId, entity);
+		if (StringUtils.isBlank(formName) && cpId != -1L) {
+			cpId = -1L;
+			formName = getFormName(cpId, entity);
 		}
 
-		return contextInfoMap.get(cpId);
+		if (StringUtils.isBlank(formName)) {
+			return null;
+		}
+
+		Map<String, Object> formInfo = new HashMap<>();
+		formInfo.put("formId", getForm(formName).getId());
+		formInfo.put("formCtxtId", getFormContext(cpId, entity, formName));
+		return formInfo;
 	}
 
 	@Override
@@ -153,6 +159,18 @@ class FormInfoCache implements FormContextProcessor, FormEventsListener {
 			contextInfo.removeFormName(formCtxt.getEntityType());
 			contextInfo.removeFormContext(formCtxt.getIdentifier());
 		}
+	}
+
+	private ContextInfo getCpContextInfo(Long cpId) {
+		if (!contextInfoMap.containsKey(cpId)) {
+			synchronized (contextInfoMap) {
+				if (!contextInfoMap.containsKey(cpId)) {
+					contextInfoMap.put(cpId, new ContextInfo());
+				}
+			}
+		}
+
+		return contextInfoMap.get(cpId);
 	}
 
 	private static class ContextInfo {
