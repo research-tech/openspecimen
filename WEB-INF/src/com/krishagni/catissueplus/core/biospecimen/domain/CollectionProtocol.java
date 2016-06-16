@@ -69,6 +69,10 @@ public class CollectionProtocol extends BaseExtensionEntity {
 	
 	private Long enrollment;
 	
+	private String sopDocumentUrl;
+
+	private String sopDocumentName;
+
 	private String descriptionURL;
 	
 	private String specimenLabelFormat;
@@ -185,6 +189,22 @@ public class CollectionProtocol extends BaseExtensionEntity {
 
 	public void setEnrollment(Long enrollment) {
 		this.enrollment = enrollment;
+	}
+
+	public String getSopDocumentUrl() {
+		return sopDocumentUrl;
+	}
+
+	public void setSopDocumentUrl(String sopDocumentUrl) {
+		this.sopDocumentUrl = sopDocumentUrl;
+	}
+
+	public String getSopDocumentName() {
+		return sopDocumentName;
+	}
+
+	public void setSopDocumentName(String sopDocumentName) {
+		this.sopDocumentName = sopDocumentName;
 	}
 
 	public String getDescriptionURL() {
@@ -401,6 +421,8 @@ public class CollectionProtocol extends BaseExtensionEntity {
 		setPrincipalInvestigator(cp.getPrincipalInvestigator());
 		setIrbIdentifier(cp.getIrbIdentifier());
 		setEnrollment(cp.getEnrollment());
+		setSopDocumentUrl(cp.getSopDocumentUrl());
+		setSopDocumentName(cp.getSopDocumentName());
 		setDescriptionURL(cp.getDescriptionURL());
 		setPpidFormat(cp.getPpidFormat());
 		setManualPpidEnabled(cp.isManualPpidEnabled());
@@ -434,6 +456,8 @@ public class CollectionProtocol extends BaseExtensionEntity {
 		cp.setEndDate(getEndDate());
 		cp.setIrbIdentifier(getIrbIdentifier());
 		cp.setEnrollment(getEnrollment());
+		cp.setSopDocumentUrl(getSopDocumentUrl());
+		cp.setSopDocumentName(getSopDocumentName());
 		cp.setDescriptionURL(getDescriptionURL());
 
 		cp.setPpidFormat(getPpidFormat());

@@ -2,6 +2,7 @@
 package com.krishagni.catissueplus.rest.controller;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -40,6 +41,8 @@ import com.krishagni.catissueplus.core.biospecimen.events.CpQueryCriteria;
 import com.krishagni.catissueplus.core.biospecimen.events.CpWorkflowCfgDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.CpWorkflowCfgDetail.WorkflowDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.MergeCpDetail;
+import com.krishagni.catissueplus.core.biospecimen.events.RegistrationQueryCriteria;
+import com.krishagni.catissueplus.core.biospecimen.events.SopDocumentDetail;
 import com.krishagni.catissueplus.core.biospecimen.repository.CpListCriteria;
 import com.krishagni.catissueplus.core.biospecimen.services.CollectionProtocolService;
 import com.krishagni.catissueplus.core.common.events.DeleteEntityOp;
@@ -49,6 +52,7 @@ import com.krishagni.catissueplus.core.common.events.Operation;
 import com.krishagni.catissueplus.core.common.events.RequestEvent;
 import com.krishagni.catissueplus.core.common.events.Resource;
 import com.krishagni.catissueplus.core.common.events.ResponseEvent;
+import com.krishagni.catissueplus.core.common.util.Utility;
 import com.krishagni.catissueplus.core.de.events.CpCatalogSettingDetail;
 import com.krishagni.catissueplus.core.de.events.FormCtxtSummary;
 import com.krishagni.catissueplus.core.de.events.ListEntityFormsOp;
@@ -171,6 +175,34 @@ public class CollectionProtocolsController {
 		return resp.getPayload();
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value="/{id}/sop-document")
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public void downloadConsentForm(@PathVariable("id") Long cpId, HttpServletResponse httpResp) throws IOException {
+		ResponseEvent<File> resp = cpSvc.getSopDocument(getRequest(cpId));
+		resp.throwErrorIfUnsuccessful();
+
+		File file = resp.getPayload();
+		String fileName = file.getName().split("_", 2)[1];
+
+		Utility.sendToClient(httpResp, fileName, file);
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value="/sop-document")
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public String uploadConsentForm(@PathVariable("file") MultipartFile file)
+	throws IOException {
+		SopDocumentDetail detail = new SopDocumentDetail();
+		detail.setFileName(file.getOriginalFilename());
+		detail.setInputStream(file.getInputStream());
+
+		ResponseEvent<String> resp = cpSvc.uploadSopDocument(getRequest(detail));
+		resp.throwErrorIfUnsuccessful();
+
+		return resp.getPayload();
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody

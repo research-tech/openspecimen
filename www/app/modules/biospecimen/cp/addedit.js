@@ -1,10 +1,12 @@
 
 angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.administrative.models'])
   .controller('CpAddEditCtrl', function(
-    $scope, $state, $stateParams, cp, extensionCtxt, User, Site, ExtensionsUtil, PvManager) {
+    $scope, $state, $stateParams, $sce, cp, extensionCtxt, CollectionProtocol, User, Site, ExtensionsUtil, PvManager) {
 
     function init() {
       $scope.cp = cp;
+      $scope.sopDocUploader = {};
+      $scope.sopDocUploadUrl = $sce.trustAsResourceUrl(CollectionProtocol.getSopDocUploadUrl());
       $scope.deFormCtrl = {};
       $scope.extnOpts = ExtensionsUtil.getExtnOpts(cp, extensionCtxt);
       $scope.coordinators = [];
@@ -35,6 +37,21 @@ angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.admini
       });
     }
 
+    function saveCp(cp) {
+      var q;
+      if ($scope.mode == 'copy') {
+        q = cp.copy($scope.copyFrom);
+      } else {
+        q = cp.$saveOrUpdate();
+      }
+
+      q.then(
+        function(savedCp) {
+          $state.go('cp-detail.overview', {cpId: savedCp.id});
+        }
+      );
+    }
+
     $scope.createCp = function() {
       var formCtrl = $scope.deFormCtrl.ctrl;
       if (formCtrl && !formCtrl.validate()) {
@@ -48,18 +65,20 @@ angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.admini
         cp.extensionDetail = formCtrl.getFormData();
       }
 
-      var q;
-      if ($scope.mode == 'copy') {
-        q = cp.copy($scope.copyFrom);
+      if ($scope.sopDocUploader.ctrl.data) {
+        $scope.sopDocUploader.ctrl.submit().then(
+          function(resp) {
+            cp.sopDocumentName = resp;
+            cp.sopDocumentUrl = undefined;
+            saveCp(cp);
+          }
+        );
       } else {
-        q = cp.$saveOrUpdate();
-      }
-
-      q.then(
-        function(savedCp) {
-          $state.go('cp-detail.overview', {cpId: savedCp.id});
+        if ($scope.cp.sopDocumentUrl) {
+          cp.sopDocumentName = undefined; 
         }
-      );
+        saveCp(cp);
+      }
     };
 
     $scope.onRepositorySelect = function(repositoryName) {

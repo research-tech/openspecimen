@@ -1,6 +1,9 @@
 
 package com.krishagni.catissueplus.core.biospecimen.services.impl;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,12 +13,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +31,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.krishagni.catissueplus.core.administrative.domain.Site;
 import com.krishagni.catissueplus.core.administrative.domain.StorageContainer;
 import com.krishagni.catissueplus.core.administrative.domain.User;
+import com.krishagni.catissueplus.core.biospecimen.ConfigParams;
 import com.krishagni.catissueplus.core.biospecimen.domain.AliquotSpecimensRequirement;
 import com.krishagni.catissueplus.core.biospecimen.domain.CollectionProtocol;
 import com.krishagni.catissueplus.core.biospecimen.domain.CollectionProtocolEvent;
@@ -41,6 +47,7 @@ import com.krishagni.catissueplus.core.biospecimen.domain.factory.CollectionProt
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.CpErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.CpeErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.CpeFactory;
+import com.krishagni.catissueplus.core.biospecimen.domain.factory.CprErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.SpecimenRequirementFactory;
 import com.krishagni.catissueplus.core.biospecimen.domain.factory.SrErrorCode;
 import com.krishagni.catissueplus.core.biospecimen.events.CollectionProtocolDetail;
@@ -56,6 +63,7 @@ import com.krishagni.catissueplus.core.biospecimen.events.CpWorkflowCfgDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.CpWorkflowCfgDetail.WorkflowDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.CprSummary;
 import com.krishagni.catissueplus.core.biospecimen.events.MergeCpDetail;
+import com.krishagni.catissueplus.core.biospecimen.events.SopDocumentDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenPoolRequirements;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenRequirementDetail;
 import com.krishagni.catissueplus.core.biospecimen.repository.CollectionProtocolDao;
@@ -76,6 +84,7 @@ import com.krishagni.catissueplus.core.common.events.ResponseEvent;
 import com.krishagni.catissueplus.core.common.service.EmailService;
 import com.krishagni.catissueplus.core.common.service.ObjectStateParamsResolver;
 import com.krishagni.catissueplus.core.common.util.AuthUtil;
+import com.krishagni.catissueplus.core.common.util.ConfigUtil;
 import com.krishagni.catissueplus.core.common.util.MessageUtil;
 import com.krishagni.catissueplus.core.common.util.Utility;
 import com.krishagni.rbac.common.errors.RbacErrorCode;
@@ -189,6 +198,56 @@ public class CollectionProtocolServiceImpl implements CollectionProtocolService,
 
 	@Override
 	@PlusTransactional
+	public ResponseEvent<File> getSopDocument(RequestEvent<Long> req) {
+		try {
+			Long cpId = req.getPayload();
+			CollectionProtocol existing = daoFactory.getCollectionProtocolDao().getById(cpId);
+			if (existing == null) {
+				return ResponseEvent.userError(CprErrorCode.NOT_FOUND);
+			}
+
+			AccessCtrlMgr.getInstance().ensureReadCpRights(existing);
+
+			String fileName = existing.getSopDocumentName();
+			if (StringUtils.isBlank(fileName)) {
+				return ResponseEvent.userError(CpErrorCode.SOP_DOCUMENT_NOT_FOUND);
+			}
+
+			File file = new File(getSopDocDir() + fileName);
+			if (!file.exists()) {
+				return ResponseEvent.userError(CpErrorCode.SOP_DOCUMENT_NOT_FOUND);
+			}
+
+			return ResponseEvent.response(file);
+		} catch (OpenSpecimenException ose) {
+			return ResponseEvent.error(ose);
+		} catch (Exception e) {
+			return ResponseEvent.serverError(e);
+		}
+	}
+
+	@Override
+	public ResponseEvent<String> uploadSopDocument(RequestEvent<SopDocumentDetail> req) {
+		OutputStream out = null;
+
+		try {
+			SopDocumentDetail detail = req.getPayload();
+			String fileName = UUID.randomUUID() + "_" + detail.getFileName();
+			File file = new File(getSopDocDir() + fileName);
+
+			out = new FileOutputStream(file);
+			IOUtils.copy(detail.getInputStream(), out);
+
+			return ResponseEvent.response(fileName);
+		} catch (Exception e) {
+			return ResponseEvent.serverError(e);
+		} finally {
+			IOUtils.closeQuietly(out);
+		}
+	}
+
+	@Override
+	@PlusTransactional
 	public ResponseEvent<CollectionProtocolDetail> createCollectionProtocol(RequestEvent<CollectionProtocolDetail> req) {
 		try {
 			CollectionProtocol cp = createCollectionProtocol(req.getPayload(), null, false);
@@ -226,6 +285,8 @@ public class CollectionProtocolServiceImpl implements CollectionProtocolService,
 		
 			ose.checkAndThrow();
 			
+			setSopDocumentName(existingCp, cp);
+
 			User oldPI = existingCp.getPrincipalInvestigator();
 			boolean piChanged = !oldPI.equals(cp.getPrincipalInvestigator());
 			
@@ -1356,8 +1417,34 @@ public class CollectionProtocolServiceImpl implements CollectionProtocolService,
 		emailService.sendEmail(tmpl, rcpts, props);
 	}
 
+	private void setSopDocumentName(CollectionProtocol existing, CollectionProtocol cp) {
+		String oldSopDocumentName = existing.getSopDocumentName();
+		if (oldSopDocumentName == null) {
+			return;
+		}
+
+		if (cp.getSopDocumentName() != null && oldSopDocumentName.endsWith(cp.getSopDocumentName())) {
+			cp.setSopDocumentName(oldSopDocumentName);
+		} else {
+			File oldFile = new File(getSopDocDir() + oldSopDocumentName);
+			if (oldFile.exists()) {
+				oldFile.delete();
+			}
+		}
+	}
+
 	private String getMsg(String code) {
 		return MessageUtil.getInstance().getMessage(code);
+	}
+
+	private String getSopDocDir() {
+		String path =ConfigUtil.getInstance().getStrSetting(ConfigParams.MODULE, "cp_sop_doc_dir", null);
+		if (path == null) {
+			path = ConfigUtil.getInstance().getDataDir() + File.separator + "cp-sop-documents";
+			new File(path).mkdir();
+		}
+
+		return path + File.separator;
 	}
 
 	private static final String PPID_MSG                     = "cp_ppid";
