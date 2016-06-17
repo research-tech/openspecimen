@@ -101,6 +101,13 @@
       "reset_password": "Reset Password",
       "skip": "Skip",
       "back": "Back"
+    },
+
+    "counter": {
+      "showing": "Showing",
+      "of": "of",
+      "many_more": "many more",
+      "records": "records"
     }
   },
 

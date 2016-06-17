@@ -15,7 +15,6 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Junction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
@@ -70,6 +69,14 @@ public class CollectionProtocolDaoImpl extends AbstractDao<CollectionProtocol> i
 		return cpList;
 	}
 	
+	@Override
+	public Long getCpCount(CpListCriteria criteria) {
+		Criteria query = getCpQuery(criteria)
+				.setProjection(Projections.rowCount());
+		
+		return (Long) query.list().get(0);
+	}
+
 	@Override
 	@SuppressWarnings(value = {"unchecked"})
 	public CollectionProtocol getCollectionProtocol(String cpTitle) {
@@ -305,16 +312,22 @@ public class CollectionProtocolDaoImpl extends AbstractDao<CollectionProtocol> i
 	
 	@SuppressWarnings("unchecked")
 	private List<Object[]> getCpList(CpListCriteria cpCriteria) {
+		Criteria query = getCpQuery(cpCriteria)
+				.setMaxResults(cpCriteria.maxResults());
+
+		addProjections(query, cpCriteria);
+		
+		return query.addOrder(Order.asc("shortTitle")).list();
+	}
+	
+	private Criteria getCpQuery(CpListCriteria cpCriteria) {
 		Criteria query = sessionFactory.getCurrentSession().createCriteria(CollectionProtocol.class)
 				.setFirstResult(cpCriteria.startAt())
-				.setMaxResults(cpCriteria.maxResults())
 				.add(Restrictions.eq("activityStatus", Status.ACTIVITY_STATUS_ACTIVE.getStatus()))
 				.createAlias("principalInvestigator", "pi");
 		
 		addSearchConditions(query, cpCriteria);
-		addProjections(query, cpCriteria);
-		
-		return query.addOrder(Order.asc("shortTitle")).list();
+		return query;
 	}
 
 	private void addSearchConditions(Criteria query, CpListCriteria cpCriteria) {

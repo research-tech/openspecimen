@@ -7,7 +7,7 @@ angular.module('os.biospecimen.cp.list', ['os.biospecimen.models'])
       $scope.cpFilterOpts = {};
       $scope.cpList = cpList;
       $scope.sites = PvManager.getSites();
-      Util.filter($scope, 'cpFilterOpts', filter);
+      Util.filter($scope, 'cpFilterOpts', loadCollectionProtocols);
 
       $scope.allowReadJobs = AuthorizationService.isAllowed($scope.participantResource.createOpts) ||
         AuthorizationService.isAllowed($scope.participantResource.updateOpts) ||
@@ -21,16 +21,6 @@ angular.module('os.biospecimen.cp.list', ['os.biospecimen.models'])
         }
       );
     };
-
-    function filter(filterOpts) {
-      var cpFilterOpts = angular.copy(filterOpts);
-      if (cpFilterOpts.pi) {
-        cpFilterOpts.piId = cpFilterOpts.pi.id;
-        delete cpFilterOpts.pi;
-      }
-
-      loadCollectionProtocols(cpFilterOpts);
-    }
 
     $scope.showParticipants = function(cp) {
       $state.go('participant-list', {cpId: cp.id});

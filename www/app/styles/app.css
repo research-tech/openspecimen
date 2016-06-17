@@ -1181,3 +1181,9 @@ h4.os-sub-section-title, h5.os-sub-section-title, h6.os-sub-section-title {
   padding-bottom: 5px;
   border-bottom: 2px solid #ddd;
 }
+
+.os-counter {
+  float: right;
+  position: relative;
+  bottom: 10px;
+}

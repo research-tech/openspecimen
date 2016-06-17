@@ -150,6 +150,28 @@ public class CollectionProtocolServiceImpl implements CollectionProtocolService,
 	
 	@Override
 	@PlusTransactional
+	public ResponseEvent<Long> getCpCount(RequestEvent<CpListCriteria> req) {
+		try {
+			Set<Long> cpIds = AccessCtrlMgr.getInstance().getReadableCpIds();
+			
+			CpListCriteria crit = req.getPayload();
+			if (cpIds != null && cpIds.isEmpty()) {
+				return ResponseEvent.response(0L);
+			} else if (cpIds != null) {
+				crit.ids(new ArrayList<Long>(cpIds));
+			}
+			
+			Long cpCount = daoFactory.getCollectionProtocolDao().getCpCount(crit);
+			return ResponseEvent.response(cpCount);
+		} catch (OpenSpecimenException oce) {
+			return ResponseEvent.error(oce);
+		} catch (Exception e) {
+			return ResponseEvent.serverError(e);
+		}
+	}
+
+	@Override
+	@PlusTransactional
 	public ResponseEvent<CollectionProtocolDetail> getCollectionProtocol(RequestEvent<CpQueryCriteria> req) {
 		try {
 			CpQueryCriteria crit = req.getPayload();
