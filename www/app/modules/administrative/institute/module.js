@@ -45,21 +45,6 @@ angular.module('os.administrative.institute',
         },
         parent: 'signed-in'
       })
-      .state('institute-import-jobs', {
-        url: '/institutes-import-jobs',
-        templateUrl: 'modules/common/import/list.html',
-        controller: 'ImportJobsListCtrl',
-        resolve: {
-          importDetail: function() {
-            return {
-              breadcrumbs: [{state: 'institute-list', title: 'institutes.list'}],
-              title: 'institutes.bulk_import_jobs',
-              objectTypes: ['institute']
-            }
-          }
-        },
-        parent: 'signed-in'
-      })
       .state('institute-detail', {
         url: '/institutes/:instituteId',
         templateUrl: 'modules/administrative/institute/detail.html',

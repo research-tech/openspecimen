@@ -297,30 +297,10 @@ public class FormServiceImpl implements FormService {
 			    	AccessCtrlMgr.getInstance().ensureReadVisitRights(entityId);
 			    	forms = formDao.getScgForms(opDetail.getEntityId());
 			    	break;
-			    	
+
 			    case SPECIMEN_EVENT :
 			    	AccessCtrlMgr.getInstance().ensureReadSpecimenRights(entityId);
 			    	forms = formDao.getSpecimenEventForms(opDetail.getEntityId());
-			    	break;	
-			    	
-			    case SITE_EXTN:
-			    	forms = formDao.getFormContexts(-1L, "SiteExtension");
-			    	break;
-			    	
-			    case CP_EXTN:
-			    	forms = formDao.getFormContexts(-1L, "CollectionProtocolExtension");
-			    	break;
-			    	
-			    case PARTICIPANT_EXTN:
-			    	forms = formDao.getFormContexts(-1L, "ParticipantExtension");
-			    	break;
-			    	
-			    case VISIT_EXTN:
-			    	forms = formDao.getFormContexts(-1L, "VisitExtension");
-			    	break;
-			    	 
-			    case SPECIMEN_EXTN:
-			    	forms = formDao.getFormContexts(-1L, "SpecimenExtension");
 			    	break;
 			}
 			
@@ -709,6 +689,12 @@ public class FormServiceImpl implements FormService {
 	@PlusTransactional
 	public Map<String, Object> getExtensionInfo(Long cpId, String entityType) {
 		return DeObject.getFormInfo(cpId, entityType);
+	}
+
+	@Override
+	@PlusTransactional
+	public List<FormSummary> getEntityForms(Long cpId, String[] entityTypes) {
+		return formDao.getFormsByCpAndEntityType(cpId, entityTypes);
 	}
 
 	private FormFieldSummary getExtensionField(String name, String caption, List<Long> extendedFormIds ) {

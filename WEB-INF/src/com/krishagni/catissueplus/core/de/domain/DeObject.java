@@ -316,6 +316,10 @@ public abstract class DeObject {
 	public static Map<String, Object> getFormInfo(Long cpId, String entity) {
 		return formInfoCache.getFormInfo(cpId, entity);
 	}
+
+	public static Container getForm(String formName) {
+		return formInfoCache.getForm(formName);
+	}
 	
 	private UserContext getUserCtx() {
 		final User user = AuthUtil.getCurrentUser();

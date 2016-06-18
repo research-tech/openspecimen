@@ -50,6 +50,7 @@ import com.krishagni.catissueplus.core.common.events.RequestEvent;
 import com.krishagni.catissueplus.core.common.events.Resource;
 import com.krishagni.catissueplus.core.common.events.ResponseEvent;
 import com.krishagni.catissueplus.core.de.events.CpCatalogSettingDetail;
+import com.krishagni.catissueplus.core.de.events.FormSummary;
 import com.krishagni.catissueplus.core.de.events.SavedQuerySummary;
 import com.krishagni.catissueplus.core.de.services.CatalogService;
 import com.krishagni.catissueplus.core.de.services.FormService;
@@ -441,7 +442,18 @@ public class CollectionProtocolsController {
 	public Map<String, Object> getForm() {
 		return formSvc.getExtensionInfo(-1L, CollectionProtocol.EXTN);
 	}
-	
+
+	@RequestMapping(method = RequestMethod.GET, value="/{id}/forms")
+	@ResponseStatus(HttpStatus.OK)
+	@ResponseBody
+	public List<FormSummary> getForms(
+			@PathVariable("id")
+			Long cpId,
+
+			@RequestParam(value = "entityType", required = true)
+			String[] entityTypes) {
+		return formSvc.getEntityForms(cpId, entityTypes);
+	}
 	@RequestMapping(method = RequestMethod.POST, value="/merge")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody

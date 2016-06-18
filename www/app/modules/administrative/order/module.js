@@ -86,21 +86,6 @@ angular.module('os.administrative.order',
         },
         parent: 'signed-in'
       })
-      .state('order-import-jobs', {
-        url: '/orders-import-jobs',
-        templateUrl: 'modules/common/import/list.html',
-        controller: 'ImportJobsListCtrl',
-        resolve: {
-          importDetail: function() {
-            return {
-              breadcrumbs: [{state: 'order-list', title: 'orders.list'}],
-              title: 'orders.bulk_import_jobs',
-              objectTypes: ['distributionOrder']
-            };
-          }
-        },
-        parent: 'signed-in'
-      })
       .state('order-detail', {
         url: '/orders/:orderId',
         templateUrl: 'modules/administrative/order/detail.html',

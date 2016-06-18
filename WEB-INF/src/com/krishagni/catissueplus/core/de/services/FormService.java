@@ -81,4 +81,6 @@ public interface FormService {
 	public void addFormContextProc(String entity, FormContextProcessor proc);
 
 	public Map<String, Object> getExtensionInfo(Long cpId, String entityType);
+
+	public List<FormSummary> getEntityForms(Long cpId, String[] entityTypes);
 }

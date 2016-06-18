@@ -24,12 +24,32 @@ angular.module('os.biospecimen.participant',
       .state('cp-view', {
         url: '/cp-view/:cpId',
         template: '<div ui-view></div>',
-        controller: function($scope, cp) {
+        controller: function($scope, cp, participantUpdateAllowed, visitSpecimenUpdateAllowed) {
           $scope.cp = cp;
+          $scope.cpViewCtx = {
+            participantUpdateAllowed: participantUpdateAllowed,
+            visitSpecimenUpdateAllowed: visitSpecimenUpdateAllowed
+          };
         },
         resolve: {
           cp: function($stateParams, CollectionProtocol) {
             return CollectionProtocol.getById($stateParams.cpId);
+          },
+
+          participantUpdateAllowed: function(cp, AuthorizationService) {
+            return AuthorizationService.isAllowed({
+              resource: 'ParticipantPhi',
+              operations: ['Create', 'Update'],
+              cp: cp.shortTitle
+            });
+          },
+
+          visitSpecimenUpdateAllowed: function(cp, AuthorizationService) {
+            return AuthorizationService.isAllowed({
+              resource: 'VisitAndSpecimen',
+              operations: ['Create', 'Update'],
+              cp: cp.shortTitle
+            });
           }
         },
         parent: 'signed-in',
@@ -50,6 +70,34 @@ angular.module('os.biospecimen.participant',
                 cp.catalogQuery = query;
               }
             );
+          }
+        },
+        parent: 'cp-view'
+      })
+      .state('import-cp-objs', {
+        url: '/import-cp-objs',
+        templateUrl: 'modules/common/import/add.html',
+        controller: 'ImportObjectCtrl',
+        resolve: {
+          allowedEntityTypes: function(participantUpdateAllowed, visitSpecimenUpdateAllowed) {
+            var entityTypes = [];
+            if (participantUpdateAllowed) {
+              entityTypes.push('Participant');
+            }
+
+            if (visitSpecimenUpdateAllowed) {
+              entityTypes = entityTypes.concat(['SpecimenCollectionGroup', 'Specimen', 'SpecimenEvent']);
+            }
+
+            return entityTypes;
+          },
+
+          forms: function(cp, allowedEntityTypes) {
+            return allowedEntityTypes.length > 0 ? cp.getForms(allowedEntityTypes) : [];
+          },
+
+          importDetail: function(cp, allowedEntityTypes, forms, ImportUtil) {
+            return ImportUtil.getImportDetail(cp, allowedEntityTypes, forms);
           }
         },
         parent: 'cp-view'

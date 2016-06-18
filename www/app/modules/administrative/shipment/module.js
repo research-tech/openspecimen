@@ -99,21 +99,6 @@ angular.module('os.administrative.shipment',
         },
         parent: 'signed-in'
       })
-      .state('shipment-import-jobs', {
-        url: '/shipment-import-jobs',
-        templateUrl: 'modules/common/import/list.html',
-        controller: 'ImportJobsListCtrl',
-        resolve: {
-          importDetail: function() {
-            return {
-              breadcrumbs: [{state: 'shipment-list', title: 'shipments.list'}],
-              title: 'shipments.bulk_import_jobs',
-              objectTypes: ['shipment']
-            }
-          }
-        },
-        parent: 'signed-in'
-      })
       .state('shipment-detail', {
         url: '/shipments/:shipmentId',
         templateUrl: 'modules/administrative/shipment/detail.html',

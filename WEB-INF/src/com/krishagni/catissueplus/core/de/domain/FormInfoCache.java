@@ -117,6 +117,7 @@ class FormInfoCache implements FormContextProcessor, FormEventsListener {
 		Map<String, Object> formInfo = new HashMap<>();
 		formInfo.put("formId", getForm(formName).getId());
 		formInfo.put("formCtxtId", getFormContext(cpId, entity, formName));
+		formInfo.put("formName", formName);
 		return formInfo;
 	}
 
