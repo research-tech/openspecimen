@@ -59,15 +59,15 @@
           <span translate="container.labeling_scheme">Labeling Scheme</span>
         </label>
         <div class="col-xs-3">
-          <os-select ng-model="containerType.rowLabelingScheme" list="positionLabelingSchemes"
+          <os-pvs ng-model="containerType.rowLabelingScheme" attribute="container-position-labeling-schemes"
             name="rowLabelingScheme" placeholder="{{'container.vertical_labeling_scheme' | translate}}" required>
-          </os-select>
+          </os-pvs>
           <div os-field-error field="ctform.rowLabelingScheme"></div>
         </div>
         <div class="col-xs-3">
-          <os-select ng-model="containerType.columnLabelingScheme" list="positionLabelingSchemes"                 
+          <os-pvs ng-model="containerType.columnLabelingScheme" attribute="container-position-labeling-schemes"
             name="columnLabelingScheme" placeholder="{{'container.horizontal_labeling_scheme' | translate}}" required>
-          </os-select>
+          </os-pvs>
           <div os-field-error field="ctform.columnLabelingScheme"></div>
         </div>
       </div>

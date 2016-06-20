@@ -49,7 +49,9 @@
       <div class="form-group">
         <label class="col-xs-3 control-label" translate="site.type">Type</label>
         <div class="col-xs-6">
-          <os-select ng-model="site.type" list="siteTypes" placeholder="{{'site.type' | translate}}" name="type" required></os-select>
+          <os-pvs ng-model="site.type" placeholder="{{'site.type' | translate}}" name="type" 
+            attribute="site-type" required>
+          </os-pvs>
           <div os-field-error field="sform.type"></div>
         </div>
       </div>
