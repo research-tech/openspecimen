@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -68,7 +67,7 @@ public class BulkObjectImportController {
 		detail.setObjectType(schemaName);		
 		detail.setParams(params);
 		
-		RequestEvent<ObjectSchemaCriteria> req = new RequestEvent<ObjectSchemaCriteria>(detail);
+		RequestEvent<ObjectSchemaCriteria> req = new RequestEvent<>(detail);
 		ResponseEvent<String> resp = importSvc.getInputFileTemplate(req);
 		resp.throwErrorIfUnsuccessful();
 		

@@ -99,14 +99,17 @@
     </sql>
   </changeSet>
 
-  <changeSet author="ckhilosiya" id="Remove unique constraint to allow duplicate specimen label">
-    <dropUniqueConstraint tableName="CATISSUE_SPECIMEN" constraintName="LABEL"/>
+  <changeSet author="vgaikwad" id="CP level fields to specify visit name print mode and copies to print">
+    <addColumn tableName="CATISSUE_COLLECTION_PROTOCOL">
+      <column name="VISIT_NAME_PRINT_MODE" type="${text.type}(32)"/>
+      <column name="VISIT_NAME_PRINT_COPIES" type="${int.type}"/>
+    </addColumn>
   </changeSet>
 
-  <changeSet author="ckhilosiya" id="Add index for faster lookup on specimen label">
-    <!-- Removal of unique constraint forces us to have an explicit index on specimen label -->
-    <createIndex indexName="CATISSUE_SPECIMEN_LABEL_IDX" tableName="CATISSUE_SPECIMEN">
-      <column name="LABEL"></column>
-    </createIndex>
+  <changeSet author="vgaikwad" id="Event level fields to specify visit name print mode and copies to print">
+    <addColumn tableName="CATISSUE_COLL_PROT_EVENT">
+      <column name="VISIT_NAME_PRINT_MODE" type="${text.type}(32)"/>
+      <column name="VISIT_NAME_PRINT_COPIES" type="${int.type}"/>
+    </addColumn>
   </changeSet>
 </databaseChangeLog>

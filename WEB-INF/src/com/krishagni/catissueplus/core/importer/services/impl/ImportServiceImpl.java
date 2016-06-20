@@ -206,8 +206,10 @@ public class ImportServiceImpl implements ImportService {
 			if (schema == null) {
 				return ResponseEvent.userError(ImportJobErrorCode.OBJ_SCHEMA_NOT_FOUND, detail.getObjectType());
 			}
-			
+
 			return ResponseEvent.response(ObjectReader.getSchemaFields(schema));
+		} catch (OpenSpecimenException ose) {
+			return ResponseEvent.error(ose);
 		} catch (Exception e) {
 			return ResponseEvent.serverError(e);
 		}
@@ -241,6 +243,8 @@ public class ImportServiceImpl implements ImportService {
 			}
 
 			return ResponseEvent.response(records);
+		} catch (OpenSpecimenException ose) {
+			return ResponseEvent.error(ose);
 		} catch (Exception e) {
 			return ResponseEvent.serverError(e);
 		} finally {
@@ -332,13 +336,14 @@ public class ImportServiceImpl implements ImportService {
 		@Override
 		public void run() {
 			SecurityContextHolder.getContext().setAuthentication(auth);			
-			ObjectSchema   schema   = schemaFactory.getSchema(job.getName(), job.getParams());
-			ObjectImporter<Object, Object> importer = importerFactory.getImporter(job.getName());
-			
+
 			ObjectReader objReader = null;
 			CsvWriter csvWriter = null;
 			long totalRecords = 0, failedRecords = 0;
 			try {
+				ObjectSchema   schema   = schemaFactory.getSchema(job.getName(), job.getParams());
+				ObjectImporter<Object, Object> importer = importerFactory.getImporter(job.getName());
+
 				String filePath = getJobDir(job.getId()) + File.separator + "input.csv";
 				objReader = new ObjectReader(
 						filePath, schema, 
@@ -502,7 +507,7 @@ public class ImportServiceImpl implements ImportService {
 					return resp.getError().getMessage();
 				}				
 			} catch (Exception e) {
-				if (StringUtils.isBlank(e.getMessage())) {					
+				if (StringUtils.isBlank(e.getMessage())) {
 					return "Internal Server Error";
 				} else {
 					return e.getMessage();

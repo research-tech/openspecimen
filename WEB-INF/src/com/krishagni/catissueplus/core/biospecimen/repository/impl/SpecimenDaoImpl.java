@@ -48,13 +48,19 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 			} else {
 				addLabelsCond(query, crit.labels());
 			}
-		} else {
-			query.setFirstResult(crit.startAt() < 0 ? 0 : crit.startAt())
-				.setMaxResults(crit.maxResults() <= 0 ? 100 : crit.maxResults());
 		}
 
-		addSiteCpsCond(query, crit.siteCps(), crit.useMrnSites());
-		addSpecimenListCond(query, crit.specimenListId());
+
+		addLineageCond(query, crit);
+		addCollectionStatusCond(query, crit);
+		addSiteCpsCond(query, crit);
+		addCpCond(query, crit);
+		addSpecimenListCond(query, crit);
+
+		if (crit.limitItems()) {
+			query.setFirstResult(crit.startAt()).setMaxResults(crit.maxResults());
+		}
+
 		return query.list();
 	}
 	
@@ -230,8 +236,8 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 			addLabelsCond(query, crit.labels());
 		}
 
-		addSiteCpsCond(query, crit.siteCps(), crit.useMrnSites());
-		addSpecimenListCond(query, crit.specimenListId());
+		addSiteCpsCond(query, crit);
+		addSpecimenListCond(query, crit);
 		return query.list();
 	}
 
@@ -272,9 +278,25 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 
 		query.add(labelIn);
 	}
-	
-	private void addSiteCpsCond(Criteria query, List<Pair<Long, Long>> siteCps, boolean useMrnSites) {
-		if (CollectionUtils.isEmpty(siteCps)) {
+
+	private void addLineageCond(Criteria query, SpecimenListCriteria crit) {
+		if (crit.lineages() == null || crit.lineages().length == 0) {
+			return;
+		}
+
+		query.add(Restrictions.in("lineage", crit.lineages()));
+	}
+
+	private void addCollectionStatusCond(Criteria query, SpecimenListCriteria crit) {
+		if (crit.collectionStatuses() == null || crit.collectionStatuses().length == 0) {
+			return;
+		}
+
+		query.add(Restrictions.in("collectionStatus", crit.collectionStatuses()));
+	}
+
+	private void addSiteCpsCond(Criteria query, SpecimenListCriteria crit) {
+		if (CollectionUtils.isEmpty(crit.siteCps())) {
 			return;
 		}
 
@@ -289,15 +311,15 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 			.createAlias("cpr.participant", "participant")
 			.createAlias("participant.pmis", "pmi", JoinType.LEFT_OUTER_JOIN)
 			.createAlias("pmi.site", "mrnSite", JoinType.LEFT_OUTER_JOIN);
-		
+
 		Disjunction cpSitesCond = Restrictions.disjunction();
-		for (Pair<Long, Long> siteCp : siteCps) {
+		for (Pair<Long, Long> siteCp : crit.siteCps()) {
 			Long siteId = siteCp.first();
 			Long cpId = siteCp.second();
 
 
 			Junction siteCond = Restrictions.disjunction();
-			if (useMrnSites) {
+			if (crit.useMrnSites()) {
 				//
 				// When MRNs exist, site ID should be one of the MRN site
 				//
@@ -333,12 +355,29 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 		query.add(cpSitesCond);
 	}
 
-	private void addSpecimenListCond(Criteria query, Long listId) {
-		if (listId == null) {
+	private void addCpCond(Criteria query, SpecimenListCriteria crit) {
+		if (crit.cpId() == null) {
 			return;
 		}
 
-		query.createAlias("specimen.specimenLists", "list").add(Restrictions.eq("list.id", listId));
+		if (CollectionUtils.isEmpty(crit.siteCps())) {
+			if (!query.getAlias().equals("visit")) {
+				query.createAlias("specimen.visit", "visit");
+			}
+
+			query.createAlias("visit.registration", "cpr")
+				.createAlias("cpr.collectionProtocol", "cp");
+		}
+
+		query.add(Restrictions.eq("cp.id", crit.cpId()));
+	}
+
+	private void addSpecimenListCond(Criteria query, SpecimenListCriteria crit) {
+		if (crit.specimenListId() == null) {
+			return;
+		}
+
+		query.createAlias("specimen.specimenLists", "list").add(Restrictions.eq("list.id", crit.specimenListId()));
 	}
 
 	@SuppressWarnings("unchecked")

@@ -84,6 +84,9 @@ public class SpecimensController {
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody	
 	public List<?> getSpecimens(
+			@RequestParam(value = "cpId", required = false)
+			Long cpId,
+
 			@RequestParam(value = "cprId", required = false) 
 			Long cprId,
 			
@@ -130,7 +133,11 @@ public class SpecimensController {
 			} else {
 				resp = specimenSvc.getSpecimens(getRequest(labels));
 			}
-			
+
+			resp.throwErrorIfUnsuccessful();
+			return resp.getPayload();
+		} else if (cpId != null) {
+			ResponseEvent<List<SpecimenInfo>> resp = specimenSvc.getPrimarySpecimensByCp(getRequest(cpId));
 			resp.throwErrorIfUnsuccessful();
 			return resp.getPayload();
 		} else {
