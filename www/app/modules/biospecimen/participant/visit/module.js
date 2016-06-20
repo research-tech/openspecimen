@@ -70,8 +70,12 @@ angular.module('os.biospecimen.visit', [
             }
           );
         },
-        controller: function() {
-          // 'ParticipantOverviewCtrl',
+        controller: function($scope, ExtensionsUtil) {
+          ExtensionsUtil.createExtensionFieldMap($scope.visit);
+          $scope.visitCtx = {
+            obj: {visit: $scope.visit},
+            inObjs: ['visit']
+          }
         },
         parent: 'visit-detail'
       })

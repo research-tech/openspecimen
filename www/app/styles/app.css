@@ -32,6 +32,19 @@ body {
   width: 235px;
   padding: 2.5px;
   flex-grow: 0.25;
+  position: relative;
+}
+
+.os-navbar .logo .deploy-env {
+  font-size: 12px;
+  color: #fff;
+  background-color: #c33;
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: inline-block;
+  position: absolute;
+  top: 7px;
+  margin-left: 6px;
 }
 
 .os-navbar .search {
@@ -681,7 +694,8 @@ h4.os-sub-section-title, h5.os-sub-section-title, h6.os-sub-section-title {
 .os-btn-transparent {
   background: none;
   border: none;
-  padding: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .os-btn-transparent:focus {
@@ -1161,4 +1175,9 @@ h4.os-sub-section-title, h5.os-sub-section-title, h6.os-sub-section-title {
 .os-compact-form .panel-body {
   padding-top: 5px!important;
   padding-bottom: 5px!important;
+}
+
+.os-bottom-border {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #ddd;
 }
