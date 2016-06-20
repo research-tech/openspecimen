@@ -1,7 +1,7 @@
 
 angular.module('os.administrative.user.list', ['os.administrative.models'])
   .controller('UserListCtrl', function(
-    $scope, $state, $rootScope, 
+    $scope, $state, $rootScope, $modal,Alerts,
     osRightDrawerSvc, Institute, User, PvManager, Util) {
 
     var pvInit = false;
@@ -82,6 +82,27 @@ angular.module('os.administrative.user.list', ['os.administrative.models'])
     $scope.showUserOverview = function(user) {
       $state.go('user-detail.overview', {userId:user.id});
     };
+
+    $scope.sendMailForm = function() {
+           var modalInstance = $modal.open({
+             templateUrl: 'modules/administrative/support/sendmail.html',
+             controller: function ($scope, $modalInstance) {
+               $scope.submit = function() {
+                 $modalInstance.close($scope.feedback);
+               }
+
+               $scope.cancel = function() {
+                 $modalInstance.dismiss('cancel');
+               }
+             }
+           });
+
+           modalInstance.result.then(
+             function(feedback) {
+               sendFeedback(feedback);
+             }
+           );
+         }
 
     init();
   });
