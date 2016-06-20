@@ -595,7 +595,6 @@
       "enter_specimen_label": "To add specimens to list, enter labels separated by a comma, tab or newline and click add",
       "details": "Event Details",
       "copy_first_to_all": "Copy First To All",
-      "specimens_not_found_or_no_access": "One or more specimens could not be loaded either because they do not exists or you do not have sufficient rights to access them",
       "events_saved": "Event saved successfully"
     }
   },
@@ -1495,7 +1494,6 @@
     "details": "Order Details",
     "no_specimens_in_list": "No specimens in order list to distribute. Add at least one specimen",
     "enter_specimen_label": "To add specimens to distribution list, enter labels separated by a comma, tab or newline and click add",
-    "specimens_not_found_or_no_access": "One or more specimens could not be loaded either because they do not exists or you do not have sufficient rights to access them",
 
     "report_gen_initiated": "Generating distribution order report...",
     "downloading_report": "Downloading distribution order report...",
@@ -1577,7 +1575,6 @@
     "details": "Shipment Details",
     "no_specimens_in_list": "No specimens in shipment. Add at least one specimen",
     "enter_specimen_label": "To add specimens to shipment, enter labels separated by a comma, tab or newline and click add",
-    "specimens_not_found_or_no_access": "One or more specimens could not be loaded either because they do not exists or you do not have sufficient rights to access them",
 
     "filters": "Filters",
     "report_gen_initiated": "Generating shipment report...",

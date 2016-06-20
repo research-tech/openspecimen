@@ -2,7 +2,7 @@
 angular.module('os.administrative.order.addedit', ['os.administrative.models', 'os.biospecimen.models'])
   .controller('OrderAddEditCtrl', function(
     $scope, $state, $translate, order, spmnRequest, Institute,
-    Specimen, SpecimensHolder, Site, DistributionProtocol, DistributionOrder, Alerts, Util) {
+    Specimen, SpecimensHolder, Site, DistributionProtocol, DistributionOrder, Alerts, Util, SpecimenUtil) {
     
     function init() {
       $scope.order = order;
@@ -188,9 +188,13 @@ angular.module('os.administrative.order.addedit', ['os.administrative.models', '
     }
 
     $scope.addSpecimens = function(labels) {
-      return Specimen.listForDp(labels, $scope.order.distributionProtocol.id).then(
+      return SpecimenUtil.getSpecimens(labels).then(
         function (specimens) {
-          Util.appendAll($scope.order.orderItems, getOrderItems(specimens));
+          if (!specimens) {
+            return false;
+          }
+
+          Util.mergeArray($scope.order.orderItems, getOrderItems(specimens), 'specimen.id');
           return true;
         }
       );

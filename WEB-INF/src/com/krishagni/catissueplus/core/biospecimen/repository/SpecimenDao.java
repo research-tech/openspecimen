@@ -30,7 +30,7 @@ public interface SpecimenDao extends Dao<Specimen> {
 
 	public Map<String, Object> getCprAndVisitIds(String key, Object value);
 	
-	public Map<String, Set<Long>> getSpecimenSites(Set<Long> specimenIds);
+	public Map<Long, Set<Long>> getSpecimenSites(Set<Long> specimenIds);
 
 	public Map<Long, String> getDistributionStatus(List<Long> specimenIds);
 

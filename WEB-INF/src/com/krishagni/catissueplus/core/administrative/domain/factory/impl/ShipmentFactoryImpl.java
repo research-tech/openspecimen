@@ -27,6 +27,7 @@ import com.krishagni.catissueplus.core.biospecimen.domain.factory.SpecimenFactor
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenInfo;
 import com.krishagni.catissueplus.core.biospecimen.repository.DaoFactory;
+import com.krishagni.catissueplus.core.biospecimen.services.SpecimenService;
 import com.krishagni.catissueplus.core.common.errors.ActivityStatusErrorCode;
 import com.krishagni.catissueplus.core.common.errors.ErrorType;
 import com.krishagni.catissueplus.core.common.errors.OpenSpecimenException;
@@ -39,6 +40,8 @@ public class ShipmentFactoryImpl implements ShipmentFactory {
 	private DaoFactory daoFactory;
 	
 	private SpecimenFactory specimenFactory;
+
+	private SpecimenService specimenSvc;
 	
 	public void setDaoFactory(DaoFactory daoFactory) {
 		this.daoFactory = daoFactory;
@@ -46,6 +49,10 @@ public class ShipmentFactoryImpl implements ShipmentFactory {
 
 	public void setSpecimenFactory(SpecimenFactory specimenFactory) {
 		this.specimenFactory = specimenFactory;
+	}
+
+	public void setSpecimenSvc(SpecimenService specimenSvc) {
+		this.specimenSvc = specimenSvc;
 	}
 
 	public Shipment createShipment(ShipmentDetail detail, Shipment.Status status) {
@@ -389,22 +396,11 @@ public class ShipmentFactoryImpl implements ShipmentFactory {
 	}
 	
 	private Specimen getSpecimen(SpecimenInfo info, ShipmentItem.ReceivedQuality receivedQuality, OpenSpecimenException ose) {
-		Specimen existing = null;
-		Object key = null;
-		
-		if (info.getId() != null) {
-			key = info.getId();
-			existing = daoFactory.getSpecimenDao().getById(info.getId());
-		} else if (StringUtils.isNotBlank(info.getLabel())) {
-			key = info.getLabel();
-			existing = daoFactory.getSpecimenDao().getByLabel(info.getLabel());
-		}
-		
+		Specimen existing = specimenSvc.getSpecimen(info.getId(), info.getCpShortTitle(), info.getLabel(), ose);
 		if (existing == null) {
-			ose.addError(SpecimenErrorCode.NOT_FOUND, key);
 			return null;
 		}
-		
+
 		if (receivedQuality != ShipmentItem.ReceivedQuality.ACCEPTABLE) {
 			return existing;
 		} 

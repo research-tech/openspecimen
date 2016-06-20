@@ -9,7 +9,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -21,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.krishagni.catissueplus.core.administrative.services.DistributionOrderService;
-import com.krishagni.catissueplus.core.administrative.services.ShipmentService;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenDeleteCriteria;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.SpecimenInfo;
@@ -57,13 +54,7 @@ public class SpecimensController {
 	private FormService formSvc;
 	
 	@Autowired
-	private DistributionOrderService distributionService;
-
-	@Autowired
 	private HttpServletRequest httpServletRequest;
-	
-	@Autowired
-	private ShipmentService shipmentService;
 	
 	@RequestMapping(method = RequestMethod.HEAD)
 	@ResponseStatus(HttpStatus.OK)
@@ -93,17 +84,8 @@ public class SpecimensController {
 			@RequestParam(value = "visitId", required = false) 
 			Long visitId,
 			
-			@RequestParam(value = "dpId", required = false)
-			Long dpId,
-			
 			@RequestParam(value = "label", required = false)
-			List<String> labels,
-			
-			@RequestParam(value = "sendSiteName", required = false)
-			String sendSiteName,
-			
-			@RequestParam(value = "recvSiteName", required = false)
-			String recvSiteName) {
+			List<String> labels) {
 				
 		if (cprId != null) { // TODO: Move this to CPR controller
 			VisitSpecimensQueryCriteria crit = new VisitSpecimensQueryCriteria();
@@ -115,29 +97,12 @@ public class SpecimensController {
 			resp.throwErrorIfUnsuccessful();
 			return resp.getPayload();			
 		} else if (CollectionUtils.isNotEmpty(labels)) {
-			ResponseEvent<List<SpecimenInfo>> resp = null;
-			if (dpId != null) {
-				VisitSpecimensQueryCriteria crit = new VisitSpecimensQueryCriteria();
-				crit.setDpId(dpId);
-				crit.setLabels(labels);
-				resp = distributionService.getSpecimens(getRequest(crit));
-			} else if (StringUtils.isNotBlank(sendSiteName)) {
-				VisitSpecimensQueryCriteria crit = new VisitSpecimensQueryCriteria();
-				crit.setSendSiteName(sendSiteName);
-				crit.setRecvSiteName(recvSiteName);
-				crit.setLabels(labels);
-				resp = shipmentService.getSpecimens(getRequest(crit));
-			} else {
-				resp = specimenSvc.getSpecimens(getRequest(labels));
-			}
-			
+			ResponseEvent<List<SpecimenInfo>> resp = specimenSvc.getSpecimens(getRequest(labels));
 			resp.throwErrorIfUnsuccessful();
 			return resp.getPayload();
 		} else {
 			return Collections.emptyList();
 		}
-		
-		
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")

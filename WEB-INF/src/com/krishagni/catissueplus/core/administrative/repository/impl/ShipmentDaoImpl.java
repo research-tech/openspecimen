@@ -52,10 +52,10 @@ public class ShipmentDaoImpl extends AbstractDao<Shipment> implements ShipmentDa
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Specimen> getShippedSpecimensByLabels(List<String> specimenLabels) {
+	public List<Specimen> getShippedSpecimensByIds(List<Long> specimenIds) {
 		return sessionFactory.getCurrentSession()
-				.getNamedQuery(GET_SHIPPED_SPECIMENS_BY_LABELS)
-				.setParameterList("labels", specimenLabels)
+				.getNamedQuery(GET_SHIPPED_SPECIMENS_BY_IDS)
+				.setParameterList("ids", specimenIds)
 				.list();
 	}
 
@@ -106,5 +106,5 @@ public class ShipmentDaoImpl extends AbstractDao<Shipment> implements ShipmentDa
 	
 	private static final String GET_SHIPMENT_BY_NAME = FQN + ".getShipmentByName";
 	
-	private static final String GET_SHIPPED_SPECIMENS_BY_LABELS = FQN + ".getShippedSpecimensByLabels";
+	private static final String GET_SHIPPED_SPECIMENS_BY_IDS = FQN + ".getShippedSpecimensByIds";
 }

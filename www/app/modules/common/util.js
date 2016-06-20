@@ -1,6 +1,6 @@
 
 angular.module('openspecimen')
-  .factory('Util', function($rootScope, $timeout, $document, $q, QueryExecutor, Alerts) {
+  .factory('Util', function($rootScope, $timeout, $document, $q, $parse, QueryExecutor, Alerts) {
     var isoDateRe = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*))(?:Z|(\+|-)([\d|:]*))?$/;
     function clear(input) {
       input.splice(0, input.length);
@@ -234,6 +234,25 @@ angular.module('openspecimen')
       return dst;
     }
 
+    function mergeArray(array, include, uqProp) {
+      if (!uqProp) {
+        return;
+      }
+
+      var getter = $parse(uqProp);
+      var map = {};
+      angular.forEach(array, function(obj) {
+        map[getter(obj)] = obj;
+      });
+
+      angular.forEach(include, function(obj) {
+        if (!map[getter(obj)]) {
+          array.push(obj);
+          map[getter(obj)] = obj;
+        }
+      });
+    }
+
     return {
       clear: clear,
 
@@ -259,6 +278,8 @@ angular.module('openspecimen')
 
       appendAll: appendAll,
 
-      merge: merge
+      merge: merge,
+
+      mergeArray: mergeArray
     };
   });

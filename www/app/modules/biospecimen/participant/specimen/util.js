@@ -212,7 +212,7 @@ angular.module('os.biospecimen.specimen')
       });
 
       if (notFoundLabels.length != 0) {
-        Alerts.error('specimens.specimen_not_found', {label: notFoundLabels.join()});
+        Alerts.error('specimens.specimen_not_found', {label: notFoundLabels.join(', ')});
         return undefined;
       }
 

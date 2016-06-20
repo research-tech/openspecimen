@@ -157,7 +157,7 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Map<String, Set<Long>> getSpecimenSites(Set<Long> specimenIds) {
+	public Map<Long, Set<Long>> getSpecimenSites(Set<Long> specimenIds) {
 		Criteria query = getSessionFactory().getCurrentSession().createCriteria(Specimen.class)
 				.createAlias("visit", "visit")
 				.createAlias("visit.registration", "cpr")
@@ -167,19 +167,19 @@ public class SpecimenDaoImpl extends AbstractDao<Specimen> implements SpecimenDa
 		
 		ProjectionList projs = Projections.projectionList();
 		query.setProjection(projs);
-		projs.add(Projections.property("label"));
+		projs.add(Projections.property("id"));
 		projs.add(Projections.property("site.id"));
 		query.add(Restrictions.in("id", specimenIds));
 		
 		List<Object []> rows = query.list();
-		Map<String, Set<Long>> results = new HashMap<String, Set<Long>>();
+		Map<Long, Set<Long>> results = new HashMap<>();
 		for (Object[] row: rows) {
-			String label = (String)row[0];
+			Long id = (Long)row[0];
 			Long siteId = (Long)row[1];
-			Set<Long> siteIds = results.get(label);
+			Set<Long> siteIds = results.get(id);
 			if (siteIds == null) {
 				siteIds = new HashSet<Long>();
-				results.put(label, siteIds);
+				results.put(id, siteIds);
 			}
 			
 			siteIds.add(siteId);
