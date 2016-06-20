@@ -152,6 +152,7 @@
     "sop_document": "SOP Document",
     "sop_document_url": "SOP Document URL",
     "sop_document_file": "SOP Document File",
+    "download_sop": "Download SOP",
     "desc_url": "Description URL",
     "specimen_label_fmt": "Specimen Label Format",
     "derivative_label_fmt": "Derivative Label Format",
