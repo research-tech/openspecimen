@@ -102,6 +102,29 @@ angular.module('os.biospecimen.participant',
         },
         parent: 'cp-view'
       })
+      .state('import-cp-jobs', {
+        url: '/import-cp-jobs',
+        templateUrl: 'modules/common/import/list.html',
+        controller: 'ImportJobsListCtrl',
+        resolve: {
+          importDetail: function(cp) {
+            return {
+              breadcrumbs: [
+                {state: 'cp-detail.overview', title:  cp.shortTitle,     params: '{cpId:' + cp.id + '}'},
+                {state: 'participant-list',   title: 'participant.list', params: '{cpId:' + cp.id + '}'}
+              ],
+              title: 'bulk_imports.jobs_list',
+              objectTypes: [
+                'cpr', 'participant', 'consent', 'visit',
+                'specimen', 'specimenDerivative', 'specimenAliquot',
+                'masterSpecimen', 'extensions'
+              ],
+              objectParams: {cpId: cp.id}
+            }
+          }
+        },
+        parent: 'cp-view'
+      })
       .state('participant-root', {
         url: '/participants/:cprId',
         template: '<div ui-view></div>',

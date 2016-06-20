@@ -71,6 +71,21 @@ angular.module('os.administrative.container',
         },
         parent: 'container-root'
       })
+      .state('container-import-jobs', {
+        url: '/containers-import-jobs',
+        templateUrl: 'modules/common/import/list.html',
+        controller: 'ImportJobsListCtrl',
+        resolve: {
+          importDetail: function() {
+            return {
+              breadcrumbs: [{state: 'container-list', title: 'container.list'}],
+              title: 'container.bulk_import_jobs',
+              objectTypes: ['storageContainer']
+            }
+          }
+        },
+        parent: 'container-root'
+      })
       .state('container-replicate', {
         url: '/container-replicate/:containerId',
         templateUrl: 'modules/administrative/container/replicate.html',
