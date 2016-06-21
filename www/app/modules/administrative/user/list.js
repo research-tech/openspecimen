@@ -1,8 +1,8 @@
 
 angular.module('os.administrative.user.list', ['os.administrative.models'])
   .controller('UserListCtrl', function(
-    $scope, $state, $rootScope, $modal,Alerts,
-    osRightDrawerSvc, Institute, User, PvManager, Util) {
+$scope, $state, $rootScope, $modal,
+    osRightDrawerSvc, Institute, User, PvManager, Util, Alerts) {
 
     var pvInit = false;
 
@@ -83,26 +83,31 @@ angular.module('os.administrative.user.list', ['os.administrative.models'])
       $state.go('user-detail.overview', {userId:user.id});
     };
 
-    $scope.sendMailForm = function() {
-           var modalInstance = $modal.open({
-             templateUrl: 'modules/administrative/support/sendmail.html',
-             controller: function ($scope, $modalInstance) {
-               $scope.submit = function() {
-                 $modalInstance.close($scope.feedback);
-               }
+    $scope.showSendMailForm = function() {
+      var modalInstance = $modal.open({
+        templateUrl: 'modules/administrative/user/send-mail.html',
+        controller: function ($scope, $modalInstance) {
+          $scope.submit = function() {
 
-               $scope.cancel = function() {
-                 $modalInstance.dismiss('cancel');
-               }
-             }
-           });
+          //loadUsers({includeStats: true});
+            console.log($scope.mail);
 
-           modalInstance.result.then(
-             function(feedback) {
-               sendFeedback(feedback);
-             }
-           );
-         }
+
+            $modalInstance.close($scope.feedback);
+          }
+
+          $scope.cancel = function() {
+            $modalInstance.dismiss('cancel');
+          }
+        }
+      });
+
+        /*modalInstance.result.then(
+          function() {
+            sendFeedback();
+          }
+        );*/
+    }
 
     init();
   });

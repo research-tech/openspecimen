@@ -1,29 +1,30 @@
 
 <div>
   <div class="os-modal-header">
-    <span translate="user.send_mail_title">Your Message</span>
+    <span translate="user.send_mail.title">Your Message</span>
   </div>
   <div class="os-modal-body">
     <div class="os-alert-container show">
       <div class="alert alert-info">
-        <span translate="user.send_mail_info">
+        <span translate="user.send_mail.info">
         Please type the subject of mail and the content of the mail in the message box
         </span>
+
       </div>
     </div>
-    
+
     <form name="sendMailForm" os-form-validator="sendMailForm" novalidate>
       <div class="form-group">
-        <label translate="user.mail_subject">Subject</label>
-        <input type="text" name="subject" class="form-control" placeholder="{{'user.mail_subject' | translate}}"
-          ng-model="sendMail.subject" required></input>
+        <label translate="user.send_mail.subject">Subject</label>
+        <input type="text" name="subject" class="form-control" placeholder="{{'user.send_mail.subject_input' | translate}}"
+          ng-model="mail.subject" required/>
         <div os-field-error field="sendMailForm.subject"></div>
       </div>
       <div class="form-group">
-        <label translate="user.message_box">Message</label>
-        <textarea rows="3" name="sendmail" class="form-control" placeholder="{{'user.message' | translate}}"
-          ng-model="sendmail.message" required></textarea>
-        <div os-field-error field="sendMailForm.feedback"></div>
+        <label translate="user.send_mail.message">Message</label>
+        <textarea rows="3" name="message" class="form-control" placeholder="{{'user.send_mail.message_input' | translate}}"
+          ng-model="mail.message" required></textarea>
+        <div os-field-error field="sendMailForm.message"></div>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary" os-form-submit="submit()">
@@ -36,4 +37,3 @@
     </form>
   </div>
 </div>
-

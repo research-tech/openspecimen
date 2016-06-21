@@ -862,12 +862,7 @@
     "user_unlocked": "User unlocked successfully",
     "cp_count": "Collection Protocols",
     "user_since": "User Since",
-    "sent_mail": "Send Mail",
-    "send_mail_title":"Your mail is important to us",
-    "send_mail_info":"Please type the subject of mail and the content of the mail in the message box",
-    "mail_subject": "Subject",
-    "message_box": "Message",
-    "message": "Type your message here",
+
 
 
     "user_roles": "User Roles",
@@ -887,6 +882,17 @@
        "all": "All Current and Future"
     },
 
+    "send_mail": {
+       "tooltip": "Click to send mail",
+       "button": "Send Mail",
+       "title": "Your mail is important to us",
+       "info": "Please type the subject of mail and the content of the mail in the message box",
+       "subject": "Subject",
+       "subject_input": "subject",
+      "message": "Message",
+       "message_input": "Type your message here"
+    },
+
     "create_account": "Create your OpenSpecimen Account",
     "signup": "Sign up",
     "already_have_an_openspecimen_id": "Already have an OpenSpecimen ID?",
@@ -903,8 +909,7 @@
       "cp_count": "Collection Protocol(s)",
       "last_login": "Last logged date",
       "user_since": "User since (years)",
-      "search": "Click to search Users",
-      "send_mail": "Click to send mail"
+      "search": "Click to search Users"
     },
       
     "menu": {
