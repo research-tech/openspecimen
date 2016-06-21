@@ -24,32 +24,29 @@ angular.module('os.biospecimen.participant',
       .state('cp-view', {
         url: '/cp-view/:cpId',
         template: '<div ui-view></div>',
-        controller: function($scope, cp, participantUpdateAllowed, visitSpecimenUpdateAllowed) {
+        controller: function($scope, cp, cpViewCtx) {
           $scope.cp = cp;
-          $scope.cpViewCtx = {
-            participantUpdateAllowed: participantUpdateAllowed,
-            visitSpecimenUpdateAllowed: visitSpecimenUpdateAllowed
-          };
+          $scope.cpViewCtx = cpViewCtx;
         },
         resolve: {
           cp: function($stateParams, CollectionProtocol) {
             return CollectionProtocol.getById($stateParams.cpId);
           },
 
-          participantUpdateAllowed: function(cp, AuthorizationService) {
-            return AuthorizationService.isAllowed({
-              resource: 'ParticipantPhi',
-              operations: ['Create', 'Update'],
-              cp: cp.shortTitle
-            });
-          },
+          cpViewCtx: function(cp, AuthorizationService) {
+            return {
+              participantUpdateAllowed: AuthorizationService.isAllowed({
+                resource: 'ParticipantPhi',
+                operations: ['Create', 'Update'],
+                cp: cp.shortTitle
+              }),
 
-          visitSpecimenUpdateAllowed: function(cp, AuthorizationService) {
-            return AuthorizationService.isAllowed({
-              resource: 'VisitAndSpecimen',
-              operations: ['Create', 'Update'],
-              cp: cp.shortTitle
-            });
+              visitSpecimenUpdateAllowed: AuthorizationService.isAllowed({
+                resource: 'VisitAndSpecimen',
+                operations: ['Create', 'Update'],
+                cp: cp.shortTitle
+              })
+            }
           }
         },
         parent: 'signed-in',
@@ -79,13 +76,13 @@ angular.module('os.biospecimen.participant',
         templateUrl: 'modules/common/import/add.html',
         controller: 'ImportObjectCtrl',
         resolve: {
-          allowedEntityTypes: function(participantUpdateAllowed, visitSpecimenUpdateAllowed) {
+          allowedEntityTypes: function(cpViewCtx) {
             var entityTypes = [];
-            if (participantUpdateAllowed) {
+            if (cpViewCtx.participantUpdateAllowed) {
               entityTypes.push('Participant');
             }
 
-            if (visitSpecimenUpdateAllowed) {
+            if (cpViewCtx.visitSpecimenUpdateAllowed) {
               entityTypes = entityTypes.concat(['SpecimenCollectionGroup', 'Specimen', 'SpecimenEvent']);
             }
 
