@@ -1,7 +1,7 @@
 
 angular.module('os.administrative.user.list', ['os.administrative.models'])
   .controller('UserListCtrl', function(
-$scope, $state, $rootScope, $modal,
+    $scope, $state, $rootScope, $modal,
     osRightDrawerSvc, Institute, User, PvManager, Util, Alerts) {
 
     var pvInit = false;
@@ -91,7 +91,6 @@ $scope, $state, $rootScope, $modal,
 
           //loadUsers({includeStats: true});
             console.log($scope.mail);
-
 
             $modalInstance.close($scope.feedback);
           }
