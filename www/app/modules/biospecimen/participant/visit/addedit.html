@@ -78,9 +78,9 @@
     <div class="form-group">
       <label class="col-xs-3 control-label" translate="visits.visit_status">Status</label>
       <div class="col-xs-6">
-        <os-pvs name="status" ng-model="currVisit.status" attribute="visit-status"
+        <os-select name="status" ng-model="currVisit.status" list="visitStatuses"
           required placeholder="{{'visits.visit_status' | translate}}">
-        </os-pvs>
+        </os-select>
         <div os-field-error field="sform.status"></div>
       </div>
     </div>

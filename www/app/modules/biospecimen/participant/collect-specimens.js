@@ -276,6 +276,7 @@ angular.module('os.biospecimen.participant.collect-specimens',
       function loadPvs() {
         $scope.notSpecified = $translate.instant('pvs.not_specified');
         $scope.sites = PvManager.getSites({listAll: true});
+        $scope.specimenStatuses = PvManager.getPvs('specimen-status');
       };
 
       $scope.applyFirstLocationToAll = function() {

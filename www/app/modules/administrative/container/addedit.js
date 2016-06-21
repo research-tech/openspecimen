@@ -67,6 +67,8 @@ angular.module('os.administrative.container.addedit', ['os.administrative.models
     };
 
     function loadPvs() {
+      $scope.positionLabelingSchemes = PvManager.getPvs('container-position-labeling-schemes');
+
       var op = !!$scope.container.id ? 'Update' : 'Create';
       $scope.sites = [];
       Site.listForContainers(op).then(function(sites) {

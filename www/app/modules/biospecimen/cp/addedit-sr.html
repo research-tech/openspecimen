@@ -72,9 +72,9 @@
       <div class="form-group">
         <label class="control-label col-xs-4" translate="srs.storage_type">Storage Type</label>
         <div class="col-xs-8">
-          <os-pvs name="storageType" ng-model="sr.storageType" attribute="storage-type"
+          <os-select name="storageType" ng-model="sr.storageType" list="storageTypes"
             placeholder="{{'srs.storage_type' | translate}}" required>
-          </os-pvs>
+          </os-select>
           <div os-field-error field="srForm.storageType"></div>
         </div>
       </div>

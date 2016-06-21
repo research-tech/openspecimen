@@ -24,6 +24,7 @@ angular.module('os.biospecimen.cp.events', ['os.biospecimen.models'])
         return;
       }
 
+      $scope.visitNamePrintModes = PvManager.getPvs('visit-name-print-modes');
       $scope.sites = PvManager.getSites();
       pvsLoaded = true;
     };

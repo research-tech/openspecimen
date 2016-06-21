@@ -90,6 +90,8 @@ angular.module('os.biospecimen.cp.specimens', ['os.biospecimen.models'])
         $scope.sr.type = '';
       });
 
+      $scope.storageTypes = PvManager.getPvs('storage-type');
+
       loadLabelAutoPrintModes();
       pvsLoaded = true;
     };

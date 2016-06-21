@@ -136,9 +136,9 @@
               </os-storage-position>
             </td>
             <td class="col os-col-10" style="overflow: visible;">
-              <os-pvs os-md-input edit-when="specimen.existingStatus != 'Collected'" attribute="specimen-status"
+              <os-select os-md-input edit-when="specimen.existingStatus != 'Collected'" list="specimenStatuses" 
                 ng-model="specimen.status" on-change="statusChanged(specimen)" required>
-              </os-pvs>
+              </os-select>
             </td>
             <td class="col os-col-5">
               <os-checkbox ng-model="specimen.printLabel" ng-change="togglePrintLabels(specimen)"></os-checkbox>

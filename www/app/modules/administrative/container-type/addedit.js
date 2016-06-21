@@ -1,6 +1,6 @@
 angular.module('os.administrative.containertype.addedit', ['os.administrative.models'])
   .controller('ContainerTypeAddEditCtrl', function(
-    $scope, $state, containerType, ContainerType, Util) {
+    $scope, $state, containerType, ContainerType, PvManager, Util) {
     
     function init() {
       $scope.containerType = containerType;
@@ -8,6 +8,8 @@ angular.module('os.administrative.containertype.addedit', ['os.administrative.mo
     }
 
     function loadPvs() {
+      $scope.positionLabelingSchemes = PvManager.getPvs('container-position-labeling-schemes');
+
       $scope.containerTypes = [];
       ContainerType.query().then(
         function(containerTypes) {

@@ -5,6 +5,7 @@ angular.module('os.biospecimen.cp')
     function init() {
       $scope.settingCtx = {
         spmnLabelPrePrintModes: PvManager.getPvs('specimen-label-pre-print-modes'),
+        visitNamePrintModes: PvManager.getPvs('visit-name-print-modes')
       };
       
       if (!cp.spmnLabelPrintSettings || cp.spmnLabelPrintSettings.length == 0) {

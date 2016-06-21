@@ -299,7 +299,7 @@
             </os-storage-position>
           </td>
           <td class="col" style="overflow: visible;" ng-if="shipment.status == 'Shipped'">
-            <os-pvs os-md-input name="quality" ng-model="item.receivedQuality" attribute="quality-status" required></os-pvs>
+            <os-select os-md-input name="quality" list="qualityStatuses" ng-model="item.receivedQuality" required></os-select>
             <div os-field-error field="sform.quality"></div>
           </td>
         </tr>

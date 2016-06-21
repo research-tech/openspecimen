@@ -204,9 +204,9 @@
         <span translate="cp.when_to_print">When to Print</span>
       </label>
       <div class="col-xs-6">
-        <os-pvs name="visitNameprintMode" ng-model="settingCtx.cp.visitNamePrintMode" attribute="visit-name-print-modes"
+        <os-select name="visitNameprintMode" ng-model="settingCtx.cp.visitNamePrintMode" list="settingCtx.visitNamePrintModes"
           display-prop="displayName" select-prop="name" placeholder="{{'cp.when_to_print' | translate}}">
-        </os-pvs>
+        </os-select>
       </div>
     </div>
 
