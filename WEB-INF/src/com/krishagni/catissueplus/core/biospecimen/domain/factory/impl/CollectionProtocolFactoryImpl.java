@@ -109,7 +109,7 @@ public class CollectionProtocolFactoryImpl implements CollectionProtocolFactory 
 		setTitle(input, cp, ose);
 		setShortTitle(input, cp, ose);
 		setCode(input, cp, ose);
-		setDate(input, cp, ose);
+
 
 		if (CollectionUtils.isNotEmpty(input.getCpSites())) {
 			setSites(input, cp, ose);
@@ -126,7 +126,18 @@ public class CollectionProtocolFactoryImpl implements CollectionProtocolFactory 
 		if (StringUtils.isNotBlank(input.getIrbId())) {
 			cp.setIrbIdentifier(input.getIrbId());
 		}
-		
+
+		if (input.getStartDate() == null) {
+			input.setStartDate(cp.getStartDate());
+		}
+
+		if (input.getEndDate() == null) {
+			input.setEndDate(cp.getEndDate());
+		}
+
+		setDate(input, cp, ose);
+		cp.setSopDocumentUrl(input.getSopDocumentUrl());
+		cp.setSopDocumentName(input.getSopDocumentName());
 		ose.checkAndThrow();
 		return cp;
 	}
@@ -231,18 +242,14 @@ public class CollectionProtocolFactoryImpl implements CollectionProtocolFactory 
 	}
 	
 	private void setDate(CollectionProtocolDetail input, CollectionProtocol result, OpenSpecimenException ose) {
-		if (input.getStartDate() != null) {
-			result.setStartDate(input.getStartDate());
-		}
+		Date startDt = input.getStartDate();
+		result.setStartDate(startDt);
 
-		if (input.getEndDate() != null) {
-			result.setEndDate(input.getEndDate());
-		}
+		Date endDt = input.getEndDate();
+		result.setEndDate(endDt);
 
-		Date startDate = result.getStartDate();
-		Date endDate = result.getEndDate();
-		if (startDate != null && endDate != null && startDate.after(endDate)) {
-			ose.addError(CpErrorCode.START_DATE_CANNOT_GT_END_DATE);
+		if (startDt != null && endDt != null && startDt.after(endDt)) {
+			ose.addError(CpErrorCode.START_DT_GT_END_DT, startDt, endDt);
 		}
 	}
 

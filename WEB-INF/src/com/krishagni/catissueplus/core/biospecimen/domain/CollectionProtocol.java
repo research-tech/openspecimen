@@ -456,8 +456,6 @@ public class CollectionProtocol extends BaseExtensionEntity {
 		cp.setEndDate(getEndDate());
 		cp.setIrbIdentifier(getIrbIdentifier());
 		cp.setEnrollment(getEnrollment());
-		cp.setSopDocumentUrl(getSopDocumentUrl());
-		cp.setSopDocumentName(getSopDocumentName());
 		cp.setDescriptionURL(getDescriptionURL());
 
 		cp.setPpidFormat(getPpidFormat());

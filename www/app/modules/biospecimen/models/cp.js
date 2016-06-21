@@ -32,7 +32,7 @@ angular.module('os.biospecimen.models.cp', ['os.common.models'])
     }
 
     CollectionProtocol.getSopDocUploadUrl = function() {
-      return CollectionProtocol.url() + "sop-document";
+      return CollectionProtocol.url() + "sop-documents";
     }
 
     CollectionProtocol.getWorkflows = function(cpId) {

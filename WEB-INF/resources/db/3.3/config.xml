@@ -5,7 +5,7 @@
   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
     http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-  <changeSet author="vlonushte" id="Specifiy direcoty to store collectio protocol SOP documents">
+  <changeSet author="vlonushte" id="Specifiy directory to store collection protocol SOP documents">
     <sql>
       call add_cfg_prop(
         'biospecimen', 'cp_sop_doc_dir',

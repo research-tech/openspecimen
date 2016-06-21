@@ -268,6 +268,7 @@ public class CollectionProtocolDetail extends CollectionProtocolSummary {
 		result.setIrbId(cp.getIrbIdentifier());
 		result.setAnticipatedParticipantsCount(cp.getEnrollment());
 		result.setSopDocumentUrl(cp.getSopDocumentUrl());
+		result.setSopDocumentName(cp.getSopDocumentName());
 		result.setDescriptionUrl(cp.getDescriptionURL());
 		result.setSpecimenLabelFmt(cp.getSpecimenLabelFormat());
 		result.setDerivativeLabelFmt(cp.getDerivativeLabelFormat());
@@ -283,12 +284,6 @@ public class CollectionProtocolDetail extends CollectionProtocolSummary {
 		result.setActivityStatus(cp.getActivityStatus());
 		result.setCpSites(CollectionProtocolSiteDetail.from(cp.getSites()));
 		result.setExtensionDetail(ExtensionDetail.from(cp.getExtension()));
-		
-		String fileName = cp.getSopDocumentName();
-		if (fileName != null) {
-			fileName = fileName.split("_", 2)[1];
-		}
-		result.setSopDocumentName(fileName);
 
 		if (fullObject) {
 			result.setConsents(ConsentTierDetail.from(cp.getConsentTier()));

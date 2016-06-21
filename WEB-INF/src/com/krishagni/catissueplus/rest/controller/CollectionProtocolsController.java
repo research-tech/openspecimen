@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -40,9 +41,8 @@ import com.krishagni.catissueplus.core.biospecimen.events.CopyCpOpDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.CpQueryCriteria;
 import com.krishagni.catissueplus.core.biospecimen.events.CpWorkflowCfgDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.CpWorkflowCfgDetail.WorkflowDetail;
+import com.krishagni.catissueplus.core.biospecimen.events.FileDetail;
 import com.krishagni.catissueplus.core.biospecimen.events.MergeCpDetail;
-import com.krishagni.catissueplus.core.biospecimen.events.RegistrationQueryCriteria;
-import com.krishagni.catissueplus.core.biospecimen.events.SopDocumentDetail;
 import com.krishagni.catissueplus.core.biospecimen.repository.CpListCriteria;
 import com.krishagni.catissueplus.core.biospecimen.services.CollectionProtocolService;
 import com.krishagni.catissueplus.core.common.events.DeleteEntityOp;
@@ -144,6 +144,9 @@ public class CollectionProtocolsController {
 		resp.throwErrorIfUnsuccessful();
 		
 		CollectionProtocolDetail cp = resp.getPayload();
+		cp.setSopDocumentName(null);
+		cp.setSopDocumentUrl(null);
+
 		ObjectMapper mapper = new ObjectMapper();
 		FilterProvider filters = new SimpleFilterProvider().addFilter("withoutId", SimpleBeanPropertyFilter.serializeAllExcept("id"));		
 		String def = mapper.writer(filters).withDefaultPrettyPrinter().writeValueAsString(cp);
@@ -178,29 +181,35 @@ public class CollectionProtocolsController {
 	@RequestMapping(method = RequestMethod.GET, value="/{id}/sop-document")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public void downloadConsentForm(@PathVariable("id") Long cpId, HttpServletResponse httpResp) throws IOException {
+	public void downloadSopDocument(@PathVariable("id") Long cpId, HttpServletResponse httpResp)
+	throws IOException {
 		ResponseEvent<File> resp = cpSvc.getSopDocument(getRequest(cpId));
 		resp.throwErrorIfUnsuccessful();
 
 		File file = resp.getPayload();
 		String fileName = file.getName().split("_", 2)[1];
-
 		Utility.sendToClient(httpResp, fileName, file);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value="/sop-document")
+	@RequestMapping(method = RequestMethod.POST, value="/sop-documents")
 	@ResponseStatus(HttpStatus.OK)
 	@ResponseBody
-	public String uploadConsentForm(@PathVariable("file") MultipartFile file)
+	public String uploadSopDocument(@PathVariable("file") MultipartFile file)
 	throws IOException {
-		SopDocumentDetail detail = new SopDocumentDetail();
-		detail.setFileName(file.getOriginalFilename());
-		detail.setInputStream(file.getInputStream());
+		InputStream in = null;
+		try {
+			in = file.getInputStream();
 
-		ResponseEvent<String> resp = cpSvc.uploadSopDocument(getRequest(detail));
-		resp.throwErrorIfUnsuccessful();
+			FileDetail detail = new FileDetail();
+			detail.setFilename(file.getOriginalFilename());
+			detail.setFileIn(in);
 
-		return resp.getPayload();
+			ResponseEvent<String> resp = cpSvc.uploadSopDocument(getRequest(detail));
+			resp.throwErrorIfUnsuccessful();
+			return resp.getPayload();
+		} finally {
+			IOUtils.closeQuietly(in);
+		}
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

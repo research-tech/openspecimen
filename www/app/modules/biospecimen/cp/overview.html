@@ -75,14 +75,22 @@
 
       <li class="item">
         <strong class="key key-sm" translate="cp.sop_document">SOP Document</strong>
-        <span class="value value-md" ng-switch on="!!cp.sopDocumentName">
-          <span ng-if="cp.sopDocumentUrl">
-            <a ng-href="{{cp.sopDocumentUrl}}" target="_blank">{{cp.sopDocumentUrl}}</a>
+        <span class="value value-md" ng-switch on="!cp.sopDocumentUrl && !cp.sopDocumentName">
+          <span ng-switch-when="true" translate="common.not_specified">
+            Not Specified
           </span>
-          <span ng-if="cp.sopDocumentName">
-            <a ng-href="{{cp.getSopDocDownloadUrl()}}" target="_blank">{{cp.sopDocumentName}}</a>
+          <span ng-switch-default>
+            <span ng-if="cp.sopDocumentUrl">
+              <a ng-href="{{cp.sopDocumentUrl}}" target="_blank">
+                <span>{{cp.sopDocumentUrl}}</span>
+              </a>
+            </span>
+            <span ng-if="cp.sopDocumentName">
+              <a ng-href="{{cp.getSopDocDownloadUrl()}}" target="_blank">
+                <span>{{cp.sopDocumentName}}</span>
+              </a>
+            </span>
           </span>
-          <span ng-if="!cp.sopDocumentUrl && !cp.sopDocumentName" translate="common.not_specified">Not Specified</span>
         </span>
       </li>
     </ul>

@@ -1,12 +1,15 @@
 
 angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.administrative.models'])
   .controller('CpAddEditCtrl', function(
-    $scope, $state, $stateParams, $sce, cp, extensionCtxt, CollectionProtocol, User, Site, ExtensionsUtil, PvManager) {
+    $scope, $state, $stateParams, $sce, $timeout,
+    cp, extensionCtxt, CollectionProtocol, User, Site, ExtensionsUtil, PvManager) {
 
     function init() {
       $scope.cp = cp;
-      $scope.sopDocUploader = {};
+
+      $scope.sopDocUploader = {ctrl: {}};
       $scope.sopDocUploadUrl = $sce.trustAsResourceUrl(CollectionProtocol.getSopDocUploadUrl());
+
       $scope.deFormCtrl = {};
       $scope.extnOpts = ExtensionsUtil.getExtnOpts(cp, extensionCtxt);
       $scope.coordinators = [];
@@ -20,7 +23,12 @@ angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.admini
           delete site.id;
         });
         delete cp.id;
-        cp.title = cp.shortTitle = cp.code = "";
+        cp.title = cp.shortTitle = cp.code = cp.sopDocumentName = cp.sopDocumentUrl = "";
+      } else {
+        cp.$$sopDocumentName = cp.sopDocumentName;
+        if (!!cp.sopDocumentName) {
+          cp.sopDocumentName = cp.sopDocumentName.substring(cp.sopDocumentName.indexOf("_") + 1);
+        }
       }
     };
 
@@ -67,8 +75,8 @@ angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.admini
 
       if ($scope.sopDocUploader.ctrl.data) {
         $scope.sopDocUploader.ctrl.submit().then(
-          function(resp) {
-            cp.sopDocumentName = resp;
+          function(filename) {
+            cp.sopDocumentName = cp.$$sopDocumentName = filename;
             cp.sopDocumentUrl = undefined;
             saveCp(cp);
           }
@@ -76,7 +84,10 @@ angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.admini
       } else {
         if ($scope.cp.sopDocumentUrl) {
           cp.sopDocumentName = undefined; 
+        } else {
+          cp.sopDocumentName = cp.$$sopDocumentName;
         }
+
         saveCp(cp);
       }
     };
@@ -96,6 +107,10 @@ angular.module('os.biospecimen.cp.addedit', ['os.biospecimen.models', 'os.admini
           break;
         }
       }
+    }
+
+    $scope.removeSopDocument = function() {
+      cp.$$sopDocumentName = cp.sopDocumentName = undefined;
     }
 
     init();
